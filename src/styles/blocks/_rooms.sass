@@ -1,0 +1,32 @@
+.rooms
+  background-color: $backgroundGrey
+
+  .columns > *
+    display: flex
+    flex-direction: column
+    justify-content: space-between
+  
+  .photo
+    display: block
+    overflow: hidden
+    margin-bottom: $verticalOuterOffset
+    border-radius: $borderRadius
+    height: 250px
+    transition: box-shadow .3s, transform .3s
+
+    +small
+      margin-bottom: $smallVerticalOuterOffset
+
+    +medium
+      margin-bottom: $mediumVerticalOuterOffset
+
+    +large
+      margin-bottom: $largeVerticalOuterOffset
+
+    &:hover
+      +shadow
+
+    img
+      margin-bottom: -6px
+      height: 100%
+      object-fit: cover

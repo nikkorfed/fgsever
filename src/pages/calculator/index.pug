@@ -1,0 +1,83 @@
+extends /layout.pug
+
+block variables
+  - var name = 'main_maintenance';
+  - var section  = 'Служебная страница';
+  - var title = 'Калькулятор ТО';
+  - var seoTitle = title + ' | Автосервис BMW «FGSEVER»';
+  - var subtitle = 'Калькулятор для расчёта стоимости проведения технического обслуживания (ТО) с указанием номеров запчастей.';
+  - var path = {'': title};
+
+block content
+  +main(name, path, section, title, subtitle)
+  section.calculator#maintenance-calculator
+    .wrapper
+      .titles
+        .icon.calculator-color
+        .overtitle Калькулятор
+        h2 Расчёт стоимости техобслуживания по VIN
+        .subtitle В этом калькуляторе вы можете рассчитать точную стоимость технического обслуживания вашего автомобиля по его идентификационному #[span.nowrap номеру (VIN)]. Калькулятор автоматически запрашивает стоимость запчастей у наших поставщиков и выдаёт вам общую стоимость обслуживания.
+        .highlighted
+          p Обращаем ваше внимание на то, что данный калькулятор предоставляет актуальный и точный расчёт стоимости техобслуживания. Это уникальная возможность нашего автосервиса.
+      form.car-data-input
+        .input-field
+          input.input#vin-number(type="text" placeholder="VIN-номер (7 или 17 знаков)" required)
+        .input-field
+          input.input#mileage(type="text" placeholder="Пробег, км" required)
+        button.button(onclick="ym(56693602,'reachGoal','maintenanceCalculation'); return true;") Рассчитать
+      .popup#calculation
+        .popup__icon.icon.loading-icon
+          .loading-icon__element
+        h3 Идёт расчет
+        p Происходит расчёт стоимости технического обслуживания вашего автомобиля.
+      .calculator-result
+        .car-info
+          .columns
+            .col-md-6
+              h3 Информация об автомобиле
+              .car-info__vin.car-spec
+                .label VIN: 
+                .text
+              .car-info__model.car-spec
+                .label Модель: 
+                .text
+              .car-info__model-code.car-spec
+                .label Обозначение кузова: 
+                .text
+              .car-info__production-date.car-spec
+                .label Дата изготовления: 
+                .text
+            .col-md-6
+              .car-info__images
+          .car-info__options.hidden.columns
+            .car-info__options-factory.col-md-6
+              .car-info__title Заводские опции
+            .car-info__options-installed.col-md-6
+              .car-info__title Дополнительно установленные опции
+          .col-12.button-area
+            .button-simple.toggle-options Показать все опции
+        .maintenance-parts
+          h3 Выберите необходимые работы и детали
+          .original-or-alternative.options
+            .option.selected(data-name='original') Оригинальные
+            .option(data-name='alternative') Аналоги
+            .tip В данный момент происходит подбор аналогов. Пожалуйста подождите.
+          .parts-loading-icon
+          .table-wrapper
+            .table
+              table
+        .summary-costs
+          .wrapper
+            .summary-costs__block
+              .parts-cost
+                .name Стоимость деталей
+                .value
+              .works-cost
+                .name Стоимость работ
+                .value
+              .total-cost
+                .name Общая стоимость
+                .value
+        .button-area
+          .button(data-fancybox data-src='#maintenance-appointment' data-touch='false') Записаться на обслуживание
+  include /contacts

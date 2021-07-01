@@ -1,0 +1,38 @@
+extends /layout.pug
+
+block variables
+  - var name = 'main_body-repair';
+  - var section = 'Вид работ';
+  - var title = 'Замена цвета автомобиля';
+  - var seoTitle = title + ' BMW в Москве | Автосервис BMW «FGSEVER»';
+  - var subtitle = 'Работы по покраске автомобиля с изменением его цвета на другой.';
+  - var path = {'/services/': 'Услуги', '/services/body-repair/': 'Кузовной ремонт', '/services/body-repair/car-painting/': 'Покрасочные работы', '': title};
+  - var button = ['popup', '#body-repair-appointment', 'Записаться'];
+
+block content
+  +main(name, path, section, title, subtitle, button) 
+  section.prices
+    .wrapper
+      .titles
+        .overtitle Об услуге
+        h2 Стоимость
+        //- .subtitle 
+          | Малый класс — 1 серия, 2 серия, 3 серия, 4 серия, X1, X2, X3, X4, Z4
+          | #[br] Средний класс — 5 серия, 6 серия, X5, X6
+          | #[br] VIP класс — 7 серия, 8 серия, X7
+      .block
+        .table-wrapper
+          .table
+            table
+              tr.table-header
+                td Услуга
+                td Малый класс
+                td Средний класс
+                td VIP класс
+              tr
+                td Замена цвета автомобиля
+                td 80 000 ₽
+                td 120 000 ₽
+                td 140 000 ₽
+  include /about  
+  include /contacts

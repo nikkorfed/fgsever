@@ -1,0 +1,56 @@
+.promo
+  background-color: $backgroundGrey
+
+  .wrapper > .columns > .col-md-6
+    display: flex
+    flex-direction: column
+    justify-content: center
+
+  .button-simple
+    align-self: flex-start
+    margin-bottom: $verticalOuterOffset
+
+    +small
+      margin-bottom: $smallVerticalOuterOffset
+
+    +medium
+      margin-bottom: $mediumVerticalOuterOffset
+
+    +large
+      margin-bottom: $largeVerticalOuterOffset
+
+  img
+    display: block
+    overflow: hidden
+    margin-bottom: $verticalOuterOffset
+    max-width: 500px
+    border-radius: $borderRadius
+
+    +small
+      margin-bottom: $smallVerticalOuterOffset
+
+    +medium
+      margin: $mediumVerticalOuterOffset auto
+
+    +large
+      margin: $largeVerticalOuterOffset auto
+
+  .wrapper > .columns > .col-md-6 > .drive2-car
+    margin-bottom: $verticalOuterOffset
+    max-width: 550px
+
+    +small
+      margin-bottom: $smallVerticalOuterOffset
+
+    +medium
+      margin: $mediumVerticalOuterOffset auto
+
+    +large
+      margin: $largeVerticalOuterOffset auto
+
+.about
+  @extend .promo
+  background-color: $white
+
+.slider + .about, .services + .about, .models + .about, .series + .about
+  background-color: $backgroundGrey

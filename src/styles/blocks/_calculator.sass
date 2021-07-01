@@ -1,0 +1,1115 @@
+.calculator
+  // background-color: $white
+  background-color: $backgroundGrey
+
+  .icon
+    margin-top: $verticalOuterOffset
+    height: 30px
+    background-position: -4px 50%
+
+    +small
+      margin-top: $smallVerticalOuterOffset
+      height: 40px
+
+    +medium
+      margin-top: $mediumVerticalOuterOffset
+
+    +large
+      margin-top: $largeVerticalOuterOffset
+
+    & + .overtitle
+      margin-top: $verticalOuterOffset
+
+      +small
+        margin-top: $smallVerticalInnerOffset
+
+      +medium
+        margin-top: $mediumVerticalInnerOffset
+
+      +large
+        margin-top: $largeVerticalInnerOffset
+
+  .highlighted
+    margin-bottom: $verticalOuterOffset
+    border-left: 2px solid $primaryColor
+    padding-left: $horizontalOffset
+    font-weight: 500
+    color: $black
+
+    +small
+      margin-bottom: $smallVerticalOuterOffset
+      padding-left: $smallHorizontalOffset
+
+    +medium
+      margin-bottom: $mediumVerticalOuterOffset
+      padding-left: $mediumHorizontalOffset
+
+    +large
+      margin-bottom: $largeVerticalOuterOffset
+      padding-left: $largeHorizontalOffset
+
+  .warning
+    margin-bottom: $verticalOuterOffset
+    border-radius: $borderRadius
+    padding: $verticalInnerOffset
+    font-weight: 500
+    color: white
+
+    +small
+      margin-bottom: $smallVerticalOuterOffset
+      padding: $smallVerticalInnerOffset
+
+    +medium
+      margin-bottom: $mediumVerticalOuterOffset
+      padding: $mediumVerticalInnerOffset
+
+    +large
+      margin-bottom: $largeVerticalOuterOffset
+      padding: $largeVerticalInnerOffset
+
+    p
+      margin: 0
+
+    a
+      font-weight: bold
+      color: white
+
+  .car-data-input
+    display: flex
+    flex-direction: column
+    margin-bottom: $verticalOuterOffset
+
+    +small
+      flex-direction: row
+      margin-bottom: $smallVerticalOuterOffset
+
+    +medium
+      margin-bottom: $mediumVerticalOuterOffset
+
+    +large
+      margin-bottom: $largeVerticalOuterOffset
+
+    .input-field
+      margin-right: 20px
+      width: 100%
+
+      +small
+        // width: 
+
+      +medium
+        width: $maxInputWidth
+
+      &__error
+        margin: -5px 0 10px
+        font-size: 12px
+        color: $red
+
+        +small
+          font-size: 13px
+
+        +medium
+          margin: 10px 0 0
+
+    input
+      background-color: $white
+      // background-color: $backgroundGrey
+
+      +medium
+        margin-bottom: 0
+
+    .button
+      height: 100%
+
+      +small
+        padding: 15px 30px
+
+  .calculator-result
+    display: none
+
+    &.no-numbers
+      .number
+        display: none !important
+
+  .car-info
+    @extend .block
+    margin: 0 -#{$horizontalOffset}
+    border-bottom: 2px solid $backgroundGrey
+    border-radius: $borderRadius
+    line-height: 1.8
+    color: $black
+    background-color: $white
+
+    +small
+      margin: 0 0 $smallVerticalOuterOffset
+      padding: $smallHorizontalOffset
+      background-color: $white
+
+    +medium
+      margin-bottom: $mediumVerticalOuterOffset
+      padding: $mediumHorizontalOffset
+
+    +large
+      margin-bottom: $largeVerticalOuterOffset
+      padding: $largeHorizontalOffset
+
+    .label
+      display: inline
+      color: $lightGrey
+
+    .text
+      display: inline
+
+    // &__image
+    //   display: block
+    //   margin: auto
+    //   height: 155px
+    //   width: 360px
+    //   object-fit: cover
+
+    &__images
+      display: flex
+      align-items: center
+
+      .car-info__image
+        display: flex
+        align-items: center
+        overflow: hidden
+        border-radius: $borderRadius
+        width: 50%
+
+        img
+          // height: 160px
+          object-fit: cover
+          transition: transform .3s
+
+      a.car-info__image
+        img
+          cursor: pointer
+
+        &:hover img
+          transform: scale(1.03)
+      
+      .image-loading-container
+        display: flex
+        align-items: center
+
+      .image-loading
+        border: 3px solid $backgroundGrey
+        border-top-color: $primaryColor
+        border-radius: 50%
+        height: 40px
+        width: 40px
+        animation: rotation 2s linear infinite
+
+      .image-loading-text
+        margin-left: 20px
+        font-size: 12px
+        line-height: 1.5
+        color: $lightGrey
+
+        +small
+          font-size: 13px
+
+      &.two > div
+        width: 50%
+
+    &__title
+      margin: $verticalInnerOffset 0 5px
+      font-weight: bold
+
+      +small
+        margin: $smallVerticalInnerOffset 0 10px
+
+      +medium
+        margin: $mediumVerticalInnerOffset 0 10px
+
+      +large
+        margin: $largeVerticalInnerOffset 0 10px
+
+    &__options
+      // align-items: flex-start
+      margin-bottom: $verticalInnerOffset
+
+      +small
+        margin-bottom: $smallVerticalInnerOffset
+
+      +medium
+        margin-bottom: $mediumVerticalInnerOffset
+
+      +large
+        margin-bottom: $largeVerticalInnerOffset
+
+      &.hidden
+        & > div
+          position: relative
+
+          &::after
+            display: block
+            position: absolute
+            bottom: 0
+            height: 50px
+            width: 100%
+            content: ''
+            background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0), $white)
+
+        .car-info__option:nth-of-type(n+6)
+          display: none
+
+    &__option
+      display: flex
+
+      .option-code
+        margin-right: 5px
+        min-width: 45px
+        color: $lightGrey
+
+        +small
+          min-width: 50px
+
+    &__no-options
+      color: $lighterGrey
+
+    .toggle-options
+      margin-bottom: 0
+
+  .categories
+    @extend .block
+    margin: 0 -#{$horizontalOffset}
+
+    +small
+      margin: 0 0 #{$smallVerticalOuterOffset}
+
+    +medium
+      margin: 0 0 #{$mediumVerticalOuterOffset}
+
+    +large
+      margin: 0 0 #{$largeVerticalOuterOffset}
+
+  .loading-icon_new
+    margin: 0 auto
+    border: 3px solid $backgroundGrey
+    border-radius: 50%
+    border-top-color: $primaryColor
+    height: 40px
+    width: 40px
+    animation: rotation 5s linear infinite
+
+    +medium
+      height: 60px
+      width: 60px
+
+  .options
+    transition: opacity .3s
+
+    &::after
+      display: none
+
+    &.loading::after
+      display: inline-block
+      margin-top: 5px
+      margin-left: 10px
+      border: 2px solid $backgroundGrey
+      border-top-color: $primaryColor
+      border-radius: 50%
+      content: ''
+      height: 10px
+      width: 10px
+      animation: rotation 2s linear infinite
+
+    &.no-alternatives::after
+      display: inline-block
+      margin-top: 5px
+      border: 2px solid $backgroundGrey
+      border-radius: $borderRadius
+      padding: 1px 6px
+      content: 'Аналоги отсутствуют у поставщиков'
+      color: $lighterGrey
+      font-size: 11px
+      font-weight: 500
+
+      +small
+        font-size: 12px
+
+      +medium
+        padding: 3px 8px
+        font-size: 13px
+
+    .option
+      display: inline-block
+      margin-top: 5px
+      margin-right: 5px
+      border-radius: $borderRadius
+      padding: 3px 8px
+      font-size: 11px
+      font-weight: 500
+      background-color: $backgroundGrey
+      cursor: pointer
+      transition: .3s color, .3s background, .3s box-shadow
+
+      +small
+        font-size: 12px
+
+      +medium
+        padding: 5px 10px
+        font-size: 13px
+
+      // &:last-child
+      //   margin-right: 0
+
+      // &:hover
+        box-shadow: inset 0 0 0 2px $primaryColor
+
+      &:hover, &.selected
+        color: $white
+        background-color: $primaryColor
+    
+    &.original-or-alternative
+      margin-top: 0
+      margin-bottom: $verticalInnerOffset
+
+      +small
+        margin-bottom: $smallVerticalInnerOffset
+
+      +medium
+        margin-bottom: $mediumVerticalInnerOffset
+
+      +large
+        margin-bottom: $largeVerticalInnerOffset
+
+      .option
+        margin-top: 0
+        margin-bottom: 0
+        padding: 6px 13px
+
+        +small
+          padding: 8px 14px
+
+        +medium
+          padding: 10px 15px
+
+        &.loading
+          color: $lighterGrey
+          border: 2px solid $backgroundGrey
+          padding: 6px 11px
+          background-color: transparent
+
+          +medium
+            padding: 8px 13px
+          
+          &::after
+            display: inline-block
+            margin-left: 10px
+            border: 2px solid $backgroundGrey
+            border-top-color: $primaryColor
+            border-radius: 50%
+            content: ''
+            vertical-align: sub
+            height: 10px
+            width: 10px
+            animation: rotation 2s linear infinite
+      
+      .tip
+        display: inline-block
+        visiblity: hidden
+        position: absolute
+        border-radius: $borderRadius
+        padding: 10px 15px
+        max-width: 240px
+        font-size: 13px
+        background-color: $white
+        opacity: 0
+        box-shadow: $lightShadow
+        transform: translateY(10px)
+        transition: opacity .3s, transform .3s
+
+      .option.loading:hover + .tip
+        visiblity: visible
+        opacity: 1
+        transform: translateY(0)
+
+  .maintenance-parts
+    margin: 0 -#{$horizontalOffset}
+    padding: $horizontalOffset $horizontalOffset 0
+    background-color: $white
+
+    &::after
+     display: table
+     clear: both
+     content: '' 
+
+    +small
+      margin: 0 0 $smallVerticalOuterOffset
+      padding: $smallHorizontalOffset
+
+    +medium
+      margin-bottom: $mediumVerticalOuterOffset
+      padding: $mediumHorizontalOffset
+
+    +large
+      margin-bottom: $largeVerticalOuterOffset
+      padding: $largeHorizontalOffset
+
+  .parts-loading-icon
+    margin: 0 auto
+    margin-bottom: $verticalOuterOffset
+    border: 3px solid $backgroundGrey
+    border-top-color: #1c69d4
+    border-radius: 50%
+    height: 40px
+    width: 40px
+    animation: rotation 2s linear infinite
+
+    +small
+      margin-bottom: 0
+
+  .table-wrapper
+    .table table
+      tr
+        &::before
+          position: absolute
+          +checkbox
+          margin-top: 12px
+
+          +medium
+            margin-top: 17px
+
+        &:not([data-name])::before
+          visibility: hidden
+
+        &.table-header
+          td:first-child
+            padding-left: 0
+
+        td
+          &:first-child
+            width: 51%
+
+            +small
+              width: 65%
+        
+        &[data-name]
+          cursor: pointer
+
+          td
+            &:first-child
+              padding-left: calc(15px + #{$horizontalOffset})
+
+              +small
+                padding-left: calc(20px + #{$smallHorizontalOffset})
+
+              +medium
+                padding-left: calc(20px + #{$mediumHorizontalOffset})
+
+        &:last-child
+          // border-bottom: 1px solid $backgroundGrey
+
+          +small
+            border: none
+
+          td
+            padding-bottom: 10px
+
+            +small
+              padding-bottom: 0
+
+        &.disabled
+          &::before
+            background: $backgroundGrey
+
+          .options, .part-price, .work-price
+            opacity: .5
+
+          .options .option:hover
+            color: inherit
+            background-color: $backgroundGrey
+            // box-shadow: none
+
+      .name, .number, .quantity
+        display: inline-block
+
+        &:not(:last-child)
+          margin-right: 10px
+
+      .name
+        display: inline
+        color: $black
+
+      .number, .quantity
+        color: $lightGrey
+        white-space: nowrap
+
+      .number:empty
+        display: none
+
+      .part-price
+        transition: opacity .3s
+
+        .quantity
+          display: unset
+          margin-right: 0
+
+        // .price:empty::after
+        //   content: '—'
+
+      .work-price
+        transition: opacity .3s
+
+  .tabs
+    margin-bottom: 0
+
+  .upgrade-options
+    .upgrade-option
+      position: relative
+
+      &[data-price]
+        .upgrade-option__block
+          &:hover
+            cursor: pointer
+
+            +small
+              +light-shadow
+
+        &.hidden
+          display: none
+          +fade-from
+
+        &.selected
+          display: block
+          +fade-to
+
+          .upgrade-option__block
+            box-shadow: inset 0 0 0 2px $primaryColor
+
+            +small
+              box-shadow: 0 0 0 2px $primaryColor
+
+            &::before
+              +fade-to
+
+            &::after
+              background-color: transparent
+
+        &.disabled
+          .upgrade-option__block
+            &:hover
+              cursor: default
+              box-shadow: none
+              transform: none
+        
+      &__block
+        @extend .services-item
+        position: relative
+        margin: 0 -#{$horizontalOffset}
+        border: none
+        border-top: 2px solid $backgroundGrey
+        border-radius: 0
+        height: 100%
+        background-color: $white
+
+        +small
+          margin: 0 0 $smallHorizontalOffset
+          border: none
+          border-radius: $borderRadius
+          height: calc(100% - #{$smallHorizontalOffset})
+
+        +medium
+          margin: 0 0 $mediumHorizontalOffset
+          height: calc(100% - #{$mediumHorizontalOffset})
+
+        +large
+          margin: 0 0 $largeHorizontalOffset
+          height: calc(100% - #{$largeHorizontalOffset})
+
+        &::before
+          display: inline-block
+          position: absolute
+          top: $horizontalOffset * 2
+          left: $horizontalOffset * 2
+          z-index: 1
+          border-radius: $borderRadius
+          padding: 5px 10px
+          content: 'Выбрано'
+          font-size: 12px
+          font-weight: 500
+          color: $white
+          background-color: $primaryColor
+          +fade-from
+
+          +small
+            top: $smallHorizontalOffset
+            left: $smallHorizontalOffset
+
+          +medium
+            top: $mediumHorizontalOffset
+            left: $mediumHorizontalOffset
+            font-size: 13px
+
+          +large
+            top: $largeHorizontalOffset
+            left: $largeHorizontalOffset
+
+        // &::after
+          display: block
+          height: 2px
+          content: ''
+          background-color: $backgroundGrey
+
+          +small
+            display: none
+        
+        img
+          display: block
+          box-sizing: border-box
+          padding: $horizontalOffset $horizontalOffset 0
+          height: 200px
+
+          +small
+            padding: 0
+
+          +medium
+            height: 220px
+
+      &__content
+        @extend .services-item__content
+        height: auto
+
+        +small
+          height: calc(100% - 200px)
+
+        +medium
+          height: calc(100% - 220px)
+
+      &__text
+
+      &__title
+        margin-bottom: $verticalInnerOffset
+
+        +small
+          margin-bottom: $smallVerticalInnerOffset
+
+        +medium
+          margin-bottom: $mediumVerticalInnerOffset
+
+        +large
+          margin-bottom: $largeVerticalInnerOffset
+
+        h3
+          display: inline
+          margin-bottom: 0
+
+      &__code
+        // display: none
+        margin-right: 10px
+        font-weight: 500
+        color: $lightGrey
+
+        &:empty
+          display: none
+
+      &__label
+        position: relative
+
+        &-name
+          display: inline-block
+          margin-bottom: $verticalInnerOffset
+          border-bottom: 2px solid $lightPrimaryColor
+          font-size: 13px
+          font-weight: 700
+          color: $primaryColor
+
+          +small
+            margin-bottom: $smallVerticalInnerOffset
+
+          +medium
+            margin-bottom: $mediumVerticalInnerOffset
+            font-size: 14px
+
+          +large
+            margin-bottom: $largeVerticalInnerOffset
+          
+          &:hover + .upgrade-option__label-text
+            +fade-to
+
+        &-text
+          position: absolute
+          padding: 15px
+          font-size: 13px
+          font-weight: 500
+          background-color: $white
+          box-shadow: $lightShadow
+          +fade-from
+
+          +medium
+            font-size: 14px
+
+      &__subtitle
+        @extend .services-item__subtitle
+
+        .red
+          color: $red
+
+      &__meta
+        display: flex
+        justify-content: space-between
+        width: 100%
+
+      &__price
+        @extend .services-item__price
+
+        &_included
+          color: $lighterGrey
+
+      .button-simple
+        order: -1
+        border-color: #ddd
+        color: #333
+        transition: border-color .3s, color .3s
+
+        &:hover
+          border-color: $lightPrimaryColor
+          color: $primaryColor
+
+      &__overlay
+        display: flex
+        flex-direction: column
+        justify-content: center
+        position: absolute
+        top: 0
+        height: 200px
+        width: 100%
+        border-top-left-radius: $borderRadius
+        border-top-right-radius: $borderRadius
+        padding: $horizontalOffset
+        text-align: center
+        font-weight: 500
+        color: $white
+        background-image: $overlay
+        visibility: hidden
+        opacity: 0
+        transition: visibility .3s, opacity .3s
+
+        +small
+          padding: $smallHorizontalOffset
+
+        +medium
+          padding: $mediumHorizontalOffset
+          height: 220px
+
+        +large
+          padding: $largeHorizontalOffset
+
+        &.active
+          visibility: visible
+          opacity: 1
+
+      &__parent-option
+        font-weight: bold
+        // white-space: nowrap
+
+  .summary-costs
+    margin-bottom: $verticalOuterOffset
+    font-size: 13px
+    line-height: 2.0
+
+    +small
+      margin-bottom: $smallVerticalOuterOffset
+      border-radius: $borderRadius
+      font-size: 14px
+
+    +medium
+      margin-bottom: $mediumVerticalOuterOffset
+      font-size: inherit
+
+    +large
+      margin-bottom: $largeVerticalOuterOffset
+
+    .wrapper
+      position: relative
+      padding: 0
+
+      &::before, &::after
+        display: none
+
+    &__block
+      display: flex
+      justify-content: space-between
+      position: relative
+      z-index: 1
+      margin: 0 -#{$horizontalOffset}
+      border-top: 2px solid $backgroundGrey
+      padding: #{$verticalInnerOffset / 2} $horizontalOffset
+      background-color: $white
+
+      +small
+        margin: 0
+        border: none
+        border-radius: $borderRadius
+        padding: #{$smallVerticalInnerOffset / 2} $smallHorizontalOffset
+        box-shadow: 0 0 0 2px $primaryColor
+
+      +medium
+        padding: #{$mediumVerticalInnerOffset / 2} $mediumHorizontalOffset
+
+      +large
+        padding: #{$largeVerticalInnerOffset / 2} $largeHorizontalOffset
+
+    .parts-cost, .works-cost, .total-cost
+      display: flex
+      justify-content: space-between
+
+      .name
+        margin-right: 10px
+        font-weight: 500
+        color: $lighterGrey
+
+      .value
+        font-weight: bold
+        color: $black
+
+    // .parts-cost + .works-cost + .total-cost
+      margin-top: 10px
+      border-top: 1px solid #eee
+      padding-top: 10px
+
+      +small
+        border-color: $backgroundGrey
+
+      +medium
+        margin-top: 15px
+        padding-top: 15px
+
+    .options-number
+      margin: #{-$verticalInnerOffset / 2} #{-$horizontalOffset}
+      padding: #{$verticalInnerOffset / 2} $horizontalOffset
+      font-weight: 500
+      background-position: 100% 53%
+      background-repeat: no-repeat
+      background-size: 7px
+      
+      +small
+        margin: #{-$smallVerticalInnerOffset / 2} #{-$smallHorizontalOffset}
+        padding: #{$smallVerticalInnerOffset / 2} $smallHorizontalOffset
+        background-size: 8px
+
+      +medium
+        margin: #{-$mediumVerticalInnerOffset / 2} #{-$mediumHorizontalOffset}
+        padding: #{$mediumVerticalInnerOffset / 2} $mediumHorizontalOffset
+        background-size: 9px
+
+      +large
+        margin: #{-$largeVerticalInnerOffset / 2} #{-$largeHorizontalOffset}
+        padding: #{$largeVerticalInnerOffset / 2} $largeHorizontalOffset
+        padding-right: 20px
+
+      &.active
+        background-image: svg-load('images/icons/chevron-up.svg', fill="#{$grey}")
+        cursor: pointer
+
+    &__options-list
+      +fade-from
+      position: absolute
+      left: -#{$horizontalOffset}
+      right: -#{$horizontalOffset}
+      bottom: 100%
+      margin-bottom: -10px
+      border-radius: $borderRadius
+      padding: #{$smallHorizontalOffset / 2} $horizontalOffset #{$smallHorizontalOffset / 2 + 10px}
+      background-color: $white
+      box-shadow: $lightShadow
+
+      &.active
+        +fade-to
+
+      +small
+        left: auto
+        right: auto
+        padding: #{$smallHorizontalOffset / 2} $smallHorizontalOffset #{$smallHorizontalOffset / 2 + 10px}
+
+      +medium
+        padding: #{$mediumHorizontalOffset / 2} $mediumHorizontalOffset #{$mediumHorizontalOffset / 2 + 10px}
+
+      +large
+        padding: #{$largeHorizontalOffset / 2} $largeHorizontalOffset #{$largeHorizontalOffset / 2 + 10px}
+
+      .list-item
+        display: flex
+        justify-content: space-between
+        margin-bottom: 5px
+        border-bottom: 1px solid #eeeeee
+        padding-bottom: 5px
+        font-weight: 500
+        line-height: 1.8
+
+        &:last-child
+          margin: 0
+          border: none
+          padding: 0
+
+        &__left, &__right
+          display: flex
+
+        &__code
+          margin-right: 15px
+          min-width: 38px
+          color: $lightGrey
+
+        &__title
+          margin-right: 10px
+          max-width: 250px
+          color: $black
+
+        &__price
+          color: $lighterGrey
+
+        &__remove-button
+          margin-top: 0
+          margin-left: 10px
+          height: 100%
+          width: 30px
+          background-position: 50% 6px
+          background-size: 9px
+          cursor: pointer
+
+          +small
+            background-position: 50% 7px
+            background-size: 10px
+
+          +medium
+            background-position: 50% 8px
+            background-size: 11px
+
+      .remove-all
+        margin-top: $verticalInnerOffset
+        border-width: 1px
+        font-weight: 500
+        cursor: pointer
+
+        +small
+          margin-top: $smallVerticalInnerOffset
+
+        +medium
+          margin-top: $mediumVerticalInnerOffset
+
+        +large
+          margin-top: $largeVerticalInnerOffset
+
+    &_fixed
+      position: fixed
+      left: 0
+      right: 0
+      top: 100%
+      z-index: 2
+      margin: 0
+      padding-bottom: $horizontalOffset
+      transform: translateY(-100%)
+      transition: transform .3s
+
+      +small
+        padding-bottom: $smallHorizontalOffset
+
+      +medium
+        padding-bottom: $mediumHorizontalOffset
+
+      +large
+        padding-bottom: $largeHorizontalOffset
+
+      .wrapper
+        padding: 0 $horizontalOffset
+
+        +small
+          padding: 0 $smallHorizontalOffset
+
+        +medium
+          padding: 0 $mediumHorizontalOffset
+
+        +large
+          padding: 0 $largeHorizontalOffset
+
+      .summary-costs__block
+        margin: 0
+        border: none
+        border-radius: $borderRadius
+        box-shadow: $lightShadow, 0 0 0 2px $primaryColor
+
+      .summary-costs__options-list
+        left: $horizontalOffset
+        right: $horizontalOffset
+
+        +small
+          left: auto
+          right: auto
+
+      // .parts-cost, .works-cost, .total-cost
+        display: flex !important
+
+        .name
+          margin-right: 10px
+
+      .parts-cost, .works-cost
+        display: none !important
+
+        +large
+          display: flex !important
+
+      // .parts-cost + .works-cost + .total-cost
+        margin: 0
+        border: 0
+        padding: 0
+
+  &#maintenance-calculator
+    .summary-costs
+      &__block
+        flex-direction: column
+
+      .total-cost
+        margin-top: 10px
+        border-top: 1px solid #eee
+        padding-top: 10px
+
+      &_fixed
+        .summary-costs__block
+          flex-direction: column
+
+          +large
+            flex-direction: row
+
+        .total-cost
+          margin-top: 0
+          border-top: none
+          padding-top: 0
+
+  &#upgrade-calculator
+    // display: none
+
+  .button-area
+    text-align: center
+
+  .to-top-button
+    @extend .icon.arrow-up-white
+    display: none
+    position: fixed
+    right: $horizontalOffset
+    bottom: 66px
+    border-radius: $borderRadius
+    height: 40px
+    width: 40px
+    background-position: 50% 50%
+    background-repeat: no-repeat
+    background-size: 14px
+    background-color: $primaryColor
+    cursor: pointer
+
+    +small
+      right: $smallHorizontalOffset
+      bottom: 83px
+
+    +medium
+      right: $mediumHorizontalOffset
+      bottom: 85px
+
+    +large
+      right: $largeHorizontalOffset
+      bottom: 110px
+
+    +max
+      right: calc((100% - #{$maxWrapperWidth}) / 2 + #{$largeHorizontalOffset})

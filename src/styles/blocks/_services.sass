@@ -1,0 +1,196 @@
+.services
+  background: $white
+  // background-color: $backgroundGrey
+  
+  &-item
+    display: flex
+    flex-direction: column
+    justify-content: space-between
+    overflow: hidden
+    position: relative
+    margin-bottom: $horizontalOffset
+    border-radius: $borderRadius
+    +border-grey
+    height: calc(100% - #{$horizontalOffset})
+    text-decoration: none
+    // background-color: $white
+    transition: border-color .3s, box-shadow .3s, transform .3s
+
+    +small
+      margin-bottom: $smallHorizontalOffset
+      height: calc(100% - #{$smallHorizontalOffset})
+
+    +medium
+      margin-bottom: $mediumHorizontalOffset
+      height: calc(100% - #{$mediumHorizontalOffset})
+
+    +large
+      margin-bottom: $largeHorizontalOffset
+      height: calc(100% - #{$largeHorizontalOffset})
+
+    // &__icon
+    //   display: none
+    //   top: 0
+    //   right: 0
+    //   z-index: 0
+    //   margin-bottom: $verticalInnerOffset
+    //   font-size: 36px
+    //   font-weight: 900
+    //   text-transform: uppercase
+    //   line-height: 1
+    //   color: #eee
+
+    //   +small
+    //     margin-bottom: $smallVerticalInnerOffset
+    //     font-size: 50px
+
+    //   +medium
+    //     margin-bottom: $mediumVerticalInnerOffset
+
+    //   +large
+    //     margin-bottom: $largeVerticalInnerOffset
+
+    .icon
+      margin-bottom: $verticalInnerOffset
+      height: 40px
+      background-position: 0 50%
+
+      +small
+        margin-bottom: $smallVerticalInnerOffset
+
+      +medium
+        margin-bottom: $mediumVerticalInnerOffset
+        height: 50px
+
+      +large
+        margin-bottom: $largeVerticalInnerOffset
+
+    img
+      display: block
+      height: 200px
+      object-fit: cover
+
+      // +small
+      //   height: 200px
+
+      +medium
+        height: 220px
+
+      // +large
+      //   height: 220px
+
+    &__content
+      display: flex
+      flex-direction: column
+      justify-content: space-between
+      align-items: flex-start
+      padding: $horizontalOffset
+      height: 100%
+
+      +small
+        padding: $smallHorizontalOffset
+
+      +medium
+        padding: $mediumHorizontalOffset
+
+      +large
+        padding: $largeHorizontalOffset
+
+    &__text
+
+    &__title
+
+    &__subtitle
+      margin-bottom: $verticalInnerOffset
+
+      +small
+        margin-bottom: $smallVerticalInnerOffset
+
+      +medium
+        margin-bottom: $mediumVerticalInnerOffset
+
+      +large
+        margin-bottom: $largeVerticalInnerOffset
+
+      .red
+        color: $red
+
+    &__list-item
+      display: flex
+      align-items: flex-start
+      margin-bottom: 5px
+      text-decoration: none
+      color: $lighterGrey
+      transition: color .3s, transform .3s
+
+      // &:hover
+      //   color: $primaryColor
+      //   transform: translateX(5px)
+
+      &::before
+        margin: 8px 15px 0 0
+        border-left: 4px solid $primaryColor
+        border-top: 3.5px solid transparent
+        border-bottom: 3.5px solid transparent
+        content: ''
+
+        +medium
+          margin: 10px 15px 0 0
+
+      // &:last-child
+      //   margin-bottom: 0
+
+    &__price
+      font-weight: bold
+      color: $primaryColor
+
+      &.unknown
+        color: $red
+
+    &__meta
+      display: flex
+      justify-content: space-between
+      width: 100%
+
+      .button-simple
+        display: none
+        order: -1
+        // font-weight: 500
+        border-color: #ddd
+        color: #333
+        transition: border-color .3s, color .3s
+
+        &[href]
+          display: block
+
+        &:hover
+          border-color: $lightPrimaryColor
+          color: $primaryColor
+
+  &_no-subtitle-margin
+    .services-item__subtitle
+      margin-bottom: 0
+
+  a.services-item
+    &:hover
+      border-color: transparent
+      +light-shadow
+    
+    .button-simple
+      display: block
+
+#services-options
+  .services-item
+    border: none
+    background-color: #f5f5f5
+    cursor: pointer
+
+    &:hover
+      +light-shadow
+
+
+// .about + .services
+//   background-color: $white
+
+//   .services-item
+//     +border-grey

@@ -1,0 +1,154 @@
+.main
+  .post-info
+    display: flex
+    margin-bottom: $verticalOuterOffset
+    font-weight: 500
+    color: white
+
+    +small
+      margin-bottom: $smallVerticalOuterOffset
+
+    +medium
+      margin-bottom: $mediumVerticalOuterOffset
+
+    +large
+      margin-bottom: $largeVerticalOuterOffset
+
+    div
+      padding-left: $largeHorizontalOffset
+      background-position: 0 50%
+
+      &:not(:last-child)
+        margin-right: $smallHorizontalOffset
+
+      &:last-child
+        padding-left: 0
+
+.post
+  background-color: $white
+
+  .wrapper
+    padding-top: $verticalOuterOffset
+
+    +small
+      padding-top: $smallVerticalOuterOffset
+
+    +medium
+      padding-top: $mediumVerticalOuterOffset
+
+    +large
+      padding-top: $largeVerticalOuterOffset
+    
+  .content
+    max-width: 800px
+
+  p
+    font-size: 15px
+    line-height: 1.8
+
+    +small
+      font-size: 18px
+
+    a
+      border-bottom: 1px solid $lightPrimaryColor
+      font-weight: 500
+      text-decoration: none
+      color: $primaryColor
+
+  .image
+    margin-bottom: $verticalInnerOffset
+    // padding: $horizontalOffset
+    text-align: center
+    background-color: $backgroundGrey
+
+    +small
+      margin-bottom: $smallVerticalInnerOffset
+      // padding: $smallHorizontalOffset
+
+    +medium
+      margin-bottom: $mediumVerticalInnerOffset
+      // padding: $mediumHorizontalOffset
+
+    +large
+      margin-bottom: $largeVerticalInnerOffset
+      // padding: $largeHorizontalOffset
+
+    a
+      display: inline-block
+
+    img
+      // overflow: hidden
+      margin: 0 auto -6px
+      // border-radius: $borderRadius
+      max-height: 400px
+      width: auto
+      max-width: 100%
+    
+  .image-text
+    margin: -10px 0 20px
+    color: $lighterGrey
+
+  .c-media iframe
+    height: 300px
+    width: 100%
+
+    +small
+      height: 400px
+
+    +medium
+      height: 500px
+
+    +large
+      height: 550px
+
+  .post-footer
+    display: flex
+    flex-wrap: wrap
+    justify-content: space-between
+    padding: $verticalInnerOffset 0 $verticalOuterOffset
+
+    +small
+      padding: $smallVerticalInnerOffset 0 $smallVerticalOuterOffset
+
+    +medium
+      padding: $mediumVerticalInnerOffset 0 $mediumVerticalOuterOffset
+
+    +large
+      padding: $largeVerticalInnerOffset 0 $largeVerticalOuterOffset
+
+  .post-info
+    display: flex
+    margin-bottom: $verticalInnerOffset
+    width: 100%
+    font-weight: 500
+
+    +small
+      width: auto
+      margin-bottom: 0
+
+    div
+      padding-left: $largeHorizontalOffset
+      background-position: 0 50%
+
+      &:not(:last-child)
+        margin-right: $smallHorizontalOffset
+        color: $black
+
+      &:last-child
+        padding-left: 0
+        color: $lighterGrey
+
+  .button-simple
+    // margin-top: 10px
+    // margin-bottom: $verticalOuterOffset
+
+    // +small
+    //   margin-bottom: $smallVerticalOuterOffset
+
+    // +medium
+    //   margin-bottom: $mediumVerticalOuterOffset
+
+    // +large
+    //   margin-bottom: $largeVerticalOuterOffset
+
+      

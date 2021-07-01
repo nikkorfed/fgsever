@@ -1,0 +1,216 @@
+.slider
+  display: flex
+  overflow: hidden
+  position: relative
+  // height: 100vh
+  min-height: 400px
+  color: white
+
+  +small
+    min-height: 500px
+
+  +medium
+    min-height: 600px
+
+  +large
+    min-height: 100vh
+
+.slider-container
+  // height: 100%
+  max-width: 100%
+
+.slider-stage-outer
+    overflow-x: hidden
+    height: 100%
+
+.slider-stage
+  display: flex
+  height: 100%
+
+.slider-item-wrapper
+  // height: 100%
+
+.slider-item
+  position: relative
+  height: 100%
+
+  &__background
+    position: absolute
+    z-index: -1
+    height: 100%
+    width: 100%
+    background-position: 50% 50%
+    background-repeat: no-repeat
+    background-size: cover
+
+  &__container
+    height: 100%
+    background-image: $overlay
+    padding-top: 50px
+    padding-bottom: 40px
+
+    +small
+      padding-bottom: 50px
+
+    +medium
+      padding-top: 100px + 50px * 0.85
+      padding-bottom: 70px
+
+    +large
+      padding-top: 100px + 50px
+      padding-bottom: 90px
+
+  &__wrapper
+    display: flex
+    align-items: center
+
+  &__content
+    width: 100%
+    // max-width: 500px
+
+    +medium
+      // max-width: 800px
+
+    h1
+      max-width: 500px
+      font-size: 20px
+
+      +small
+        font-size: 30px
+
+      +medium
+        max-width: 800px
+        // font-size: 36px
+        font-size: 34px
+
+      +large
+        font-size: 44px
+
+    .subtitle
+      color: $white
+
+      +small
+        font-size: 15px
+
+      +medium
+        font-size: 16px
+
+      +large
+        font-size: 18px
+
+      &_max-width
+        max-width: 500px
+
+        +medium
+          max-width: 800px
+
+  &__buttons
+    display: flex
+    flex-wrap: wrap
+
+    > *
+      margin-bottom: 10px
+
+    > *:first-child
+      margin-right: $horizontalOffset
+
+      +small
+        margin-right: $smallHorizontalOffset
+
+      +medium
+        margin-right: $mediumHorizontalOffset
+
+      +large
+        margin-right: $largeHorizontalOffset
+
+    > *:last-child
+      margin-right: 0
+
+.slider-item
+  &__maintenance
+    .slider-item__background
+      background-image: url('/images/services/maintenance/main.jpg') at-2x
+
+  &__upgrade
+    .slider-item__background
+      background-image: url('/images/services/upgrade/g-series/main.jpg') at-2x
+
+  &__upgrade-calculator
+    .slider-item__background
+      background-image: url('/images/services/upgrade-calculator/main.jpg') at-2x
+
+  &__body-repair
+    .slider-item__background
+      background-image: url('/images/services/body-repair/main.jpg') at-2x
+
+  &__coding
+    .slider-item__background
+      background-image: url('/images/services/coding/main.jpg') at-2x
+
+.slider-arrows, .slider-dots
+  display: flex
+  justify-content: flex-start
+  position: absolute
+  left: $horizontalOffset
+  bottom: 0
+  z-index: 2
+  height: 40px
+
+  +small
+    left: $smallHorizontalOffset
+    height: 50px
+
+  +medium
+    left: $mediumHorizontalOffset
+    height: 70px
+
+  +large
+    left: $largeHorizontalOffset
+    height: 90px
+
+  +max
+    left: calc((100% - #{$maxWrapperWidth} + 2 * #{$largeHorizontalOffset}) / 2)
+
+  &__left, &__right
+    display: flex
+    justify-content: center
+    align-items: center
+    border: none
+    border-radius: $borderRadius
+    padding: none
+    height: 50px
+    width: 50px
+    font-size: 26px
+    color: white
+    background-color: $black
+    cursor: pointer
+    appearance: none
+
+    span
+      display: block
+
+  &__left
+    margin-right: 20px
+
+  &__item
+    margin: 0 10px 0 0
+    border: none
+    padding: 0
+    cursor: pointer
+    background: none
+    appearance: none
+
+    span
+      display: block
+      border-radius: $borderRadius
+      height: 2px
+      width: 20px
+      background-color: rgba(255, 255, 255, 0.3)
+      transition: background-color .3s
+
+    &.active
+      span
+        background-color: rgba(255, 255, 255, 0.7)
+
+  &.disabled
+    display: none

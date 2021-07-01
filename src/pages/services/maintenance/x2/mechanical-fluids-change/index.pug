@@ -1,0 +1,38 @@
+extends /layout.pug
+
+block variables
+  - var name = 'main_high main_x2';
+  - var section = 'Вид работ';
+  - var title = 'Замена технических жидкостей в BMW&nbsp;X2';
+  - var models = 'F39';
+  - var seoTitle = 'Замена технических жидкостей в BMW X2 (' + models + ') в Москве | Автосервис BMW «FGSEVER»';
+  - var subtitle = 'Услуги по полной замене тормозной и охлаждающей технических жидкостей автомобилей BMW X2 в Москве. Мы выполним все необходимые работы по обслуживанию вашего автомобиля и ответим на все интересующие вас вопросы.';
+  - var path = {'/services/': 'Услуги', '/services/maintenance/': 'Техническое обслуживание BMW', '/services/maintenance/x2/': 'X2', '': 'Замена технических жидкостей'};
+  - var button = ['popup', '#maintenance-appointment', 'Записаться'];
+
+block content
+  +main(name, path, section, title, subtitle, button, models)
+  include /maintenance/description/mechanical-fluids-change
+  section.prices
+    .wrapper
+      .titles
+        .overtitle Об услуге
+        h2 Стоимость
+        .subtitle При оказании услуг используется только оригинальная тормозная и охлаждающая жидкость. Самостоятельно купленная жидкость сторонних производителей в работу #[spam.important не&nbsp;принимается]. 
+      .block
+        .table-wrapper
+          .table
+            table
+              tr.table-header
+                td Услуга
+                td Стоимость
+              tr 
+                td Замена тормозной жидкости (Включая расходные материалы)
+                td 2 500 ₽
+              tr 
+                td Замена охлаждающей жидкости (Включая расходные материалы)
+                td 3 000 ₽ (При мойке радиаторов 2 100 ₽)
+  include /maintenance/photos/mechanical-fluids-change
+  include /about/advantages
+  include /about  
+  include /contacts

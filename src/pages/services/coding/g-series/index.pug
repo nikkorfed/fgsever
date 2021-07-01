@@ -1,0 +1,278 @@
+extends /layout.pug
+
+block variables
+  - var name = 'main_coding';
+  - var section = 'Направление';
+  - var title = 'Кодирование опций BMW G серии';
+  - var seoTitle = 'Кодирование опций BMW G серии в Москве | Автосервис BMW «FGSEVER»';
+  - var subtitle = 'Услуги кодирования опций в автомобилях BMW в Москве — память системы Start&Stop, разблокировка видео в движении, отключение звукового сигнала о непристегнутом ремне безопасности и других.';
+  - var path = {'/services/': 'Услуги', '/services/coding/': 'Кодирование опций BMW', '': 'G&nbsp;серия'};
+  - var button = ['popup', '#coding-appointment', 'Записаться на кодирование опций'];
+
+
+block content
+  +main(name, path, section, title, subtitle, button)
+  section.description
+    .wrapper
+      .titles
+        .overtitle О направлении
+        h2 Описание
+      .block
+        h3 Что такое кодирование опций
+        p Кодирование опций на автомобилях BMW позволяет добавлять или убирать различные возможности в автомобиль, а также изменять его настройки. Говоря более точным языком, кодирование — это изменение настроек электронных блоков управления на другие. Различные варианты настроек уже изначально заложены автопроизводителем, поэтому кодирование не причиняет вред работе электроники и любые кодировки работают в штатном режиме.
+        p При выпуске каждого автомобиля завод кодирует его под определённую  комплектацию, под различные стандарты стран, в которые он поставляется, например, под нормы токсичности и особый климат. С помощью кодирования можно включить те опции и функции, которые были заложены заводом-изготовителем, но не были включены в комплектацию из-за различных маркетинговых интересов или стандартов страны, для которой предназначен автомобиль.
+        h3 Когда нужно кодирование
+        p Кодирование необходимо, если вы хотите добавить в работу своего автомобиль какие-либо новшества, такие как заставка в M-стиле при запуске автомобиля или спортивные приборы. Также кодирование необходимо практически всегда при изменении конфигурации автомобиля или его дооснащении.
+        h3 Стоимость кодирования
+        .highlighted
+          p Цена кодирования не более 3-х опций составляет 3 000 ₽, любого количества опций — 9 000 ₽.
+  section.coding(data-car='g-series')
+    .wrapper
+      .titles
+        .overtitle Наши услуги
+        h2 Кодируемые опции
+      .block
+        .coding-item.disabled
+          .coding-item__content
+            .coding-item__text
+              .coding-item__title Отключение звукового сигнала о непристегнутом ремне безопасности
+              .coding-item__description Отключение звукового сигнала, сообщающего о непристегнутом ремне безопасности водителя
+        .coding-item.disabled
+          .coding-item__content
+            .coding-item__text
+              .coding-item__title Отключение индикатора на комбинации приборов о непристегнутом ремне безопасности
+              .coding-item__description Полное отключение графического предупреждения на комбинации приборов о непристегнутом ремне безопасностиводителя
+        .coding-item.disabled
+          .coding-item__content
+            .coding-item__text
+              .coding-item__title Изменение количества звуковых сигналов о непристегнутом ремне безопасности
+              .coding-item__description Данная настройка позволяет установить любое количество звуковых сигналов гонга, сообщающего о непристегнутом ремне безопасности
+        .coding-item.disabled
+          .coding-item__content
+            .coding-item__text
+              .coding-item__title Отключение дневных ходовых огней (ДХО) 
+              .coding-item__description В меню появляется возможность отключить дневные ходовые огни. В таком случае, при использовании режимов 0 и Auto кольца в фарах не загораются, а при использовании режима стояночных огней кольца работают с 50% яркостью
+        .coding-item.disabled
+          .coding-item__content
+            .coding-item__text
+              .coding-item__title Автоматическое закрытие окна при открытой двери
+              .coding-item__description В обычной ситуации при открытой двери автомбиля для полного закрытия окна необходимо удерживать кнопку стеклоподъемника. С активированной данной опцией, достаточно нажать кнопку до конца и окно закроется в автоматическом режиме
+        .coding-item.disabled
+          .coding-item__content
+            .coding-item__text
+              .coding-item__title Уменьшение задержки открытия и закрытия окон автомобиля
+              .coding-item__description При отпирании и запирании автомобиля окна открываются и закрываются с определенной задержкой. Данная настройка позволяет отрегулировать эту задержку, например, в сторону её уменьшения
+        .coding-item.disabled
+          .coding-item__content
+            .coding-item__text
+              .coding-item__title Изменение цвета подсветки салона
+              .coding-item__description Цвет декоративной контурной подсветки в салоне автомобиля заменяется на любой другой по вашему выбору
+        .coding-item.disabled
+          .coding-item__content
+            .coding-item__text
+              .coding-item__title Выключение противотуманных фар при активации дальнего света (эффект стробоскопа)
+              .coding-item__description При включенных противотуманных фарах и последующем включении режима дальнего света, противотуманные фары временно отключаются. Данная настройка улучшает видимость автомобиля при моргании светом встречным автомобилям
+        .coding-item.disabled
+          .coding-item__content
+            .coding-item__text
+              .coding-item__title Увеличение яркости колец в фарах в режиме стояночных огней
+              .coding-item__description При включенном режиме стояночных огней яркость колец в фарах будет увеличена до 100%. Эта настройка подходит для тех случаев, когда также активируется работа задних фонарей при работе ДХО
+        .coding-item.disabled
+          .coding-item__content
+            .coding-item__text
+              .coding-item__title Опускание правого зеркала заднего вида на 30° при движении задним ходом
+              .coding-item__description Установка угла опускания правого наружного зеркала заднего вида равным 30°
+        .coding-item.disabled
+          .coding-item__content
+            .coding-item__text
+              .coding-item__title Изменение времени работы обогрева передних сидений
+              .coding-item__description Обогрев передних сидений по умолчанию действует на протяжении 15 минут, после чего его интенсивность плавно снижается и он отключается. Данная настройка позволяет задать другой время работы функции подогрева сидений
+        .coding-item.disabled
+          .coding-item__content
+            .coding-item__text
+              .coding-item__title Изменение времени работы обогрева задних сидений
+              .coding-item__description Обогрев задних сидений по умолчанию действует на протяжении 15 минут, после чего его интенсивность плавно снижается и он отключается. Данная настройка позволяет задать другой время работы функции подогрева сидений
+        .coding-item.disabled
+          .coding-item__content
+            .coding-item__text
+              .coding-item__title Изменение стандартного режима движения при запуске автомобиля
+              .coding-item__description По умолчанию при запуске автомобиля выбирается режим движения Comfort. Данная настройка позволяет выбрать другой режим движения (Sport, Comfort, Eco)
+        .coding-item.disabled
+          .coding-item__content
+            .coding-item__text
+              .coding-item__title Установка анимации M Performance на ключе BMW Display Key
+              .coding-item__description На оригинальном ключе BMW Display Key появляется оригинальная анимация в стиле M Performance
+        .coding-item.disabled
+          .coding-item__content
+            .coding-item__text
+              .coding-item__title Добавление режима движения Sport+
+              .coding-item__description Педаль газа становится более отзывчивой и резкой, автоматическая коробка передач дольше удерживает пониженную передачу, переключения становится более агрессивными.
+        .coding-item.disabled
+          .coding-item__content
+            .coding-item__text
+              .coding-item__title Добавление режима движения Comfort+
+              .coding-item__description Подвеска становится ещё более раслабленной и мягкой, что придаёт дополнительного комфорта при движении на автомобиле
+        .coding-item.disabled
+          .coding-item__content
+            .coding-item__text
+              .coding-item__title Полное отключение омывателя фар
+              .coding-item__description Полностью отключается функция омывания фар при омывании лобового стекла
+        .coding-item.disabled
+          .coding-item__content
+            .coding-item__text
+              .coding-item__title Отключение задержки до активации стеклоочистителей при омывании лобового стекла
+              .coding-item__description Убирается задержка перед срабатыванием стеклоочистителей при использовании омывателя лобового стекла
+        .coding-item.disabled
+          .coding-item__content
+            .coding-item__text
+              .coding-item__title Количество взмахов стеклоочистителей при омывании лобового стекла
+              .coding-item__description Детальная настройка количества взмахов стеклоочистителей при использовании функции омывания лобового стекла. По умолчанию происходит три срабатывания
+        .coding-item.disabled
+          .coding-item__content
+            .coding-item__text
+              .coding-item__title Количество импульсов омывания фар
+              .coding-item__description Детальная настройка количества импульсов омывания фар при использовании функции омывания лобового стекла. По умолчанию происходит два импульса
+        .coding-item.disabled
+          .coding-item__content
+            .coding-item__text
+              .coding-item__title Длительность омывания фар
+              .coding-item__description Детальная настройка длительности омывания фар при использовании функции омывания лобового стекла. По умолчанию длительность составляет 1 с
+        .coding-item.disabled
+          .coding-item__content
+            .coding-item__text
+              .coding-item__title Количество циклов омывания лобового стекла между цикламии омывания фар
+              .coding-item__description Детальная настройка количества циклов омывания лобового стекла между циклами омывания фар. По умолчанию происходит 10 циклов омывания
+        .coding-item.disabled
+          .coding-item__content
+            .coding-item__text
+              .coding-item__title Отображение эмблемы M на комбинации приборов в режимах Sport/Sport+
+              .coding-item__description При использовании автомобиля в режимах Sport и Sport+ на комбинации приборов появляется оригинальная эмблема M
+        .coding-item.disabled
+          .coding-item__content
+            .coding-item__text
+              .coding-item__title Разметка скорости на шкале комбинации приборов до 330 км/ч
+              .coding-item__description Происходит увеличение максимальной размеченной скорости на шкале спидометра в комбинации приборов до 330 км/ч
+        .coding-item.disabled
+          .coding-item__content
+            .coding-item__text
+              .coding-item__title Серое оформление шкал комбинации приборов в режиме Sport
+              .coding-item__description Изменение цветового оформления шкал комбинации приборов в режиме Sport с красного оформления на серое
+        .coding-item.disabled
+          .coding-item__content
+            .coding-item__text
+              .coding-item__title Цифровое отображение скорости на комбинации приборов
+              .coding-item__description Данная настройка позволяет выводить на комбинацию приборов значение текущей скорости в цифровом виде
+        .coding-item.disabled
+          .coding-item__content
+            .coding-item__text
+              .coding-item__title Удаление пустой строки в бортовом компьютере (БК)
+              .coding-item__description При переключении состояний бортового компьютера на комбинации приборов появляется пустая строка, в которой не отображаются какие-либо данные. Данная настройка позволяет избавиться от этого явления
+        .coding-item.disabled
+          .coding-item__content
+            .coding-item__text
+              .coding-item__title Оформление комбинации приборов в стиле Alpina
+              .coding-item__description Комбинация приборов автомобиля поддерживает работу в стиле Alpina. Данная настройка позволяет изменить стиль оформления комбинации приборов вашего автомобиля со стандартного на стиль Alpina
+        .coding-item.disabled
+          .coding-item__content
+            .coding-item__text
+              .coding-item__title Запоминание последнего состояния системы автоматического запуска и остановки двигателя
+              .coding-item__description Система автоматического запуска и остановки двигателя при запуске автомобиля всегда будет находиться в том же состоянии, что и до выключения автомобиля
+        .coding-item.disabled
+          .coding-item__content
+            .coding-item__text
+              .coding-item__title Звуковое подтверждение при включении или отключении сигнализации 
+              .coding-item__description В меню мультимедийной системы появляется возможность включить звуковое подтверждение при включении или отключении сигнализации. Данная настройка доступна только для автомобилей, оснащенных штатной охранной сигнализацией
+        .coding-item.disabled
+          .coding-item__content
+            .coding-item__text
+              .coding-item__title Автоматическое закрывание крышки багажника без удерживания кнопки 
+              .coding-item__description Активация данной опции делает возможным автоматическое закрывание крышки багажника без удерживания кнопки в салоне или на пульте дистанционного управления 
+        .coding-item.disabled
+          .coding-item__content
+            .coding-item__text
+              .coding-item__title Разблокировка видео (TV, DVD, Screen Mirroring) в движении
+              .coding-item__description Данная настройка после активации позволяет просматривать видео (TV, DVD, Screen Mirroring), а также пользоваться интернетом при движении автомобиля
+        .coding-item.disabled
+          .coding-item__content
+            .coding-item__text
+              .coding-item__title Стартовая анимация головного устройства при запуске автомобиля
+              .coding-item__description Данная настройка добавляет стартовую анимацию головного устройства при запуске автомобиля
+        .coding-item.disabled
+          .coding-item__content
+            .coding-item__text
+              .coding-item__title Стартовая анимация в стиле M
+              .coding-item__description На выбор предоставляется пять различных стартовых анимаций при запуске автомобиля, начиная от стандартных анимаций BMW ConnectedDrive и M Performance, и заканчивая анимацией Alpina
+        .coding-item.disabled
+          .coding-item__content
+            .coding-item__text
+              .coding-item__title Меню мультимедийной системы в стиле M
+              .coding-item__description Изменение оформления меню мультимедийной системы на меню от автомобилей серии M
+        .coding-item.disabled
+          .coding-item__content
+            .coding-item__text
+              .coding-item__title Подсветка ручек дверей
+              .coding-item__description В меню головного устройства вашего автомобиля появляется новый пункт, позволяющий включать или отключать подсветку ручек дверей
+        .coding-item.disabled
+          .coding-item__content
+            .coding-item__text
+              .coding-item__title Автоматический подогрев и вентиляция сидений
+              .coding-item__description Появляется возможность настройки в меню автоматического включения подогрева или вентиляции сидений при достижении определенной температуры воздуха
+        .coding-item.disabled
+          .coding-item__content
+            .coding-item__text
+              .coding-item__title Отображение информации о температуре в шинах
+              .coding-item__description В системе контроля давления в шинах (RDC) дополнительно отображается информация о температуре воздуха в каждой шине
+        .coding-item.disabled
+          .coding-item__content
+            .coding-item__text
+              .coding-item__title Звуковые сигналы от автомобилей BMW i, Rolls-Royce, Mini
+              .coding-item__description Различные уведомления и предупреждения от автомобиля будут сопровождаться альтернативными звуковыми сигналами. Возможны сигналы в стиле BMW i серии, Rolls-Royce или Mini
+        .coding-item.disabled
+          .coding-item__content
+            .coding-item__text
+              .coding-item__title Режим просмотра фаркопа при использовании камеры заднего вида
+              .coding-item__description При использованием камеры заднего вида появляется возможность выбрать специальный режим для удобного использования фаркопа
+        .coding-item.disabled
+          .coding-item__content
+            .coding-item__text
+              .coding-item__title Настройка боковой поддержкий сидений в режимах движения Sport/Sport+
+              .coding-item__description В меню появляется возможность точной настройки и регулировки степени боковой поддержки сидений при использовании режимов движения Sport и Sport+
+        .coding-item.disabled
+          .coding-item__content
+            .coding-item__text
+              .coding-item__title Отключение автоматического запуска кондиционера при переходе в режим Auto
+              .coding-item__description При переключении из режима ручного управления климатической установкой в автоматический перестаёт происходить автоматическое включение кондиционера (A/C)
+        .coding-item.disabled
+          .coding-item__content
+            .coding-item__text
+              .coding-item__title Запоминание последнего состояния функции рециркуляции воздуха
+              .coding-item__description При повторном запуске автомобиля функции рециркуляции воздуха оказывается в том же режиме работы, в котором была до выключения автомобилякондиционера (A/C)
+        .coding-item.disabled
+          .coding-item__content
+            .coding-item__text
+              .coding-item__title Запоминание выключенного состояния системы климат-контроля
+              .coding-item__description При повторном запуске автомобиля система климат-контроля оказывается в выключенном состоянии, если так было до выключения автомобиля
+        .coding-item.disabled
+          .coding-item__content
+            .coding-item__text
+              .coding-item__title Активация функции активный круиз контроль с 0 км/ч
+              .coding-item__description Добавление в автомобиль опции активного круиз-контроля (544), с возможность работы на скорости от 0 км/ч. Для реализации данной опции необходима замена кнопок на рулевом колесе, а также подходящая комбинация приборов
+        .coding-item.disabled
+          .coding-item__content
+            .coding-item__text
+              .coding-item__title Отображение предстоящих знаков ограничения скорости и запрета обгона
+              .coding-item__description Отображение на приборной панели предупреждений о предстоящих запрещающих знаках, таких как ограничение скорости и запрет обгона. Данная опция подходит только для автомобилей, оснащённых опцией "Ассистент вождения"
+        .coding-item.disabled
+          .coding-item__content
+            .coding-item__text
+              .coding-item__title Отключение требования расположения рук на рулевом колесе при использовании ассистента вождения
+              .coding-item__description Для полноценного длительного использования ассистента вождения требуется располагать руки на ободе рулевого колеса. В противном случае выдаётся предупреждение и работа системы прекращается. Данная настройка позволяет использовать ассистент вождения без необходимости располагать руки на рулевом колесе
+        .coding-item.disabled
+          .coding-item__content
+            .coding-item__text
+              .coding-item__title Отключение ограничений опции "Ассистент вождения Plus" для России
+              .coding-item__description Опция "Ассистент вождения Plus" в Российской Федерации работает с некоторыми ограничениями. Данная настройка позволяет снять установленные ограничения
+      .button-area
+        a.button(data-fancybox data-src='#coding-appointment' data-touch='false') Записаться на кодирование опций
+  include /about
+  include /contacts

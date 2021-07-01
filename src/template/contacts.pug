@@ -1,0 +1,26 @@
+section.contacts
+  .wrapper
+    .titles
+      .overtitle Контакты
+      h2 Как с нами связаться
+    .block
+      .columns
+        .col-md-6
+          .contact-label Телефон
+          a.contact-text(href='tel:+74991100045' onclick="ym(56693602,'reachGoal','phone'); return true;") +7 (499) 110–00–45
+        .col-md-6
+          .contact-label Технический специалист
+          a.contact-text(href='tel:+79039760045' onclick="ym(56693602,'reachGoal','phone'); return true;") +7 (903) 976–00–45
+        .col-md-6
+          .contact-label Email
+          a.contact-text(href='mailto:riverdale@inbox.ru' onclick="ym(56693602,'reachGoal','email'); return true;") riverdale@inbox.ru
+        .col-md-6
+          .contact-label Адрес
+          a.contact-text(href='https://yandex.ru/maps/-/CKqOBALH' onclick="ym(56693602,'reachGoal','yandexMaps'); return true;") г. Москва, ул. Илимская, 1Бс1
+        .col-md-6
+          .contact-label Часы работы
+          .contact-text Ежедневно: 9:00 — 20:00
+      .contact-label.socials-label Социальные сети
+      .social-buttons.colorful
+        include social-buttons
+    iframe.map(src='https://yandex.ru/map-widget/v1/-/CKqWuB6O' frameborder='0' allowfullscreen='true')

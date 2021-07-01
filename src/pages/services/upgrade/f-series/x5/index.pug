@@ -1,0 +1,684 @@
+extends /layout.pug
+
+block variables
+  - var name = 'main_upgrade-f-series';
+  - var section = 'Услуга';
+  - var title = 'Дооснащение BMW X5';
+  - var models = 'F15, F85';
+  - var seoTitle = 'Дооснащение BMW X5 (' + models + ') в Москве | Автосервис BMW «FGSEVER»';
+  - var subtitle = 'Установка мультимедийной системы NBT/NBT EVO, LED дисплея комбинации приборов, проекционного дисплея, камеры KAFAS, активного круиз-контроля, ассистентов парковки и вождения, системы комфортного доступа и других опций.';
+  - var path = {'/services/': 'Услуги', '/services/upgrade/': 'Дооснащение', '/services/upgrade/f-series/': 'F&nbsp;серия', '': 'X5'};
+  - var button = ['popup', '#upgrade-appointment', 'Записаться на дооснащение'];
+
+block content
+  +main(name, path, section, title, subtitle, button, models)
+  //- include /warning
+  include /upgrade/calculator
+  section.services.options#services-options
+    .wrapper
+      .titles
+        .overtitle Наши услуги
+        h2 Устанавливаемые опции
+      .tabs
+        .tabs-item.active(data-tab='all') Все опции
+        .tabs-item(data-tab='multimedia') Мультимедиа
+        .tabs-item(data-tab='assistants') Ассистенты
+        .tabs-item(data-tab='lighting') Освещение
+        .tabs-item(data-tab='view') Обзор
+        .tabs-item(data-tab='exterior') Экстерьер
+        .tabs-item(data-tab='interior') Интерьер
+        .tabs-item(data-tab='functionality') Функциональное оснащение
+        .tabs-item(data-tab='chassis') Ходовая часть
+      .columns
+        .col-sm-6.col-lg-4.col-xl-3.active(data-target='multimedia')
+          .services-item
+            img(src='/images/services/upgrade/f-series/x5/nbt-min.jpg' srcset='/images/services/upgrade/f-series/x5/nbt-min@2x.jpg 1.5x')
+            .services-item__content
+              .services-item__text
+                h3 Мультимедийная система NBT
+                .subtitle.services-item__subtitle Система навигации с увеличенным диплеем 8,8" и сенсорным контроллером iDrive, USB-разъем, функция голосового управления, DVD-проигрыватель, а также 20 Гб встроенной памяти
+              .services-item__meta
+                .services-item__price от 45 000 ₽
+                .button-simple Подробнее
+        .col-sm-6.col-lg-4.col-xl-3.active(data-target='multimedia')
+          .services-item
+            img(src='/images/services/upgrade/f-series/x5/nbt-evo-min.jpg' srcset='/images/services/upgrade/f-series/x5/nbt-evo-min@2x.jpg 1.5x')
+            .services-item__content
+              .services-item__text
+                h3 Мультимедийная система NBT EVO
+                .subtitle.services-item__subtitle Система навигации с обновленным интерфейсом, увеличенным диплеем 8,8" и сенсорным контроллером iDrive, USB-разъемом, голосовым управлением, DVD-проигрывателем, а также 20 Гб встроенной памяти
+              .services-item__meta
+                .services-item__price от 70 000 ₽
+                .button-simple Подробнее
+        .col-sm-6.col-lg-4.col-xl-3.active(data-target='multimedia')
+          .services-item
+            img(src='/images/services/upgrade/f-series/x5/nbt-handwriting-recognition-min.jpg' srcset='/images/services/upgrade/f-series/x5/nbt-handwriting-recognition-min@2x.jpg 1.5x')
+            .services-item__content
+              .services-item__text
+                h3 Блок распознавания рукописного ввода
+                .subtitle.services-item__subtitle Дополнительный блок в автомобиле, позволяющий водителю или пассажирам использовать рукописный ввод при работе с мультимедийной системой
+              .services-item__meta
+                .services-item__price от 7 000 ₽
+                .button-simple Подробнее
+        .col-sm-6.col-lg-4.col-xl-3.active(data-target='multimedia')
+          .services-item
+            img(src='/images/services/upgrade/f-series/x5/nbt-evo-touch-screen-min.jpg' srcset='/images/services/upgrade/f-series/x5/nbt-evo-touch-screen-min@2x.jpg 1.5x')
+            .services-item__content
+              .services-item__text
+                h3 Сенсорный экран мультимедийной системы
+                .subtitle.services-item__subtitle Замена стандартного экрана мультимедийной системы автомобиля на сенсорный
+              .services-item__meta
+                .services-item__price от 15 000 ₽
+                .button-simple Подробнее
+        .col-sm-6.col-lg-4.col-xl-3.active(data-target='multimedia')
+          .services-item
+            img(src='/images/services/upgrade/f-series/x5/extended-cockpit-min.jpg' srcset='/images/services/upgrade/f-series/x5/extended-cockpit-min@2x.jpg 1.5x')
+            .services-item__content
+              .services-item__text
+                h3 Расширенная комбинация приборов
+                .subtitle.services-item__subtitle Комбинация приборов с увеличенным дисплеем, отображающим подсказки системы навигации, телефонную книгу, меню переключения музыкальных треков и другие данные об автомобиле
+              .services-item__meta
+                .services-item__price от 25 000 ₽
+                .button-simple Подробнее
+        .col-sm-6.col-lg-4.col-xl-3.active(data-target='multimedia')
+          .services-item
+            img(src='/images/services/upgrade/f-series/x5/led-cockpit-min.jpg' srcset='/images/services/upgrade/f-series/x5/led-cockpit-min@2x.jpg 1.5x')
+            .services-item__content
+              .services-item__text
+                h3 Многофункциональный дисплей комбинации приборов
+                .subtitle.services-item__subtitle Многофункциональный дисплей комбинации приборов с диагональю экрана 10.25" и поддержкой трёх режимов: Eco Pro, Comfort и Sport
+              .services-item__meta
+                .services-item__price от 80 000 ₽
+                .button-simple Подробнее
+        .col-sm-6.col-lg-4.col-xl-3.active(data-target='multimedia')
+          .services-item
+            img(src='/images/services/upgrade/f-series/x5/head-up-display-min.jpg' srcset='/images/services/upgrade/f-series/x5/head-up-display-min@2x.jpg 1.5x')
+            .services-item__content
+              .services-item__text
+                h3 Проекционный дисплей
+                .subtitle.services-item__subtitle Отображение на проекционном дисплее информации о текущей скорости движения, подсказок системы навигации, информации развлекательной системы и прочего
+              .services-item__meta
+                .services-item__price от 70 000 ₽
+                .button-simple Подробнее
+        .col-sm-6.col-lg-4.col-xl-3.active(data-target='multimedia')
+          .services-item
+            img(src='/images/services/upgrade/f-series/x5/hifi-sound-system-min.jpg' srcset='/images/services/upgrade/f-series/x5/hifi-sound-system-min@2x.jpg 1.5x')
+            .services-item__content
+              .services-item__text
+                h3 Аудиосистема Hi-Fi
+                .subtitle.services-item__subtitle 9 динамиков и 7-канальный усилитель мощностью 205 Вт обеспечивают впечатляющее качество звучания независимо от занимаемого места в автомобиле
+              .services-item__meta
+                .services-item__price 80 000 ₽
+                .button-simple Подробнее
+        .col-sm-6.col-lg-4.col-xl-3.active(data-target='multimedia')
+          .services-item
+            img(src='/images/services/upgrade/f-series/x5/harman-kardon-sound-system-min.jpg' srcset='/images/services/upgrade/f-series/x5/harman-kardon-sound-system-min@2x.jpg 1.5x')
+            .services-item__content
+              .services-item__text
+                h3 Аудиосистема Harman/Kardon
+                .subtitle.services-item__subtitle 16 динамиков и высокоэффективный 9-канальный цифровой усилитель мощностью 600 Вт создают живое пространственное звучание на каждом посадочном месте автомобиля
+              .services-item__meta
+                .services-item__price от 140 000 ₽
+                .button-simple Подробнее
+        .col-sm-6.col-lg-4.col-xl-3.active(data-target='multimedia')
+          .services-item
+            img(src='/images/services/upgrade/f-series/x5/bang-olufsen-sound-system-min.jpg' srcset='/images/services/upgrade/f-series/x5/bang-olufsen-sound-system-min@2x.jpg 1.5x')
+            .services-item__content
+              .services-item__text
+                h3 Аудиосистема Bang & Olufsen
+                .subtitle.services-item__subtitle Специально подобранная комбинация размещения динамиков cоздает студийное качество звучания в автомобиле, гарантирует водителю и пассажирам наивысшее качество звучания. Общая выходная мощность 1200 Вт
+              .services-item__meta
+                .services-item__price от 350 000 ₽
+                .button-simple Подробнее
+        .col-sm-6.col-lg-4.col-xl-3.active(data-target='multimedia')
+          .services-item
+            img(src='/images/services/upgrade/f-series/x5/rear-seats-entertainment-min.jpg' srcset='/images/services/upgrade/f-series/x5/rear-seats-entertainment-min@2x.jpg 1.5x')
+            .services-item__content
+              .services-item__text
+                h3 Развлекательная система для задних пассажиров Professional
+                .subtitle.services-item__subtitle Два отдельных экрана c диагональю 10.2" и дополнительный привод Blu-ray в задней части салона, обеспечивающие доступ к развлекательным функциям автомобиля
+              .services-item__meta
+                .services-item__price от 170 000 ₽
+                .button-simple Подробнее
+        .col-sm-6.col-lg-4.col-xl-3.active(data-target='multimedia')
+          .services-item
+            img(src='/images/services/upgrade/f-series/x5/passenger-12v-plug-min.jpg' srcset='/images/services/upgrade/f-series/x5/passenger-12v-plug-min@2x.jpg 1.5x')
+            .services-item__content
+              .services-item__text
+                h3 Дополнительная розетка 12V в ногах переднего пассажира
+                .subtitle.services-item__subtitle Дополнительная розетка с напряжением до 12V для подключения различных устройств, расположенная под бардачком в области ног переднего пассажира
+              .services-item__meta
+                .services-item__price 6 000 ₽
+                .button-simple Подробнее
+        .col-sm-6.col-lg-4.col-xl-3.active(data-target='multimedia')
+          .services-item
+            img(src='/images/services/upgrade/f-series/x5/apple-carplay-min.jpg' srcset='/images/services/upgrade/f-series/x5/apple-carplay-min@2x.jpg 1.5x')
+            .services-item__content
+              .services-item__text
+                h3 Система Apple CarPlay
+                .subtitle.services-item__subtitle Возможность использовать дисплей мультимедийной системы автомобиля для доступа к функциям вашего iPhone. Используется вся площадь экрана.
+              .services-item__meta
+                .services-item__price от 10 000 ₽
+                .button-simple Подробнее
+        .col-sm-6.col-lg-4.col-xl-3.active(data-target='multimedia')
+          .services-item
+            img(src='/images/services/upgrade/f-series/x5/screen-mirroring-min.jpg' srcset='/images/services/upgrade/f-series/x5/screen-mirroring-min@2x.jpg 1.5x')
+            .services-item__content
+              .services-item__text
+                h3 Система MirrorLink
+                .subtitle.services-item__subtitle Дублирование изображения со смартфона на ОС «Android» на центральный дисплей мультимедийной системы автомобиля
+              .services-item__meta
+                .services-item__price от 10 000 ₽
+                .button-simple Подробнее
+        .col-sm-6.col-lg-4.col-xl-3.active(data-target='multimedia')
+          .services-item
+            img(src='/images/services/upgrade/f-series/x5/tv-tuner-min.jpg' srcset='/images/services/upgrade/f-series/x5/tv-tuner-min@2x.jpg 1.5x')
+            .services-item__content
+              .services-item__text
+                h3 Телевидение
+                .subtitle.services-item__subtitle Возможность принимать и отображать цифровые телевизионные каналы (DVB-T/DVB-T2/DVB-T2 HD), включая электронные программы телепередач и платное ТВ
+              .services-item__meta
+                .services-item__price от 65 000 ₽
+                .button-simple Подробнее
+        .col-sm-6.col-lg-4.col-xl-3.active(data-target='multimedia')
+          .services-item
+            img(src='/images/services/upgrade/f-series/x5/bmw-teleservice-min.jpg' srcset='/images/services/upgrade/f-series/x5/bmw-teleservice-min@2x.jpg 1.5x')
+            .services-item__content
+              .services-item__text
+                h3 BMW TeleService
+                .subtitle.services-item__subtitle Автоматическая передача специалистам BMW данных автомобиля и уведомление в нужное время о необходимом техобслуживании, а также функция аварийного вызова службы техпомощи
+              .services-item__meta
+                .services-item__price от 30 000 ₽
+                .button-simple Подробнее
+        .col-sm-6.col-lg-4.col-xl-3.active(data-target='assistants')
+          .services-item
+            img(src='/images/services/upgrade/f-series/x5/parking-sensors-min.jpg' srcset='/images/services/upgrade/f-series/x5/parking-sensors-min@2x.jpg 1.5x')
+            .services-item__content
+              .services-item__text
+                h3 Сигнализация аварийного сближения при парковке спереди и сзади
+                .subtitle.services-item__subtitle Ультразвуковое измерение расстояния до препятствий при помощи передних и задних датчиков и вывод предупреждений на центральный экран
+              .services-item__meta
+                .services-item__price 35 000 ₽
+                .button-simple Подробнее
+        .col-sm-6.col-lg-4.col-xl-3.active(data-target='assistants')
+          .services-item
+            img(src='/images/services/upgrade/f-series/x5/rear-camera-min.jpg' srcset='/images/services/upgrade/f-series/x5/rear-camera-min@2x.jpg 1.5x')
+            .services-item__content
+              .services-item__text
+                h3 Камера заднего вида
+                .subtitle.services-item__subtitle Отображение пространства позади автомобиля на центральном дисплее во время движения задним ходом и парковки
+              .services-item__meta
+                .services-item__price от 40 000 ₽
+                .button-simple Подробнее
+        .col-sm-6.col-lg-4.col-xl-3.active(data-target='assistants')
+          .services-item
+            img(src='/images/services/upgrade/f-series/x5/surround-view-min.jpg' srcset='/images/services/upgrade/f-series/x5/surround-view-min@2x.jpg 1.5x')
+            .services-item__content
+              .services-item__text
+                h3 Система кругового обзора
+                .subtitle.services-item__subtitle Формирование с помощью сответствующих камер изображения с видом сверху, по бокам и сзади автомобиля и вывод на центральный дисплей
+              .services-item__meta
+                .services-item__price от 100 000 ₽
+                .button-simple Подробнее
+        .col-sm-6.col-lg-4.col-xl-3.active(data-target='assistants')
+          .services-item
+            img(src='/images/services/upgrade/f-series/x5/parking-assistant-min.jpg' srcset='/images/services/upgrade/f-series/x5/parking-assistant-min@2x.jpg 1.5x')
+            .services-item__content
+              .services-item__text
+                h3 Ассистент парковки
+                .subtitle.services-item__subtitle Автоматическая параллельная и перпендикулярная парковка автомобиля с помощью принятия системой на себя управления рулевым колесом
+              .services-item__meta
+                .services-item__price от 45 000 ₽
+                .button-simple Подробнее
+        .col-sm-6.col-lg-4.col-xl-3.active(data-target='assistants')
+          .services-item
+            img(src='/images/services/upgrade/f-series/x5/road-signs-detection-min.jpg' srcset='/images/services/upgrade/f-series/x5/road-signs-detection-min@2x.jpg 1.5x')
+            .services-item__content
+              .services-item__text
+                h3 Распознавание дорожных знаков
+                .subtitle.services-item__subtitle Камера, расположенная за зеркалом заднего вида и необходимая для работы системы управления дальним светом, функции чтения дорожных знаков, а также ассистента движения
+              .services-item__meta
+                .services-item__price 90 000 ₽
+                .button-simple Подробнее
+        .col-sm-6.col-lg-4.col-xl-3.active(data-target='assistants')
+          .services-item
+            img(src='/images/services/upgrade/f-series/x5/driving-assistant-min.jpg' srcset='/images/services/upgrade/f-series/x5/driving-assistant-min@2x.jpg 1.5x')
+            .services-item__content
+              .services-item__text
+                h3 Ассистент вождения
+                .subtitle.services-item__subtitle Система предупреждения о столкновении с функцией торможения, функция чтения дорожных знаков, а также система контроля слепых зон
+              .services-item__meta
+                .services-item__price от 100 000 ₽
+                .button-simple Подробнее
+        .col-sm-6.col-lg-4.col-xl-3.active(data-target='assistants')
+          .services-item
+            img(src='/images/services/upgrade/f-series/x5/lane-change-warning-min.jpg' srcset='/images/services/upgrade/f-series/x5/lane-change-warning-min@2x.jpg 1.5x')
+            .services-item__content
+              .services-item__text
+                h3 Система контроля полосы
+                .subtitle.services-item__subtitle Предупреждение водителя визуальной индикацией и вибрацией рулевого колеса, начиная с определенной скорости, в случае покиданиия полосы движениия
+              .services-item__meta
+                .services-item__price от 15 000 ₽
+                .button-simple Подробнее
+        .col-sm-6.col-lg-4.col-xl-3.active(data-target='assistants')
+          .services-item
+            img(src='/images/services/upgrade/f-series/x5/blind-spot-detection-min.jpg' srcset='/images/services/upgrade/f-series/x5/blind-spot-detection-min@2x.jpg 1.5x')
+            .services-item__content
+              .services-item__text
+                h3 Система контроля слепых зон
+                .subtitle.services-item__subtitle Предупреждение водителя о приближающихся в слепой зоне автомобилях со скоростью более 20 км/ч при помощи треугольного символа в наружных зеркалах
+              .services-item__meta
+                .services-item__price от 90 000 ₽
+                .button-simple Подробнее
+        .col-sm-6.col-lg-4.col-xl-3.active(data-target='assistants')
+          .services-item
+            img(src='/images/services/upgrade/f-series/x5/active-cruise-control-min.jpg' srcset='/images/services/upgrade/f-series/x5/active-cruise-control-min@2x.jpg 1.5x')
+            .services-item__content
+              .services-item__text
+                h3 Активный круиз-контроль c функцией Stop&Go
+                .subtitle.services-item__subtitle Поддержание заданной дистанции до находящегося впереди автомобиля, а также полная остановка и разгон автомобиля при необходимости
+              .services-item__meta
+                .services-item__price от 120 000 ₽
+                .button-simple Подробнее
+        .col-sm-6.col-lg-4.col-xl-3.active(data-target='assistants')
+          .services-item
+            img(src='/images/services/upgrade/f-series/x5/traffic-jam-assistant-min.jpg' srcset='/images/services/upgrade/f-series/x5/traffic-jam-assistant-min@2x.jpg 1.5x')
+            .services-item__content
+              .services-item__text
+                h3 Ассистент вождения в пробках
+                .subtitle.services-item__subtitle Система, дополняющая активный круиз-контроль функцией автоматического подруливания при движении автомобиля в пробках на скорости до 60 км/ч
+              .services-item__meta
+                .services-item__price от 70 000 ₽
+                .button-simple Подробнее
+        .col-sm-6.col-lg-4.col-xl-3.active(data-target='assistants')
+          .services-item
+            img(src='/images/services/upgrade/f-series/x5/driving-assistant-plus-min.jpg' srcset='/images/services/upgrade/f-series/x5/driving-assistant-plus-min@2x.jpg 1.5x')
+            .services-item__content
+              .services-item__text
+                h3 Ассистент вождения Plus
+                .subtitle.services-item__subtitle Активный круиз-контроль с функцией Stop&Go, ассистент рулевого управления, система контроля полосы и контроля слепых зон, а также система предупреждения о столкновении
+              .services-item__meta
+                .services-item__price 220 000 ₽
+                .button-simple Подробнее
+        .col-sm-6.col-lg-4.col-xl-3.active(data-target='assistants')
+          .services-item
+            img(src='/images/services/upgrade/f-series/x5/night-vision-min.jpg' srcset='/images/services/upgrade/f-series/x5/night-vision-min@2x.jpg 1.5x')
+            .services-item__content
+              .services-item__text
+                h3 Система ночного видения с функцией распознавания людей и животных
+                .subtitle.services-item__subtitle Позволяет в темное время суток распознавать людей и крупных животных, а также опционально освещать их с помощью функции направленной динамической подсветки
+              .services-item__meta
+                .services-item__price от 190 000 ₽
+                .button-simple Подробнее
+        .col-sm-6.col-lg-4.col-xl-3.active(data-target='assistants')
+          .services-item
+            img(src='/images/services/upgrade/f-series/x5/night-vision-with-dynamic-lighting-min.jpg' srcset='/images/services/upgrade/f-series/x5/night-vision-with-dynamic-lighting-min@2x.jpg 1.5x')
+            .services-item__content
+              .services-item__text
+                h3 Система ночного видения с динамическим освещением
+                .subtitle.services-item__subtitle Позволяет в темное время суток освещать обнаруживаемых людей с помощью функции направленной динамической подсветки
+              .services-item__meta
+                .services-item__price от 40 000 ₽
+                .button-simple Подробнее
+        .col-sm-6.col-lg-4.col-xl-3.active(data-target='assistants')
+          .services-item
+            img(src='/images/services/upgrade/f-series/x5/active-protection-min.jpg' srcset='/images/services/upgrade/f-series/x5/active-protection-min@2x.jpg 1.5x')
+            .services-item__content
+              .services-item__text
+                h3 Активная защита
+                .subtitle.services-item__subtitle В критической ситуации во время движения ремни безопасности натягиваются, спинки сидений поднимаются, а боковые окна и люк в крыше закрываются
+              .services-item__meta
+                .services-item__price 60 000 ₽
+                .button-simple Подробнее
+        .col-sm-6.col-lg-4.col-xl-3.active(data-target='lighting')
+          .services-item
+            img(src='/images/services/upgrade/f-series/x5/lighting-min.jpg' srcset='/images/services/upgrade/f-series/x5/lighting-min@2x.jpg 1.5x')
+            .services-item__content
+              .services-item__text
+                h3 Пакет освещения снаружи и в салоне
+                .subtitle.services-item__subtitle Пакет освещения, включающий лампы для чтения, подсветку пространства для ног, косметических зеркал, ручек дверей и багажного отделения
+              .services-item__meta
+                .services-item__price 60 000 ₽
+                .button-simple Подробнее
+        .col-sm-6.col-lg-4.col-xl-3.active(data-target='lighting')
+          .services-item
+            img(src='/images/services/upgrade/f-series/x5/high-beam-assistant-min.jpg' srcset='/images/services/upgrade/f-series/x5/high-beam-assistant-min@2x.jpg 1.5x')
+            .services-item__content
+              .services-item__text
+                h3 Система управления дальним светом
+                .subtitle.services-item__subtitle Автоматический переход с дальнего на ближний свет в зависимости от наличия перед автомобилем других транспортных средств
+              .services-item__meta
+                .services-item__price 35 000 ₽
+                .button-simple Подробнее
+        .col-sm-6.col-lg-4.col-xl-3.active(data-target='lighting')
+          .services-item
+            img(src='/images/services/upgrade/f-series/x5/led-fog-lights-min.jpg' srcset='/images/services/upgrade/f-series/x5/led-fog-lights-min@2x.jpg 1.5x')
+            .services-item__content
+              .services-item__text
+                h3 Светодиодные противотуманные фары
+                .subtitle.services-item__subtitle Улучшают видимость в условиях тумана или сильных осадков, а также задают высокотехнологичный и современный тон яркому облику автомобиля
+              .services-item__meta
+                .services-item__price 28 000 ₽
+                .button-simple Подробнее
+        .col-sm-6.col-lg-4.col-xl-3.active(data-target='lighting')
+          .services-item
+            img(src='/images/services/upgrade/f-series/x5/adaptive-led-lights-min.jpg' srcset='/images/services/upgrade/f-series/x5/adaptive-led-lights-min@2x.jpg 1.5x')
+            .services-item__content
+              .services-item__text
+                h3 Адаптивные светодиодные фары
+                .subtitle.services-item__subtitle Меняют распределение света в зависимости от скорости и угла поворота. Включают систему управления дальним светом, светодиодные противотуманные фары и функцию статического освещения поворотов
+              .services-item__meta
+                .services-item__price от 190 000 ₽
+                .button-simple Подробнее
+        .col-sm-6.col-lg-4.col-xl-3.active(data-target='lighting')
+          .services-item
+            img(src='/images/services/upgrade/f-series/x5/headlamp-washers-min.jpg' srcset='/images/services/upgrade/f-series/x5/headlamp-washers-min@2x.jpg 1.5x')
+            .services-item__content
+              .services-item__text
+                h3 Омыватели фар
+                .subtitle.services-item__subtitle Автоматически очищают стекла фар, когда активируется стеклоочиститель ветрового стекла и включаются фары. Благодаря этому поддерживается яркость света фар
+              .services-item__meta
+                .services-item__price 35 000 ₽
+                .button-simple Подробнее
+        .col-sm-6.col-lg-4.col-xl-3.active(data-target='view')
+          .services-item
+            img(src='/images/services/upgrade/f-series/x5/rear-mirrors-package-min.jpg' srcset='/images/services/upgrade/f-series/x5/rear-mirrors-package-min@2x.jpg 1.5x')
+            .services-item__content
+              .services-item__text
+                h3 Пакет зеркал заднего вида с функцией складывания и затемнения
+                .subtitle.services-item__subtitle Автоматическое затемнение зеркала со стороны водителя и внутреннего зеркала, а также наклон зеркала со стороны пассажира при движении задним ходом
+              .services-item__meta
+                .services-item__price 39 000 ₽
+                .button-simple Подробнее
+        .col-sm-6.col-lg-4.col-xl-3.active(data-target='exterior')
+          .services-item
+            img(src='/images/services/upgrade/f-series/x5/m-bodykit-min.jpg' srcset='/images/services/upgrade/f-series/x5/m-bodykit-min@2x.jpg 1.5x')
+            .services-item__content
+              .services-item__text
+                h3 Аэродинамический пакет M
+                .subtitle.services-item__subtitle Спортивные передний и задний бамперы, а также специальные облицовки порогов, окрашеные в цвет кузова. Диффузор контрастного цвета и хромированные выхлопные патрубки в задней части автомобиля
+              .services-item__meta
+                .services-item__price 120 000 ₽
+                .button-simple Подробнее
+        .col-sm-6.col-lg-4.col-xl-3.active(data-target='exterior')
+          .services-item
+            img(src='/images/services/upgrade/f-series/x5/exterieur-design-pure-experience-min.jpg' srcset='/images/services/upgrade/f-series/x5/exterieur-design-pure-experience-min@2x.jpg 1.5x')
+            .services-item__content
+              .services-item__text
+                h3 Exterieur-Design Pure Experience
+                .subtitle.services-item__subtitle 
+              .services-item__meta
+                .services-item__price 
+                .button-simple Подробнее
+        .col-sm-6.col-lg-4.col-xl-3.active(data-target='exterior')
+          .services-item
+            img(src='/images/services/upgrade/f-series/x5/aluminium-running-boards-min.jpg' srcset='/images/services/upgrade/f-series/x5/aluminium-running-boards-min@2x.jpg 1.5x')
+            .services-item__content
+              .services-item__text
+                h3 Алюминиевые подножки
+                .subtitle.services-item__subtitle Подножки из анодированного шлифованного алюминия с резиновыми вставками служат особенно эффектными акцентами и упрощают посадку в автомобиль и высадку из него
+              .services-item__meta
+                .services-item__price 85 000 ₽
+                .button-simple Подробнее
+        .col-sm-6.col-lg-4.col-xl-3.active(data-target='interior')
+          .services-item
+            img(src='/images/services/upgrade/f-series/x5/lumbar-support-min.jpg' srcset='/images/services/upgrade/f-series/x5/lumbar-support-min@2x.jpg 1.5x')
+            .services-item__content
+              .services-item__text
+                h3 Поясничная опора водителя и переднего пассажира
+                .subtitle.services-item__subtitle Воздушная камера в спинке сиденья водителя и переднего пассажира, вертикальное или продольное положение которой может быть плавно отрегулировано
+              .services-item__meta
+                .services-item__price 35 000 ₽
+                .button-simple Подробнее
+        .col-sm-6.col-lg-4.col-xl-3.active(data-target='interior')
+          .services-item
+            img(src='/images/services/upgrade/f-series/x5/electro-front-seats-min.jpg' srcset='/images/services/upgrade/f-series/x5/electro-front-seats-min@2x.jpg 1.5x')
+            .services-item__content
+              .services-item__text
+                h3 Электрическая регулировка положения сиденья с функцией памяти
+                .subtitle.services-item__subtitle Позволяют регулировать и сохранять продольное положение, высоту сидений и угол наклона спинок, элементы верхней части и ширину спинок, глубину посадки, подколенную и поясничную опору
+              .services-item__meta
+                .services-item__price 60 000 ₽
+                .button-simple Подробнее
+        .col-sm-6.col-lg-4.col-xl-3.active(data-target='interior')
+          .services-item
+            img(src='/images/services/upgrade/f-series/x5/sport-front-seats-min.jpg' srcset='/images/services/upgrade/f-series/x5/sport-front-seats-min@2x.jpg 1.5x')
+            .services-item__content
+              .services-item__text
+                h3 Спортивные сиденья
+                .subtitle.services-item__subtitle Сиденья с регулировкой продольного положения, высоты сиденья и угла наклона спинок, а также увеличенными валиками боковой поддержки и регулируемой подколенной опорой
+              .services-item__meta
+                .services-item__price 
+                .button-simple Подробнее
+        .col-sm-6.col-lg-4.col-xl-3.active(data-target='interior')
+          .services-item
+            img(src='/images/services/upgrade/f-series/x5/comfort-front-seats-min.jpg' srcset='/images/services/upgrade/f-series/x5/comfort-front-seats-min@2x.jpg 1.5x')
+            .services-item__content
+              .services-item__text
+                h3 Сиденья повышенной комфортности с памятью положений
+                .subtitle.services-item__subtitle Позволяют регулировать и сохранять продольное положение, высоту сидений и угол наклона спинок, наклон верхней части и ширину спинок, глубину посадки, подколенную и поясничную опору
+              .services-item__meta
+                .services-item__price 120 000 ₽
+                .button-simple Подробнее
+        .col-sm-6.col-lg-4.col-xl-3.active(data-target='interior')
+          .services-item
+            img(src='/images/services/upgrade/f-series/x5/front-heated-seats-min.jpg' srcset='/images/services/upgrade/f-series/x5/front-heated-seats-min@2x.jpg 1.5x')
+            .services-item__content
+              .services-item__text
+                h3 Система обогрева сиденья водителя и переднего пассажира
+                .subtitle.services-item__subtitle По нажатию одной кнопки можно быстро нагреть сиденья водителя и переднего пассажира ещё до того, как двигатель прогреется до рабочей температуры
+              .services-item__meta
+                .services-item__price 
+                .button-simple Подробнее
+        .col-sm-6.col-lg-4.col-xl-3.active(data-target='interior')
+          .services-item
+            img(src='/images/services/upgrade/f-series/x5/rear-heated-seats-min.jpg' srcset='/images/services/upgrade/f-series/x5/rear-heated-seats-min@2x.jpg 1.5x')
+            .services-item__content
+              .services-item__text
+                h3 Система обогрева заднего сиденья
+                .subtitle.services-item__subtitle По нажатию одной кнопки можно быстро нагреть задние сиденья ещё до того, как двигатель прогреется до рабочей температуры
+              .services-item__meta
+                .services-item__price 55 000 ₽
+                .button-simple Подробнее
+        .col-sm-6.col-lg-4.col-xl-3.active(data-target='interior')
+          .services-item
+            img(src='/images/services/upgrade/f-series/x5/active-front-seats-ventilation-min.jpg' srcset='/images/services/upgrade/f-series/x5/active-front-seats-ventilation-min@2x.jpg 1.5x')
+            .services-item__content
+              .services-item__text
+                h3 Передние сиденья с вентиляцией
+                .subtitle.services-item__subtitle Активная вентиляция поверхности подушек и спинок передних сидений. При нагреве салона позволяет быстро охладить сиденья до комфортной температуры
+              .services-item__meta
+                .services-item__price от 60 000 ₽
+                .button-simple Подробнее
+        .col-sm-6.col-lg-4.col-xl-3.active(data-target='interior')
+          .services-item
+            img(src='/images/services/upgrade/f-series/x5/comfort-rear-seats-min.jpg' srcset='/images/services/upgrade/f-series/x5/comfort-rear-seats-min@2x.jpg 1.5x')
+            .services-item__content
+              .services-item__text
+                h3 Сиденья повышенной комфортности в задней части салона
+                .subtitle.services-item__subtitle Отличаются более мягкой набивкой и возможностью наклона спинки (на 10 градусов) и продольной регулировки подушки (в пределах 80 мм)
+              .services-item__meta
+                .services-item__price 80 000 ₽
+                .button-simple Подробнее
+        .col-sm-6.col-lg-4.col-xl-3.active(data-target='interior')
+          .services-item
+            img(src='/images/services/upgrade/f-series/x5/interieur-carbon-decorative-strips-min.jpg' srcset='/images/services/upgrade/f-series/x5/interieur-carbon-decorative-strips-min@2x.jpg 1.5x')
+            .services-item__content
+              .services-item__text
+                h3 Декоративные планки Interieur карбоновые
+                .subtitle.services-item__subtitle Декоративные планки для оформления интерьера автомобиля в карбоновом стиле
+              .services-item__meta
+                .services-item__price 90 000 ₽
+                .button-simple Подробнее
+        .col-sm-6.col-lg-4.col-xl-3.active(data-target='interior')
+          .services-item
+            img(src='/images/services/upgrade/f-series/x5/four-zone-climate-control-min.jpg' srcset='/images/services/upgrade/f-series/x5/four-zone-climate-control-min@2x.jpg 1.5x')
+            .services-item__content
+              .services-item__text
+                h3 Автоматический климат-контроль, 4 зоны
+                .subtitle.services-item__subtitle Предусмотрена возможность раздельного регулирования параметров микроклимата для водителя, пассажира переднего сиденья и пассажиров крайних мест заднего сиденья
+              .services-item__meta
+                .services-item__price 80 000 ₽
+                .button-simple Подробнее
+        .col-sm-6.col-lg-4.col-xl-3.active(data-target='interior')
+          .services-item
+            img(src='/images/services/upgrade/f-series/x5/sport-steering-wheel-min.jpg' srcset='/images/services/upgrade/f-series/x5/sport-steering-wheel-min@2x.jpg 1.5x')
+            .services-item__content
+              .services-item__text
+                h3 Спортивное кожаное рулевое колесо
+                .subtitle.services-item__subtitle Рулевое колесо с ободом, отделанным черной кожей Walknappa, черными декоративными швами, эргономичными упорами для больших пальцев и логотипом «M»
+              .services-item__meta
+                .services-item__price 20 000 ₽
+                .button-simple Подробнее
+        .col-sm-6.col-lg-4.col-xl-3.active(data-target='interior')
+          .services-item
+            img(src='/images/services/upgrade/f-series/x5/m-steering-wheel-min.jpg' srcset='/images/services/upgrade/f-series/x5/m-steering-wheel-min@2x.jpg 1.5x')
+            .services-item__content
+              .services-item__text
+                h3 Спортивное рулевое колесо M
+                .subtitle.services-item__subtitle Рулевое колесо с ободом, отделанным черной кожей Walknappa, черными декоративными швами, эргономичными упорами для больших пальцев и логотипом «M»
+              .services-item__meta
+                .services-item__price от 60 000 ₽
+                .button-simple Подробнее
+        .col-sm-6.col-lg-4.col-xl-3.active(data-target='interior')
+          .services-item
+            img(src='/images/services/upgrade/f-series/x5/gearshift-paddles-min.jpg' srcset='/images/services/upgrade/f-series/x5/gearshift-paddles-min@2x.jpg 1.5x')
+            .services-item__content
+              .services-item__text
+                h3 Подрулевые переключатели КПП
+                .subtitle.services-item__subtitle Подрулевые переключатели передач КПП, расположенные на тыльной части рулевого колеса. Позволяют переключать передачи не отрывая рук от обода рулевого колеса
+              .services-item__meta
+                .services-item__price от 8 000 ₽
+                .button-simple Подробнее
+        .col-sm-6.col-lg-4.col-xl-3.active(data-target='interior')
+          .services-item
+            img(src='/images/services/upgrade/f-series/x5/heated-steering-wheel-min.jpg' srcset='/images/services/upgrade/f-series/x5/heated-steering-wheel-min@2x.jpg 1.5x')
+            .services-item__content
+              .services-item__text
+                h3 Система обогрева рулевого колеса
+                .subtitle.services-item__subtitle При нажатии кнопки на руле, нагревательный элемент быстро нагревает его обод до приятной температуры. Рулевое колесо приятно держать в руках, особенно когда на улице холодно
+              .services-item__meta
+                .services-item__price 
+                .button-simple Подробнее
+        .col-sm-6.col-lg-4.col-xl-3.active(data-target='interior')
+          .services-item
+            img(src='/images/services/upgrade/f-series/x5/ceramic-controls-min.jpg' srcset='/images/services/upgrade/f-series/x5/ceramic-controls-min@2x.jpg 1.5x')
+            .services-item__content
+              .services-item__text
+                h3 Керамическая отделка органов управления
+                .subtitle.services-item__subtitle Керамическая отделка рычага коробки передач и ручки управления климат-контролем, а также окантовки контроллера iDrive, придает салону первоклассный и роскошный вид
+              .services-item__meta
+                .services-item__price 70 000 ₽
+                .button-simple Подробнее
+        .col-sm-6.col-lg-4.col-xl-3.active(data-target='interior')
+          .services-item
+            img(src='/images/services/upgrade/f-series/x5/rear-sunshades-min.jpg' srcset='/images/services/upgrade/f-series/x5/rear-sunshades-min@2x.jpg 1.5x')
+            .services-item__content
+              .services-item__text
+                h3 Солнцезащитные шторки
+                .subtitle.services-item__subtitle Шторки боковых задних окон можно вручную развернуть и свернуть. Они защищают от солнца и обеспечивают необходимую приватность
+              .services-item__meta
+                .services-item__price 140 000 ₽
+                .button-simple Подробнее
+        .col-sm-6.col-lg-4.col-xl-3.active(data-target='functionality')
+          .services-item
+            img(src='/images/services/upgrade/f-series/x5/automatic-doors-min.jpg' srcset='/images/services/upgrade/f-series/x5/automatic-doors-min@2x.jpg 1.5x')
+            .services-item__content
+              .services-item__text
+                h3 Автодоводчик дверей
+                .subtitle.services-item__subtitle Автоматическое полное закрывание прикрытых дверей. Происходит комфортно, надежно, с малым усилием и практически бесшумно
+              .services-item__meta
+                .services-item__price 80 000 ₽
+                .button-simple Подробнее
+        .col-sm-6.col-lg-4.col-xl-3.active(data-target='functionality')
+          .services-item
+            img(src='/images/services/upgrade/f-series/x5/comfort-access-min.jpg' srcset='/images/services/upgrade/f-series/x5/comfort-access-min@2x.jpg 1.5x')
+            .services-item__content
+              .services-item__text
+                h3 Комфортный доступ
+                .subtitle.services-item__subtitle Открывание дверей автомобиля и запуск двигателя без использования ключа, а также бесконтактное открывание и закрывание крышки багажного отделения
+              .services-item__meta
+                .services-item__price 120 000 ₽
+                .button-simple Подробнее
+        .col-sm-6.col-lg-4.col-xl-3.active(data-target='functionality')
+          .services-item
+            img(src='/images/services/upgrade/f-series/x5/mirror-with-remote-control-min.jpg' srcset='/images/services/upgrade/f-series/x5/mirror-with-remote-control-min@2x.jpg 1.5x')
+            .services-item__content
+              .services-item__text
+                h3 Встроенный пульт дистанционного управления
+                .subtitle.services-item__subtitle Заменяет до трех пультов дистанционного управления и позволяет управлять открытием ворот и гаражных дверей при помощи кнопок на корпусе зеркала заднего вида
+              .services-item__meta
+                .services-item__price 18 000 ₽
+                .button-simple Подробнее
+        .col-sm-6.col-lg-4.col-xl-3.active(data-target='functionality')
+          .services-item
+            img(src='/images/services/upgrade/f-series/x5/security-alarm-min.jpg' srcset='/images/services/upgrade/f-series/x5/security-alarm-min@2x.jpg 1.5x')
+            .services-item__content
+              .services-item__text
+                h3 Охранная сигнализация
+                .subtitle.services-item__subtitle Отслеживает состояние дверей, капота, крышки багажника и салона, а также включает в себя датчик крена кузова и автономную сирену
+              .services-item__meta
+                .services-item__price 30 000 ₽
+                .button-simple Подробнее
+        .col-sm-6.col-lg-4.col-xl-3.active(data-target='chassis')
+          .services-item
+            img(src='/images/services/upgrade/f-series/x5/sport-gearbox-min.jpg' srcset='/images/services/upgrade/f-series/x5/sport-gearbox-min@2x.jpg 1.5x')
+            .services-item__content
+              .services-item__text
+                h3 Спортивная АКПП
+                .subtitle.services-item__subtitle Изменяет алгоритм работы коробки передач и делает переключениия более быстрыми, активируется функция Launch Control и добавляется режим движения Sport+
+              .services-item__meta
+                .services-item__price 20 000 ₽
+                .button-simple Подробнее
+        .col-sm-6.col-lg-4.col-xl-3.active(data-target='chassis')
+          .services-item
+            img(src='/images/services/upgrade/f-series/x5/adaptive-m-suspension-min.jpg' srcset='/images/services/upgrade/f-series/x5/adaptive-m-suspension-min@2x.jpg 1.5x')
+            .services-item__content
+              .services-item__text
+                h3 Адаптивная подвеска M
+                .subtitle.services-item__subtitle Подвеска, заниженная на 10 миллиметров. Позволяет изменять ходовые качества автомобиля от максимально комфортных до экстремально спортивных
+              .services-item__meta
+                .services-item__price 140 000 ₽
+                .button-simple Подробнее
+        .col-sm-6.col-lg-4.col-xl-3.active(data-target='chassis')
+          .services-item
+            img(src='/images/services/upgrade/f-series/x5/adaptive-chassis-dynamik-min.jpg' srcset='/images/services/upgrade/f-series/x5/adaptive-chassis-dynamik-min@2x.jpg 1.5x')
+            .services-item__content
+              .services-item__text
+                h3 Адаптивный пакет ходовой части Dynamik
+                .subtitle.services-item__subtitle Обеспечивает высочайшую степень динамики движения. Включает обычные амортизаторы и стальные пружины, систему Dynamic Drive и систему управления задним дифференциалом (DPC)
+              .services-item__meta
+                .services-item__price 250 000 ₽
+                .button-simple Подробнее
+        .col-sm-6.col-lg-4.col-xl-3.active(data-target='chassis')
+          .services-item
+            img(src='/images/services/upgrade/f-series/x5/sport-brakes-min.jpg' srcset='/images/services/upgrade/f-series/x5/sport-brakes-min@2x.jpg 1.5x')
+            .services-item__content
+              .services-item__text
+                h3 Дооснащение спортивными тормозами 19"
+                .subtitle.services-item__subtitle Увеличенные тормозные диски диаметром 19" дюймов с 4-поршневыми неподвижными суппортами спереди и однопоршневыми плавающими – сзади
+              .services-item__meta
+                .services-item__price 190 000 ₽
+                .button-simple Подробнее
+        .col-sm-6.col-lg-4.col-xl-3.active(data-target='chassis')
+          .services-item
+            img(src='/images/services/upgrade/f-series/x5/d-steering-min.jpg' srcset='/images/services/upgrade/f-series/x5/d-steering-min@2x.jpg 1.5x')
+            .services-item__content
+              .services-item__text
+                h3 D Steering
+                .subtitle.services-item__subtitle Изменение передаточного числа рулевого механизма в зависимости от скорости. На большой скорости величина хода рулевого колеса уменьшается и управление становится более острым
+              .services-item__meta
+                .services-item__price 180 000 ₽
+                .button-simple Подробнее
+        .col-sm-6.col-lg-4.col-xl-3.active(data-target='chassis')
+          .services-item
+            img(src='/images/services/upgrade/f-series/x5/tire-pressure-indicator-min.jpg' srcset='/images/services/upgrade/f-series/x5/tire-pressure-indicator-min@2x.jpg 1.5x')
+            .services-item__content
+              .services-item__text
+                h3 Индикатор давления в шинах
+                .subtitle.services-item__subtitle Система определяет точное давление в каждой шине с помощью датчиков и автоматически предупреждает водителя в случае как постепенного, так и быстрого падения давления
+              .services-item__meta
+                .services-item__price 28 000 ₽
+                .button-simple Подробнее
+  include /videos
+  include /contacts

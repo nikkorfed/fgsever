@@ -1,0 +1,59 @@
+.series
+  background: $white
+  // background-color: $backgroundGrey
+  
+  &-item
+    display: flex
+    +border-grey
+    text-decoration: none
+    transition: border-color .3s, box-shadow .3s, transform .3s
+
+    &:hover
+      border-color: transparent
+      +light-shadow
+
+    &__icon
+      top: 0
+      right: 0
+      z-index: 0
+      margin-right: $horizontalOffset
+      font-size: 40px
+      font-weight: 900
+      text-transform: uppercase
+      line-height: 35px
+      color: #eee
+
+      +small
+        margin-right: $smallHorizontalOffset
+        font-size: 50px
+        line-height: 45px
+
+      +medium
+        margin-right: $mediumHorizontalOffset
+        font-size: 60px
+        line-height: 50px
+
+      +large
+        margin-right: $largeHorizontalOffset
+        font-size: 70px
+        line-height: 55px
+
+    &__content
+      display: flex
+      flex-direction: column
+      justify-content: space-between
+      align-items: flex-start
+
+    &__text
+
+    &__subtitle
+      margin-bottom: $verticalInnerOffset
+
+      +small
+        margin-bottom: $smallVerticalInnerOffset
+
+      +medium
+        margin-bottom: $mediumVerticalInnerOffset
+
+      +large
+        margin-bottom: $largeVerticalInnerOffset

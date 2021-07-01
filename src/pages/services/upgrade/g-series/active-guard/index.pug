@@ -1,0 +1,88 @@
+extends /layout.pug
+
+block variables
+  - var name = 'main_active-guard';
+  - var section = 'Услуга';
+  - var title = 'Active Guard (5AV)';
+  //- - var models = 'G05/G06/G07';
+  - var seoTitle = 'Установка ' + title + ' на BMW в Москве | Автосервис BMW «FGSEVER»';
+  - var subtitle = 'Предупреждение о cтолкновении с препятствием или наезде на пешехода с функцией торможения, а также предупреждение о выходе за пределы полосы движения с активным подруливанием.';
+  - var path = {'/services/': 'Услуги', '/services/upgrade/': 'Дооснащение', '/services/upgrade/g-series/': 'G&nbsp;серия', '': 'Active Guard (5AV)'};
+  - var button = ['popup', '#upgrade-appointment', 'Записаться на дооснащение'];
+
+block content
+  +main(name, path, section, title, subtitle, button)
+  section.video
+    .wrapper
+      .columns
+        .col-md-6.col-lg-7
+          .text
+            .overtitle Введение
+            h2 Видеоинструкция
+            .subtitle Вы можете посмотреть официальное видео от компании BMW, в котором подробно рассказывается про основную функцию опции Active Guard, а именно про предупреждение о столкновении с функцией торможения — что это из себя представляет, принцип работы и для чего это вообще нужно.
+            a.button(data-fancybox href='/videos/collision-warning.mp4') Смотреть видео
+        .col-md-6.col-lg-5
+          a.preview(data-fancybox href='/videos/collision-warning.mp4')
+            img(src='/images/services/upgrade/g-series/collision-warning/cover.jpg')
+            .play-button
+              .icon.play-white
+  section.description
+    .wrapper
+      .titles
+        .overtitle Об услуге
+        h2 Описание
+      .block
+        .icon.information-color
+        h3 Что это такое?
+        p Опция Active Guard представляет из себя набор вспомогательных систем, которые обеспечивают дополнительную безопасность при управлении автомобилем. В опцию входит следующий набор функций:
+        ul
+          li #[a.link(href target='_blank') предупреждение о столкновении с препятствием с функцией торможения];
+          li #[a.link(href='/services/upgrade/g-series/pedestrian-collision-warning' target='_blank') предостережение о наезде на пешехода с функцией торможения];
+          li #[a.link(href='/services/upgrade/g-series/lane-departure-warning' target='_blank') система предупреждения о выходе за пределы полосы движения с активным рулевым управлением].
+        p В зависимости от комплектации в некоторых странах, в которых действуют требования NCAP, вместе с опциями Active Guard (5AV) или Active Guard Plus (5AQ) предлагается индикатор ограничения скорости. В других странах для распознавания дорожных знаков требуется наличие рассматриваемого ниже дополнительного оборудования:
+        ul
+          li #[a.link(href='/services/upgrade/g-series/active-cruise-control' target='_blank') активный круиз-контроль с функцией Stop&Go (5DF)];
+          li #[a(target='_blank') система Driving Assistant (5AS)];
+          li #[a(target='_blank') система Driving Assistant Professional (5AU)].
+        p Однако это не всегда является обязательным условием для реализации функции чтения дорожных знаков. С помощью соответствующего отдельного кода и перекодирования отдельных параметров опция Active Guard может быть дополнена следующими функциями:
+        ul
+          li #[a.link(href='/services/upgrade/g-series/road-signs-detection' target='_blank') чтение дорожных знаков];
+          li #[a.link(href='/services/upgrade/g-series/forecasted-speed-limit-indicator' target='_blank') прогнозирующий индикатор ограничения скорости].
+        h3 Требования для установки опции
+        ul
+          li замена лобового стекла, так как в нем располагается крепление для камеры KAFAS и зона обогрева камеры;
+          li замена накладка ножки зеркала (кожуха);
+          li прокладка проводки камеры KAFAS;
+          li установка камеры KAFAS;
+          li активация кодов для камеры KAFAS в зависимости от необходимого функционала;
+          li установка виброгенератор в руль;
+          li установка блока в рулевое колесо;
+          li замена панели климат-контроля на аналогичную с кнопкой для активации ассистентов (опционально, +30 000 руб).
+        p Время установки опции составляет 5 часов. После установки проводится полное обновление ПО автомобиля и активация камеры KAFAS.
+        h3 Возможное расширение системы
+        p В дальнейшем автомобиль может дооснащаться и систему можно расширить до более высокого уровня:
+        ul
+          li #[a.link(href='/services/upgrade/g-series/active-guard-plus' target='_blank') Active Guard Plus (5AQ)]. Система дополняется передним радарным датчиком, который используется для предупреждений соответствующего уровня (предварительного или экстренного предупреждения). Данные камеры KAFAS используются для проверки достоверности неподвижных объектов. Функция торможения для предупреждения о наезде с объединением данных из камеры KAFAS доступна в диапазоне скорости от 5 до 210 км/ч, а при его отсутсвии от 5 до 85 км/ч. Максимальное снижение скорости за счет торможения составляет не более 60 км/ч.
+          li #[a.link(href target='_blank') Driving Assistant (5AS)]. Включает в себя все выше перечисленные функции и дополнительно предупреждение об опасности при перестроении с активным рулевым управлением.
+          li #[a.link(href='/services/upgrade/g-series/active-cruise-control' target='_blank') Активный круиз-контроль с функцией Stop&Go (5DF)]. При наличии опции Active Guard Plus (5AQ) дополнительно потребуется замена кнопок руля и активация кода для переднего радарного датчика.
+        .highlighted Оставляем за собой право на опечатки, смысловые ошибки и технические изменения.
+  //- section.prices
+  //-   .wrapper
+  //-     .titles
+  //-       .overtitle Об услуге
+  //-       h2 Стоимость
+  //-     .block
+  //-       .table-wrapper
+  //-         .table
+  //-           table
+  //-             tr.table-header
+  //-               td Услуга
+  //-               td Стоимость
+  //-             tr
+  //-               td Активация пакета кодов на одну камеру
+  //-               td 70 000 ₽
+  //- include /maintenance/photos/computer-diagnostics
+  include /videos
+  include /about/advantages
+  include /about
+  include /contacts

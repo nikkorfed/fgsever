@@ -1,0 +1,21 @@
+extends /layout.pug
+
+block variables
+  - var name = 'main_ac-refueling';
+  - var section = 'Услуга';
+  - var title = 'Диагностика и заправка кондиционеров BMW&nbsp;8&nbsp;серии';
+  - var models = 'G14/G15/G16, F91/F92/F93';
+  - var seoTitle = title + ' (' + models + ') в Москве | Автосервис BMW «FGSEVER»';
+  - var subtitle = 'Услуги по обслуживанию кондиционеров BMW 8&nbsp;серии в Москве — диагностика системы кондиционирования, проверка герметичности и определение утечек, плановое обслуживание системы, заправка кондиционера.';
+  - var path = {'/services/': 'Услуги', '/services/ac-refueling/': 'Диагностика и заправка кондиционеров BMW', '': '8 серия'};
+  - var button = ['popup', '#ac-refueling-appointment', 'Записаться на обслуживание кондиционера'];
+
+block content
+  +main(name, path, section, title, subtitle, button, models)
+  include /ac-refueling/video
+  include /ac-refueling/description
+  include /ac-refueling/prices
+  include /ac-refueling/equipment
+  include /about/advantages
+  include /about
+  include /contacts

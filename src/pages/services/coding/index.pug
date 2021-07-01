@@ -1,0 +1,15 @@
+extends /layout.pug
+
+block variables
+  - var name = 'main_coding';
+  - var section = 'Направление';
+  - var title = 'Кодирование опций BMW';
+  - var seoTitle = title + ' в Москве | Автосервис BMW «FGSEVER»';
+  - var subtitle = 'Услуги кодирования опций в автомобилях BMW в Москве — память системы Start&Stop, разблокировка видео в движении, отключение звукового сигнала о непристегнутом ремне безопасности и других.';
+  - var path = {'/services/': 'Услуги', '': title};
+
+
+block content
+  +main(name, path, section, title, subtitle)
+  include /coding/series
+  include /contacts

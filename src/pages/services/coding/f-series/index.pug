@@ -1,0 +1,273 @@
+extends /layout.pug
+
+block variables
+  - var name = 'main_coding';
+  - var section = 'Направление';
+  - var title = 'Кодирование опций BMW F серии';
+  - var seoTitle = 'Кодирование опций BMW F серии в Москве | Автосервис BMW «FGSEVER»';
+  - var subtitle = 'Услуги кодирования опций в автомобилях BMW в Москве — память системы Start&Stop, разблокировка видео в движении, отключение звукового сигнала о непристегнутом ремне безопасности и других.';
+  - var path = {'/services/': 'Услуги', '/services/coding/': 'Кодирование опций BMW', '': 'F&nbsp;серия'};
+  - var button = ['popup', '#coding-appointment', 'Записаться на кодирование опций'];
+
+
+block content
+  +main(name, path, section, title, subtitle, button)
+  section.description
+    .wrapper
+      .titles
+        .overtitle О направлении
+        h2 Описание
+      .block
+        h3 Что такое кодирование опций
+        p Кодирование опций на автомобилях BMW позволяет добавлять или убирать различные возможности в автомобиль, а также изменять его настройки. Говоря более точным языком, кодирование — это изменение настроек электронных блоков управления на другие. Различные варианты настроек уже изначально заложены автопроизводителем, поэтому кодирование не причиняет вред работе электроники и любые кодировки работают в штатном режиме.
+        p При выпуске каждого автомобиля завод кодирует его под определённую  комплектацию, под различные стандарты стран, в которые он поставляется, например, под нормы токсичности и особый климат. С помощью кодирования можно включить те опции и функции, которые были заложены заводом-изготовителем, но не были включены в комплектацию из-за различных маркетинговых интересов или стандартов страны, для которой предназначен автомобиль.
+        h3 Когда нужно кодирование
+        p Кодирование необходимо, если вы хотите добавить в работу своего автомобиль какие-либо новшества, такие как заставка в M-стиле при запуске автомобиля или спортивные приборы. Также кодирование необходимо практически всегда при изменении конфигурации автомобиля или его дооснащении.
+        h3 Стоимость кодирования
+        .highlighted
+          p Цена кодирования не более 3-х опций составляет 3 000 ₽, любого количества опций — 6 000 ₽.
+  section.coding(data-car='f-series')
+    .wrapper
+      .titles
+        .overtitle Наши услуги
+        h2 Кодируемые опции
+      .block
+        //- .coding-item.disabled(data-fancybox data-src='#tire-temperature')
+        .coding-item.disabled
+          //- .coding-item__image
+            img(src='/images/services/upgrade/f-series/kafas-min.jpg')
+          .coding-item__content
+            .coding-item__text
+              .coding-item__title Отображение информации о температуре в шинах
+              .coding-item__description В системе контроля давления в шинах (RDC) дополнительно отображается информация о температуре воздуха в каждой шине
+          //- .popup.coding-item__popup#tire-temperature
+            h3 Отображение информации о температуре в шинах
+            .subtitle В системе контроля давления в шинах (RDC) дополнительно отображается информация о температуре воздуха в каждой шине
+        .coding-item.disabled
+          //- .coding-item__image
+            img(src='/images/services/upgrade/f-series/something-min.jpg')
+          .coding-item__content
+            .coding-item__text
+              .coding-item__title Запоминание последнего состояния системы автоматического запуска и остановки двигателя
+              .coding-item__description Система автоматического запуска и остановки двигателя при запуске автомобиля всегда будет находиться в том же состоянии, что и до выключения автомобиля
+        .coding-item.disabled
+          //- .coding-item__image
+            img(src='/images/services/upgrade/f-series/something-min.jpg')
+          .coding-item__content
+            .coding-item__text
+              .coding-item__title Автоматическое закрытие окна при открытой двери
+              .coding-item__description В обычной ситуации при открытой двери автомбиля для полного закрытия окна необходимо удерживать кнопку стеклоподъемника. С активированной данной опцией, достаточно нажать кнопку до конца и окно закроется в автоматическом режиме
+        .coding-item.disabled
+          //- .coding-item__image
+            img(src='/images/services/upgrade/f-series/something-min.jpg')
+          .coding-item__content
+            .coding-item__text
+              .coding-item__title Увеличение яркости дневных ходовых огней (ДХО)
+              .coding-item__description При включенном режиме стояночных огней яркость освещения будет увеличена до 100%. Эта настройка подходит для тех случаев, когда также активируется работа задних фонарей при работе ДХО
+        .coding-item.disabled
+          //- .coding-item__image
+            img(src='/images/services/upgrade/f-series/something-min.jpg')
+          .coding-item__content
+            .coding-item__text
+              .coding-item__title Подсветка ручек дверей при движении задним ходом
+              .coding-item__description При движении на автомобиле задним ходом загораются лампы освещения, расположенные в ручках дверей. Данная функция улучшает видимость автомобиля при движении в темное и ночное время суток
+        .coding-item.disabled
+          //- .coding-item__image
+            img(src='/images/services/upgrade/f-series/something-min.jpg')
+          .coding-item__content
+            .coding-item__text
+              .coding-item__title Отвязка подсветки салона от колесика регулировки яркости комбинации приборов
+              .coding-item__description Колесико регулировки яркости комбинации приборов перестаёт дополнительно регулировать яркость мультимедийной системы. Она остаётся заданной на уровне 100%, что может быть отрегулировано позже в меню мультимедийной системы
+        .coding-item.disabled
+          //- .coding-item__image
+            img(src='/images/services/upgrade/f-series/something-min.jpg')
+          .coding-item__content
+            .coding-item__text
+              .coding-item__title Выключение противотуманных фар при активации дальнего света
+              .coding-item__description При включенных противотуманных фарах и последующем включении режима дальнего света, противотуманные фары временно отключаются. Данная настройка улучшает видимость автомобиля при моргании светом встречным автомобилям
+        .coding-item.disabled
+          //- .coding-item__image
+            img(src='/images/services/upgrade/f-series/something-min.jpg')
+          .coding-item__content
+            .coding-item__text
+              .coding-item__title Настройка режима работы стеклоочистителей и омывателей фар
+              .coding-item__description Детальная настройка количества импульсов полива фар (по умолчанию происходит два импульса), а также количества взмахов стеклоочистителей между импульсами подачи воды на лобовое стекло. Также возможно полное отключение функции омывания фар
+        .coding-item.disabled
+          //- .coding-item__image
+            img(src='/images/services/upgrade/f-series/something-min.jpg')
+          .coding-item__content
+            .coding-item__text
+              .coding-item__title Отключение дневных ходовых огней (ДХО) 
+              .coding-item__description В меню появляется возможность отключить дневные ходовые огни. В таком случае, при использовании режимов 0 и Auto кольца в фарах не загораются, а при использовании режима стояночных огней кольца работают с 50% яркостью
+        .coding-item.disabled
+          //- .coding-item__image
+            img(src='/images/services/upgrade/f-series/something-min.jpg')
+          .coding-item__content
+            .coding-item__text
+              .coding-item__title Отображение спортивных приборов
+              .coding-item__description Появляется возможность в меню мультимедийной системы запустить спортивные приборы, которые отображают мощность и крутящий момент, выдаваемые в настоящий момент двигателем автомобиля. Доступно также на мониторах маленького размера, но спортивные приборы работать не будут
+        .coding-item.disabled
+          //- .coding-item__image
+            img(src='/images/services/upgrade/f-series/something-min.jpg')
+          .coding-item__content
+            .coding-item__text
+              .coding-item__title Вопроизведение видео с USB-накопителей
+              .coding-item__description Возможность воспроизведения видеофайлов с различных USB-накопителей, внешних жестких дисков, и т. д. Системой поддерживается большое количество форматов видео. Дополнительно можно активировать возможность сохранения видеофайлов на жесткий диск мультимедийной системы
+        .coding-item.disabled
+          //- .coding-item__image
+            img(src='/images/services/upgrade/f-series/something-min.jpg')
+          .coding-item__content
+            .coding-item__text
+              .coding-item__title Отключение сигнала о непристегнутом ремне безопасности при запуске автомобиля
+              .coding-item__description Отключение звукового сигнала и графического предупреждения на комбинации приборов о непристегнутом ремне безопасности при запуске автомобиля. При этом на комбинации приборов продолжит появляться красный индикатор, сообщающий о непристегнутом ремне безопаности, а при начале движения автомобиля всё же появятся звуковой сигнал и графическое предупреждение
+        .coding-item.disabled
+          //- .coding-item__image
+            img(src='/images/services/upgrade/f-series/something-min.jpg')
+          .coding-item__content
+            .coding-item__text
+              .coding-item__title Отключение сигнала о непристегнутом ремне безопасности при движении автомобиля
+              .coding-item__description Полное отключение звукового сигнала и графического предупреждения о непристегнутом ремне безопаности даже при движении автомобиля. Вместе с этим отключается красный предупреждающий индикатор на комбинации приборорв, также сообщающий о непристегнутом ремне безопасности
+        .coding-item.disabled
+          //- .coding-item__image
+            img(src='/images/services/upgrade/f-series/something-min.jpg')
+          .coding-item__content
+            .coding-item__text
+              .coding-item__title Освещение поворотов противотуманными фарами при повороте рулевого колеса
+              .coding-item__description Освещение противотуманными фарами сооветствующей стороны поворота при повороте рулевого колеса или включении указателя поворота. Полезно в ночное время суток, так как противотуманные фары предоставляют боковое освещения и позволяют увидеть различные препятствия. Данная опция используется на автомобилях концерна «Volkswagen AG» и компании «Mercedes-Benz»
+        .coding-item.disabled
+          //- .coding-item__image
+            img(src='/images/services/upgrade/f-series/something-min.jpg')
+          .coding-item__content
+            .coding-item__text
+              .coding-item__title Отображение текущей скорости в цифровом виде на комбинации приборов
+              .coding-item__description Вывод на комбинацию приборов значения текущей скорости в цифровом виде. Данная функция увеличивает скорость считывания скорости с комбинации приборов и повышает удобство при управлении автомобилем
+        .coding-item.disabled
+          //- .coding-item__image
+            img(src='/images/services/upgrade/f-series/something-min.jpg')
+          .coding-item__content
+            .coding-item__text
+              .coding-item__title Удаление пустой строки в бортовом компьютере (БК)
+              .coding-item__description При переключении состояний бортового компьютера на комбинации приборов появляется пустая строка, в которой не отображаются какие-либо данные. Данная настройка позволяет избавиться от этого явления
+        .coding-item.disabled
+          //- .coding-item__image
+            img(src='/images/services/upgrade/f-series/something-min.jpg')
+          .coding-item__content
+            .coding-item__text
+              .coding-item__title Отображение логотипа M Performance на комбинации приборов
+              .coding-item__description При запуске и остановке двигателя на комбинации приборов появляется соответствующая анимация в фирменном стиле M Performance. Данная настройка доступна только в автомобилях, оснащённых расширенной комбинацией приборов и выше
+        .coding-item.disabled
+          //- .coding-item__image
+            img(src='/images/services/upgrade/f-series/something-min.jpg')
+          .coding-item__content
+            .coding-item__text
+              .coding-item__title Активация задних фонарей при включении дневных ходовых огней (ДХО)
+              .coding-item__description Активация работы задних фонарей при движении в светлое время суток при включенных дневных ходовых огнях (ДХО). При отключении ДХО, задние фонари также отключаются
+        .coding-item.disabled
+          //- .coding-item__image
+            img(src='/images/services/upgrade/f-series/something-min.jpg')
+          .coding-item__content
+            .coding-item__text
+              .coding-item__title Отключение системы проверки исправности ламп накаливания
+              .coding-item__description Необходимо при установке в автомобиль светодиодных ламп. По причине того, что светодиодные лампы имеют меньшее сопротивление, блок управления освещения принимает лампу за неисправную и начинает регулярно выполнять её проверку, из-за чего она начинает мигать. Для устранения этого эффекта такую проверку необходимо отключить
+        .coding-item.disabled
+          //- .coding-item__image
+            img(src='/images/services/upgrade/f-series/something-min.jpg')
+          .coding-item__content
+            .coding-item__text
+              .coding-item__title Автоматическая активация режима Eco Pro при запуске автомобиля
+              .coding-item__description При запуске двигателя режимом движения, активированным по умолчанию, становится режим Eco Pro
+        .coding-item.disabled
+          //- .coding-item__image
+            img(src='/images/services/upgrade/f-series/something-min.jpg')
+          .coding-item__content
+            .coding-item__text
+              .coding-item__title Добавление режима движения Sport+
+              .coding-item__description Данный режим движения позволяет двигаться на автомобиле с ограниченной системой стабилизации и прочими агрегатами, работающими в спортивном режиме. В обычном режиме движения Sport, система стабилизации полностью включена. Подходит для тех, кто предпочитает активный стиль езды со скольжениями
+        .coding-item.disabled
+          //- .coding-item__image
+            img(src='/images/services/upgrade/f-series/something-min.jpg')
+          .coding-item__content
+            .coding-item__text
+              .coding-item__title Возможность конфигурирования режима Sport+
+              .coding-item__description Появляется возможность детально настроить режим работы различных агрегатов автомобиля в режиме движения Sport+. Вы можете самостоятельно выбрать те агрегаты автомобиля, которые будут работать в спортивном режиме. Будет доступно 3 варианта: двигатель и коробка передач, только двигатель или только коробка передач
+        .coding-item.disabled
+          //- .coding-item__image
+            img(src='/images/services/upgrade/f-series/something-min.jpg')
+          .coding-item__content
+            .coding-item__text
+              .coding-item__title Автоматическое складывание наружних зеркал при кратком нажатии кнопки блокировки
+              .coding-item__description При запирании автомобиля и постановке в режим охраны наружние зеркала заднего вида складываются автоматически. Нет необходимости удерживать для этого кнопку на пульте дистанционного управления
+        .coding-item.disabled
+          //- .coding-item__image
+            img(src='/images/services/upgrade/f-series/something-min.jpg')
+          .coding-item__content
+            .coding-item__text
+              .coding-item__title Звуковое подтверждение при отпирании или запирании автомобиля 
+              .coding-item__description В меню мультимедийной системы появляется возможность включить звуковое подтверждение при отпирании и запирании автомобиля. Данная настройка доступна только для автомобилей, оснащенных штатной системой охранной сигнализации
+        .coding-item.disabled
+          //- .coding-item__image
+            img(src='/images/services/upgrade/f-series/something-min.jpg')
+          .coding-item__content
+            .coding-item__text
+              .coding-item__title Запрет выхода из режима охраны при открытии двери механическим ключом
+              .coding-item__description Штатная охранная сигнализация не отключается автоматически при открытии двери автомобиля механическим ключом или отверткой. Данная настройка доступна только при наличии опции 877
+        .coding-item.disabled
+          //- .coding-item__image
+            img(src='/images/services/upgrade/f-series/something-min.jpg')
+          .coding-item__content
+            .coding-item__text
+              .coding-item__title Активация функции активный круиз контроль 
+              .coding-item__description Добавление в автомобиль опции активного круиз-контроля (544). Для реализации данной опции необходима замена кнопок на рулевом колесе, а также подходящая комбинация приборов
+        .coding-item.disabled
+          //- .coding-item__image
+            img(src='/images/services/upgrade/f-series/something-min.jpg')
+          .coding-item__content
+            .coding-item__text
+              .coding-item__title Разблокировка видео (TV, DVD) и интернета в движении
+              .coding-item__description Данная настройка после активации позволяет просматривать видео (TV, DVD), а также пользоваться интернетом при движении автомобиля
+        .coding-item.disabled
+          //- .coding-item__image
+            img(src='/images/services/upgrade/f-series/something-min.jpg')
+          .coding-item__content
+            .coding-item__text
+              .coding-item__title Отображение номера выбранной передачи АКПП на комбинации приборов
+              .coding-item__description В режиме S автоматической коробки переключения передач (АКПП) на комбинации приборов взамен надписи DS отображается номер выбранной передачи в виде S1, S2, ... S8
+        .coding-item.disabled
+          //- .coding-item__image
+            img(src='/images/services/upgrade/f-series/something-min.jpg')
+          .coding-item__content
+            .coding-item__text
+              .coding-item__title Отключение автоматического запуска кондиционера при переходе в режим Auto
+              .coding-item__description При переключении из режима ручного управления климатической установкой в автоматический перестаёт происходить автоматическое включение кондиционера (A/C)
+        .coding-item.disabled
+          //- .coding-item__image
+            img(src='/images/services/upgrade/f-series/something-min.jpg')
+          .coding-item__content
+            .coding-item__text
+              .coding-item__title Автоматическое отключение головного устройства при остановленном двигателе и открытии двери
+              .coding-item__description В обычных условиях головное устройство автомобиля отключается после запирания автомобиля. При активации данной настройки головное устройство автомобиля отключается при остановке двигателя и открытии водительской двери
+        .coding-item.disabled
+          //- .coding-item__image
+            img(src='/images/services/upgrade/f-series/something-min.jpg')
+          .coding-item__content
+            .coding-item__text
+              .coding-item__title Включение и изменение стартовой анимации мультимедийной системы
+              .coding-item__description На выбор предоставляется пять различных стартовых анимаций при запуске автомобиля, начиная от стандартных анимаций BMW ConnectedDrive и M Performance, и заканчивая анимацией в стиле Alpina
+        .coding-item.disabled
+          //- .coding-item__image
+            img(src='/images/services/upgrade/f-series/something-min.jpg')
+          .coding-item__content
+            .coding-item__text
+              .coding-item__title Отображение в мультимедийной системе индикации уровня громкости при изменении громкости
+              .coding-item__description Появляется возможность видеть в мультимедийной системе меняющуюся полосу с уровнем громкости при соответствующем изменении уровня громкости 
+        .coding-item.disabled
+          //- .coding-item__image
+            img(src='/images/services/upgrade/f-series/something-min.jpg')
+          .coding-item__content
+            .coding-item__text
+              .coding-item__title Автоматическое закрывание крышки багажника при нажатии кнопки на ключе или в салоне автомобиля 
+              .coding-item__description Активация данной опции делает возможным закрытие крышки багажника при нажатии кнопки на пульте дистанционного управления или в салоне автомобиля
+      .button-area
+        a.button(data-fancybox data-src='#coding-appointment' data-touch='false') Записаться на кодирование опций
+  include /about
+  include /contacts

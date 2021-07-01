@@ -1,0 +1,84 @@
+.posts
+  background-color: $white
+
+  .posts-container
+    margin: 0 0 $verticalInnerOffset
+
+    +small
+      margin: 0 0 $smallVerticalInnerOffset
+
+    +medium
+      margin: 0 0 $mediumVerticalInnerOffset
+
+    +large
+      margin: 0 0 $largeVerticalInnerOffset
+
+    > div
+      padding: 0
+
+  .posts-item
+    display: block
+    overflow: hidden
+    position: relative
+    border: 1px solid white
+
+    &__image
+      height: 250px
+      background-position: 50% 50%
+      background-repeat: no-repeat
+      background-size: cover
+      transition: transform .3s
+
+      +medium
+        height: 300px
+
+    &:hover .posts-item__image
+      transform: scale(1.05)
+
+    &__content
+      position: absolute
+      bottom: 0
+      padding: $smallHorizontalOffset * 2 $smallHorizontalOffset $smallHorizontalOffset $smallHorizontalOffset
+      width: 100%
+      color: $white
+      background-image: $bottomGradient
+
+      +small
+        padding: $smallHorizontalOffset * 2 $smallHorizontalOffset $smallHorizontalOffset $smallHorizontalOffset
+
+      +medium
+        padding: $mediumHorizontalOffset * 2 $mediumHorizontalOffset $mediumHorizontalOffset $mediumHorizontalOffset
+
+      +large
+        padding: $largeHorizontalOffset * 2 $largeHorizontalOffset $largeHorizontalOffset $largeHorizontalOffset
+
+    &__title
+      margin-bottom: $verticalInnerOffset
+      font-weight: bold
+      color: $white
+
+      +small
+        margin-bottom: $smallVerticalInnerOffset
+
+      +medium
+        margin-bottom: $mediumVerticalInnerOffset
+
+      +large
+        margin-bottom: $largeVerticalInnerOffset
+
+    &__info
+      display: flex
+      font-weight: 500
+
+      div
+        padding-left: $largeHorizontalOffset
+        background-position: 0 50%
+
+        &:not(:last-child)
+          margin-right: $smallHorizontalOffset
+
+        &:last-child
+          padding-left: 0
+
+.posts + .videos
+  background-color: $backgroundGrey

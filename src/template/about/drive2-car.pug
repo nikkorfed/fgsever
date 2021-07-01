@@ -1,0 +1,16 @@
+<? $car = json_decode(file_get_contents($_SERVER['DOCUMENT_ROOT'] . '/data/drive2-car.json'), true) ?>
+a.drive2-car(href!="<? echo $car['url'] ?>")
+  .drive2-car__image(style!="background-image: url('<? echo $car['image'] ?>')")
+  .drive2-car__info
+    div
+      .drive2-car__title <? echo $car['title'] ?>
+      .drive2-car__owner <? echo $car['owner'] ?>
+      .drive2-car__city Москва
+    div
+      .drive2-car__numbers
+        .drive2-car__likes.icon.like-white <? echo $car['likes'] ?>
+        .drive2-car__comments.icon.comment-white <? echo $car['comments'] ?>
+      .drive2-car__numbers
+        .drive2-car__drive <? echo $car['drive'] ?>
+        .drive2-car__followers <? echo $car['followers'] ?> #[span читателей]
+        .drive2-car__posts <? echo $car['posts'] ?> 

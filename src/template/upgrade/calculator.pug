@@ -1,0 +1,66 @@
+section.calculator#upgrade-calculator
+  .wrapper
+    .titles
+      .icon.calculator-color
+      .overtitle Калькулятор
+      h2 Выбор опций для дооснащения по VIN
+      .subtitle В этом калькуляторе вы можете выбрать необходимые опции и рассчитать точную стоимость дооснащения вашего автомобиля по его идентификационному #[span.nowrap номеру (VIN)].
+      .highlighted
+        p Обращаем ваше внимание на то, что данный калькулятор автоматически запрашивает данные об установленных в вашем автомобиле опциях на официальных ресурсах компании BMW и исходя из этого предлагает возможности дооснащения.
+      //- .warning
+        p Калькулятор работает только для автомобилей BMW G серии и в данный момент находится в процессе тестирования, из-за чего в его работе могут возникать ошибки. Просим сообщать об обнаруженных неточностях в наш #[a(href='https://wa.me/79039760045' onclick="ym(56693602,'reachGoal','whatsapp'); return true;") WhatsApp].
+    form.car-data-input
+      .input-field
+        input.input#vin-number(type="text" placeholder="VIN-номер (7 или 17 знаков)" required)
+      button.button(onclick="ym(56693602,'reachGoal','upgradeCalculation'); return true;") Подобрать
+    .popup#calculation
+      .popup__icon.icon.loading-icon
+        .loading-icon__element
+      h3 Идёт подбор
+      p Происходит проверка опций вашего автомобиля и подбор возможных для дооснащения.
+    .calculator-result
+      .car-info
+        .columns
+          .col-lg-6
+            h3 Информация об автомобиле
+            .car-info__vin.car-spec
+              .label VIN: 
+              .text
+            .car-info__model.car-spec
+              .label Модель: 
+              .text
+            .car-info__model-code.car-spec
+              .label Обозначение кузова: 
+              .text
+            .car-info__production-date.car-spec
+              .label Дата изготовления: 
+              .text
+          .col-lg-6
+            .car-info__images
+        .car-info__options.hidden.columns
+          .car-info__options-factory.col-md-6
+            .car-info__title Заводские опции
+          .car-info__options-installed.col-md-6
+            .car-info__title Дополнительно установленные опции
+        .col-12.button-area
+          .button-simple.toggle-options Показать все опции
+      .categories
+        h3 Выберите опции для дооснащения
+        .tabs
+      .upgrade-options.columns
+      .block
+          .loading-icon_new
+      .summary-costs
+        .wrapper
+          .summary-costs__block
+            .options-number
+            .total-cost
+              .name Общая стоимость
+              .value 0 ₽
+          .summary-costs__options-list
+            .list
+            .button-simple.remove-all Удалить все опции
+      .button-area
+        .button(data-fancybox data-src='#upgrade-appointment' data-touch='false') Записаться на дооснащение
+    .to-top-button
+

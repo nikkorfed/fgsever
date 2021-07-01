@@ -1,0 +1,330 @@
+.popup
+  display: none
+  border-radius: $borderRadius
+  padding: $smallVerticalOuterOffset $smallHorizontalOffset
+  max-width: 400px
+  text-align: center
+  font-family: 'Montserrat' !important
+  transform: translateY(10px)
+  transition: transform .3s
+
+  +medium
+    padding: $mediumVerticalOuterOffset $mediumHorizontalOffset
+    max-width: 500px
+
+  +large
+    padding: $largeVerticalOuterOffset $largeHorizontalOffset
+
+  &__icon
+    margin: 0 auto 10px
+    border-radius: 30px
+    height: 60px
+    width: 60px
+    background-color: $backgroundGrey
+    background-size: 30px
+
+    +medium
+      margin-bottom: 20px
+      border-radius: 40px
+      height: 80px
+      width: 80px
+      background-size: 40px
+
+    &.loading-icon
+      background-color: transparent
+
+    &.tick-black
+      background-size: 20px
+
+      +medium
+        background-size: 30px
+
+    &.important-black
+      background-size: 10px
+
+      +medium
+        background-size: 12px
+
+  h3
+    margin-bottom: 10px
+    
+    +medium
+      font-size: 18px
+
+  p
+    font-weight: 500
+
+    &:last-child
+      margin-bottom: 0
+
+  &.text-left
+    text-align: left
+
+  &.details
+    max-width: 800px
+    text-align: left
+
+    img
+      display: block
+      margin: 0 auto $verticalInnerOffset
+      max-width: 200px
+
+      +small
+        margin: 0 auto $smallVerticalInnerOffset
+
+      +medium
+        margin: 0 auto $mediumVerticalInnerOffset
+
+      +large
+        margin: 0 auto $largeVerticalInnerOffset
+
+  &__buttons
+    margin-top: $verticalOuterOffset
+
+    +small
+      margin-top: $smallVerticalOuterOffset
+
+    & > *:first-child
+      margin-right: $horizontalOffset
+
+      +small
+        margin-right: $smallHorizontalOffset
+
+      +medium
+        margin-right: $mediumHorizontalOffset
+
+      +large
+        margin-right: $largeHorizontalOffset
+
+  &#multiple-cars-founded
+    .popup__cars
+      margin-bottom: $verticalInnerOffset
+
+      +small
+        margin-bottom: $smallVerticalInnerOffset
+
+      +medium
+        margin-bottom: $mediumVerticalInnerOffset
+
+      +large
+        margin-bottom: $largeVerticalInnerOffset
+
+    .popup__car
+      @extend .popup__option
+      position: relative
+      padding-left: calc(15px + #{$horizontalOffset}) !important
+      cursor: pointer
+
+      +small
+        padding-left: calc(20px + #{$smallHorizontalOffset}) !important
+
+      +medium
+        padding-left: calc(20px + #{$mediumHorizontalOffset}) !important
+        
+      &::before
+        position: absolute
+        left: 0
+        +radioButton
+        transition: background-color .3s
+
+      &:not(.selected)
+        &::before
+          background-color: $backgroundGrey
+
+    .car__model
+      margin-right: 10px
+      color: $black
+
+    .car__model-code
+      margin-right: auto
+      color: $lighterGrey
+
+  &#upgrade-options-changes
+    position: relative
+    border-radius: 0px
+    padding: 0
+    background: none
+
+    .required-changes, .recommended-changes
+      display: none
+      margin-bottom: $verticalOuterOffset
+      border-radius: $borderRadius
+      padding: $smallVerticalOuterOffset $smallHorizontalOffset
+      background-color: $white
+
+      +small
+        margin-bottom: $smallVerticalOuterOffset
+
+      +medium
+        padding: $mediumVerticalOuterOffset $mediumHorizontalOffset
+
+      +large
+        padding: $largeVerticalOuterOffset $largeHorizontalOffset
+
+      &.active
+        display: block
+
+    p
+      margin-bottom: 10px
+      text-align: center
+
+    .red
+      color: $red
+
+    .grey
+      color: $lightGrey
+
+    .popup__buttons
+      overflow: hidden
+
+      & > *
+        width: calc(50% - #{$verticalOuterOffset / 2})
+
+        +small
+          width: calc(50% - #{$smallVerticalOuterOffset / 2})
+
+  &__upgrade-changes
+    text-align: left
+
+  &__group-name
+    border-bottom: 1px solid $backgroundGrey
+    padding: 10px 0
+    font-weight: 500
+    color: $grey
+
+  &__option
+    display: flex
+    justify-content: space-between
+    align-items: center
+    font-weight: 500
+    border-bottom: 1px solid $backgroundGrey
+    padding: 10px 0
+
+    &:first-child
+      border-top: 1px solid $backgroundGrey
+
+    .option__title
+      color: $black
+
+    .option__code
+      margin-right: 10px
+      color: $lightGrey
+
+      &:empty
+        display: none
+
+    .option__price
+      margin-left: 10px
+      color: $lighterGrey
+      white-space: nowrap
+
+  &__add-options
+    .popup__group-name
+      // color: $red
+
+  &__remove-options
+    .popup__group-name
+      // color: $red
+
+    .popup__option
+      text-decoration: line-through
+      opacity: .5
+
+  &__select-options
+    .popup__group-name
+      // color: $red
+
+    .popup__option
+      position: relative
+      padding-left: calc(15px + #{$horizontalOffset})
+      cursor: pointer
+
+      +small
+        padding-left: calc(20px + #{$smallHorizontalOffset})
+
+      +medium
+        padding-left: calc(20px + #{$mediumHorizontalOffset})
+        
+      &::before
+        position: absolute
+        left: 0
+        +radioButton
+        transition: background-color .3s
+
+      &:not(.selected)
+        &::before
+          background-color: $backgroundGrey
+
+  &__recommended-options
+    .popup__group-name
+      // color: $primaryColor
+    
+    .popup__option
+      position: relative
+      padding-left: calc(15px + #{$horizontalOffset})
+      cursor: pointer
+
+      +small
+        padding-left: calc(20px + #{$smallHorizontalOffset})
+
+      +medium
+        padding-left: calc(20px + #{$mediumHorizontalOffset})
+        
+      &::before
+        position: absolute
+        left: 0
+        +checkbox
+        transition: background-color .3s
+
+      &:not(.selected)
+        &::before
+          background: $backgroundGrey
+
+  &__recommended-select-options
+    .popup__group-name
+      // color: $primaryColor
+
+    @extend .popup__select-options
+
+  &__option-parts
+    @extend .popup__recommended-options
+
+  &__option-types
+    @extend .popup__select-options
+
+  &__additional-changes
+    display: none
+
+    &.active
+      display: block
+
+  &#drive2-car
+    text-align: left
+    max-width: 800px
+
+    svg
+      color: $white
+
+    .drive2-car
+      margin: -#{$verticalOuterOffset} -#{$horizontalOffset} #{$verticalOuterOffset}
+      border-bottom-left-radius: 0
+      border-bottom-right-radius: 0
+      width: calc(100% + 2 * #{$horizontalOffset})
+
+      +small
+        margin: -#{$smallVerticalOuterOffset} -#{$smallHorizontalOffset} #{$smallVerticalOuterOffset}
+        width: calc(100% + 2 * #{$smallHorizontalOffset})
+
+      +medium
+        margin: -#{$mediumVerticalOuterOffset} -#{$mediumHorizontalOffset} #{$mediumVerticalOuterOffset}
+        width: calc(100% + 2 * #{$mediumHorizontalOffset})
+
+      +large
+        margin: -#{$largeVerticalOuterOffset} -#{$largeHorizontalOffset} #{$largeVerticalOuterOffset}
+        width: calc(100% + 2 * #{$largeHorizontalOffset})
+
+      &:hover
+        transform: none
+
+.fancybox-slide--current .popup
+  transform: none

@@ -1,0 +1,60 @@
+extends /layout.pug
+
+block variables
+  <? include '../../scripts/php/post.php' ?>
+  - var name = 'main_blog';
+  - var section = 'Запись';
+  - var title = "<? echo $title ?>";
+  - var seoTitle = title + ' | Автосервис BMW «FGSEVER»';
+  - var subtitle = 'Запись в блоге о том , какие работы мы выполняем и над какими проектами работаем. Оригинальную запись можно прочитать на автомобильном портале DRIVE2.RU.';
+  - var path = {'/blog/': 'Блог', '': title};
+
+block content
+  section(class=`main ${name}`)
+    .wrapper
+      .path
+        a.item(href='/') Главная
+        each value, key in path
+          .icon.chevron-right-white
+          if key
+            a.item(href=key) !{value}
+          else
+            span !{value}
+      .titles
+        .overtitle !{section}
+        h1 !{title}
+        .post-info
+          .icon.like-white <? echo $likes ?>
+          .icon.comment-white <? echo $comments ?>
+          div  <? echo $date ?>
+  section.post
+    .wrapper
+      .content
+        <? foreach ($body as $element) { ?>
+          <? if (pq($element)->is('div.c-post__pic')) { ?>
+            <? $imageUrl = pq($element)->find('a')->attr('href'); ?>
+            <? $imageMin = pq($element)->find('img')->attr('src'); ?>
+            <? $desc = pq($element)->find('.c-post__desc')->text(); ?>
+            <? if (empty($imageUrl)) { ?>
+              .image
+                img(src!="<? echo $imageMin ?>")
+                .text <? echo $desc ?>
+            <? } else { ?>
+              .image
+                a(data-fancybox href!="<? echo $imageUrl ?>")
+                  img(src!="<? echo $imageMin ?>")
+              <? if (!empty($desc)) { ?> 
+              .image-text <? echo $desc ?>
+              <? } ?>
+            <? } ?>
+          <? } else if (preg_replace('/\s/', '', pq($element)->html()) != '') { ?>
+            p <? echo pq($element)->html() ?>
+          <? } ?>
+        <? } ?>
+        .post-footer
+          .post-info
+            .icon.like-black <? echo $likes ?>
+            .icon.comment-black <? echo $comments ?>
+            div  <? echo $date ?>
+          a.button-simple(href!="<? echo $url ?>") Читать на DRIVE2.RU
+  include /contacts

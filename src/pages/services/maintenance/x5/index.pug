@@ -1,0 +1,17 @@
+extends /layout.pug
+
+block variables
+  - var name = 'main_high main_x5'
+  - var section = 'Услуга';
+  - var title = 'Техническое обслуживание BMW&nbsp;X5';
+  - var models = 'G05, F95, F15, F85, E70, E53';
+  - var seoTitle = 'Техническое обслуживание BMW X5 (' + models + ') в Москве | Автосервис BMW «FGSEVER»';
+  - var subtitle = 'Услуги по техническому обслуживанию (ТО) BMW X5 в Москве — компьютерная и общая диагностика, замена масел и технических жидкостей, тормозных дисков и колодок, цепи ГРМ, ремонт и замена ДВС, мойка радиаторов, ремонт рулевой рейки.';
+  - var path = {'/services/': 'Услуги', '/services/maintenance/': 'Техническое обслуживание BMW', '': 'X5'};
+  - var button = ['#maintenance-calculator', 'Рассчитать стоимость'];
+
+block content
+  +main(name, path, section, title, subtitle, button, models)
+  include /maintenance/calculator
+  include /maintenance/services
+  include /contacts

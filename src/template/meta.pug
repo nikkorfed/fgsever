@@ -1,0 +1,11 @@
+head
+  meta(charset='UTF-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0')
+  meta(http-equiv='X-UA-Compatible' content='ie=edge')
+  link(rel='stylesheet' href='/styles/libraries.css')
+  link(rel='stylesheet' href='/styles/main.css?' + time)
+  link(rel='icon' type='image/png' href='/images/favicon/favicon-16x16.png' sizes='16x16')
+  link(rel='icon' type='image/png' href='/images/favicon/favicon-32x32.png' sizes='32x32')
+  link(rel='apple-touch-icon' href='/images/favicon/apple-touch-icon.png' sizes='180x180')
+  title!= seoTitle
+  meta(name='description' content=subtitle.replace(/&nbsp;/g, ' '))

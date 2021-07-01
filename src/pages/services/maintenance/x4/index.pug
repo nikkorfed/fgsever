@@ -1,0 +1,17 @@
+extends /layout.pug
+
+block variables
+  - var name = 'main_high main_x4'
+  - var section = 'Услуга';
+  - var title = 'Техническое обслуживание BMW&nbsp;X4';
+  - var models = 'G02, F98, F26';
+  - var seoTitle = 'Техническое обслуживание BMW X4 (' + models + ') в Москве | Автосервис BMW «FGSEVER»';
+  - var subtitle = 'Услуги по техническому обслуживанию (ТО) BMW X4 в Москве — компьютерная и общая диагностика, замена масел и технических жидкостей, тормозных дисков и колодок, цепи ГРМ, ремонт и замена ДВС, мойка радиаторов, ремонт рулевой рейки.';
+  - var path = {'/services/': 'Услуги', '/services/maintenance/': 'Техническое обслуживание BMW', '': 'X4'};
+  - var button = ['#maintenance-calculator', 'Рассчитать стоимость'];
+
+block content
+  +main(name, path, section, title, subtitle, button, models)
+  include /maintenance/calculator
+  include /maintenance/services
+  include /contacts

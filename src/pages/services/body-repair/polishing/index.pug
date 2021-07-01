@@ -1,0 +1,51 @@
+extends /layout.pug
+
+block variables
+  - var name = 'main_body-repair';
+  - var section = 'Услуга';
+  - var title = 'Полировка';
+  - var seoTitle = title + ' BMW в Москве | Автосервис BMW «FGSEVER»';
+  - var subtitle = 'Восстановление лакокрасочного покрытия (ЛКП), полировка передней и задней оптики, полировка отдельных элементов кузова, нанесение жидкого стекла и керамики.';
+  - var path = {'/services/': 'Услуги', '/services/body-repair/': 'Кузовной ремонт', '': title};
+
+block content
+  +main(name, path, section, title, subtitle, button)
+  section.services
+    .wrapper
+      .titles
+        .overtitle Наши услуги
+        h2 Виды работ
+      .columns
+        .col-md-6.col-lg-4
+          a.services-item(href='paint-restoration/')
+            .services-item__content
+              .services-item__text
+                .services-item__title
+                  h3 Восстановление лакокрасочного покрытия
+                .subtitle.services-item__subtitle Полная полировка всего кузова автомобиля для придания ему первоначального блеска
+              .button-simple Подробнее
+        .col-md-6.col-lg-4
+          a.services-item(href='lights/')
+            .services-item__content
+              .services-item__text
+                .services-item__title
+                  h3 Полировка оптики
+                .subtitle.services-item__subtitle Восстановительная полировка передней или задней оптики для устранения помутнений
+              .button-simple Подробнее
+        .col-md-6.col-lg-4
+          a.services-item(href='parts/')
+            .services-item__content
+              .services-item__text
+                .services-item__title
+                  h3 Полировка элементов кузова
+                .subtitle.services-item__subtitle Восстановление и полировка любых кузовных элементов по вашему выбору
+              .button-simple Подробнее
+        .col-md-6.col-lg-4
+          a.services-item(href='liquid-glass-and-ceramics/')
+            .services-item__content
+              .services-item__text
+                .services-item__title
+                  h3 Нанесение жидкого стекла и керамики
+                .subtitle.services-item__subtitle Нанесение на автомобиль различных защитных покрытий
+              .button-simple Подробнее
+  include /contacts

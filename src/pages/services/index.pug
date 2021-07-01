@@ -1,0 +1,14 @@
+extends /layout.pug
+
+block variables
+  - var name = 'main_services';
+  - var section = 'Раздел';
+  - var title = 'Услуги';
+  - var seoTitle = title + ' | Автосервис BMW «FGSEVER»';
+  - var subtitle = 'Наш автосервис предоставляет услуги по дооснащению, тюнингу, кодированию, ремонту и техническому обслуживанию (ТО) автомобилей BMW в Москве.';
+  - var path = {'': title};
+
+block content
+  +main(name, path, section, title, subtitle)
+  include /services
+  include /contacts

@@ -1,0 +1,50 @@
+.photos
+  background: $backgroundGrey
+  background: $white
+
+  .columns
+    margin: 0 0 $verticalOuterOffset
+
+    +small
+      margin: 0 0 $smallVerticalOuterOffset
+
+    +medium
+      margin: 0 0 $mediumVerticalOuterOffset
+
+    +large
+      margin: 0 0 $largeVerticalOuterOffset
+
+    > div
+      padding: 0
+
+  .photo
+    display: block
+    box-sizing: border-box
+    overflow: hidden
+    position: relative
+    border: 1px solid $backgroundGrey
+    padding-bottom: 100%
+
+    img
+      position: absolute
+      height: 100%
+      object-fit: cover
+      transition: .3s
+
+    &:hover
+      img
+        transform: scale(1.05)
+
+.promo + .photos, .reviews + .photos
+  background-color: $white
+
+  .photo
+    border: 1px solid $white
+
+.instagram
+
+  .overtitle
+    transition: color .3s
+
+    &:hover
+      color: $primaryColor

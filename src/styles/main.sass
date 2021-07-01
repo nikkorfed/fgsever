@@ -1,0 +1,771 @@
+@import 'variables', 'mixins', 'fonts', 'icons', 'animations'
+
+// Основные структурные элементы
+
+body
+  position: relative
+  zoom: 85%
+  margin: 0
+  font-family: $font
+  font-size: 13px
+  line-height: 1.5
+  -webkit-font-smoothing: antialiased
+  color: $grey
+  background: $backgroundBlack
+
+  +extra-small
+    zoom: 100%
+
+  +small
+    font-size: 14px
+
+  +medium
+    padding-top: 0
+    font-size: 15px
+
+.overlay
+  visibility: hidden
+  position: fixed
+  z-index: 3
+  height: 100vh
+  width: 100vw
+  background-color: $transparentBlack
+  opacity: 0
+  cursor: pointer
+  transition: .3s
+
+  &.active
+    visibility: visible
+    opacity: 1
+
+section, div
+  box-sizing: border-box
+
+.wrapper
+  margin: 0 auto
+  padding: 0 $horizontalOffset
+  height: 100%
+  max-width: $maxWrapperWidth
+
+  &::before, &::after
+    display: table
+    clear: both
+    content: ''
+
+  +small
+    padding: 0 $smallHorizontalOffset
+
+  +medium
+    padding: 0 $mediumHorizontalOffset
+
+  +large
+    padding: 0 $largeHorizontalOffset
+
+.wrapper_no-padding
+  padding: 0
+  
+.columns
+  display: flex
+  flex-wrap: wrap
+  margin: 0 -#{$horizontalOffset / 2}
+
+  +small
+    margin: 0 -#{$smallHorizontalOffset / 2}
+
+  +medium
+    margin: 0 -#{$mediumHorizontalOffset / 2}
+
+  +large
+    margin: 0 -#{$largeHorizontalOffset / 2}
+
+  +col-all
+    padding: 0 $horizontalOffset / 2
+    width: 100%
+
+  +col
+
+  +small
+    +col-all
+      padding: 0 $smallHorizontalOffset / 2
+
+    +col-sm
+
+  +medium
+    +col-all
+      padding: 0 $mediumHorizontalOffset / 2
+
+    +col-md
+
+  +large
+    +col-all
+      padding: 0 $largeHorizontalOffset / 2
+
+    +col-lg
+
+  +extra-large
+    +col-xl
+
+.block
+  display: block
+  box-sizing: border-box
+  margin-bottom: $horizontalOffset
+  border-radius: $borderRadius
+  padding: $horizontalOffset
+  min-height: calc(100% - #{$horizontalOffset})
+  background-color: $white
+
+  +small
+    margin-bottom: $smallHorizontalOffset
+    padding: $smallHorizontalOffset
+    min-height: calc(100% - #{$smallHorizontalOffset})
+
+  +medium
+    margin-bottom: $mediumHorizontalOffset
+    padding: $mediumHorizontalOffset
+    min-height: calc(100% - #{$mediumHorizontalOffset})
+
+  +large
+    margin-bottom: $largeHorizontalOffset
+    padding: $largeHorizontalOffset
+    min-height: calc(100% - #{$largeHorizontalOffset})
+
+.titles
+  +medium
+    max-width: 800px
+
+.row
+  display: flex
+  flex-wrap: wrap
+
+h1
+  margin: 0 0 $verticalInnerOffset
+  font-size: 18px
+  color: $white
+
+  +small
+    margin: 0 0 $smallVerticalInnerOffset
+    font-size: 26px
+
+  +medium
+    margin: 0 0 $mediumVerticalInnerOffset
+    font-size: 28px
+
+  +large
+    margin: 0 0 $largeVerticalInnerOffset
+    font-size: 30px
+
+  +max
+    font-size: 34px
+
+h2
+  margin: $verticalOuterOffset 0
+  font-size: 16px
+  color: #333
+
+  +small
+    margin: $smallVerticalOuterOffset 0
+    font-size: 20px
+
+  +medium
+    margin: $mediumVerticalOuterOffset 0
+    font-size: 22px
+
+  +large
+    margin: $largeVerticalOuterOffset 0
+    font-size: 26px
+
+  &::after
+    display: block
+    margin-top: 10px
+    content: ''
+    height: 3px
+    width: 40px
+    background-color: $primaryColor
+
+    +small
+      margin-top: 10px
+
+    +medium
+      width: 50px
+
+    +large
+      margin-top: 15px
+
+h3
+  margin: 0 0 $verticalInnerOffset
+  font-size: 15px
+  text-decoration: none
+  color: #333
+
+  +small
+    margin-bottom: $smallVerticalInnerOffset
+    // font-size: 18px
+
+  +medium
+    margin-bottom: $mediumVerticalInnerOffset
+    // font-size: 20px
+    font-size: 16px
+
+  +large
+    margin-bottom: $largeVerticalInnerOffset
+    // font-size: 22px
+    font-size: 17px
+
+  .icon
+    display: inline-block
+    vertical-align: middle
+    margin-bottom: 4px
+    margin-left: 15px
+    height: 14px
+    width: 14px
+    background-size: contain
+
+.overtitle
+  display: block
+  margin-top: $verticalOuterOffset
+  font-size: 11px
+  font-weight: bold
+  text-decoration: none
+  text-transform: uppercase
+  letter-spacing: 2.5px
+  color: $lightGrey
+
+  +small
+    margin-top: $smallVerticalOuterOffset
+
+  +medium
+    margin-top: $mediumVerticalOuterOffset
+    font-size: 13px
+
+  +large
+    margin-top: $largeVerticalOuterOffset
+
+  & ~ h2
+    margin-top: 0
+
+a.overtitle
+  transition: color .3s
+
+  &:hover
+    color: $primaryColor
+
+.subtitle
+  margin-bottom: $verticalOuterOffset
+  font-size: 13px
+  font-weight: 500
+  line-height: 1.8
+  color: $grey
+
+  +small
+    margin-bottom: $smallVerticalOuterOffset
+    font-size: 14px
+
+  +medium
+    margin-bottom: $mediumVerticalOuterOffset
+    font-size: 15px
+
+  +large
+    margin-bottom: $largeVerticalOuterOffset
+
+.max-width
+  max-width: 1000px
+
+.tabs
+  display: inline-block
+  margin-bottom: 15px
+  font-size: 12px
+  font-weight: bold
+  // text-transform: uppercase
+  color: $lighterGrey
+
+  +small
+    margin-bottom: 20px
+    font-size: 13px
+
+  +medium
+    margin-bottom: $mediumVerticalInnerOffset
+    font-size: 14px
+
+  +large
+    margin-bottom: $largeVerticalInnerOffset
+
+  &-item
+    display: inline-block
+    margin-right: $horizontalOffset
+    border-bottom: 2px solid transparent
+    padding: 5px 0
+    color: $lighterGrey
+    cursor: pointer
+    transition: border-color .3s, color .3s, box-shadow .3s
+
+    +small
+      margin-right: $smallHorizontalOffset
+
+    +medium
+      margin-right: $mediumHorizontalOffset
+      // padding: 10px 0
+
+    // +large
+      margin-right: $largeHorizontalOffset
+
+    &:last-child
+      margin-right: 0
+    
+    &:hover
+      color: $black
+      
+    &.active
+      border-color: $primaryColor
+      color: $black
+      // box-shadow: inset 0 -2px 0 0 $primaryColor
+
+[data-target]:not(.active)
+  display: none !important
+
+[data-target].active
+  display: block
+
+p
+  margin: 0 0 $verticalInnerOffset
+  line-height: 1.8
+
+  +small
+    margin-bottom: $smallVerticalInnerOffset
+
+  +medium
+    margin-bottom: $mediumVerticalInnerOffset
+
+  +large
+    margin-bottom: $largeVerticalInnerOffset
+
+hr
+  margin-bottom: $verticalInnerOffset
+  border: none
+  height: 2px
+  background-color: $backgroundGrey
+
+  +small
+    margin-bottom: $smallVerticalInnerOffset
+
+  +medium
+    margin-bottom: $mediumVerticalInnerOffset
+
+  +large
+    margin-bottom: $largeVerticalInnerOffset
+
+ul, ol
+  @extend p
+  padding-left: 0
+  list-style: none
+
+  li
+    margin-bottom: 5px
+
+    &::before
+      display: inline-block
+      box-sizing: border-box
+      margin-right: 10px
+      // border: 2px solid $primaryColor
+      border: none
+      border-top: 2px solid $primaryColor
+      // border-radius: 50%
+      border-radius: 0
+      // height: 9px
+      height: auto
+      vertical-align: middle
+      width: 9px
+      content: ''
+
+      +medium
+        margin-right: 15px
+
+  ul
+    padding-left: $horizontalOffset
+
+    +small
+      padding-left: $smallHorizontalOffset
+
+    +medium
+      padding-left: $mediumHorizontalOffset
+
+    +large
+      padding-left: $largeHorizontalOffset
+
+    // li
+    //   &::before
+    //     border: none
+    //     border-top: 2px solid $primaryColor
+    //     border-radius: 0
+    //     height: auto
+    //     vertical-align: middle
+
+.link
+  border-bottom: 1px solid $lightPrimaryColor
+  font-weight: 500
+  text-decoration: none
+  color: $primaryColor
+
+h3 .link
+  font-weight: 700
+
+b
+  color: $black
+
+img
+  width: 100%
+
+*:focus
+  outline: none
+
+// Дополнительные графические элементы
+
+.logo
+  background-image: $whiteLogo
+  background-position: 50% 50%
+  background-repeat: no-repeat
+
+.menu
+  display: flex
+
+  &__item
+    font-weight: bold
+    color: white
+    text-decoration: none
+    // white-space: nowrap
+
+.button-simple
+  display: inline-block
+  margin: 0
+  border: none
+  border-bottom: 2px solid $lightPrimaryColor
+  font-size: 13px
+  font-weight: bold
+  text-decoration: none
+  line-height: normal
+  color: $primaryColor
+  cursor: pointer
+  appearance: none
+  transition: opacity .3s
+
+  +medium
+    font-size: 14px
+
+  +large
+    font-size: 15px
+
+  &.disabled
+    opacity: .5
+    cursor: default
+
+.button
+  @extend .button-simple
+  padding: 6px $horizontalOffset
+  border: none
+  border-radius: $borderRadius
+  color: $white
+  background-color: $primaryColor
+  transition: background-color .3s, opacity .3s
+
+  +small
+    padding: 8px $smallHorizontalOffset
+
+  +medium
+    padding: 10px $mediumHorizontalOffset
+
+  +large
+    padding: 10px $largeHorizontalOffset
+
+  &:hover
+    background-color: lighten($primaryColor, 5%)
+
+  &.disabled
+    background-color: $primaryColor
+
+.button-outline
+  @extend .button-simple
+  border: 2px solid $white
+  padding: 4px #{$horizontalOffset - 2px}
+  border-radius: $borderRadius
+  color: $white
+  transition: color .3s, background-color .3s, opacity .3s
+
+  +small
+    padding: 6px #{$smallHorizontalOffset - 2px}
+
+  +medium
+    padding: 8px #{$mediumHorizontalOffset - 2px}
+
+  +large
+    padding: 8px #{$largeHorizontalOffset - 2px}
+
+  &:hover
+    color: $black
+    background-color: $white
+
+  &:disabled
+    color: $white
+    background-color: transparent 
+
+.input
+  box-sizing: border-box
+  margin: 0 0 $verticalInnerOffset
+  border: none
+  border-radius: $borderRadius
+  padding: 10px 15px
+  width: 100%
+  font-size: 13px
+  color: $black
+  background-color: $backgroundGrey
+  appearance: none
+  transition: box-shadow .3s
+
+  +small
+    margin-bottom: $smallVerticalInnerOffset
+    padding: 15px 20px
+
+  +medium
+    margin-bottom: $mediumVerticalInnerOffset
+    font-size: 14px
+
+  +large
+    margin-bottom: $largeVerticalInnerOffset
+    font-size: 15px
+
+  &::placeholder
+    color: $lightGrey
+
+  &:focus
+    box-shadow: 0 0 0 2px $primaryColor
+
+=checkbox
+  display: inline-block
+  content: ''
+  border-radius: $borderRadius
+  min-height: 15px
+  min-width: 15px
+  background-image: svg-load('images/icons/tick.svg', fill="#{$black}")
+  background-position: 50% 50%
+  background-repeat: no-repeat
+  background-color: $backgroundGrey
+  background-size: 6px
+
+  +small
+    min-height: 20px
+    min-width: 20px
+    background-size: 8px
+
+  +medium
+    // min-height: 40px
+    // min-width: 40px
+    background-size: 10px
+
+=radioButton
+  display: inline-block
+  box-sizing: border-box
+  content: ''
+  border: 5px solid $backgroundGrey
+  border-radius: 50%
+  min-height: 15px
+  min-width: 15px
+  background-color: $primaryColor
+
+  +small
+    min-height: 20px
+    min-width: 20px
+
+  +medium
+    // min-height: 40px
+    // min-width: 40px
+
+.nowrap
+  white-space: nowrap
+
+// Таблицы
+
+.table-wrapper
+
+  .main-section
+    display: block
+    border-bottom: 1px solid $backgroundGrey
+    padding: 10px 0
+    font-weight: bold
+    color: #333
+    background-image: svg-load('images/icons/chevron-down.svg', fill="#{$grey}")
+    background-position: 100% 50%
+    background-repeat: no-repeat
+    background-size: 10px
+    cursor: pointer
+
+    &.last
+      border-bottom: none
+
+      + .table
+        display: none
+
+    &.open
+      border-bottom: 1px solid $backgroundGrey
+      background-image: svg-load('images/icons/chevron-up.svg', fill="#{$grey}")
+
+      + .table
+        display: block
+
+  .table table
+    border-collapse: collapse
+    width: 100%
+
+    tr
+      border-bottom: 1px solid $backgroundGrey
+
+      td
+        padding: 10px 15px 10px 0
+        min-width: 65px
+        text-align: right
+        font-size: 13px
+
+        +small
+          font-size: 14px
+          min-width: 75px
+
+        +medium
+          font-size: inherit
+          padding: 15px 20px 15px 0
+
+        &.section
+          font-weight: bold
+          color: $black
+
+        &:first-child
+          text-align: left
+
+        &:last-child
+          padding-right: 0
+
+      &:first-child td
+        padding-top: 0
+
+      &:last-child 
+        border-bottom: none
+        
+        td
+          padding-bottom: 0
+
+      &.table-header td
+        color: $lightGrey
+
+      &.table-summary td
+        font-weight: bold
+        color: $black
+
+  .main-section
+
+    +medium
+      padding: 15px 0
+
+      + .table table tr:first-child td
+        padding-top: 10px
+
+        +medium
+        padding-top: 15px
+
+    &:not(.last) + .table table tr:last-child td
+      border-bottom: 1px solid $backgroundGrey
+      padding-bottom: 10px
+
+      +medium
+        padding-bottom: 15px
+
+  .reference
+    border-top: 1px solid $backgroundGrey
+    padding: 10px 0
+
+    +medium
+      padding: 15px 0
+
+// Контакты и социальные сети
+
+.contact-label
+  line-height: 1.8
+  color: $lightGrey
+
+  &.socials-label
+    margin-bottom: 10px
+
+.contact-text
+  display: block
+  margin-bottom: $verticalInnerOffset
+  font-weight: 500
+  text-decoration: none
+  line-height: 1.8
+  color: #333
+
+  +small
+    margin-bottom: $smallVerticalInnerOffset
+
+  +medium
+    margin-bottom: $mediumVerticalInnerOffset
+
+  +large
+    margin-bottom: $largeVerticalInnerOffset
+
+.social-buttons
+  display: flex
+  align-items: center
+
+  &__social-icon
+    box-sizing: border-box
+    margin-right: 10px
+    border-radius: $borderRadius
+    height: 40px
+    width: 40px
+    background-color: $grey
+    background-size: 18px
+
+    +medium
+      height: 45px
+      width: 45px
+      background-size: 20px
+
+    .drive2-white
+      overflow: hidden
+      height: 100%
+      width: calc(100% - 15px)
+      background-position: -3px 50%
+      background-size: 115px
+
+      +medium
+        width: calc(100% - 16px)
+        background-position: -3px 50%
+        background-size: 130px
+
+.social-buttons.colorful
+  .social-buttons__social-icon
+    &.instagram-white
+      background-image: svg-load('images/icons/instagram.svg' fill='#{$white}'), $instagramColor
+      background-size: 18px, auto
+
+      +medium
+        background-size: 20px, auto
+
+    &.whatsapp-white
+      background-color: $whatsAppColor
+
+    &.viber-white
+      background-color: $viberColor
+
+    &.telegram-white
+      background-image: svg-load('images/icons/telegram.svg' fill='#{$white}'), $telegramColor
+      background-size: 18px, auto
+
+      +medium
+        background-size: 20px, auto
+
+    &.drive2
+      background-color: $drive2Color
+
+    &.youtube-white
+      margin-right: 0
+      background-color: $youtubeColor
+
+// Стили других блоков
+
+@import 'blocks/index'

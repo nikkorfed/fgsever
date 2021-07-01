@@ -1,0 +1,21 @@
+mixin main(name, path, section, title, subtitle, button, models)
+  section(class=`main ${name}`)
+    .wrapper
+      .path
+        a.item(href='/') Главная
+        each value, key in path
+          .icon.chevron-right-white
+          if key
+            a.item(href=key) !{value}
+          else
+            span !{value}
+      .titles
+        .overtitle !{section}
+        h1 !{title}
+        if models
+          .models-info !{models}
+        .subtitle !{subtitle}
+        if button && button[0] == 'popup'
+          a.button(data-fancybox data-src=button[1] data-touch='false') #{button[2]}
+        else if button
+          a.button(href=button[0]) #{button[1]}

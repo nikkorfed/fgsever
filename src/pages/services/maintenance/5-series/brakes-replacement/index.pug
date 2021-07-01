@@ -1,0 +1,46 @@
+extends /layout.pug
+
+block variables
+  - var name = 'main_high main_5-series';
+  - var section = 'Вид работ';
+  - var title = 'Замена тормозных дисков и колодок в BMW&nbsp;5&nbsp;серии';
+  - var models = 'G30/G31, F90, F10/F11/F07, E60/E61, E39';
+  - var seoTitle = 'Замена тормозных дисков и колодок в BMW 5 серии (' + models + ') в Москве | Автосервис BMW «FGSEVER»';
+  - var subtitle = 'Услуги по плановой замене тормозных дисков и колодок, а также полной замене тормозной системы на спортивную M в автомобилях BMW 5&nbsp;серии в Москве. Мы выполним все необходимые работы по обслуживанию вашего автомобиля и ответим на все интересующие вас вопросы.';
+  - var path = {'/services/': 'Услуги', '/services/maintenance/': 'Техническое обслуживание BMW', '/services/maintenance/5-series/': '5&nbsp;серия', '': 'Замена тормозных дисков и колодок'};
+  - var button = ['popup', '#maintenance-appointment', 'Записаться'];
+
+block content
+  +main(name, path, section, title, subtitle, button, models)
+  include /maintenance/description/brakes-replacement
+  section.prices
+    .wrapper
+      .titles
+        .overtitle Об услуге
+        h2 Стоимость
+      .block
+        .table-wrapper
+          .table
+            table
+              tr.table-header
+                td Услуга
+                td Стоимость
+              tr
+                td Замена передних тормозных дисков
+                td 1 800 ₽
+              tr
+                td Замена передних тормозных колодок
+                td 1 500 ₽
+              tr
+                td Замена задних тормозных дисков
+                td 2 500 ₽
+              tr
+                td Замена задних тормозных колодок
+                td 2 000 ₽
+              tr
+                td Замена тормозной системы на спортивную M
+                td Рассчитывается индивидуально
+  include /maintenance/photos/brakes-replacement
+  include /about/advantages
+  include /about  
+  include /contacts

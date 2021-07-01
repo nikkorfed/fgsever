@@ -1,0 +1,38 @@
+.overlay
+section.header-mobile
+  .row.header-mobile__row
+    .header-mobile__menu-button
+      input(type='checkbox').header-mobile__menu-switcher
+      .header-mobile__menu-icon
+        span
+        span
+        span
+    a.logo.header-mobile__logo(href='/')
+    a.header-mobile__phone-button(href='tel:+74991100045' onclick="ym(56693602,'reachGoal','phone'); return true;")
+      i.fas.fa-phone-alt
+  .menu.header-mobile__menu
+    include menu
+section.header
+  .header-top
+    .wrapper.header__wrapper
+      .row.header__row.header-top__row
+        .header-top__contact
+          .header-top__contact-icon.icon.address
+          a.contact-text.header-top__contact-text(href='https://yandex.ru/maps/-/CKqOBALH' onclick="ym(56693602,'reachGoal','yandexMaps'); return true;") г. Москва, ул. Илимская, 1Бс1
+        .header-top__contact 
+          .header-top__contact-icon.icon.clock
+          div.contact-text.header-top__contact-text Ежедневно: 9:00 — 20:00
+        .header-top__contact
+          .header-top__contact-icon.icon.phone
+          a.contact-text.header-top__contact-text(href='tel:+74991100045' onclick="ym(56693602,'reachGoal','phone'); return true;") +7 (499) 110–00–45
+        .social-buttons.colorful
+          include social-buttons
+  .header-main
+    .wrapper.wrapper_no-padding.header__wrapper
+      .row.header__row
+        .header-main__logo-group
+          a.logo.header-main__logo(href='/')
+          .header-main__slogan Сервис, ремонт, техобслуживание (ТО), дооснащение и кодирование BMW
+        .menu.header-main__menu
+          include menu
+          //- .button.header-main__button Выберите автомобиль

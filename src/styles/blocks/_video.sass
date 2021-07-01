@@ -1,0 +1,68 @@
+section.video
+  background-color: $backgroundGrey
+
+  .columns > *
+    display: flex
+    flex-direction: column
+    justify-content: center
+
+  .columns > *:first-child
+    align-items: flex-start
+
+  .columns > *:last-child
+    align-items: center
+
+  .text
+    max-width: 800px
+
+    .button
+      margin-bottom: $verticalOuterOffset
+
+      +small
+        margin-bottom: $smallVerticalOuterOffset
+
+      +medium
+        margin-bottom: $mediumVerticalOuterOffset
+
+      +large
+        margin-bottom: $largeVerticalOuterOffset
+
+  .preview
+    position: relative
+    margin-bottom: $verticalOuterOffset
+    padding-bottom: 56%
+    width: 100%
+
+    +medium
+      margin: $mediumVerticalOuterOffset 0
+
+    +large
+      margin: $largeVerticalOuterOffset 0
+    
+  iframe, img, video
+    position: absolute
+    border-radius: $borderRadius
+    height: 100%
+    width: 100%
+
+  .play-button
+    display: flex
+    justify-content: center
+    align-items: center
+    position: absolute
+    top: 0
+    left: 0
+    right: 0
+    bottom: 0
+
+  .icon
+    height: 80px
+    width: 80px
+    border: 25px solid transparent
+    border-left-width: 28px
+    border-radius: 100%
+    background-color: $primaryColor
+    transition: transform .3s
+
+  .play-button:hover .icon
+    transform: scale(1.05)

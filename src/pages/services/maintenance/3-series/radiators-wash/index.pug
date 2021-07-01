@@ -1,0 +1,34 @@
+extends /layout.pug
+
+block variables
+  - var name = 'main_high main_3-series';
+  - var section = 'Вид работ';
+  - var title = 'Мойка радиаторов в BMW&nbsp;3&nbsp;серии';
+  - var models = 'G20/G21, F30/F31/F34, F80, E90/E91/E92/E93, E46';
+  - var seoTitle = 'Мойка радиаторов в BMW 3 серии (' + models + ') в Москве | Автосервис BMW «FGSEVER»';
+  - var subtitle = 'Услуги по тщательной мойке радиаторов автомобилей BMW 3&nbsp;серии в Москве. Мы выполним все необходимые работы по обслуживанию вашего автомобиля и ответим на все интересующие вас вопросы.';
+  - var path = {'/services/': 'Услуги', '/services/maintenance/': 'Техническое обслуживание BMW', '/services/maintenance/3-series/': '3&nbsp;серия', '': 'Мойка радиаторов'};
+  - var button = ['popup', '#maintenance-appointment', 'Записаться'];
+
+block content
+  +main(name, path, section, title, subtitle, button, models)
+  include /maintenance/description/radiators-wash
+  section.prices
+    .wrapper
+      .titles
+        .overtitle Об услуге
+        h2 Стоимость
+      .block
+        .table-wrapper
+          .table
+            table
+              tr.table-header
+                td Услуга
+                td Стоимость
+              tr 
+                td Мойка радиаторов
+                td 6 000 ₽ (+ 700 ₽ за литр охлаждающей жидкости)
+  include /maintenance/photos/radiators-wash
+  include /about/advantages
+  include /about  
+  include /contacts

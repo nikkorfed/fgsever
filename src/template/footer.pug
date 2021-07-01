@@ -1,0 +1,44 @@
+section.whatsapp
+  .wrapper
+    .block
+      .columns
+        .col-md-9
+          .overtitle Запись на ремонт, дооснащение #[span или ТО]
+          h3 Запишитесь в наш автосервис по WhatsApp
+        .col-md-3.whatsapp-button-container
+          a.button.icon.whatsapp-white(href='https://wa.me/79039760045' onclick="ym(56693602,'reachGoal','whatsapp'); return true;") WhatsApp
+section.footer
+  .footer__menu-container
+    .wrapper.menu.footer__menu
+      include menu
+  .wrapper
+    .columns
+      .col-md-4
+        h3 Об автосервисе
+        .logo.footer__logo
+        .subtitle.footer__subtitle Сервис, ремонт, техническое обслуживание (ТО), дооснащение и кодирование автомобилей BMW в Москве.
+        .social-buttons  
+          include social-buttons
+      .col-md-4
+        h3 Услуги
+        a.footer__services-item(href='/services/maintenance/') Техническое обслуживание
+        a.footer__services-item(href='/services/upgrade/') Дооснащение
+        a.footer__services-item(href='/services/coding/') Кодирование опций
+        a.footer__services-item(href='/services/body-repair/') Кузовной ремонт
+        a.footer__services-item(href='/services/update/') Обновление ПО и карт навигации
+      .col-md-4.footer__contacts
+        h3 Контакты
+        .contact-label Телефон
+        a.contact-text(href='tel:+74991100045' onclick="ym(56693602,'reachGoal','phone'); return true;") +7 (499) 110–00–45
+        .contact-label Email
+        a.contact-text(href='mailto:riverdale@inbox.ru' onclick="ym(56693602,'reachGoal','email'); return true;") riverdale@inbox.ru
+        .contact-label Адрес
+        a.contact-text(href='https://yandex.ru/maps/-/CKqOBALH' onclick="ym(56693602,'reachGoal','yandexMaps'); return true;") г. Москва, ул. Илимская, 1Бс1
+        .contact-label Часы работы
+        a.contact-text Ежедневно: 9:00 — 20:00
+section.copyrights
+  .wrapper 
+    .copyrights__text © 2014—<? echo date('Y') ?> FGSEVER. Все права защищены.
+include overlay
+include popups
+include scripts

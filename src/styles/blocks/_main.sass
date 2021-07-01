@@ -1,0 +1,222 @@
+.main
+  padding-top: 50px
+  background-position: 50% 50%
+  background-repeat: no-repeat
+  background-size: cover
+
+  +medium
+    padding-top: 50px * 0.85 + 100px
+
+  +large
+    padding-top: 150px
+
+  .overtitle
+    margin-top: $verticalInnerOffset
+
+    +small
+      margin-top: $smallVerticalInnerOffset
+
+    +medium
+      margin-top: $mediumVerticalInnerOffset
+
+    +large
+      margin-top: $largeVerticalInnerOffset
+
+  .models-info
+    margin: -#{$verticalInnerOffset} 0 $verticalInnerOffset
+    font-size: 14px
+    font-weight: 500
+    color: $lightGrey
+
+    +small
+      margin: -#{$smallVerticalInnerOffset} 0 $smallVerticalInnerOffset
+      font-size: 20px
+
+    +medium
+      margin: -#{$mediumVerticalInnerOffset} 0 $mediumVerticalInnerOffset
+      font-size: 22px
+
+    +large
+      margin: -#{$largeVerticalInnerOffset} 0 $largeVerticalInnerOffset
+      font-size: 24px
+
+    +max
+      font-size: 26px
+
+  .subtitle
+    color: $white
+
+  .path
+    margin: $verticalInnerOffset 0 $verticalOuterOffset
+    font-size: 13px
+    font-weight: bold
+    color: $white
+
+    +small
+      margin: $smallVerticalInnerOffset 0 $smallVerticalOuterOffset
+
+    +medium
+      margin: $mediumVerticalInnerOffset 0 $mediumVerticalOuterOffset
+      font-size: inherit
+
+    +large
+      margin: $largeVerticalInnerOffset 0 $largeVerticalOuterOffset
+
+    a
+      margin-right: 10px
+      text-decoration: none
+      color: $white
+
+    .icon
+      display: inline-block
+      margin-right: 10px
+      height: 10px
+      width: 10px
+
+    span:last-child
+      color: $lightGrey
+
+  .button
+    margin-bottom: $verticalOuterOffset
+
+    +small
+      margin-bottom: $smallVerticalOuterOffset
+
+    +medium
+      margin-bottom: $mediumVerticalOuterOffset
+
+    +large
+      margin-bottom: $largeVerticalOuterOffset
+
+  &_high
+    background-color: $backgroundBlack
+
+    .wrapper
+      padding-bottom: 200px
+      background-position: 50% calc(100% + 60px)
+      background-repeat: no-repeat
+      background-size: 550px
+
+      +small
+        padding-bottom: 260px
+        background-position: 50% calc(100% + 80px)
+        background-size: 700px
+
+      +medium
+        padding-bottom: 380px
+        background-size: 900px
+
+      +large
+        padding-bottom: 40px
+        background-position: 125% 50%
+        background-size: 65%
+
+    .titles
+      max-width: none
+
+      +large
+        max-width: 50%
+
+  &_services
+    background-image: $overlay, url('/images/services/main.jpg?2') at-2x
+    background-position: 50% 35%
+
+  &_maintenance
+    background-image: $overlay, url('/images/services/maintenance/main.jpg?2') at-2x
+
+  &_upgrade, &_upgrade-g-series
+    background-image: $overlay, url('/images/services/upgrade/g-series/main.jpg?2') at-2x
+    background-position: 50% 75%
+
+  &_upgrade-f-series
+    background-image: $overlay, url('/images/services/upgrade/f-series/main.jpg?2') at-2x
+
+  &_kafas-activation
+    background-image: $overlay, url('/images/services/upgrade/g-series/kafas-activation/main.jpg?2')
+
+  &_road-signs-detection
+    background-image: $overlay, url('/images/services/upgrade/g-series/road-signs-detection/main.jpg?2')
+
+  &_active-guard
+    background-image: $overlay, url('/images/services/upgrade/g-series/active-guard/main.jpg?2')
+
+  &_collision-warning
+    background-image: $overlay, url('/images/services/upgrade/g-series/pedestrian-collision-warning/main.jpg?2')
+
+  &_lane-departure-warning
+    background-image: $overlay, url('/images/services/upgrade/g-series/lane-departure-warning/main.jpg?2')
+
+  &_active-cruise-control
+    background-image: $overlay, url('/images/services/upgrade/g-series/active-cruise-control/main.jpg?2')
+
+  &_coding
+    background-image: $overlay, url('/images/services/coding/main.jpg?2') at-2x
+
+  &_body-repair
+    background-image: $overlay, url('/images/services/body-repair/main.jpg?2') at-2x
+
+  &_update
+    background-image: $overlay, url('/images/services/update/main.jpg?2') at-2x
+
+  &_ac-refueling
+    background-image: $overlay, url('/images/services/ac-refueling/main.jpg?2') at-2x
+
+  &_1-series .wrapper
+    background-image: url('/images/models/1-series/main.png')
+
+  &_2-series .wrapper
+    background-image: url('/images/models/2-series/main.png')
+
+  &_3-series .wrapper
+    background-image: url('/images/models/3-series/main.png')
+
+  &_4-series .wrapper
+    background-image: url('/images/models/4-series/main.png')
+
+  &_5-series .wrapper
+    background-image: url('/images/models/5-series/main.png')
+
+  &_6-series .wrapper
+    background-image: url('/images/models/6-series/main.png')
+
+  &_7-series .wrapper
+    background-image: url('/images/models/7-series/main.png')
+
+  &_8-series .wrapper
+    background-image: url('/images/models/8-series/main.png')
+
+  &_x1 .wrapper
+    background-image: url('/images/models/X1/main.png')
+
+  &_x2 .wrapper
+    background-image: url('/images/models/X2/main.png')
+
+  &_x3 .wrapper
+    background-image: url('/images/models/X3/main.png')
+
+  &_x4 .wrapper
+    background-image: url('/images/models/X4/main.png')
+
+  &_x5 .wrapper
+    background-image: url('/images/models/X5/main.png')
+
+  &_x6 .wrapper
+    background-image: url('/images/models/X6/main.png')
+
+  &_x7 .wrapper
+    background-image: url('/images/models/X7/main.png')
+
+  &_z4 .wrapper
+    background-image: url('/images/models/Z4/main.png')
+
+  &_blog
+    background-image: $overlay, url('/images/blog/main.jpg') at-2x
+    background-position: 50% 60%
+
+  &_about
+    background-image: $overlay, url('/images/about/main.jpg') at-2x
+    background-position: 50% 40%
+
+  &_contacts
+    background-image: $overlay, url('/images/contacts/main.jpg') at-2x
+    background-position: 50% 40%

@@ -1,0 +1,52 @@
+extends /layout.pug
+
+block variables
+  - var name = 'main_blog';
+  - var section = 'Раздел';
+  - var title = 'Блог';
+  - var seoTitle = title + ' | Автосервис BMW «FGSEVER»';
+  - var subtitle = 'Новости и видео с интересными работами и проектами нашего автосервиса. Новости автоматически подгружаются из нашего профиля на автомобильном портале DRIVE2.RU, а видео о проектах и работах — с канала на YouTube.';
+  - var path = {'': title};
+  - var button = ['#videos', 'Перейти к видео']
+
+block content
+  +main(name, path, section, title, subtitle, button)
+  <? $posts = json_decode(file_get_contents($_SERVER['DOCUMENT_ROOT'] . '/data/posts.json'), true) ?>
+  section.posts#posts
+    .wrapper
+      .titles
+        a.overtitle(href!="<? echo $posts['url'] ?>" onclick="ym(56693602,'reachGoal','drive2'); return true;") Наш блог на DRIVE2.RU
+        h2 Записи
+      .posts-container.columns
+        <? foreach ($posts['posts'] as $id => $post) { ?>
+          .col-12.col-sm-6.col-lg-4.col-xl-3
+            a.posts-item(href!="id/?id=<? echo $id ?>")
+              .posts-item__image(style!="background-image: url('<? echo $post['image'] ?>')")
+              .posts-item__content
+                .posts-item__title <? echo $post['title'] ?>
+                .posts-item__info
+                  .icon.like-white <? echo $post['likes'] ?>
+                  .icon.comment-white <? echo $post['comments'] ?>
+                  div <? echo $post['date'] ?>
+        <? } ?>
+      .button-area
+        a.button-simple(href!="<? echo $posts['url'] ?>" onclick="ym(56693602,'reachGoal','drive2'); return true;") Все <? echo $posts['numberOfPosts'] ?> на DRIVE2.RU
+  <? $videos = json_decode(file_get_contents($_SERVER['DOCUMENT_ROOT'] . '/data/videos.json'), true) ?>
+  section.videos#videos
+    .wrapper
+      .titles
+        a.overtitle(href!="<? echo $videos['url'] ?>" onclick="ym(56693602,'reachGoal','youtube'); return true;") Наш канал на YouTube
+        h2 Видео
+      .columns
+        <? foreach ($videos['videos'] as $video) { ?>
+          a.videos-item.col-6.col-sm-4.col-lg-3.col-xl-2(data-fancybox href!="<? echo $video['url'] ?>")
+            .videos-item__image
+              img(src!="<? echo $video['image'] ?>")
+            .videos-item__title <? echo $video['title'] ?>
+            .videos-item__views <? echo $video['views'] ?>
+            .videos-item__date <? echo $video['date'] ?>
+        <? } ?>
+      .button-area
+        a.button-simple(href!="<? echo $videos['url'] ?>" onclick="ym(56693602,'reachGoal','drive2'); return true;") Перейти на YouTube
+  include /about
+  include /contacts

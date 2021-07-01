@@ -1,0 +1,131 @@
+.popup.appointment#maintenance-appointment
+  .icon.popup__icon.maintenance-color
+  h3 Записаться на техническое обслуживание
+  p Наш менеджер перезвонит вам в ближайшее время и поможет записаться на техническое обслуживание вашего автомобиля.
+  form.form-maintenance-appointment
+    input.input(type='text' name='name' placeholder='Фамилия имя и отчество' required)
+    input.input(type='text' name='phone' data-mask='+7 (000) 000-00-00' placeholder='Телефон' required)
+    input(type='hidden' name='details')
+    button.button Отправить
+
+.popup.appointment#upgrade-appointment
+  .icon.popup__icon.upgrade-color
+  h3 Записаться на дооснащение
+  p Наш менеджер перезвонит вам в ближайшее время и поможет записаться на дооснащение вашего автомобиля.
+  form.form-upgrade-appointment
+    input.input(type='text' name='name' placeholder='Фамилия имя и отчество' required)
+    input.input(type='text' name='phone' data-mask='+7 (000) 000-00-00' placeholder='Телефон' required)
+    input(type='hidden' name='details')
+    button.button Отправить
+
+.popup.appointment#coding-appointment
+  .icon.popup__icon.coding-color
+  h3 Записаться на кодирование опций
+  p Наш менеджер перезвонит вам в ближайшее время и поможет записаться на кодирование опций вашего автомобиля.
+  form.form-coding-appointment
+    input.input(type='text' name='name' placeholder='Фамилия имя и отчество' required)
+    input.input(type='text' name='phone' data-mask='+7 (000) 000-00-00' placeholder='Телефон' required)
+    input(type='hidden' name='details')
+    button.button Отправить
+
+.popup.appointment#body-repair-appointment
+  .icon.popup__icon.body-repair-color
+  h3 Записаться на кузовной ремонт
+  p Наш менеджер перезвонит вам в ближайшее время и поможет записаться на кузовной ремонт вашего автомобиля.
+  form.form-body-repair-appointment
+    input.input(type='text' name='name' placeholder='Фамилия имя и отчество' required)
+    input.input(type='text' name='phone' data-mask='+7 (000) 000-00-00' placeholder='Телефон' required)
+    input(type='hidden' name='details')
+    button.button Отправить
+  
+.popup.appointment#update-appointment
+  .icon.popup__icon.update-color
+  h3 Записаться на обновление ПО
+  p Наш менеджер перезвонит вам в ближайшее время и поможет записаться на обновление ПО вашего автомобиля.
+  form.form-update-appointment
+    input.input(type='text' name='name' placeholder='Фамилия имя и отчество' required)
+    input.input(type='text' name='phone' data-mask='+7 (000) 000-00-00' placeholder='Телефон' required)
+    input(type='hidden' name='details')
+    button.button Отправить
+  
+.popup.appointment#ac-refueling-appointment
+  .icon.popup__icon.ac-refueling-color
+  h3 Записаться на обслуживание кондиционера
+  p Наш менеджер перезвонит вам в ближайшее время и поможет записаться на обслуживание кондиционера вашего автомобиля.
+  form.form-update-appointment
+    input.input(type='text' name='name' placeholder='Фамилия имя и отчество' required)
+    input.input(type='text' name='phone' data-mask='+7 (000) 000-00-00' placeholder='Телефон' required)
+    input(type='hidden' name='details')
+    button.button Отправить
+
+.popup#appointment-success
+  .icon.popup__icon.tick-black
+  h3 Заявка отправлена
+  p Ваша заявка отправлена. Наш менеджер перезвонит вам в рабочее время (9:00 — 20:00) для уточнения деталей.
+  .button(data-fancybox-close) Готово
+
+.popup#car-info-not-found
+  .icon.popup__icon.important-black
+  h3 Попробуйте позже
+  p В данный момент не удалось найти информацию об автомобиле в официальных источниках компании BMW. Пожалуйста, попробуйте воспользоваться калькулятором немного позже.
+  .button(data-fancybox-close) Понятно
+
+.popup#vin-not-found
+  .icon.popup__icon.important-black
+  h3 Данный VIN не найден
+  p Возможно, вы ввели неверный VIN. Пожалуйста, проверьте правильность введенных данных и попробуйте заново.
+  .button(data-fancybox-close) Понятно
+
+.popup#multiple-cars-founded
+  .icon.popup__icon.important-black
+  h3 По данному VIN найдено несколько автомобилей
+  p В официальных источниках BMW по данному VIN найдено несколько автомобилей. Выберите необходимый вам из списка ниже:
+  .popup__cars
+  .popup__buttons
+    .button-simple(data-fancybox-close) Отменить
+    .button.disabled(data-action="choose-car") Выбрать
+
+.popup#limit-exceeded
+  .icon.popup__icon.important-black
+  h3 Превышен лимит использования калькулятора
+  p Вы превысили лимит использования калькулятора дооснащения. Пожалуйста, воспользуйтесь им снова через один час.
+  .button(data-fancybox-close) Понятно
+
+.popup#car-is-not-supported
+  .icon.popup__icon.important-black
+  h3 Дооснащение данного автомобиля не производится
+  p Мы занимаемся дооснащением только автомобилей BMW F и G серий. Например, BMW с обозначением кузова F30, F15, G30 и так далее. 
+  .button(data-fancybox-close) Понятно
+
+.popup#individual-calculation
+  .icon.popup__icon.important-black
+  h3 Дооснащение данного автомобиля производится индивидуально
+  p Для автомобилей с обозначением кузова F06/F10/F12/F13/F25, выпущенных до марта 2013 года, расчёт в калькуляторе не производится. Стоимость дооснащения определяется индивидуально. Со всеми возможными опциями вы можете ознакомиться #[a.link здесь]. 
+  .button(data-fancybox-close) Понятно
+
+.popup#parts-not-found
+  .icon.popup__icon.important-black
+  h3 По данному VIN не найдено запчастей
+  p В каталоге запчастей BMW по данному VIN не было найдено запчастей. Вы можете оставить заявку и наши менеджеры свяжутся с вами.
+  .button(data-fancybox-close) Понятно
+
+.popup#upgrade-options-changes
+  .required-changes
+    .icon.popup__icon.important-black
+    h3 Необходимые изменения
+    .popup__upgrade-changes
+  .recommended-changes
+    h3 Рекомендуемые опции
+    p Дополнительно к выбранным опциям мы рекомендуем следующие опции:
+    .popup__upgrade-changes
+  .popup__buttons
+    .button-outline(data-fancybox-close) Отменить
+    .button(data-action="apply") Применить
+
+.popup#use-calculator
+  .icon.popup__icon.important-black
+  h3 Воспользуйтесь калькулятором дооснащения
+  p Указана примерная стоимость установки данной опции. Чтобы узнать точную стоимость, воспользуйтесь калькулятором и рассчитайте стоимость дооснащения автомобиля по его VIN.
+  .popup__buttons
+    .button-simple(data-fancybox-close) Понятно
+    .button(data-action="go-to-calculator") Перейти к калькулятору

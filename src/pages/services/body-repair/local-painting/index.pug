@@ -1,0 +1,51 @@
+extends /layout.pug
+
+block variables
+  - var name = 'main_body-repair';
+  - var section = 'Услуга';
+  - var title = 'Локальный окрас';
+  - var seoTitle = title + ' BMW в Москве | Автосервис BMW «FGSEVER»';
+  - var subtitle = 'Устранение различных царапин, притертостей и сколов с кузова автомобиля, покраска пятном и под прибор (с заданной толщиной лакокрасочного покрытия).';
+  - var path = {'/services/': 'Услуги', '/services/body-repair/': 'Кузовной ремонт', '': title};
+
+block content
+  +main(name, path, section, title, subtitle, button)
+  section.services
+    .wrapper
+      .titles
+        .overtitle Наши услуги
+        h2 Виды работ
+      .columns
+        .col-md-6.col-lg-4
+          a.services-item(href='scratches-removal/')
+            .services-item__content
+              .services-item__text
+                .services-item__title
+                  h3 Устранение царапин
+                .subtitle.services-item__subtitle Локальное удаление с кузова различных мелких царапин и притертостей
+              .button-simple Подробнее
+        .col-md-6.col-lg-4
+          a.services-item(href='chips-removal/')
+            .services-item__content
+              .services-item__text
+                .services-item__title
+                  h3 Устранение сколов
+                .subtitle.services-item__subtitle Устранение с кузова автомобиля сколов и других следов попадания камней
+              .button-simple Подробнее
+        .col-md-6.col-lg-4
+          a.services-item(href='spot-painting/')
+            .services-item__content
+              .services-item__text
+                .services-item__title
+                  h3 Покраска пятном
+                .subtitle.services-item__subtitle Локальная покраска поврежденного участка с плавным переходом к заводскому покрытию
+              .button-simple Подробнее
+        .col-md-6.col-lg-4
+          a.services-item(href='precise-painting/')
+            .services-item__content
+              .services-item__text
+                .services-item__title
+                  h3 Покраска под прибор
+                .subtitle.services-item__subtitle Покраска автомобиля с заданной толщиной лакокрасочного покрытия
+              .button-simple Подробнее
+  include /contacts

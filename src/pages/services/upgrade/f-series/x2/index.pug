@@ -1,0 +1,194 @@
+extends /layout.pug
+
+block variables
+  - var name = 'main_upgrade-f-series';
+  - var section = 'Услуга';
+  - var title = 'Дооснащение BMW X2';
+  - var models = 'F39';
+  - var seoTitle = 'Дооснащение BMW X2 (' + models + ') в Москве | Автосервис BMW «FGSEVER»';
+  - var subtitle = 'Установка мультимедийной системы NBT/NBT EVO, LED дисплея комбинации приборов, проекционного дисплея, камеры KAFAS, активного круиз-контроля, ассистентов парковки и вождения, системы комфортного доступа и других опций.';
+  - var path = {'/services/': 'Услуги', '/services/upgrade/': 'Дооснащение', '/services/upgrade/f-series/': 'F&nbsp;серия', '': 'X2'};
+  - var button = ['popup', '#upgrade-appointment', 'Записаться на дооснащение'];
+
+block content
+  +main(name, path, section, title, subtitle, button, models)
+  //- include /warning
+  include /upgrade/calculator
+  section.services.options#services-options
+    .wrapper
+      .titles
+        .overtitle Наши услуги
+        h2 Устанавливаемые опции
+      .columns
+        .col-sm-6.col-lg-4.col-xl-3
+          .services-item
+            img(src='/images/services/upgrade/f-series/nbt-min.jpg' srcset='/images/services/upgrade/f-series/nbt-min@2x.jpg 1.5x')
+            .services-item__content
+              .services-item__text
+                h3 Мультимедийная система NBT/NBT EVO
+                .subtitle.services-item__subtitle Заводская оригинальная мультимедийная система NBT/NBT EVO с поддержкой навигации, голосового управления, 20 ГБ встроенной памяти, а также сенсорный контроллер iDrive
+              .services-item__meta
+                .services-item__price от 55 000 ₽
+                .button-simple Подробнее
+        .col-sm-6.col-lg-4.col-xl-3
+          .services-item
+            img(src='/images/services/upgrade/f-series/cockpit-min.jpg' srcset='/images/services/upgrade/f-series/cockpit-min@2x.jpg 1.5x')
+            .services-item__content
+              .services-item__text
+                h3 Многофункциональный дисплей комбинации приборов
+                .subtitle.services-item__subtitle Многофункциональный дисплей комбинации приборов с диагональю экрана 10.25" и поддержкой трёх режимов: Eco Pro, Comfort и Sport
+              .services-item__meta
+                .services-item__price от 20 000 ₽
+                .button-simple Подробнее
+        .col-sm-6.col-lg-4.col-xl-3
+          .services-item
+            img(src='/images/services/upgrade/f-series/lighting-min.jpg' srcset='/images/services/upgrade/f-series/lighting-min@2x.jpg 1.5x')
+            .services-item__content
+              .services-item__text
+                h3 Пакет освещения снаружи и в салоне
+                .subtitle.services-item__subtitle Пакет освещения, включающий лампы для чтения, подсветку пространства для ног, косметических зеркал, ручек дверей и багажного отделения
+              .services-item__meta
+                .services-item__price от 20 000 ₽
+                .button-simple Подробнее
+        .col-sm-6.col-lg-4.col-xl-3
+          .services-item
+            img(src='/images/services/upgrade/f-series/kafas-min.jpg' srcset='/images/services/upgrade/f-series/kafas-min@2x.jpg 1.5x')
+            .services-item__content
+              .services-item__text
+                h3 Система управления дальним светом
+                .subtitle.services-item__subtitle Автоматический переход с дальнего на ближний свет в зависимости от наличия перед автомобилем других транспортных средств
+              .services-item__meta
+                .services-item__price 35 000 ₽
+                .button-simple Подробнее
+        .col-sm-6.col-lg-4.col-xl-3
+          .services-item
+            img(src='/images/services/upgrade/f-series/rear-camera-min.jpg' srcset='/images/services/upgrade/f-series/rear-camera-min@2x.jpg 1.5x')
+            .services-item__content
+              .services-item__text
+                h3 Камера заднего вида
+                .subtitle.services-item__subtitle Отображение пространства позади автомобиля на центральном дисплее во время движения задним ходом и парковки
+              .services-item__meta
+                .services-item__price 40 000 ₽
+                .button-simple Подробнее
+        .col-sm-6.col-lg-4.col-xl-3
+          .services-item
+            img(src='/images/services/upgrade/f-series/surround-view-min.jpg' srcset='/images/services/upgrade/f-series/surround-view-min@2x.jpg 1.5x')
+            .services-item__content
+              .services-item__text
+                h3 Система кругового обзора
+                .subtitle.services-item__subtitle Формирование с помощью сответствующих камер изображения с видом сверху, по бокам и сзади автомобиля и вывод на центральный дисплей
+              .services-item__meta
+                .services-item__price от 47 000 ₽
+                .button-simple Подробнее
+        .col-sm-6.col-lg-4.col-xl-3
+          .services-item
+            img(src='/images/services/upgrade/f-series/apple-carplay-min.jpg' srcset='/images/services/upgrade/f-series/apple-carplay-min@2x.jpg 1.5x')
+            .services-item__content
+              .services-item__text
+                h3 Система Apple CarPlay
+                .subtitle.services-item__subtitle Возможность использовать дисплей мультимедийной системы автомобиля для доступа к функциям вашего iPhone
+              .services-item__meta
+                .services-item__price от 5 000 ₽
+                .button-simple Подробнее
+        .col-sm-6.col-lg-4.col-xl-3
+          .services-item
+            img(src='/images/services/upgrade/f-series/screen-mirroring-min.jpg' srcset='/images/services/upgrade/f-series/screen-mirroring-min@2x.jpg 1.5x')
+            .services-item__content
+              .services-item__text
+                h3 Система MirrorLink
+                .subtitle.services-item__subtitle Дублирование изображения со смартфона на #[span.nowrap ОС «Android»] на центральный дисплей мультимедийной системы автомобиля
+              .services-item__meta
+                .services-item__price 5 000 ₽
+                .button-simple Подробнее
+        .col-sm-6.col-lg-4.col-xl-3
+          .services-item
+            img(src='/images/services/upgrade/f-series/kafas-min.jpg' srcset='/images/services/upgrade/f-series/kafas-min@2x.jpg 1.5x')
+            .services-item__content
+              .services-item__text
+                h3 Ассистент помощи водителю KAFAS
+                .subtitle.services-item__subtitle Специальная камера, располагающаяся за зеркалом заднего вида и необходимая для работы системы управления дальним светом и ассистента движения
+              .services-item__meta
+                .services-item__price от 35 000 ₽
+                .button-simple Подробнее
+        .col-sm-6.col-lg-4.col-xl-3
+          .services-item
+            img(src='/images/services/upgrade/f-series/blind-spot-detection-min.jpg' srcset='/images/services/upgrade/f-series/blind-spot-detection-min@2x.jpg 1.5x')
+            .services-item__content
+              .services-item__text
+                h3 Система контроля слепых зон
+                .subtitle.services-item__subtitle Система, предупреждающая о движущихся сзади и сбоку автомобилях путем мигания сигнальной лампы в наружном зеркале и вибрации рулевого колеса 
+              .services-item__meta
+                .services-item__price от 48 000 ₽
+                .button-simple Подробнее
+        .col-sm-6.col-lg-4.col-xl-3
+          .services-item
+            img(src='/images/services/upgrade/f-series/head-up-display-min.jpg' srcset='/images/services/upgrade/f-series/head-up-display-min@2x.jpg 1.5x')
+            .services-item__content
+              .services-item__text
+                h3 Проекционный дисплей
+                .subtitle.services-item__subtitle Отображение на проекционном дисплее информации о текущей скорости движения, подсказок системы навигации, информации развлекательной системы и прочего
+              .services-item__meta
+                .services-item__price от 55 000 ₽
+                .button-simple Подробнее
+        .col-sm-6.col-lg-4.col-xl-3
+          .services-item
+            img(src='/images/services/upgrade/f-series/parking-sensors-min.jpg' srcset='/images/services/upgrade/f-series/parking-sensors-min@2x.jpg 1.5x')
+            .services-item__content
+              .services-item__text
+                h3 Сигнализация аварийного сближения при парковке
+                .subtitle.services-item__subtitle Ультразвуковое измерение расстояния до препятствий при помощи передних и задних датчиков и вывод предупреждений на центральный экран
+              .services-item__meta
+                .services-item__price 35 000 ₽
+                .button-simple Подробнее
+        .col-sm-6.col-lg-4.col-xl-3
+          .services-item
+            img(src='/images/services/upgrade/f-series/parking-assistant-min.jpg' srcset='/images/services/upgrade/f-series/parking-assistant-min@2x.jpg 1.5x')
+            .services-item__content
+              .services-item__text
+                h3 Ассистент парковки
+                .subtitle.services-item__subtitle Автоматическая пареллельная и перпендикулярная парковка автомобиля с помощью принятия системой на себя управления рулевым колесом
+              .services-item__meta
+                .services-item__price 60 000 ₽
+                .button-simple Подробнее
+        .col-sm-6.col-lg-4.col-xl-3
+          .services-item
+            img(src='/images/services/upgrade/f-series/keyless-access-min.jpg' srcset='/images/services/upgrade/f-series/keyless-access-min@2x.jpg 1.5x')
+            .services-item__content
+              .services-item__text
+                h3 Комфортный доступ
+                .subtitle.services-item__subtitle Автоматическое отпирание автомобиля при приближении с ключом и касании ручки двери или кнопки привода крышки багажного отделения
+              .services-item__meta
+                .services-item__price от 60 000 ₽
+                .button-simple Подробнее
+        .col-sm-6.col-lg-4.col-xl-3
+          .services-item
+            img(src='/images/services/upgrade/f-series/m-steering-wheel-min.jpg' srcset='/images/services/upgrade/f-series/m-steering-wheel-min@2x.jpg 1.5x')
+            .services-item__content
+              .services-item__text
+                h3 Спортивное рулевое колесо M
+                .subtitle.services-item__subtitle Многофункциональное кожаное рулевое колесо с эргономичными упорами для больших пальцев, подчеркивающее спортивные возможности автомобиля
+              .services-item__meta
+                .services-item__price 60 000 ₽
+                .button-simple Подробнее
+        .col-sm-6.col-lg-4.col-xl-3
+          .services-item
+            img(src='/images/services/upgrade/f-series/tv-tuner-min.jpg' srcset='/images/services/upgrade/f-series/tv-tuner-min@2x.jpg 1.5x')
+            .services-item__content
+              .services-item__text
+                h3 ТВ-тюнер DVB-2T
+                .subtitle.services-item__subtitle Установка в автомобиль оригинального приёмника, дающего возможность просматривать цифровое телевидение европейского формата вещания 
+              .services-item__meta
+                .services-item__price 60 000 ₽
+                .button-simple Подробнее
+        .col-sm-6.col-lg-4.col-xl-3
+          .services-item
+            img(src='/images/services/upgrade/f-series/rtti-min.jpg' srcset='/images/services/upgrade/f-series/rtti-min@2x.jpg 1.5x')
+            .services-item__content
+              .services-item__text
+                h3 Информация о дорожной ситуации онлайн (RTTI)
+                .subtitle.services-item__subtitle Автоматическое предложение вариантов объезда при обнаружении пробок или препятствий на дорогах общего пользования
+              .services-item__meta
+                .services-item__price 30 000 ₽
+                .button-simple Подробнее
+  include /videos
+  include /contacts

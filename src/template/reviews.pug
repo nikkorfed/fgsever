@@ -1,0 +1,83 @@
+section.reviews
+  .wrapper
+    .titles
+      .overtitle Отзывы
+      h2 Что говорят о нас
+      .subtitle Отзывы о нашем автосервисе подгружаются автоматически со сторонних независимых ресурсов. Они являются открытыми и честными, так как нами никак не модерируются
+    <? $reviewsDrive2 = json_decode(file_get_contents($_SERVER['DOCUMENT_ROOT'] . '/data/reviews-drive2.json'), true) ?>
+    .reviews-drive2
+      .reviews-info
+        .row-first
+          a.drive2(href!="<? echo $reviewsDrive2['url'] ?>")
+          div <? echo $reviewsDrive2['quantity'] ?>
+          a.view-all(href!="<? echo $reviewsDrive2['url'] ?>") Смотреть все
+      .reviews-container
+        <?  foreach ($reviewsDrive2['reviews'] as $review) { ?>
+          a.block.reviews-item(href!="<? echo $review['url'] ?>")
+            .reviews-item__head
+              img.reviews-item__image(src!="<? echo $review['image'] ?>")
+              div
+                .reviews-item__name <? echo $review['user'] ?>
+                .reviews-item__date <? echo $review['date'] ?>
+              <? if ($review['positive']) { ?>
+                .reviews-item__positive
+              <? } else { ?>
+                .reviews-item__negative
+              <? } ?>
+            p.reviews-item__text <? echo $review['text'] ?>
+            .reviews-item__drive2-link
+              img.reviews-item__drive2-image(src!="<? echo $review['carImage'] ?>")
+              div
+                .reviews-item__drive2-title <? echo $review['title'] ?>
+                .reviews-item__drive2-car <? echo $review['car'] ?>
+        <? } ?>
+    <? $reviewsYandex = json_decode(file_get_contents($_SERVER['DOCUMENT_ROOT'] . '/data/reviews-yandex.json'), true) ?>
+    .reviews-yandex
+      .reviews-info
+        .row-first
+          a.yandex(href!="<? echo $reviewsYandex['url'] ?>")
+          .business-rating-badge-view__stars <? echo $reviewsYandex['stars'] ?>
+          .rating <? echo $reviewsYandex['rating'] ?>
+          div <? echo $reviewsYandex['quantity'] ?>
+        .row-second
+          a.view-all(href!="<? echo $reviewsYandex['url'] ?>") Смотреть все
+          a.new-review.icon.comment-color(href!="<? echo $reviewsYandex['addReviewUrl'] ?>")
+            .button-simple Написать отзыв
+      .reviews-container
+        <?  foreach ($reviewsYandex['reviews'] as $review) { ?>
+          a.block.reviews-item(href!="<? echo $review['url'] ?>")
+            .reviews-item__head
+              <? echo $review['image'] ?>
+              div
+                .reviews-item__name <? echo $review['user'] ?>
+                .reviews-item__date <? echo $review['date'] ?>
+            .reviews-item__text
+              p <? echo $review['text'] ?>
+        <? } ?>
+    <? $reviewsGoogle = json_decode(file_get_contents($_SERVER['DOCUMENT_ROOT'] . '/data/reviews-google.json'), true) ?>
+    .reviews-google
+      .reviews-info
+        .row-first
+          a.google(href!="<? echo $reviewsGoogle['url'] ?>")
+          .google-stars
+            .google-stars__filler(style!="width: <? echo $reviewsGoogle['stars'] ?>%")
+          .rating <? echo $reviewsGoogle['rating'] ?>
+          div <? echo $reviewsGoogle['quantity'] ?>
+        .row-second
+          a.view-all(href!="<? echo $reviewsGoogle['url'] ?>") Смотреть все
+          a.new-review.icon.comment-color(href!="<? echo $reviewsGoogle['addReviewUrl'] ?>")
+            .button-simple Написать отзыв
+      .reviews-container
+        <?  foreach ($reviewsGoogle['reviews'] as $review) { ?>
+          .block.reviews-item
+            .reviews-item__head
+              img.reviews-item__image(src!="<? echo $review['image'] ?>")
+              div
+                .reviews-item__name <? echo $review['user'] ?>
+                .reviews-item__date <? echo $review['date'] ?>
+            .reviews-item__text
+              p <? echo $review['text'] ?>
+        <? } ?>
+    //- <? include 'scripts/php/reviews-drive2.php' ?>
+    //- <? include 'scripts/php/reviews-yandex.php' ?>
+    //- <? include 'scripts/php/reviews-google.php' ?>

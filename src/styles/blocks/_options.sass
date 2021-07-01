@@ -1,0 +1,30 @@
+section.options
+  .services-item
+    border: none
+    background-color: $white
+
+    &__label
+      font-weight: bold
+      text-transform: uppercase
+      color: $primaryColor
+
+    &__content
+      height: calc(100% - 200px)
+
+      +medium
+        height: calc(100% - 220px)
+
+  .no-labels .services-item__label
+    display: none
+
+section.series + section.options, section.models + section.options
+  background-color: $backgroundGrey
+
+section.options + section.contacts
+  background-color: $white
+
+  & .block
+    border: 2px solid $backgroundGrey
+
+  & + .whatsapp
+    background-color: $backgroundGrey

@@ -1,0 +1,30 @@
+extends /layout.pug
+
+block variables
+  - var name = 'main_body-repair';
+  - var section = 'Вид работ';
+  - var title = 'Покраска пятном';
+  - var seoTitle = title + ' BMW в Москве | Автосервис BMW «FGSEVER»';
+  - var subtitle = 'Работы по локальной покраске поврежденного участка с плавным переходом к заводскому покрытию.';
+  - var path = {'/services/': 'Услуги', '/services/body-repair/': 'Кузовной ремонт', '/services/body-repair/local-painting/': 'Локальный окрас', '': title};
+  - var button = ['popup', '#body-repair-appointment', 'Записаться'];
+
+block content
+  +main(name, path, section, title, subtitle, button) 
+  section.prices
+    .wrapper
+      .titles
+        .overtitle Об услуге
+        h2 Стоимость
+      .block
+        .table-wrapper
+          .table
+            table
+              tr.table-header
+                td Услуга
+                td Стоимость
+              tr
+                td Локальный окрас
+                td от 3 000 ₽
+  include /about  
+  include /contacts

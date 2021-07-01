@@ -1,0 +1,17 @@
+<? $videos = json_decode(file_get_contents($_SERVER['DOCUMENT_ROOT'] . '/data/videos.json'), true) ?>
+section.videos#videos
+  .wrapper
+    .titles
+      a.overtitle(href!="<? echo $videos['url'] ?>" onclick="ym(56693602,'reachGoal','youtube'); return true;") Наш канал на YouTube
+      h2 Наши работы
+    .columns
+      <? foreach ($videos['videos'] as $video) { ?>
+        a.videos-item.col-6.col-sm-4.col-lg-3.col-xl-2(data-fancybox href!="<? echo $video['url'] ?>")
+          .videos-item__image
+            img(src!="<? echo $video['image'] ?>")
+          .videos-item__title <? echo $video['title'] ?>
+          .videos-item__views <? echo $video['views'] ?>
+          .videos-item__date <? echo $video['date'] ?>
+      <? } ?>
+    .button-area
+      a.button-simple(href!="<? echo $videos['url'] ?>" onclick="ym(56693602,'reachGoal','drive2'); return true;") Перейти на YouTube

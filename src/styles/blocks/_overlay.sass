@@ -1,0 +1,84 @@
+.special-buttons
+  display: flex
+  flex-direction: column
+  align-items: flex-end
+  position: fixed
+  z-index: 1
+  right: $horizontalOffset
+  bottom: $horizontalOffset
+  border-radius: $borderRadius
+  width: 240px
+  
+  +small
+    right: $smallHorizontalOffset
+    bottom: $smallHorizontalOffset
+
+  +medium
+    right: $mediumHorizontalOffset
+    bottom: $mediumHorizontalOffset
+    width: 300px
+
+  +large
+    right: $largeHorizontalOffset
+    bottom: $largeHorizontalOffset
+
+  +max
+    right: calc((100% - #{$maxWrapperWidth}) / 2 + #{$largeHorizontalOffset})
+
+  .close-button
+    border-radius: $borderRadius
+    height: 36px
+    width: 36px
+    background-color: $white
+    background-size: 12px
+    box-shadow: $lightShadow
+    cursor: pointer
+
+    +medium
+      height: 40px
+      width: 40px
+
+    &.menu-white
+      background-color: $primaryColor
+
+  .buttons
+    display: flex
+    flex-direction: column
+    margin-top: $verticalInnerOffset
+    border-radius: $borderRadius
+    max-height: 250px
+    transition: opacity .15s .15s, margin-top .30s, max-height .30s
+
+    .button
+      margin-bottom: $verticalInnerOffset
+      padding-left: 30px
+      font-size: 13px
+      background-position: 8px 50%
+      background-repeat: no-repeat
+      background-size: 14px
+
+      +medium
+        padding-left: 40px
+        background-position: 10px 50%
+        background-size: 18px
+
+      +large
+        font-size: 14px
+
+      &:last-child
+        margin-bottom: 0
+
+      &_whatsapp
+        @extend .icon.whatsapp-white
+        background-color: $whatsAppColor
+
+      &_calculator
+        @extend .icon.calculator-white
+
+  &.hidden
+    .buttons
+      overflow: hidden
+      margin-top: 0
+      max-height: 0
+      opacity: 0
+      transition: opacity .30s, margin-top .15s .15s, max-height .15s .15s

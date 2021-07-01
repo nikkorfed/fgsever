@@ -1,0 +1,99 @@
+// Миксины для стилей
+
+=extra-small
+  @media (min-width: $extraSmallBreakpoint)
+    @content
+
+=small
+  @media (min-width: $smallBreakpoint)
+    @content
+
+=medium
+  @media (min-width: $mediumBreakpoint)
+    @content
+
+=large
+  @media (min-width: $largeBreakpoint)
+    @content
+
+=extra-large
+  @media (min-width: $extraLargeBreakpoint)
+    @content
+
+=max
+  @media (min-width: $maxWrapperWidth)
+    @content
+
+=col-all
+  @each $size in '', '-sm', '-md', '-lg', '-xl'
+    @each $columns in 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12
+      .col#{$size}-#{$columns}
+        @content
+
+=col
+  @each $columns in 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12
+    .col-#{$columns}
+      @content
+      width: 100% / 12 * $columns
+
+=col-sm
+  @each $columns in 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12
+    .col-sm-#{$columns}
+      @content
+      width: 100% / 12 * $columns
+
+=col-md
+  @each $columns in 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12
+    .col-md-#{$columns}
+      @content
+      width: 100% / 12 * $columns
+
+=col-lg
+  @each $columns in 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12
+    .col-lg-#{$columns}
+      @content
+      width: 100% / 12 * $columns
+
+=col-xl
+  @each $columns in 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12
+    .col-xl-#{$columns}
+      @content
+      width: 100% / 12 * $columns
+
+=fade-from-delay
+  visibility: hidden
+  opacity: 0
+  transform: translateY(10px)
+  transition: visibility .15s .15s, opacity .15s .15s, transform .15s .15s
+
+=fade-from
+  visibility: hidden
+  opacity: 0
+  transform: translateY(10px)
+  transition: visibility .3s, opacity .3s, transform .3s
+
+=fade-to
+  visibility: visible
+  opacity: 1
+  transform: translateY(0)
+  transition: visibility .3s, opacity .3s, transform .3s
+
+=light-shadow
+  box-shadow: $lightShadow
+  transform: translateY(-5px)
+
+=shadow
+  box-shadow: $shadow
+  transform: translateY(-5px)
+
+=border-grey
+  border: 2px solid $backgroundGrey
+
+  +medium
+    border: 3px solid $backgroundGrey
+
+=border-color
+  border: 2px solid $primaryColor
+
+  +medium
+    border: 3px solid $primaryColor

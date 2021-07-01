@@ -1,0 +1,78 @@
+extends /layout.pug
+
+block variables
+  - var name = 'main_update';
+  - var section = 'Направление';
+  - var title = 'Обновление ПО и карт навигации';
+  - var seoTitle = title + ' BMW в Москве | Автосервис BMW «FGSEVER»';
+  - var subtitle = 'Услуги по обновлению программного обеспечения (ПО) всего автомобиля и отдельных блоков управления (ЭБУ), а также обновлению карт навигации автомобилей BMW в Москве.';
+  - var path = {'/services/': 'Услуги', '': title};
+  - var button = ['popup', '#update-appointment', 'Записаться на обновление ПО'];
+
+block content
+  +main(name, path, section, title, subtitle, button)
+  section.description
+    .wrapper
+      .titles
+        .overtitle Об услуге
+        h2 Описание
+      .block
+        h3 Что включает в себя услуга
+        p Услуга включает в себя перепрошивку программного обеспечения (ПО) автомобилей и работу с электронными блоками управления (ЭБУ), головными устройствами и мультимедийными системами для устранения различных ошибок. Это позволяет добиться более полного сгорания топливно-воздушной смеси (ТВС), уменьшения количества выброса вредных веществ и снижения расхода топлива.
+        h3 Зачем нужно программирование
+        p Современные автомобили BMW оснащены электронными блоками управления (ЭБУ, также называемыми, просто "блоками"), каждый из которых содержит определенную программу для управления группой подключенных к блоку устройств.
+        p Например, блок MEVD1724, который серийно устанавливается на автомобили BMW F10, F20, F25, F30 и т. д., имеет на борту процессор Infineon TriCore с программой управления двигателя. Процессор получает данные о работе педали акселератора, данные о температуре, различных датчиков давления (наддува, топлива, атмосферных), кислородных датчиков и множества других. Программа получает и обрабатывает эти данные и на их основе производит управление исполнительными устройствами такими как дроссельная заслонка, регулирует наддув турбины, время впрыска и т. д.
+        p Сложная вычислительная программа, заложенная в блоке двигателя, большое количество датчиков и исполнительных устройств, установленных на двигателе, позволяют добиться идеального сгорания топлива, минимального количества выброса вредных веществ, а также максимальной экономии топлива.
+        p Для правильной и исправной работы таких блоков управления (ЭБУ) необходимо регулярное обновление их программного обеспечения (ПО).
+        .highlighted
+          p Рекомендуется всегда выполнять полное обновление программного обеспечения автомобиля. Это поможет избежать конфликтов между различными электронными блоками управления (ЭБУ) автомобиля.
+  section.prices
+    <? $maps = json_decode(file_get_contents($_SERVER['DOCUMENT_ROOT'] . '/data/maps-version.json'), true) ?>
+    <? $nextEastVersion = $maps['nextEastVersion']; $nextWestVersion = $maps['nextWestVersion']; $evoVersion = $maps['evoVersion']; ?>
+    .wrapper
+      .titles
+        .overtitle Об услуге
+        h2 Стоимость
+      .block
+        .table-wrapper
+          .table
+            table
+              tr.table-header
+                td Услуга
+                td Стоимость
+              tr 
+                td Полное обновление программного обеспечения (ПО) автомобиля
+                td 5 000 ₽
+              tr
+                td Обновление отдельных электронных блоков управления (ЭБУ)
+                td 2 000 ₽
+              tr
+                td Восстановление закодированных опций после обновления программного обеспечения (ПО)
+                td 3 000 ₽
+              tr
+                td Обновление карт навигации Europe NEXT East до актуальной версии #[span.nowrap.important <? echo $nextEastVersion ?>]
+                td 3 000 ₽
+              tr
+                td Обновление карт навигации Europe NEXT West до актуальной версии #[span.nowrap.important <? echo $nextWestVersion ?>]
+                td 3 000 ₽
+              tr
+                td Обновление карт навигации Europe EVO до актуальной версии #[span.nowrap.important <? echo $evoVersion ?>]
+                td 3 000 ₽
+  section.photos
+    .wrapper
+      .titles
+        .overtitle Фотографии
+        h2 Процесс работы
+      .columns
+        .col-4.col-md-3.col-lg-2
+          a.photo(data-fancybox='photos' href='/images/services/update/1.jpg')
+            img(src='/images/services/update/1-min.jpg' srcset='/images/services/update/1-min@2x.jpg 1.5x')
+        .col-4.col-md-3.col-lg-2
+          a.photo(data-fancybox='photos' href='/images/services/update/2.jpg')
+            img(src='/images/services/update/2-min.jpg' srcset='/images/services/update/2-min@2x.jpg 1.5x')
+        .col-4.col-md-3.col-lg-2
+          a.photo(data-fancybox='photos' href='/images/services/update/3.jpg')
+            img(src='/images/services/update/3-min.jpg' srcset='/images/services/update/3-min@2x.jpg 1.5x')
+  include /about/advantages
+  include /about
+  include /contacts

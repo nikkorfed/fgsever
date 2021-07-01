@@ -1,0 +1,715 @@
+extends /layout.pug
+
+block variables
+  - var name = 'main_upgrade-f-series';
+  - var section = 'Услуга';
+  - var title = 'Дооснащение BMW 1 серии';
+  - var models = 'F20/F21';
+  - var seoTitle = 'Дооснащение BMW 1 серии (' + models + ') в Москве | Автосервис BMW «FGSEVER»';
+  - var subtitle = 'Установка мультимедийной системы NBT/NBT EVO, LED дисплея комбинации приборов, проекционного дисплея, камеры KAFAS, активного круиз-контроля, ассистентов парковки и вождения, системы комфортного доступа и других опций.';
+  - var path = {'/services/': 'Услуги', '/services/upgrade/': 'Дооснащение', '/services/upgrade/f-series/': 'F&nbsp;серия', '': '1 серия'};
+  - var button = ['popup', '#upgrade-appointment', 'Записаться на дооснащение'];
+
+block content
+  +main(name, path, section, title, subtitle, button, models)
+  //- include /warning
+  include /upgrade/calculator
+  section.services.options#services-options
+    .wrapper
+      .titles
+        .overtitle Наши услуги
+        h2 Устанавливаемые опции
+      .tabs
+        .tabs-item.active(data-tab='all') Все опции
+        .tabs-item(data-tab='multimedia') Мультимедиа
+        .tabs-item(data-tab='assistants') Ассистенты
+        .tabs-item(data-tab='safety') Безопасность
+        .tabs-item(data-tab='lighting') Освещение
+        .tabs-item(data-tab='view') Обзор
+        .tabs-item(data-tab='exterior') Экстерьер
+        .tabs-item(data-tab='interior') Интерьер
+        .tabs-item(data-tab='functionality') Функциональное оснащение
+        .tabs-item(data-tab='chassis') Ходовая часть
+      .columns
+        .col-sm-6.col-lg-4.col-xl-3.active(data-target='multimedia')
+          .services-item
+            img(src='/images/services/upgrade/f-series/3-series/entrynav-head-unit-min.jpg' srcset='/images/services/upgrade/f-series/3-series/entrynav-head-unit-min@2x.jpg 1.5x')
+            .services-item__content
+              .services-item__text
+                h3 Головное устройство Entrynav
+                .subtitle.services-item__subtitle Установка головного устройства Entrynav, необходимого при установке любой комбинации приборов, камеры заднего вида или системы кругового обзора
+              .services-item__meta
+                .services-item__price от 15 000 ₽
+                .button-simple Подробнее
+        .col-sm-6.col-lg-4.col-xl-3.active(data-target='multimedia')
+          .services-item
+            img(src='/images/services/upgrade/f-series/3-series/entryevo-head-unit-min.jpg' srcset='/images/services/upgrade/f-series/3-series/entryevo-head-unit-min@2x.jpg 1.5x')
+            .services-item__content
+              .services-item__text
+                h3 Головное устройство Entryevo
+                .subtitle.services-item__subtitle Установка головного устройства Entryevo, необходимого при установке любой комбинации приборов, камеры заднего вида или системы кругового обзора
+              .services-item__meta
+                .services-item__price от 20 000 ₽
+                .button-simple Подробнее
+        .col-sm-6.col-lg-4.col-xl-3.active(data-target='multimedia')
+          .services-item
+            img(src='/images/services/upgrade/f-series/3-series/nbt-min.jpg' srcset='/images/services/upgrade/f-series/3-series/nbt-min@2x.jpg 1.5x')
+            .services-item__content
+              .services-item__text
+                h3 Мультимедийная система NBT
+                .subtitle.services-item__subtitle Система навигации с увеличенным диплеем 8,8" и сенсорным контроллером iDrive, USB-разъем, функция голосового управления, DVD-проигрыватель, а также 20 Гб встроенной памяти
+              .services-item__meta
+                .services-item__price от 45 000 ₽
+                .button-simple Подробнее
+        .col-sm-6.col-lg-4.col-xl-3.active(data-target='multimedia')
+          .services-item
+            img(src='/images/services/upgrade/f-series/3-series/nbt-evo-min.jpg' srcset='/images/services/upgrade/f-series/3-series/nbt-evo-min@2x.jpg 1.5x')
+            .services-item__content
+              .services-item__text
+                h3 Мультимедийная система NBT EVO
+                .subtitle.services-item__subtitle Система навигации с обновленным интерфейсом, увеличенным диплеем 8,8" и сенсорным контроллером iDrive, USB-разъемом, голосовым управлением, DVD-проигрывателем, а также 20 Гб встроенной памяти
+              .services-item__meta
+                .services-item__price от 70 000 ₽
+                .button-simple Подробнее
+        .col-sm-6.col-lg-4.col-xl-3.active(data-target='multimedia')
+          .services-item
+            img(src='/images/services/upgrade/f-series/3-series/nbt-handwriting-recognition-min.jpg' srcset='/images/services/upgrade/f-series/3-series/nbt-handwriting-recognition-min@2x.jpg 1.5x')
+            .services-item__content
+              .services-item__text
+                h3 Блок распознавания рукописного ввода
+                .subtitle.services-item__subtitle Дополнительный блок в автомобиле, позволяющий водителю или пассажирам использовать рукописный ввод при работе с мультимедийной системой
+              .services-item__meta
+                .services-item__price от 7 000 ₽
+                .button-simple Подробнее
+        .col-sm-6.col-lg-4.col-xl-3.active(data-target='multimedia')
+          .services-item
+            img(src='/images/services/upgrade/f-series/3-series/nbt-f15-screen-min.jpg' srcset='/images/services/upgrade/f-series/3-series/nbt-f15-screen-min@2x.jpg 1.5x')
+            .services-item__content
+              .services-item__text
+                h3 Экран мультимедийной системы от X5 F15 (10.2 дюйма)
+                .subtitle.services-item__subtitle Замена стандартного экрана мультимедийной системы автомобиля на увеличенный экран от автомобиля BMW X5 (F15)
+              .services-item__meta
+                .services-item__price от 7 000 ₽
+                .button-simple Подробнее
+        .col-sm-6.col-lg-4.col-xl-3.active(data-target='multimedia')
+          .services-item
+            img(src='/images/services/upgrade/f-series/3-series/nbt-evo-touch-screen-min.jpg' srcset='/images/services/upgrade/f-series/3-series/nbt-evo-touch-screen-min@2x.jpg 1.5x')
+            .services-item__content
+              .services-item__text
+                h3 Сенсорный экран мультимедийной системы
+                .subtitle.services-item__subtitle Замена стандартного экрана мультимедийной системы автомобиля на сенсорный. В качестве альтернативы также доступен сенсорный экран от модели X5 (F15)
+              .services-item__meta
+                .services-item__price от 10 000 ₽
+                .button-simple Подробнее
+        .col-sm-6.col-lg-4.col-xl-3.active(data-target='multimedia')
+          .services-item
+            img(src='/images/services/upgrade/f-series/3-series/extended-cockpit-min.jpg' srcset='/images/services/upgrade/f-series/3-series/extended-cockpit-min@2x.jpg 1.5x')
+            .services-item__content
+              .services-item__text
+                h3 Расширенная комбинация приборов
+                .subtitle.services-item__subtitle Комбинация приборов с увеличенным дисплеем, отображающим подсказки системы навигации, телефонную книгу, меню переключения музыкальных треков и другие данные об автомобиле
+              .services-item__meta
+                .services-item__price от 25 000 ₽
+                .button-simple Подробнее
+        .col-sm-6.col-lg-4.col-xl-3.active(data-target='multimedia')
+          .services-item
+            img(src='/images/services/upgrade/f-series/3-series/led-cockpit-min.jpg' srcset='/images/services/upgrade/f-series/3-series/led-cockpit-min@2x.jpg 1.5x')
+            .services-item__content
+              .services-item__text
+                h3 Многофункциональный дисплей комбинации приборов
+                .subtitle.services-item__subtitle Многофункциональный дисплей комбинации приборов с диагональю экрана 10.25" и поддержкой трёх режимов: Eco Pro, Comfort и Sport
+              .services-item__meta
+                .services-item__price от 80 000 ₽
+                .button-simple Подробнее
+        .col-sm-6.col-lg-4.col-xl-3.active(data-target='multimedia')
+          .services-item
+            img(src='/images/services/upgrade/f-series/3-series/head-up-display-min.jpg' srcset='/images/services/upgrade/f-series/3-series/head-up-display-min@2x.jpg 1.5x')
+            .services-item__content
+              .services-item__text
+                h3 Проекционный дисплей
+                .subtitle.services-item__subtitle Отображение на проекционном дисплее информации о текущей скорости движения, подсказок системы навигации, информации развлекательной системы и прочего
+              .services-item__meta
+                .services-item__price от 70 000 ₽
+                .button-simple Подробнее
+        .col-sm-6.col-lg-4.col-xl-3.active(data-target='multimedia')
+          .services-item
+            img(src='/images/services/upgrade/f-series/3-series/hifi-sound-system-min.jpg' srcset='/images/services/upgrade/f-series/3-series/hifi-sound-system-min@2x.jpg 1.5x')
+            .services-item__content
+              .services-item__text
+                h3 Аудиосистема Hi-Fi
+                .subtitle.services-item__subtitle 9 динамиков и 7-канальный усилитель мощностью 205 Вт обеспечивают впечатляющее качество звучания независимо от занимаемого места в автомобиле
+              .services-item__meta
+                .services-item__price 80 000 ₽
+                .button-simple Подробнее
+        .col-sm-6.col-lg-4.col-xl-3.active(data-target='multimedia')
+          .services-item
+            img(src='/images/services/upgrade/f-series/3-series/harman-kardon-sound-system-min.jpg' srcset='/images/services/upgrade/f-series/3-series/harman-kardon-sound-system-min@2x.jpg 1.5x')
+            .services-item__content
+              .services-item__text
+                h3 Аудиосистема Harman/Kardon
+                .subtitle.services-item__subtitle 16 динамиков и высокоэффективный 9-канальный цифровой усилитель мощностью 600 Вт создают живое пространственное звучание на каждом посадочном месте автомобиля
+              .services-item__meta
+                .services-item__price от 140 000 ₽
+                .button-simple Подробнее
+        .col-sm-6.col-lg-4.col-xl-3.active(data-target='multimedia')
+          .services-item
+            img(src='/images/services/upgrade/f-series/3-series/bluetooth-support-min.jpg' srcset='/images/services/upgrade/f-series/3-series/bluetooth-support-min@2x.jpg 1.5x')
+            .services-item__content
+              .services-item__text
+                h3 Bluetooth для телефонии и аудио
+                .subtitle.services-item__subtitle Возможность подключать мобильный телефон по технологии Bluetooth для совершения и принятия звонков, а также воспроизведения музыки через аудиосистему автомобиля
+              .services-item__meta
+                .services-item__price 4 000 ₽
+                .button-simple Подробнее
+        .col-sm-6.col-lg-4.col-xl-3.active(data-target='multimedia')
+          .services-item
+            img(src='/images/services/upgrade/f-series/3-series/usb-port-min.jpg' srcset='/images/services/upgrade/f-series/3-series/usb-port-min@2x.jpg 1.5x')
+            .services-item__content
+              .services-item__text
+                h3 USB-порт для мобильных устройств
+                .subtitle.services-item__subtitle USB-порт, с помощью которого можно подключать к автомобилю мобильные телефоны или другие носители и воспроизведить с них различные медиафайлы
+              .services-item__meta
+                .services-item__price 6 000 ₽
+                .button-simple Подробнее
+        .col-sm-6.col-lg-4.col-xl-3.active(data-target='multimedia')
+          .services-item
+            img(src='/images/services/upgrade/f-series/3-series/wireless-charging-min.jpg' srcset='/images/services/upgrade/f-series/3-series/wireless-charging-min@2x.jpg 1.5x')
+            .services-item__content
+              .services-item__text
+                h3 Беспроводное зарядное устройство
+                .subtitle.services-item__subtitle Площадка для беспроводной зарядки, второй микрофон, а также два USB-разъема с зарядным током до 2 А, для быстрой зарядки мобильных устройств
+              .services-item__meta
+                .services-item__price 40 000 ₽
+                .button-simple Подробнее
+        .col-sm-6.col-lg-4.col-xl-3.active(data-target='multimedia')
+          .services-item
+            img(src='/images/services/upgrade/f-series/3-series/passenger-12v-plug-min.jpg' srcset='/images/services/upgrade/f-series/3-series/passenger-12v-plug-min@2x.jpg 1.5x')
+            .services-item__content
+              .services-item__text
+                h3 Дополнительная розетка 12V в ногах переднего пассажира
+                .subtitle.services-item__subtitle Дополнительная розетка с напряжением до 12V для подключения различных устройств, расположенная под бардачком в области ног переднего пассажира
+              .services-item__meta
+                .services-item__price 6 000 ₽
+                .button-simple Подробнее
+        .col-sm-6.col-lg-4.col-xl-3.active(data-target='multimedia')
+          .services-item
+            img(src='/images/services/upgrade/f-series/3-series/apple-carplay-min.jpg' srcset='/images/services/upgrade/f-series/3-series/apple-carplay-min@2x.jpg 1.5x')
+            .services-item__content
+              .services-item__text
+                h3 Система Apple CarPlay
+                .subtitle.services-item__subtitle Возможность использовать дисплей мультимедийной системы автомобиля для доступа к функциям вашего iPhone. Используется вся площадь экрана.
+              .services-item__meta
+                .services-item__price от 10 000 ₽
+                .button-simple Подробнее
+        .col-sm-6.col-lg-4.col-xl-3.active(data-target='multimedia')
+          .services-item
+            img(src='/images/services/upgrade/f-series/3-series/screen-mirroring-min.jpg' srcset='/images/services/upgrade/f-series/3-series/screen-mirroring-min@2x.jpg 1.5x')
+            .services-item__content
+              .services-item__text
+                h3 Система MirrorLink
+                .subtitle.services-item__subtitle Дублирование изображения со смартфона на ОС «Android» на центральный дисплей мультимедийной системы автомобиля
+              .services-item__meta
+                .services-item__price от 10 000 ₽
+                .button-simple Подробнее
+        .col-sm-6.col-lg-4.col-xl-3.active(data-target='multimedia')
+          .services-item
+            img(src='/images/services/upgrade/f-series/3-series/tv-tuner-min.jpg' srcset='/images/services/upgrade/f-series/3-series/tv-tuner-min@2x.jpg 1.5x')
+            .services-item__content
+              .services-item__text
+                h3 ТВ-тюнер DVB-2T
+                .subtitle.services-item__subtitle Установка в автомобиль оригинального приёмника, дающего возможность просматривать цифровое телевидение европейского формата вещания
+              .services-item__meta
+                .services-item__price от 60 000 ₽
+                .button-simple Подробнее
+        .col-sm-6.col-lg-4.col-xl-3.active(data-target='multimedia')
+          .services-item
+            img(src='/images/services/upgrade/f-series/3-series/bmw-teleservice-min.jpg' srcset='/images/services/upgrade/f-series/3-series/bmw-teleservice-min@2x.jpg 1.5x')
+            .services-item__content
+              .services-item__text
+                h3 BMW TeleService
+                .subtitle.services-item__subtitle Автоматическая передача специалистам BMW данных автомобиля и уведомление в нужное время о необходимом техобслуживании, а также функция аварийного вызова службы техпомощи
+              .services-item__meta
+                .services-item__price от 30 000 ₽
+                .button-simple Подробнее
+        .col-sm-6.col-lg-4.col-xl-3.active(data-target='assistants')
+          .services-item
+            img(src='/images/services/upgrade/f-series/3-series/parking-sensors-min.jpg' srcset='/images/services/upgrade/f-series/3-series/parking-sensors-min@2x.jpg 1.5x')
+            .services-item__content
+              .services-item__text
+                h3 Сигнализация аварийного сближения при парковке спереди и сзади
+                .subtitle.services-item__subtitle Ультразвуковое измерение расстояния до препятствий при помощи передних и задних датчиков и вывод предупреждений на центральный экран
+              .services-item__meta
+                .services-item__price 35 000 ₽
+                .button-simple Подробнее
+        .col-sm-6.col-lg-4.col-xl-3.active(data-target='assistants')
+          .services-item
+            img(src='/images/services/upgrade/f-series/3-series/rear-camera-min.jpg' srcset='/images/services/upgrade/f-series/3-series/rear-camera-min@2x.jpg 1.5x')
+            .services-item__content
+              .services-item__text
+                h3 Камера заднего вида
+                .subtitle.services-item__subtitle Отображение пространства позади автомобиля на центральном дисплее во время движения задним ходом и парковки
+              .services-item__meta
+                .services-item__price от 40 000 ₽
+                .button-simple Подробнее
+        .col-sm-6.col-lg-4.col-xl-3.active(data-target='assistants')
+          .services-item
+            img(src='/images/services/upgrade/f-series/3-series/surround-view-min.jpg' srcset='/images/services/upgrade/f-series/3-series/surround-view-min@2x.jpg 1.5x')
+            .services-item__content
+              .services-item__text
+                h3 Система кругового обзора
+                .subtitle.services-item__subtitle Формирование с помощью сответствующих камер изображения с видом сверху, по бокам и сзади автомобиля и вывод на центральный дисплей
+              .services-item__meta
+                .services-item__price от 50 000 ₽
+                .button-simple Подробнее
+        .col-sm-6.col-lg-4.col-xl-3.active(data-target='assistants')
+          .services-item
+            img(src='/images/services/upgrade/f-series/3-series/parking-assistant-min.jpg' srcset='/images/services/upgrade/f-series/3-series/parking-assistant-min@2x.jpg 1.5x')
+            .services-item__content
+              .services-item__text
+                h3 Ассистент парковки
+                .subtitle.services-item__subtitle Автоматическая параллельная и перпендикулярная парковка автомобиля с помощью принятия системой на себя управления рулевым колесом
+              .services-item__meta
+                .services-item__price 60 000 ₽
+                .button-simple Подробнее
+        .col-sm-6.col-lg-4.col-xl-3.active(data-target='assistants')
+          .services-item
+            img(src='/images/services/upgrade/f-series/3-series/kafas-windshield-min.jpg' srcset='/images/services/upgrade/f-series/3-series/kafas-windshield-min@2x.jpg 1.5x')
+            .services-item__content
+              .services-item__text
+                h3 Лобовое стекло под камеру KAFAS
+                .subtitle.services-item__subtitle Заводское лобовое стекло, подходящее для установки камеры KAFAS. Рекомендуется при установке проекционного дисплея на случай дальнейшего дооснащения автомобиля
+              .services-item__meta
+                .services-item__price 6 000 ₽
+                .button-simple Подробнее
+        .col-sm-6.col-lg-4.col-xl-3.active(data-target='assistants')
+          .services-item
+            img(src='/images/services/upgrade/f-series/3-series/kafas-min.jpg' srcset='/images/services/upgrade/f-series/3-series/kafas-min@2x.jpg 1.5x')
+            .services-item__content
+              .services-item__text
+                h3 Камера KAFAS
+                .subtitle.services-item__subtitle Камера, расположенная за зеркалом заднего вида и необходимая для работы системы управления дальним светом, функции чтения дорожных знаков, а также ассистента движения
+              .services-item__meta
+                .services-item__price от 90 000 ₽
+                .button-simple Подробнее
+        .col-sm-6.col-lg-4.col-xl-3.active(data-target='assistants')
+          .services-item
+            img(src='/images/services/upgrade/f-series/3-series/vibro-steering-wheel-min.jpg' srcset='/images/services/upgrade/f-series/3-series/vibro-steering-wheel-min@2x.jpg 1.5x')
+            .services-item__content
+              .services-item__text
+                h3 Виброгенератор рулевого колеса
+                .subtitle.services-item__subtitle Добавляет возможность вибрации рулевого колеса. Используется в системе контроля полосы, системе контроля слепых зон, а также в ассистенте вождения
+              .services-item__meta
+                .services-item__price 15 000 ₽
+                .button-simple Подробнее
+        .col-sm-6.col-lg-4.col-xl-3.active(data-target='assistants')
+          .services-item
+            img(src='/images/services/upgrade/f-series/3-series/lane-change-warning-min.jpg' srcset='/images/services/upgrade/f-series/3-series/lane-change-warning-min@2x.jpg 1.5x')
+            .services-item__content
+              .services-item__text
+                h3 Система контроля полосы
+                .subtitle.services-item__subtitle Предупреждение водителя визуальной индикацией и вибрацией рулевого колеса, начиная с определенной скорости, в случае покиданиия полосы движениия
+              .services-item__meta
+                .services-item__price от 15 000 ₽
+                .button-simple Подробнее
+        .col-sm-6.col-lg-4.col-xl-3.active(data-target='assistants')
+          .services-item
+            img(src='/images/services/upgrade/f-series/3-series/blind-spot-detection-min.jpg' srcset='/images/services/upgrade/f-series/3-series/blind-spot-detection-min@2x.jpg 1.5x')
+            .services-item__content
+              .services-item__text
+                h3 Система контроля слепых зон
+                .subtitle.services-item__subtitle Предупреждение водителя о приближающихся в слепой зоне автомобилях со скоростью более 20 км/ч при помощи треугольного символа в наружных зеркалах
+              .services-item__meta
+                .services-item__price от 50 000 ₽
+                .button-simple Подробнее
+        .col-sm-6.col-lg-4.col-xl-3.active(data-target='assistants')
+          .services-item
+            img(src='/images/services/upgrade/f-series/3-series/driving-assistant-min.jpg' srcset='/images/services/upgrade/f-series/3-series/driving-assistant-min@2x.jpg 1.5x')
+            .services-item__content
+              .services-item__text
+                h3 Ассистент вождения
+                .subtitle.services-item__subtitle Сочетание системы слежения за разметкой, системы контроля слепых зон и системы предупреждения о столкновении с функцией торможения
+              .services-item__meta
+                .services-item__price от 90 000 ₽
+                .button-simple Подробнее
+        .col-sm-6.col-lg-4.col-xl-3.active(data-target='assistants')
+          .services-item
+            img(src='/images/services/upgrade/f-series/3-series/dynamic-cruise-control-min.jpg' srcset='/images/services/upgrade/f-series/3-series/dynamic-cruise-control-min@2x.jpg 1.5x')
+            .services-item__content
+              .services-item__text
+                h3 Динамический круиз-контроль
+                .subtitle.services-item__subtitle Поддержание выбранной скорости при движении со скоростью выше 30 км/ч даже при движении на спусках с применением торможения, если это необходимо
+              .services-item__meta
+                .services-item__price 19 000 ₽
+                .button-simple Подробнее
+        .col-sm-6.col-lg-4.col-xl-3.active(data-target='assistants')
+          .services-item
+            img(src='/images/services/upgrade/f-series/3-series/active-cruise-control-min.jpg' srcset='/images/services/upgrade/f-series/3-series/active-cruise-control-min@2x.jpg 1.5x')
+            .services-item__content
+              .services-item__text
+                h3 Активный круиз-контроль c функцией Stop&Go
+                .subtitle.services-item__subtitle Поддержание заданной дистанции до находящегося впереди автомобиля, а также полная остановка и разгон автомобиля при необходимости
+              .services-item__meta
+                .services-item__price 120 000 ₽
+                .button-simple Подробнее
+        .col-sm-6.col-lg-4.col-xl-3.active(data-target='safety')
+          .services-item
+            img(src='/images/services/upgrade/f-series/3-series/extra-package-eu-min.jpg' srcset='/images/services/upgrade/f-series/3-series/extra-package-eu-min@2x.jpg 1.5x')
+            .services-item__content
+              .services-item__text
+                h3 Дополнительный объем для EU
+                .subtitle.services-item__subtitle Двухступенчатая подушка безопаности водителя, датчики пристегнутого ремня переднего и задних пассажиров, датчик наличия переднего пассажира
+              .services-item__meta
+                .services-item__price 140 000 ₽
+                .button-simple Подробнее
+        .col-sm-6.col-lg-4.col-xl-3.active(data-target='safety')
+          .services-item
+            img(src='/images/services/upgrade/f-series/3-series/passenger-airbag-deactivation-min.jpg' srcset='/images/services/upgrade/f-series/3-series/passenger-airbag-deactivation-min@2x.jpg 1.5x')
+            .services-item__content
+              .services-item__text
+                h3 Выключатель пассажирской подушки безопасности
+                .subtitle.services-item__subtitle Выключатель, позволяющий вручную деактивировать подушку безопасности переднего пассажира
+              .services-item__meta
+                .services-item__price 8 000 ₽
+                .button-simple Подробнее
+        .col-sm-6.col-lg-4.col-xl-3.active(data-target='safety')
+          .services-item
+            img(src='/images/services/upgrade/f-series/3-series/ceiling-light-replacement-min.jpg' srcset='/images/services/upgrade/f-series/3-series/ceiling-light-replacement-min@2x.jpg 1.5x')
+            .services-item__content
+              .services-item__text
+                h3 Замена потолочного плафона
+                .subtitle.services-item__subtitle Замена потолочного плафона, рекомендуемая при установке выключателя пассажирской подушки безопасности
+              .services-item__meta
+                .services-item__price 15 000 ₽
+                .button-simple Подробнее
+        .col-sm-6.col-lg-4.col-xl-3.active(data-target='lighting')
+          .services-item
+            img(src='/images/services/upgrade/f-series/3-series/lighting-min.jpg' srcset='/images/services/upgrade/f-series/3-series/lighting-min@2x.jpg 1.5x')
+            .services-item__content
+              .services-item__text
+                h3 Пакет освещения снаружи и в салоне
+                .subtitle.services-item__subtitle Пакет освещения, включающий лампы для чтения, подсветку пространства для ног, косметических зеркал, ручек дверей и багажного отделения
+              .services-item__meta
+                .services-item__price 60 000 ₽
+                .button-simple Подробнее
+        .col-sm-6.col-lg-4.col-xl-3.active(data-target='lighting')
+          .services-item
+            img(src='/images/services/upgrade/f-series/3-series/high-beam-assistant-min.jpg' srcset='/images/services/upgrade/f-series/3-series/high-beam-assistant-min@2x.jpg 1.5x')
+            .services-item__content
+              .services-item__text
+                h3 Система управления дальним светом
+                .subtitle.services-item__subtitle Автоматический переход с дальнего на ближний свет в зависимости от наличия перед автомобилем других транспортных средств
+              .services-item__meta
+                .services-item__price 35 000 ₽
+                .button-simple Подробнее
+        .col-sm-6.col-lg-4.col-xl-3.active(data-target='lighting')
+          .services-item
+            img(src='/images/services/upgrade/f-series/3-series/led-fog-lights-min.jpg' srcset='/images/services/upgrade/f-series/3-series/led-fog-lights-min@2x.jpg 1.5x')
+            .services-item__content
+              .services-item__text
+                h3 Светодиодные противотуманные фары
+                .subtitle.services-item__subtitle Улучшают видимость в условиях тумана или сильных осадков, а также задают высокотехнологичный и современный тон яркому облику автомобиля
+              .services-item__meta
+                .services-item__price 28 000 ₽
+                .button-simple Подробнее
+        .col-sm-6.col-lg-4.col-xl-3.active(data-target='lighting')
+          .services-item
+            img(src='/images/services/upgrade/f-series/3-series/led-lights-min.jpg' srcset='/images/services/upgrade/f-series/3-series/led-lights-min@2x.jpg 1.5x')
+            .services-item__content
+              .services-item__text
+                h3 Светодиодные фары
+                .subtitle.services-item__subtitle Фары со световыми функциями, включая дневные ходовые огни, стояночное освещение и указатели поворотов, реализоваными с помощью светодиодов
+              .services-item__meta
+                .services-item__price 120 000 ₽
+                .button-simple Подробнее
+        .col-sm-6.col-lg-4.col-xl-3.active(data-target='lighting')
+          .services-item
+            img(src='/images/services/upgrade/f-series/3-series/adaptive-led-lights-min.jpg' srcset='/images/services/upgrade/f-series/3-series/adaptive-led-lights-min@2x.jpg 1.5x')
+            .services-item__content
+              .services-item__text
+                h3 Адаптивные светодиодные фары
+                .subtitle.services-item__subtitle Меняют распределение света в зависимости от скорости и угла поворота. Включают систему управления дальним светом, светодиодные противотуманные фары и функцию статического освещения поворотов
+              .services-item__meta
+                .services-item__price от 180 000 ₽
+                .button-simple Подробнее
+        .col-sm-6.col-lg-4.col-xl-3.active(data-target='lighting')
+          .services-item
+            img(src='/images/services/upgrade/f-series/3-series/headlamp-washers-min.jpg' srcset='/images/services/upgrade/f-series/3-series/headlamp-washers-min@2x.jpg 1.5x')
+            .services-item__content
+              .services-item__text
+                h3 Омыватели фар
+                .subtitle.services-item__subtitle Автоматически очищают стекла фар, когда активируется стеклоочиститель ветрового стекла и включаются фары. Благодаря этому поддерживается яркость света фар
+              .services-item__meta
+                .services-item__price 35 000 ₽
+                .button-simple Подробнее
+        .col-sm-6.col-lg-4.col-xl-3.active(data-target='view')
+          .services-item
+            img(src='/images/services/upgrade/f-series/3-series/rear-mirrors-package-min.jpg' srcset='/images/services/upgrade/f-series/3-series/rear-mirrors-package-min@2x.jpg 1.5x')
+            .services-item__content
+              .services-item__text
+                h3 Пакет зеркал заднего вида с функцией складывания и затемнения
+                .subtitle.services-item__subtitle Автоматическое затемнение зеркала со стороны водителя и внутреннего зеркала, а также наклон зеркала со стороны пассажира при движении задним ходом
+              .services-item__meta
+                .services-item__price от 39 000 ₽
+                .button-simple Подробнее
+        .col-sm-6.col-lg-4.col-xl-3.active(data-target='view')
+          .services-item
+            img(src='/images/services/upgrade/f-series/3-series/non-dazzling-internal-mirror-min.jpg' srcset='/images/services/upgrade/f-series/3-series/non-dazzling-internal-mirror-min@2x.jpg 1.5x')
+            .services-item__content
+              .services-item__text
+                h3 Неослепляющее внутреннее зеркало заднего вида
+                .subtitle.services-item__subtitle Предотвращает ослепление водителя светом фар автомобилей, движущихся сзади, путем затемнения отражающей поверхности зеркала
+              .services-item__meta
+                .services-item__price от 12 000 ₽
+                .button-simple Подробнее
+        .col-sm-6.col-lg-4.col-xl-3.active(data-target='exterior')
+          .services-item
+            img(src='/images/services/upgrade/f-series/3-series/m-bodykit-min.jpg' srcset='/images/services/upgrade/f-series/3-series/m-bodykit-min@2x.jpg 1.5x')
+            .services-item__content
+              .services-item__text
+                h3 Аэродинамический пакет M
+                .subtitle.services-item__subtitle Спортивные передний и задний бамперы, а также специальные облицовки порогов, окрашеные в цвет кузова. Диффузор контрастного цвета и хромированные выхлопные патрубки в задней части автомобиля
+              .services-item__meta
+                .services-item__price 120 000 ₽
+                .button-simple Подробнее
+        .col-sm-6.col-lg-4.col-xl-3.active(data-target='interior')
+          .services-item
+            img(src='/images/services/upgrade/f-series/3-series/electro-lumbar-support-min.jpg' srcset='/images/services/upgrade/f-series/3-series/electro-lumbar-support-min@2x.jpg 1.5x')
+            .services-item__content
+              .services-item__text
+                h3 Электрорегулируемая поддержка поясничного отдела спины
+                .subtitle.services-item__subtitle Воздушная камера в спинке сиденья водителя и переднего пассажира, размер которой можно регулировать по высоте и глубине. Обеспечивает поддержку и снимает нагрузку с позвоночника
+              .services-item__meta
+                .services-item__price 35 000 ₽
+                .button-simple Подробнее
+        .col-sm-6.col-lg-4.col-xl-3.active(data-target='interior')
+          .services-item
+            img(src='/images/services/upgrade/f-series/3-series/electro-front-seats-min.jpg' srcset='/images/services/upgrade/f-series/3-series/electro-front-seats-min@2x.jpg 1.5x')
+            .services-item__content
+              .services-item__text
+                h3 Электрорегулировка передних сидений с памятью сиденья водителя
+                .subtitle.services-item__subtitle Регулировка продольного положения и высоты подушки, угла наклона спинки и подушки сиденья, а также сохранение настроек сиденья водителя, наружных зеркал и проекционного дисплея
+              .services-item__meta
+                .services-item__price 80 000 ₽
+                .button-simple Подробнее
+        .col-sm-6.col-lg-4.col-xl-3.active(data-target='interior')
+          .services-item
+            img(src='/images/services/upgrade/f-series/3-series/sport-front-seats-min.jpg' srcset='/images/services/upgrade/f-series/3-series/sport-front-seats-min@2x.jpg 1.5x')
+            .services-item__content
+              .services-item__text
+                h3 Спортивные передние сиденья
+                .subtitle.services-item__subtitle Спортивные передние сиденья с выраженной боковой поддержкой, тщательно продуманной эргономикой, увеличенными валиками боковой поддержки и регулируемой подколенной опорой
+              .services-item__meta
+                .services-item__price 70 000 ₽
+                .button-simple Подробнее
+        .col-sm-6.col-lg-4.col-xl-3.active(data-target='interior')
+          .services-item
+            img(src='/images/services/upgrade/f-series/3-series/leather-dashboard-min.jpg' srcset='/images/services/upgrade/f-series/3-series/leather-dashboard-min@2x.jpg 1.5x')
+            .services-item__content
+              .services-item__text
+                h3 Кожаная отделка приборной панели
+                .subtitle.services-item__subtitle Верхняя часть приборной панели отделана черной кожей Walknappa из серии BMW Individual. Этим самым атмосфера в салоне делается еще более роскошной
+              .services-item__meta
+                .services-item__price 90 000 ₽
+                .button-simple Подробнее
+        .col-sm-6.col-lg-4.col-xl-3.active(data-target='interior')
+          .services-item
+            img(src='/images/services/upgrade/f-series/3-series/automatic-climate-control-min.jpg' srcset='/images/services/upgrade/f-series/3-series/automatic-climate-control-min@2x.jpg 1.5x')
+            .services-item__content
+              .services-item__text
+                h3 Автоматический климат-контроль
+                .subtitle.services-item__subtitle Двухзонный климат-контроль с функцией рециркуляции воздуха и фильтром из активированного угля, а также возможностью автоматического управления температурой, объемом и качеством воздуха
+              .services-item__meta
+                .services-item__price 50 000 ₽
+                .button-simple Подробнее
+        .col-sm-6.col-lg-4.col-xl-3.active(data-target='interior')
+          .services-item
+            img(src='/images/services/upgrade/f-series/3-series/sport-steering-wheel-min.jpg' srcset='/images/services/upgrade/f-series/3-series/sport-steering-wheel-min@2x.jpg 1.5x')
+            .services-item__content
+              .services-item__text
+                h3 Спортивное кожаное рулевое колесо
+                .subtitle.services-item__subtitle Рулевое колесо с ободом, отделанным черной кожей Walknappa, черными декоративными швами, эргономичными упорами для больших пальцев и логотипом «M»
+              .services-item__meta
+                .services-item__price от 20 000 ₽
+                .button-simple Подробнее
+        .col-sm-6.col-lg-4.col-xl-3.active(data-target='interior')
+          .services-item
+            img(src='/images/services/upgrade/f-series/3-series/m-steering-wheel-min.jpg' srcset='/images/services/upgrade/f-series/3-series/m-steering-wheel-min@2x.jpg 1.5x')
+            .services-item__content
+              .services-item__text
+                h3 Спортивное рулевое колесо M
+                .subtitle.services-item__subtitle Рулевое колесо с ободом, отделанным черной кожей Walknappa, черными декоративными швами, эргономичными упорами для больших пальцев и логотипом «M»
+              .services-item__meta
+                .services-item__price от 60 000 ₽
+                .button-simple Подробнее
+        .col-sm-6.col-lg-4.col-xl-3.active(data-target='interior')
+          .services-item
+            img(src='/images/services/upgrade/f-series/3-series/gearshift-paddles-min.jpg' srcset='/images/services/upgrade/f-series/3-series/gearshift-paddles-min@2x.jpg 1.5x')
+            .services-item__content
+              .services-item__text
+                h3 Подрулевые переключатели КПП
+                .subtitle.services-item__subtitle Подрулевые переключатели передач КПП, расположенные на тыльной части рулевого колеса. Позволяют переключать передачи не отрывая рук от обода рулевого колеса
+              .services-item__meta
+                .services-item__price от 8 000 ₽
+                .button-simple Подробнее
+        .col-sm-6.col-lg-4.col-xl-3.active(data-target='interior')
+          .services-item
+            img(src='/images/services/upgrade/f-series/3-series/sport-gearbox-selector-min.jpg' srcset='/images/services/upgrade/f-series/3-series/sport-gearbox-selector-min@2x.jpg 1.5x')
+            .services-item__content
+              .services-item__text
+                h3 Спортивный селектор КПП
+                .subtitle.services-item__subtitle Спортивный селектор для переключения передач КПП. Отличается иным дизайном и формой, а также изменённой схемой переключения передач автомобиля
+              .services-item__meta
+                .services-item__price 15 000 ₽
+                .button-simple Подробнее
+        .col-sm-6.col-lg-4.col-xl-3.active(data-target='interior')
+          .services-item
+            img(src='/images/services/upgrade/f-series/3-series/sliding-armrest-min.jpg' srcset='/images/services/upgrade/f-series/3-series/sliding-armrest-min@2x.jpg 1.5x')
+            .services-item__content
+              .services-item__text
+                h3 Сдвижной подлокотник
+                .subtitle.services-item__subtitle Возможность продольной регулировки положения переднего подлокотника, в который дополнительно интегрирован отсек для хранения личных вещей
+              .services-item__meta
+                .services-item__price 15 000 ₽
+                .button-simple Подробнее
+        .col-sm-6.col-lg-4.col-xl-3.active(data-target='interior')
+          .services-item
+            img(src='/images/services/upgrade/f-series/3-series/rear-sunshades-min.jpg' srcset='/images/services/upgrade/f-series/3-series/rear-sunshades-min@2x.jpg 1.5x')
+            .services-item__content
+              .services-item__text
+                h3 Солнцезащитные шторки
+                .subtitle.services-item__subtitle Солнцезащитная шторка с электроприводом для заднего окна вместе с механическими шторками боковых окон позволяют защититься от прямого солнечного света
+              .services-item__meta
+                .services-item__price 90 000 ₽
+                .button-simple Подробнее
+        .col-sm-6.col-lg-4.col-xl-3.active(data-target='interior')
+          .services-item
+            img(src='/images/services/upgrade/f-series/3-series/moonroof-min.jpg' srcset='/images/services/upgrade/f-series/3-series/moonroof-min@2x.jpg 1.5x')
+            .services-item__content
+              .services-item__text
+                h3 Люк электрорегулируемый
+                .subtitle.services-item__subtitle Электрорегулируемый люк со стеклянной крышкой позволяет плавно регулировать поток поступающего в салон воздуха
+              .services-item__meta
+                .services-item__price 160 000 ₽
+                .button-simple Подробнее
+        .col-sm-6.col-lg-4.col-xl-3.active(data-target='functionality')
+          .services-item
+            img(src='/images/services/upgrade/f-series/3-series/automatic-doors-min.jpg' srcset='/images/services/upgrade/f-series/3-series/automatic-doors-min@2x.jpg 1.5x')
+            .services-item__content
+              .services-item__text
+                h3 Автодоводчик дверей
+                .subtitle.services-item__subtitle Автоматическое полное закрывание прикрытых дверей. Происходит комфортно, надежно, с малым усилием и практически бесшумно
+              .services-item__meta
+                .services-item__price 80 000 ₽
+                .button-simple Подробнее
+        .col-sm-6.col-lg-4.col-xl-3.active(data-target='functionality')
+          .services-item
+            img(src='/images/services/upgrade/f-series/3-series/comfort-access-min.jpg' srcset='/images/services/upgrade/f-series/3-series/comfort-access-min@2x.jpg 1.5x')
+            .services-item__content
+              .services-item__text
+                h3 Комфортный доступ
+                .subtitle.services-item__subtitle Автоматическое отпирание автомобиля при приближении с ключом и касании ручки двери или кнопки привода крышки багажного отделения
+              .services-item__meta
+                .services-item__price 60 000 ₽
+                .button-simple Подробнее
+        .col-sm-6.col-lg-4.col-xl-3.active(data-target='functionality')
+          .services-item
+            img(src='/images/services/upgrade/f-series/3-series/automatic-trunk-min.jpg' srcset='/images/services/upgrade/f-series/3-series/automatic-trunk-min@2x.jpg 1.5x')
+            .services-item__content
+              .services-item__text
+                h3 Автоматический привод багажника (от модели G30)
+                .subtitle.services-item__subtitle Позволяет открывать или закрывать крышку багажника с помощью электропривода, нажав кнопку на ключе или при помощи кнопки, расположенной в салоне автомобиля
+              .services-item__meta
+                .services-item__price 90 000 ₽
+                .button-simple Подробнее
+        .col-sm-6.col-lg-4.col-xl-3.active(data-target='functionality')
+          .services-item
+            img(src='/images/services/upgrade/f-series/3-series/security-alarm-min.jpg' srcset='/images/services/upgrade/f-series/3-series/security-alarm-min@2x.jpg 1.5x')
+            .services-item__content
+              .services-item__text
+                h3 Охранная сигнализация
+                .subtitle.services-item__subtitle Отслеживает состояние дверей, капота, крышки багажника и салона, а также включает в себя датчик крена кузова и автономную сирену
+              .services-item__meta
+                .services-item__price 30 000 ₽
+                .button-simple Подробнее
+        .col-sm-6.col-lg-4.col-xl-3.active(data-target='functionality')
+          .services-item
+            img(src='/images/services/upgrade/f-series/3-series/hitch-mechanism-min.jpg' srcset='/images/services/upgrade/f-series/3-series/hitch-mechanism-min@2x.jpg 1.5x')
+            .services-item__content
+              .services-item__text
+                h3 Тягово-сцепное устройство c электроприводом (фаркоп)
+                .subtitle.services-item__subtitle Убирается под задний бампер. При опасной раскачке прицепа система контроля устойчивости притормаживает колеса автомобиля для восстановления устойчивого движения
+              .services-item__meta
+                .services-item__price 80 000 ₽
+                .button-simple Подробнее
+        .col-sm-6.col-lg-4.col-xl-3.active(data-target='functionality')
+          .services-item
+            img(src='/images/services/upgrade/f-series/3-series/cup-holders-min.jpg' srcset='/images/services/upgrade/f-series/3-series/cup-holders-min@2x.jpg 1.5x')
+            .services-item__content
+              .services-item__text
+                h3 Подстаканники от LCI с закрывающейся шторкой
+                .subtitle.services-item__subtitle Подстаканники с возможностью закрытия шторки. Устаналиваются по умолчаниию в рестайлинговые автомобили, выпущенные после 07.2015
+              .services-item__meta
+                .services-item__price 15 000 ₽
+                .button-simple Подробнее
+        .col-sm-6.col-lg-4.col-xl-3.active(data-target='chassis')
+          .services-item
+            img(src='/images/services/upgrade/f-series/3-series/adaptive-m-suspension-min.jpg' srcset='/images/services/upgrade/f-series/3-series/adaptive-m-suspension-min@2x.jpg 1.5x')
+            .services-item__content
+              .services-item__text
+                h3 Адаптивная подвеска M
+                .subtitle.services-item__subtitle Подвеска, заниженная на 10 миллиметров. Позволяет изменять ходовые качества автомобиля от максимально комфортных до экстремально спортивных
+              .services-item__meta
+                .services-item__price 140 000 ₽
+                .button-simple Подробнее
+        .col-sm-6.col-lg-4.col-xl-3.active(data-target='chassis')
+          .services-item
+            img(src='/images/services/upgrade/f-series/3-series/m-sport-brakes-min.jpg' srcset='/images/services/upgrade/f-series/3-series/m-sport-brakes-min@2x.jpg 1.5x')
+            .services-item__content
+              .services-item__text
+                h3 Тормозная система M Sport
+                .subtitle.services-item__subtitle Вентилируемые тормозные диски увеличенного диаметра, с четырехпоршневыми суппортами спереди и двухпоршневыми — сзади. Суппорты имеют логотип «M» и окрашены в синий цвет
+              .services-item__meta
+                .services-item__price 90 000 ₽
+                .button-simple Подробнее
+        .col-sm-6.col-lg-4.col-xl-3.active(data-target='chassis')
+          .services-item
+            img(src='/images/services/upgrade/f-series/3-series/m-performance-brakes-min.jpg' srcset='/images/services/upgrade/f-series/3-series/m-performance-brakes-min@2x.jpg 1.5x')
+            .services-item__content
+              .services-item__text
+                h3 Тормозная система M Performance
+                .subtitle.services-item__subtitle Максимально доступная тормозная система из пакета дооснащения M Performance. Суппорты имеют логотип «M» и могут быть окрашены в оранжевый, красный или желтый цвет
+              .services-item__meta
+                .services-item__price 190 000 ₽
+                .button-simple Подробнее
+        .col-sm-6.col-lg-4.col-xl-3.active(data-target='chassis')
+          .services-item
+            img(src='/images/services/upgrade/f-series/3-series/carbon-ceramic-brakes-min.jpg' srcset='/images/services/upgrade/f-series/3-series/carbon-ceramic-brakes-min@2x.jpg 1.5x')
+            .services-item__content
+              .services-item__text
+                h3 Карбоно-керамическая тормозная система M
+                .subtitle.services-item__subtitle Высокая устойчивость к перегреву, а также уменьшение массы автомобиля, что положительно сказывается на маневренности, динамике и показателях разгона. Суппорты окрашены в матовый золотистый цвет
+              .services-item__meta
+                .services-item__price от 950 000 ₽
+                .button-simple Подробнее
+        .col-sm-6.col-lg-4.col-xl-3.active(data-target='chassis')
+          .services-item
+            img(src='/images/services/upgrade/f-series/3-series/adaptive-sport-steering-min.jpg' srcset='/images/services/upgrade/f-series/3-series/adaptive-sport-steering-min@2x.jpg 1.5x')
+            .services-item__content
+              .services-item__text
+                h3 Адаптивное спортивное рулевое управление
+                .subtitle.services-item__subtitle Изменяет передаточное число рулевого механизма, а также в зависимости от скорости регулирует усилие, необходимое для поворота рулевого колеса
+              .services-item__meta
+                .services-item__price 90 000 ₽
+                .button-simple Подробнее
+        .col-sm-6.col-lg-4.col-xl-3.active(data-target='chassis')
+          .services-item
+            img(src='/images/services/upgrade/f-series/3-series/tire-pressure-indicator-min.jpg' srcset='/images/services/upgrade/f-series/3-series/tire-pressure-indicator-min@2x.jpg 1.5x')
+            .services-item__content
+              .services-item__text
+                h3 Индикатор давления в шинах
+                .subtitle.services-item__subtitle Система определяет точное давление в каждой шине с помощью датчиков и автоматически предупреждает водителя в случае как постепенного, так и быстрого падения давления
+              .services-item__meta
+                .services-item__price от 28 000 ₽
+                .button-simple Подробнее
+  include /videos
+  include /contacts

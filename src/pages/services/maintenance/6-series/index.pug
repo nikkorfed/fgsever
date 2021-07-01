@@ -1,0 +1,17 @@
+extends /layout.pug
+
+block variables
+  - var name = 'main_high main_6-series'
+  - var section = 'Услуга';
+  - var title = 'Техническое обслуживание BMW&nbsp;6&nbsp;серии';
+  - var models = 'G32, F06/F12/F13, E63/E64';
+  - var seoTitle = 'Техническое обслуживание BMW 6 серии (' + models + ') в Москве | Автосервис BMW «FGSEVER»';
+  - var subtitle = 'Услуги по техническому обслуживанию (ТО) BMW 6&nbsp;серии в Москве — компьютерная и общая диагностика, замена масел и технических жидкостей, тормозных дисков и колодок, цепи ГРМ, ремонт и замена ДВС, мойка радиаторов, ремонт рулевой рейки.';
+  - var path = {'/services/': 'Услуги', '/services/maintenance/': 'Техническое обслуживание BMW', '': '6&nbsp;серия'};
+  - var button = ['#maintenance-calculator', 'Рассчитать стоимость'];
+
+block content
+  +main(name, path, section, title, subtitle, button, models)
+  include /maintenance/calculator
+  include /maintenance/services
+  include /contacts

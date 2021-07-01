@@ -1,0 +1,116 @@
+.coding
+  background-color: $backgroundGrey
+
+  [data-target='f-series']
+    display: block
+
+  &-item
+    display: flex
+    align-items: flex-start
+    border-bottom: 1px solid $backgroundGrey
+    padding: 15px 0
+    // font-weight: 500
+    // color: $black
+    cursor: pointer
+
+    &:first-child
+      padding-top: 0
+
+    &:last-child
+      border-bottom: none
+      padding-bottom: 0
+
+    &::before
+      +checkbox
+      margin-top: 5px
+      margin-right: $horizontalOffset
+
+      +small
+        // margin-top: 6px
+        margin-right: $smallHorizontalOffset
+
+      +medium
+        // margin-top: 7px
+        margin-right: $mediumHorizontalOffset
+
+    &.disabled
+      &::before
+        background: $backgroundGrey
+
+      // .coding-item__title
+        color: $grey
+
+      // .coding-item__description
+        color: $lightGrey
+    
+    &__content
+      display: flex
+      justify-content: space-between
+      align-items: center
+      width: 100%
+
+    &__image
+      display: flex
+      overflow: hidden
+      margin-right: $horizontalOffset
+      border-radius: $borderRadius
+      width: 80px
+      // width: 130px
+
+      +small
+        margin-right: $smallHorizontalOffset
+
+      +medium
+        margin-right: $mediumHorizontalOffset
+
+      +large
+        margin-right: $largeHorizontalOffset
+
+    &__title
+      line-height: 1.8
+      color: $black
+      transition: color .3s
+
+    &__description
+      // display: none
+      margin-bottom: 0
+      line-height: 1.8
+      color: $lighterGrey
+      transition: color .3s
+
+      +medium
+        // max-width: 700px
+
+    &[data-fancybox]
+      &:hover
+        .coding-item__title
+          color: $primaryColor
+
+      .coding-item__content
+        &::after
+          display: inline-block
+          height: 15px
+          width: 20px
+          content: ''
+          background-image: svg-load('images/icons/arrow-right.svg', fill='#{$primaryColor}')
+          background-position: 50% 50%
+          background-repeat: no-repeat
+          background-size: 12px
+
+    &__popup
+      .subtitle
+        margin-bottom: 0
+
+  .button-area
+    display: flex
+    justify-content: center
+    // margin-bottom: $verticalOuterOffset
+
+    // +small
+    //   margin-bottom: $smallVerticalOuterOffset
+
+    // +medium
+    //   margin-bottom: $mediumVerticalOuterOffset
+
+    // +large
+    //   margin-bottom: $largeVerticalOuterOffset

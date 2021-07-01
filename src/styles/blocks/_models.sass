@@ -1,0 +1,92 @@
+.models
+  background: $white
+  // background-color: $backgroundGrey
+  
+  &-item
+    display: flex
+    +border-grey
+    text-decoration: none
+    transition: border-color .3s, box-shadow .3s, transform .3s
+
+    &:hover
+      border-color: transparent
+      +light-shadow
+
+    &__icon
+      margin: #{-$horizontalOffset} 0 #{-$horizontalOffset} #{-$horizontalOffset}
+      min-width: 120px
+      background-position: 50% 20%
+      background-repeat: no-repeat
+      background-size: contain
+
+      +small
+        margin: #{-$smallHorizontalOffset} 0 #{-$smallHorizontalOffset} #{-$smallHorizontalOffset}
+
+      +medium
+        min-width: 160px
+        margin: #{-$mediumHorizontalOffset} 0 #{-$mediumHorizontalOffset} #{-$mediumHorizontalOffset}
+
+      +large
+        margin: #{-$largeHorizontalOffset} 0 #{-$largeHorizontalOffset} #{-$largeHorizontalOffset}
+
+      +max
+        min-width: 200px
+
+    &__text
+
+      .overtitle
+        margin: 0
+
+      h3
+        margin: 0
+
+    &.series-1 &__icon
+      background-image: url('/images/models/1-series.png')
+
+    &.series-2 &__icon
+      background-image: url('/images/models/2-series.png')
+
+    &.g-series-2 &__icon
+      background-image: url('/images/models/2-series-(G).png')
+
+    &.series-3 &__icon
+      background-image: url('/images/models/3-series.png')
+
+    &.series-4 &__icon
+      background-image: url('/images/models/4-series.png')
+
+    &.series-5 &__icon
+      background-image: url('/images/models/5-series.png')
+
+    &.series-6 &__icon
+      background-image: url('/images/models/6-series.png')
+
+    &.series-7 &__icon
+      background-image: url('/images/models/7-series.png')
+
+    &.series-8 &__icon
+      background-image: url('/images/models/8-series.png')
+
+    &.x1 &__icon
+      background-image: url('/images/models/X1.png')
+
+    &.x2 &__icon
+      background-image: url('/images/models/X2.png')
+
+    &.x3 &__icon
+      background-image: url('/images/models/X3.png')
+
+    &.x4 &__icon
+      background-image: url('/images/models/X4.png')
+
+    &.x5 &__icon
+      background-image: url('/images/models/X5.png')
+
+    &.x6 &__icon
+      background-image: url('/images/models/X6.png')
+
+    &.x7 &__icon
+      background-image: url('/images/models/X7.png')
+
+    &.z4 &__icon
+      background-image: url('/images/models/Z4.png')

@@ -1,0 +1,43 @@
+.contacts
+  background-color: $backgroundGrey
+  
+  .contact-text
+    // font-size: 16px
+
+    // +medium
+    //   font-size: 18px
+
+  a.contact-text
+    transition: color .3s
+  
+    &:hover
+      color: $primaryColor
+
+.contacts .map
+  margin-bottom: $verticalOuterOffset
+  border-radius: $borderRadius
+  height: 400px
+  width: 100%
+
+  +small
+    margin-bottom: $smallVerticalOuterOffset
+
+  +medium
+    margin-bottom: $mediumVerticalOuterOffset
+    height: 500px
+
+  +large
+    margin-bottom: $largeVerticalOuterOffset
+
+// .services + .contacts, .models + .contacts, .series + .contacts
+.calculator + .contacts
+  background-color: $white
+
+  .block
+    +border-grey
+
+#services-options + section.contacts, section.videos + section.contacts
+  // background-color: $backgroundGrey
+
+  .block
+    border: none

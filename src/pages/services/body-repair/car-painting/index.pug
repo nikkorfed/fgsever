@@ -1,0 +1,115 @@
+extends /layout.pug
+
+block variables
+  - var name = 'main_body-repair';
+  - var section = 'Услуга';
+  - var title = 'Покрасочные работы';
+  - var seoTitle = title + ' BMW в Москве | Автосервис BMW «FGSEVER»';
+  - var subtitle = 'Покраска различных элементов кузова, полная покраска и замена цвета автомобиля, покраска в цвет BMW Individual, покраска переходом и под прибор (с заданной толщиной ЛКП).';
+  - var path = {'/services/': 'Услуги', '/services/body-repair/': 'Кузовной ремонт', '': title};
+
+block content
+  +main(name, path, section, title, subtitle, button)
+  section.services
+    .wrapper
+      .titles
+        .overtitle Наши услуги
+        h2 Виды работ
+      .columns
+        .col-md-6.col-lg-4
+          a.services-item(href='bumpers/')
+            .services-item__content
+              .services-item__text
+                .services-item__title
+                  h3 Покраска бамперов
+                .subtitle.services-item__subtitle Покраска передних и задних бамперов после незначительных дорожно-транспортных происшествий
+              .button-simple Подробнее
+        .col-md-6.col-lg-4
+          a.services-item(href='doors-and-body/')
+            .services-item__content
+              .services-item__text
+                .services-item__title
+                  h3 Покраска дверей и кузова
+                .subtitle.services-item__subtitle Покраска любой или всех дверей, а также любой части кузова автомобиля
+              .button-simple Подробнее
+        .col-md-6.col-lg-4
+          a.services-item(href='hood/')
+            .services-item__content
+              .services-item__text
+                .services-item__title
+                  h3 Покраска капота
+                .subtitle.services-item__subtitle Покраска капота после появления большого количества сколов или вмятин
+              .button-simple Подробнее
+        .col-md-6.col-lg-4
+          a.services-item(href='roof/')
+            .services-item__content
+              .services-item__text
+                .services-item__title
+                  h3 Покраска крыши
+                .subtitle.services-item__subtitle Покраска крыши после различных ударов, вмятин или следов от града
+              .button-simple Подробнее
+        .col-md-6.col-lg-4
+          a.services-item(href='trunk/')
+            .services-item__content
+              .services-item__text
+                .services-item__title
+                  h3 Покраска багажника
+                .subtitle.services-item__subtitle Покраска двери багажника после вмятин и других повреждений
+              .button-simple Подробнее
+        .col-md-6.col-lg-4
+          a.services-item(href='doorways/')
+            .services-item__content
+              .services-item__text
+                .services-item__title
+                  h3 Покраска проёмов
+                .subtitle.services-item__subtitle Полная покраска автомобиля вместе со всеми дверными проёмами
+              .button-simple Подробнее
+        .col-md-6.col-lg-4
+          a.services-item(href='fenders/')
+            .services-item__content
+              .services-item__text
+                .services-item__title
+                  h3 Покраска крыльев
+                .subtitle.services-item__subtitle Покраска одного или нескольких крыльев автомобиля по выбору
+              .button-simple Подробнее
+        .col-md-6.col-lg-4
+          a.services-item(href='full-car-painting/')
+            .services-item__content
+              .services-item__text
+                .services-item__title
+                  h3 Полная покраска автомобиля
+                .subtitle.services-item__subtitle Полная покраска всех кузовных элементов вашего автомобиля
+              .button-simple Подробнее
+        .col-md-6.col-lg-4
+          a.services-item(href='car-color-change/')
+            .services-item__content
+              .services-item__text
+                .services-item__title
+                  h3 Замена цвета автомобиля
+                .subtitle.services-item__subtitle Покраска автомобиля с изменением его цвета на другой
+              .button-simple Подробнее
+        .col-md-6.col-lg-4
+          a.services-item(href='bmw-individual-painting/')
+            .services-item__content
+              .services-item__text
+                .services-item__title
+                  h3 Покраска в цвет BMW Individual
+                .subtitle.services-item__subtitle Полная покраска автомобиля в любой цвет из линейки BMW Individual
+              .button-simple Подробнее
+        .col-md-6.col-lg-4
+          a.services-item(href='transition-painting/')
+            .services-item__content
+              .services-item__text
+                .services-item__title
+                  h3 Покраска переходом
+                .subtitle.services-item__subtitle Покраска поврежденного участка с плавным переходом к заводскому покрытию
+              .button-simple Подробнее
+        .col-md-6.col-lg-4
+          a.services-item(href='precise-painting/')
+            .services-item__content
+              .services-item__text
+                .services-item__title
+                  h3 Покраска под прибор
+                .subtitle.services-item__subtitle Покраска автомобиля с заданной толщиной лакокрасочного покрытия
+              .button-simple Подробнее
+  include /contacts

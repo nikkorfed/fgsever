@@ -1,0 +1,44 @@
+extends /layout.pug
+
+block variables
+  - var name = 'main_high main_x2';
+  - var section = 'Вид работ';
+  - var title = 'Замена масел в BMW&nbsp;X2';
+  - var models = 'F39';
+  - var seoTitle = 'Замена масел в BMW X2 (' + models + ') в Москве | Автосервис BMW «FGSEVER»';
+  - var subtitle = 'Услуги по замене масел в автоматической коробке переключения передач (АКПП), редукторах и раздаточной коробке автомобилей BMW X2 в Москве. Мы выполним все необходимые работы по обслуживанию вашего автомобиля и ответим на все интересующие вас вопросы.';
+  - var path = {'/services/': 'Услуги', '/services/maintenance/': 'Техническое обслуживание BMW', '/services/maintenance/x2/': 'X2', '': 'Замена масел'};
+  - var button = ['popup', '#maintenance-appointment', 'Записаться'];
+
+block content
+  <? $prices = json_decode(file_get_contents($_SERVER['DOCUMENT_ROOT'] . '/data/parts-prices.json'), true) ?>
+  +main(name, path, section, title, subtitle, button, models)
+  include /maintenance/description/oil-change
+  section.prices
+    .wrapper
+      .titles
+        .overtitle Об услуге
+        h2 Стоимость
+      .block
+        .table-wrapper
+          .table
+            table
+              tr.table-header
+                td Услуга
+                td Стоимость
+              tr 
+                td Замена масла в АКПП (Включая расходные материалы)
+                td 20 000 ₽
+              tr
+                td Замена масла в переднем редукторе
+                td 800 ₽ (+ <? echo number_format($prices['finalDriveOil']['price'], 0, ',', ' ') ?> ₽ за литр масла)
+              tr
+                td Замена масла в заднем редукторе
+                td 800 ₽ (+ <? echo number_format($prices['finalDriveOil']['price'], 0, ',', ' ') ?> ₽ за литр масла)
+              tr
+                td Замена масла в раздаточной коробке
+                td 1 200 ₽ (+ <? echo number_format($prices['transferBoxOil']['price'], 0, ',', ' ') ?> ₽ за литр масла)
+  include /maintenance/photos/oil-change
+  include /about/advantages
+  include /about  
+  include /contacts

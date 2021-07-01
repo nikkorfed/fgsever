@@ -1,0 +1,34 @@
+extends /layout.pug
+
+block variables
+  - var name = 'main_high main_4-series';
+  - var section = 'Вид работ';
+  - var title = 'Чистка и мойка впускного коллектора в BMW&nbsp;4&nbsp;серии';
+  - var models = 'F32/F33/F36, F82/F83';
+  - var seoTitle = 'Чистка и мойка впускного коллектора в BMW 4 серии (' + models + ') в Москве | Автосервис BMW «FGSEVER»';
+  - var subtitle = 'Услуги по тщательной чистке и мойке впускного коллектора автомобилей BMW 4&nbsp;серии в Москве. Мы выполним все необходимые работы по обслуживанию вашего автомобиля и ответим на все интересующие вас вопросы.';
+  - var path = {'/services/': 'Услуги', '/services/maintenance/': 'Техническое обслуживание BMW', '/services/maintenance/4-series/': '4&nbsp;серия', '': 'Чистка и мойка впускного коллектора'};
+  - var button = ['popup', '#maintenance-appointment', 'Записаться'];
+
+block content
+  +main(name, path, section, title, subtitle, button, models)
+  include /maintenance/description/intake-manifold-cleaning
+  section.prices
+    .wrapper
+      .titles
+        .overtitle Об услуге
+        h2 Стоимость
+      .block
+        .table-wrapper
+          .table
+            table
+              tr.table-header
+                td Услуга
+                td Стоимость
+              tr 
+                td Чистка и мойка впускного коллектора
+                td Рассчитывается индивидуально, в зависимости от сложности работ
+  include /maintenance/photos/intake-manifold-cleaning
+  include /about/advantages
+  include /about  
+  include /contacts

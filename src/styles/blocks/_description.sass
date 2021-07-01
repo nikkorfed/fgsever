@@ -1,0 +1,114 @@
+section.description
+  background-color: $white
+
+  .block
+    margin-bottom: $verticalOuterOffset
+    padding: 0
+    // max-width: 1200px
+
+    +small
+      margin-bottom: $smallVerticalOuterOffset
+
+    +medium
+      margin-bottom: $mediumVerticalOuterOffset
+      +border-grey
+      padding: $mediumHorizontalOffset
+
+    +large
+      margin-bottom: $largeVerticalOuterOffset
+      padding: $largeHorizontalOffset
+
+  .information-color
+    margin-bottom: $verticalInnerOffset
+    height: 30px
+    background-position: 0 50%
+
+    +small
+      margin-bottom: $smallVerticalInnerOffset
+
+    +medium
+      margin-bottom: $mediumVerticalInnerOffset
+      height: 40px
+
+    +large
+      margin-bottom: $largeVerticalInnerOffset
+
+  h3
+    display: flex
+    align-items: flex-start
+    // max-width: 1000px
+    
+    &::before
+      margin: 7px 10px 0 0
+      border-left: 4px solid $primaryColor
+      border-top: 3.5px solid transparent
+      border-bottom: 3.5px solid transparent
+      content: ''
+
+      +medium
+        margin: 8px 15px 0 0
+
+  .image
+    display: flex
+    justify-content: center
+    align-items: center
+
+    img
+      max-height: 400px
+      width: auto
+
+  .images
+    display: flex
+
+    & .image
+      position: relative
+      display: block
+      overflow: hidden
+      margin-bottom: $verticalInnerOffset
+      border-radius: $borderRadius
+      padding-bottom: 56.25%
+      height: 0
+      width: 100%
+
+      +small
+        margin-bottom: $smallVerticalInnerOffset
+
+      +medium
+        margin-bottom: $mediumVerticalInnerOffset
+
+      +large
+        margin-bottom: $largeVerticalInnerOffset
+
+      img
+        position: absolute
+        margin-bottom: -5px
+        height: 100%
+        width: inherit
+        object-fit: cover
+
+  .highlighted
+    border-left: 2px solid $primaryColor
+    padding-left: $horizontalOffset
+    font-weight: 500
+    color: $black
+
+    +medium
+      padding-left: $mediumHorizontalOffset
+
+  p
+    // max-width: 1000px
+      
+  p:last-child
+    margin-bottom: $verticalOuterOffset
+
+    +small
+      margin-bottom: $smallVerticalOuterOffset
+
+    +medium
+      margin-bottom: $mediumVerticalOuterOffset
+
+    +large
+      margin-bottom: $largeVerticalOuterOffset
+
+  .block p:last-child
+    margin-bottom: 0

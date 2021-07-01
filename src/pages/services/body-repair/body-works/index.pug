@@ -1,0 +1,59 @@
+extends /layout.pug
+
+block variables
+  - var name = 'main_body-repair';
+  - var section = 'Услуга';
+  - var title = 'Жестяные работы';
+  - var seoTitle = title + ' BMW в Москве | Автосервис BMW «FGSEVER»';
+  - var subtitle = 'Восстановление геометрии кузова после серьёзных ДТП, стапельные и сварочные работы, контактная сварка, а также замена различных элементов кузова.';
+  - var path = {'/services/': 'Услуги', '/services/body-repair/': 'Кузовной ремонт', '': title};
+
+block content
+  +main(name, path, section, title, subtitle, button)
+  section.services
+    .wrapper
+      .titles
+        .overtitle Наши услуги
+        h2 Виды работ
+      .columns
+        .col-md-6.col-lg-4
+          a.services-item(href='body-geometry-restoration/')
+            .services-item__content
+              .services-item__text
+                .services-item__title
+                  h3 Восстановление геометрии кузова
+                .subtitle.services-item__subtitle Восстановление геометрии кузова автомобиля после серьёзных ДТП
+              .button-simple Подробнее
+        .col-md-6.col-lg-4
+          a.services-item(href='pulling/')
+            .services-item__content
+              .services-item__text
+                .services-item__title
+                  h3 Стапельные работы
+                .subtitle.services-item__subtitle Вытягивание кузова автомобиля при помощи стапеля
+              .button-simple Подробнее
+        .col-md-6.col-lg-4
+          a.services-item(href='welding/')
+            .services-item__content
+              .services-item__text
+                .services-item__title
+                  h3 Сварочные работы
+                .subtitle.services-item__subtitle Соединение любых металлических частей автомобиля
+              .button-simple Подробнее
+        .col-md-6.col-lg-4
+          a.services-item(href='spot-welding/')
+            .services-item__content
+              .services-item__text
+                .services-item__title
+                  h3 Контактная сварка
+                .subtitle.services-item__subtitle Соединение металлических деталей автомобиля точечным методом
+              .button-simple Подробнее
+        .col-md-6.col-lg-4
+          a.services-item(href='body-parts-replacement/')
+            .services-item__content
+              .services-item__text
+                .services-item__title
+                  h3 Замена элементов кузова
+                .subtitle.services-item__subtitle Снятие, установка и замена различных кузовных элементов
+              .button-simple Подробнее
+  include /contacts

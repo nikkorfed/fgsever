@@ -1,0 +1,516 @@
+.header-mobile
+  position: fixed
+  z-index: 4
+  height: 50px
+  width: 100%
+  color: $white
+  transition: background-color .3s, box-shadow .3s, transform .3s
+
+  +medium
+    display: none
+
+  &.white
+    background-color: $white
+    box-shadow: $lightShadow
+
+    .header-mobile
+      &__menu-icon span
+        background-color: $black
+
+      &__logo
+        background-image: $blackLogo
+
+  &.hidden
+    box-shadow: none
+    transform: translateY(-50px)
+
+  &__row
+    height: 100%
+    Width: 100%
+    justify-content: space-between
+
+  &__menu-button
+    display: flex
+    position: relative
+    height: 100%
+
+  &__menu-switcher
+    position: absolute
+    top: 0
+    z-index: 1
+    margin: 0
+    height: 100%
+    width: 100%
+    cursor: pointer
+    opacity: 0
+
+  &__menu-icon
+    display: flex
+    flex-direction: column
+    justify-content: space-between
+    padding: 18px $horizontalOffset
+    width: 20px + 2 * $horizontalOffset
+
+    +small
+      padding: 18px $smallHorizontalOffset
+      width: 20px + 2 * $smallHorizontalOffset
+
+    span
+      border-radius: $borderRadius
+      height: 2px
+      background-color: $white
+      transition: background-color .3s, opacity .3s, transform .3s
+
+  &__menu-switcher:checked
+
+    ~ .header-mobile__menu-icon span:first-child
+      transform: rotate(45deg) translate(3.5px, 5px)
+
+    ~ .header-mobile__menu-icon span:nth-child(2)
+      opacity: 0
+      transform: scale(0.8)
+
+    ~ .header-mobile__menu-icon span:last-child
+      transform: rotate(-45deg) translate(3.5px, -5px)
+
+  &__logo
+    height: 100%
+    width: 140px
+    background-size: 100px
+    transition: background-image 0s
+
+  &__phone-button
+    box-sizing: border-box
+    color: $white
+    padding: 18px $horizontalOffset
+    width: 20px + 2 * $horizontalOffset
+
+    +small
+      padding: 18px $smallHorizontalOffset
+      width: 20px + 2 * $smallHorizontalOffset
+
+  &__menu
+    display: block
+    border-top: 1px solid $backgroundGrey
+    max-height: calc(100vh - 50px)
+    overflow-y: auto
+    background-color: $white
+    +fade-from
+
+    &.active
+      +fade-to
+
+    .menu__item
+      position: relative
+
+      > a
+        display: block
+        box-sizing: border-box
+        border-bottom: 1px solid $backgroundGrey
+        padding: 20px
+        width: 100%
+        font-size: 12px
+        text-decoration: none
+        text-transform: uppercase
+        color: $black
+        transition: .3s
+
+        &:hover
+          color: $primaryColor
+          // background-color: $backgroundGrey
+
+      &.highlighted > a
+        background-color: #ffcc00
+
+      .submenu
+        background-color: $backgroundGrey
+
+        &::before
+          display: inline-block
+          position: absolute
+          top: 0
+          right: 0
+          height: 58px
+          width: 60px
+          content: ''
+          background-image: svg-load('images/icons/chevron-down.svg', fill="#{$black}")
+          background-position: 50% 50%
+          background-repeat: no-repeat
+          background-size: 12px
+
+        > div
+          display: none
+
+        &__section
+          margin-bottom: 20px
+
+        &__title
+          display: block
+          margin-bottom: 20px
+          color: $black
+          text-decoration: none
+          transition: color .3s
+
+          &:hover
+            color: $primaryColor
+
+          &::after
+            display: block
+            margin-top: 15px
+            content: ""
+            height: 2px
+            width: 40px
+            background-color: $primaryColor
+        
+        &__item
+          display: block
+          // margin-bottom: 10px
+          margin: -5px -5px 5px
+          padding: 5px
+          // padding-bottom: 20px
+          font-weight: 500
+          color: $lighterGrey
+          text-decoration: none
+          transition: color .3s
+
+          &:last-child
+            margin-bottom: 0
+
+          &:hover
+            color: $primaryColor
+
+      &.active 
+        > a
+          color: $primaryColor
+
+        .submenu
+          border-top: 1px solid $backgroundGrey
+          padding: 20px 20px 0
+
+          &::before
+            background-image: svg-load('images/icons/chevron-up.svg', fill="#{$black}")
+
+          &::after
+            display: table-cell
+            clear: both
+            content: ''
+
+.header
+  display: none
+  position: absolute
+  z-index: 3
+  width: 100%
+  color: $white
+  transition: background-color .15s .15s, transform .3s
+
+  +medium
+    display: block
+
+  &.white
+    background-color: $white
+    box-shadow: $lightShadow
+    transition: background-color .3s, transform .3s
+
+    .header-top
+      &__row
+        border-color: $backgroundGrey
+        transition: border-color .3s
+
+      &__contact-icon
+        transition: background-image 0s
+
+        &.address
+          @extend .icon.address-black
+
+        &.clock
+          @extend .icon.clock-black
+
+        &.phone
+          @extend .icon.phone-black
+
+      &__contact-text
+        color: $black
+        transition: color .3s
+
+    .header-main
+      &__logo
+        background-image: $blackLogo
+        transition: background-image 0s
+      
+      &__slogan
+        color: $black
+        transition: color .3s
+
+      &__menu
+        .menu__item > a
+          color: $black
+          transition: color .3s, background-color .3s
+
+
+  &.active
+    @extend .header.white
+    position: fixed
+    top: -50px * 0.85
+
+    +large
+      top: -50px
+
+    .header-main
+      height: 60px
+
+  &.hidden
+    box-shadow: none
+    transform: translateY(-60px)
+
+  &__wrapper
+    display: flex
+    justify-content: space-between
+    align-items: center
+
+  &__row
+    justify-content: space-between
+    // align-items: center
+    height: 100%
+    width: 100%
+
+.header-top
+  font-size: 14px
+  height: 50px
+
+  +medium
+    zoom: 85%
+
+  +large
+    zoom: 100%
+
+  &__row
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1)
+    transition: border-color .15s .15s
+
+  &__contact
+    display: flex
+    align-items: center
+
+  &__contact-icon
+    margin-right: 10px
+    height: 14px
+    width: 14px
+    transition: background-image 0s .15s
+
+    &.address
+      @extend .icon.address-white
+
+    &.clock
+      @extend .icon.clock-white
+
+    &.phone
+      @extend .icon.phone-white
+
+  &__contact-text
+    margin-bottom: 0
+    color: $white
+    transition: color .15s .15s
+
+  .social-buttons__social-icon
+    margin-right: 0
+    border-right: 1px solid rgba(255, 255, 255, 0.1)
+    height: 30px
+    width: 40px
+    background-color: transparent
+    background-size: 16px
+
+    & .drive2-white
+      overflow: hidden
+      height: 100%
+      width: calc(100% - 15px)
+      background-position: -3px 50%
+      background-size: 110px
+
+    &:last-child
+      border: none
+
+  .social-buttons.colorful
+    .social-buttons__social-icon
+      margin-right: 10px
+      border: none
+      width: 30px
+
+      &.instagram-white
+        background-size: 16px, auto
+
+      &.telegram-white
+        background-size: 16px, auto
+
+      &.drive2
+        background-color: #c03
+
+        .icon
+          width: calc(100% - 10px)
+          background-position: -7px 50%
+
+      &.youtube-white
+        margin: 0
+
+.header-main
+  height: 80px
+  transition: height .3s
+
+  +large
+    height: 100px
+
+  &__logo-group
+    display: flex
+    align-items: center
+
+  &__logo
+    height: 100%
+    min-height: 60px
+    width: 120px + 2 * $mediumHorizontalOffset
+    background-position: $mediumHorizontalOffset 50%
+    background-size: 120px
+    transition: background-image 0s .15s
+
+    +large
+      width: 140px + 2 * $largeHorizontalOffset
+      background-position: $largeHorizontalOffset 50%
+      background-size: 140px
+
+  &__slogan
+    display: none
+    max-width: 300px
+    font-size: 13px
+    transition: color .3s
+
+    +extra-large
+      display: block
+
+  &__menu
+    zoom: 80%
+
+    +large
+      margin-right: $largeHorizontalOffset - $mediumHorizontalOffset
+      zoom: 100%
+
+    .menu__item
+      display: flex
+      align-items: center
+
+      > a
+        display: block
+        box-sizing: border-box
+        padding: 12px $mediumHorizontalOffset
+        font-size: 12px
+        text-transform: uppercase
+        text-decoration: none
+        color: $white
+        transition: color .3s
+
+        &::before, &::after
+          display: block
+          margin: 5px auto 0
+          content: ''
+          height: 3px
+          width: 0%
+          background-color: $primaryColor
+          transition: width .5s
+
+      &.highlighted > a
+        color: #eeaa00 !important
+
+      &:hover
+        > a::after
+          width: 100%
+
+      .submenu
+        position: absolute
+        top: 100%
+        left: 0
+        border-top: 1px solid $backgroundGrey
+        border-bottom: 1px solid $backgroundGrey
+        width: 100%
+        background-color: $white
+        box-shadow: 0 20px 20px 0 rgba(0, 0, 0, .05)
+        +fade-from-delay
+
+        > .columns
+          margin: auto
+          padding: $horizontalOffset $horizontalOffset / 2
+          max-width: $maxWrapperWidth
+
+          +small
+            padding: $smallHorizontalOffset $smallHorizontalOffset / 2
+
+          +medium
+            padding: $largeHorizontalOffset $largeHorizontalOffset / 2
+
+        &__section + .submenu__section .submenu__title
+          margin-top: $verticalInnerOffset
+
+          +small
+            margin-top: $smallVerticalInnerOffset
+
+          +medium
+            margin-top: $mediumVerticalInnerOffset
+
+          +large
+            margin-top: $largeVerticalInnerOffset
+
+        &__title
+          display: block
+          margin-bottom: $verticalInnerOffset
+          text-decoration: none
+          color: $black
+
+          +small
+            margin-bottom: $smallVerticalInnerOffset
+
+          +medium
+            margin-bottom: $mediumVerticalInnerOffset
+
+          +large
+            margin-bottom: $largeVerticalInnerOffset
+            transition: color .3s
+
+          &:hover
+            color: $primaryColor
+
+          &::after
+            display: block
+            margin-top: 15px
+            content: ""
+            height: 2px
+            width: 40px
+            background-color: $primaryColor
+
+        &__item
+          display: block
+          margin-bottom: 10px
+          font-weight: 500
+          text-decoration: none
+          color: $lighterGrey
+          transition: color .3s, background-color .3s
+
+          &:last-child
+            margin-bottom: 0
+
+          &:hover
+            color: $primaryColor
+
+          &::before
+            // display: inline-block
+            box-sizing: border-box
+            // margin-right: 10px
+            border-top: 2px solid $primaryColor
+            height: auto
+            vertical-align: middle
+            width: 9px
+            content: ''
+
+            +medium
+              // margin-right: 15px
+
+    .menu__item:hover .submenu
+        +fade-to
+
+  &__button
+    margin-left: 20px

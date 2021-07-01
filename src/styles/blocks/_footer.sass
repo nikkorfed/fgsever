@@ -1,0 +1,193 @@
+.whatsapp
+  background-color: $white
+
+  .block
+    margin-bottom: 0
+    padding-left: 0
+    padding-right: 0
+    background-color: transparent
+
+  .overtitle
+    margin-top: 0
+
+  h3
+    +medium
+      margin-bottom: 0
+
+  .whatsapp-button-container
+
+    +medium
+      text-align: right
+
+    .button
+      padding-left: 38px
+      background-position: 10px 50%
+      background-color: $whatsAppColor
+      background-size: 18px
+      transition: background-color .3s
+
+      +medium
+        padding-left: 40px
+        background-position: 12px 50%
+        background-size: 20px
+
+      &:hover
+        background-color: lighten($whatsAppColor, 5%)
+
+// .services + .contacts + .whatsapp, .models + .contacts + .whatsapp, .series + .contacts + .whatsapp
+.calculator + .contacts + .whatsapp
+  background-color: $backgroundGrey
+  
+.footer
+  color: $white
+  background-color: $black
+
+  &__menu-container
+    overflow-x: auto
+    border-bottom: 1px solid lighten($black, 10%)
+    max-width: 100%
+
+  &__menu
+    padding: 0
+
+    .menu__item
+      a
+        display: block
+        padding: $smallVerticalInnerOffset $horizontalOffset
+        font-size: 10px
+        color: $white
+        text-decoration: none
+        text-transform: uppercase
+        transition: background-color .3s
+
+        +small
+          padding: $smallVerticalInnerOffset $smallHorizontalOffset
+          font-size: 12px
+
+        +medium
+          padding: $mediumVerticalInnerOffset $mediumHorizontalOffset
+
+        +large
+          padding: $largeVerticalInnerOffset $largeHorizontalOffset
+
+        &:hover
+          background-color: lighten($black, 10%)
+
+      .submenu
+        display: none
+
+  h3
+    margin-top: $verticalOuterOffset
+    color: $white
+
+    +small
+      margin-top: $smallVerticalOuterOffset
+
+    +medium
+      margin-top: $mediumVerticalOuterOffset
+
+    +large
+      margin-top: $largeVerticalOuterOffset
+
+    &::after
+      display: block
+      margin-top: 10px
+      content: ''
+      height: 3px
+      width: 40px
+      background-color: $white
+
+      +small
+        margin-top: 10px
+
+      +medium
+        width: 50px
+
+      +large
+        margin-top: 15px
+
+  &__logo
+    margin-bottom: $verticalInnerOffset
+    height: 50px
+    width: 140px
+
+    +small
+      margin-bottom: $smallVerticalInnerOffset
+
+    +medium
+      margin-bottom: $mediumVerticalInnerOffset
+
+    +large
+      margin-bottom: $largeVerticalInnerOffset
+
+  &__subtitle
+    margin-bottom: $verticalInnerOffset
+    color: $white
+
+    +small
+      margin-bottom: $smallVerticalInnerOffset
+
+    +medium
+      margin-bottom: $mediumVerticalInnerOffset
+
+    +large
+      margin-bottom: $largeVerticalInnerOffset
+
+  .social-buttons__social-icon
+    background-color: #4d4d4d
+
+  &__services-item
+    display: block
+    margin-bottom: $verticalInnerOffset
+    line-height: 1.8
+    text-decoration: none
+    color: $white
+
+    // +small
+      margin-bottom: $smallVerticalInnerOffset
+
+    // +medium
+      margin-bottom: $mediumVerticalInnerOffset
+
+    // +large
+      margin-bottom: $largeVerticalInnerOffset
+
+    &:last-child
+      margin-bottom: 0
+
+
+  &__contacts
+
+    .contact-label
+      color: $lightGrey
+
+    .contact-text
+      color: $white
+
+    .contact-text:last-child
+      margin-bottom: $verticalOuterOffset
+
+      +small
+        margin-bottom: $smallVerticalOuterOffset
+
+      +medium
+        margin-bottom: $mediumVerticalOuterOffset
+
+      +large
+        margin-bottom: $largeVerticalOuterOffset
+
+.copyrights
+  color: $white
+  background-color: $backgroundBlack
+
+  &__text
+    margin: $verticalInnerOffset 0
+
+    +small
+      margin: $smallVerticalInnerOffset 0
+
+    +medium
+      margin: $mediumVerticalInnerOffset 0
+
+    +large
+      margin: $largeVerticalInnerOffset 0

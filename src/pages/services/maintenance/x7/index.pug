@@ -1,0 +1,17 @@
+extends /layout.pug
+
+block variables
+  - var name = 'main_high main_x7'
+  - var section = 'Услуга';
+  - var title = 'Техническое обслуживание BMW&nbsp;X7';
+  - var models = 'G07';
+  - var seoTitle = 'Техническое обслуживание BMW X7 (' + models + ') в Москве | Автосервис BMW «FGSEVER»';
+  - var subtitle = 'Услуги по техническому обслуживанию (ТО) BMW X7 в Москве — компьютерная и общая диагностика, замена масел и технических жидкостей, тормозных дисков и колодок, цепи ГРМ, ремонт и замена ДВС, мойка радиаторов, ремонт рулевой рейки.';
+  - var path = {'/services/': 'Услуги', '/services/maintenance/': 'Техническое обслуживание BMW', '': 'X7'};
+  - var button = ['#maintenance-calculator', 'Рассчитать стоимость'];
+
+block content
+  +main(name, path, section, title, subtitle, button, models)
+  include /maintenance/calculator
+  include /maintenance/services
+  include /contacts

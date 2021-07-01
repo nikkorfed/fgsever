@@ -1,0 +1,18 @@
+extends /layout.pug
+
+block variables
+  - var name = 'main_upgrade-g-series';
+  - var section = 'Направление';
+  - var title = 'Дооснащение BMW G серии';
+  - var seoTitle = 'Дооснащение BMW G серии в Москве | Автосервис BMW «FGSEVER»';
+  - var subtitle = 'Услуги по дооснащению и установке оригинальных заводских опций в автомобили BMW G серии в Москве — замена комбинации приборов, установка проекционного дисплея, системы кругового обзора, активного круиз-контроля, массажа сидений и других опций.';
+  - var path = {'/services/': 'Услуги', '/services/upgrade/': 'Дооснащение', '': 'G&nbsp;серия'};
+
+block content
+  +main(name, path, section, title, subtitle)
+  //- include /warning
+  include /upgrade/calculator
+  include /upgrade/g-series/models
+  include /upgrade/g-series/options
+  include /videos
+  include /contacts

@@ -1,0 +1,63 @@
+extends /layout.pug
+
+block variables
+  - var name = 'main_kafas-activation';
+  - var section = 'Услуга';
+  - var title = 'Активация камер KAFAS на BMW X5/X6/X7';
+  - var models = 'G05/G06/G07';
+  - var seoTitle = title + ' (' + models + ') в Москве | Автосервис BMW «FGSEVER»';
+  - var subtitle = 'Активация альтернативными кодами оригинальных камер KAFAS, а также связанных с ними опций, таких как чтение дорожных знаков, ассистент вождения, активный круиз-контроль и т. д.';
+  - var path = {'/services/': 'Услуги', '/services/upgrade/': 'Дооснащение', '/services/upgrade/g-series/': 'G&nbsp;серия', '': 'Активация камер KAFAS на BMW X5/X6/X7'};
+  - var button = ['popup', '#upgrade-appointment', 'Записаться на дооснащение'];
+
+block content
+  +main(name, path, section, title, subtitle, button, models)
+  section.description
+    .wrapper
+      .titles
+        .overtitle Об услуге
+        h2 Описание
+      .block
+        .icon.information-color
+        h3 Что представляет из себя система камер KAFAS?
+        p В современных автомобилях BMW имеется специальная система камер, которая называется KAFAS 4. Эта система располагается под лобовым стеклом в области зеркала заднего вида и необходима для работы таких опций, как чтение дорожных знаков, ассистент вождения, активный круиз-контроль и других. Система бывает разных версий — KAFAS 4 и 5, и нескольких видов — однокамерная и трехкамерная, в зависимости от модели и года выпуска автомобиля.
+        .images.columns
+          .col-4.col-md-3
+            .image
+              img(src='/images/services/upgrade/g-series/kafas-activation/one-camera.jpg')
+          .col-4.col-md-3
+            .image
+              img(src='/images/services/upgrade/g-series/kafas-activation/three-camera.jpg')
+        h3 Для чего нужна активация камер?
+        p Для работы дополнительных опций необходима не только установка системы камер KAFAS, но и её активация оригинальными FSC кодами от автопроизводителя. Каждый FSC код активирует отдельную опцию, для работы которой нужна камера. Например, чтение дорожных знаков, ассистент вождения, предупреждение о столкновении, предупреждние о сходе с полосы и так далее. Мы предоставляем возможность активации этих функций альтернативными FSC кодами, так как получение оригинальных кодов является затруднительным.
+        h3 Какие опции можно активировать?
+        p Мы предлагаем активацию пакета, включающего сразу несколько опций:
+        ul
+          li Ассистент дальнего света (FLA) — автоматическое переключение ближнего/дальнего света;
+          li Lane Departure Warning (LWD) — предупреждение о сходе с полосы;
+          li Speed Limit Information (SLI) — чтение дорожных знаков;
+          li City Collision Mitigation (CCM) — предупреждение о столкновении;
+          li Wrong Way Assist (WWA);
+          li Road Surface Preview.
+        h3 Важно знать
+        p Для активации необходимо наличие самой системы камер KAFAS. По времени процедура занимает 4-5 дней. ПО камер обновляется до последней версии, поэтому повторно обновлять камеру нельзя. В противном случае, потребуется повторная активация.
+  section.prices
+    .wrapper
+      .titles
+        .overtitle Об услуге
+        h2 Стоимость
+      .block
+        .table-wrapper
+          .table
+            table
+              tr.table-header
+                td Услуга
+                td Стоимость
+              tr
+                td Активация пакета кодов на одну камеру
+                td 70 000 ₽
+  include /maintenance/photos/computer-diagnostics
+  include /videos
+  include /about/advantages
+  include /about
+  include /contacts
