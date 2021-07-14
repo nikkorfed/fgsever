@@ -95,6 +95,18 @@ section.description
     +medium
       padding-left: $mediumHorizontalOffset
 
+    &:not(:last-child)
+      margin-bottom: $verticalInnerOffset
+
+      +small
+        margin-bottom: $smallVerticalInnerOffset
+
+      +medium
+        margin-bottom: $mediumVerticalInnerOffset
+
+      +large
+        margin-bottom: $largeVerticalInnerOffset
+
   p
     // max-width: 1000px
       
