@@ -319,10 +319,11 @@ function renderUpgradeOptions(upgradeOptions) {
 
     // Добавление кнопки «подробнее»
     if (upgradeOptions[option]["page"]) {
+      let link = upgradeOptions[option]["page"] === true ? option : upgradeOptions[option]["page"];
       optionContainer.find(".upgrade-option__price").wrap('<div class="upgrade-option__meta"></div>');
       optionContainer
         .find(".upgrade-option__price")
-        .after(`<a class="button-simple" href="/services/upgrade/${series}/${option}" target="_blank">Подробнее</a>`);
+        .after(`<a class="button-simple" href="/services/upgrade/${series}/${link}" target="_blank">Подробнее</a>`);
     }
     optionContainer.find(".button-simple").click((e) => e.stopPropagation());
 
