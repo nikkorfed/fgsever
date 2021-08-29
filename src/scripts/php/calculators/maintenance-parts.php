@@ -29,11 +29,15 @@ if (isset($_REQUEST['vin']) && isset($_REQUEST['mileage'])) {
     $options = $carInfo['options'];
 
     // Запрашиваем данные о запчастях для ТО
-    $maintenanceLink = 'http://localhost:3000/maintenance/wc06112';
+    $maintenanceLink = "http://194.58.98.247/maintenance/$vin";
     $maintenance = json_decode(file_get_html($maintenanceLink), true);
 
+    if ($maintenance['motorOil']) $motorOilQuantity = $maintenance['motorOil']['quantity'];
     if ($maintenance['oilFilter']) $oilFilterNumber = $maintenance['oilFilter']['partNumber'];
-    if ($maintenance['sparkPlug']) $sparkPlugNumber = $maintenance['sparkPlug']['partNumber'];
+    if ($maintenance['sparkPlug']) {
+      $sparkPlugNumber = $maintenance['sparkPlug']['partNumber'];
+      $sparkPlugQuantity = $maintenance['sparkPlug']['quantity'];
+    }
     if ($maintenance['fuelFilter']) $fuelFilterNumber = $maintenance['fuelFilter']['partNumber'];
     if ($maintenance['airFilter']) $airFilterNumber = $maintenance['airFilter']['partNumber'];
     if ($maintenance['cabinAirFilter']) $cabinAirFilterNumber = $maintenance['cabinAirFilter']['partNumber'];
@@ -44,44 +48,6 @@ if (isset($_REQUEST['vin']) && isset($_REQUEST['mileage'])) {
     if ($maintenance['rearBrakeDisk']) $rearBrakeDiskNumber = $maintenance['rearBrakeDisk']['partNumber'];
     if ($maintenance['rearBrakePads']) $rearBrakePadsNumber = $maintenance['rearBrakePads']['partNumber'];
     if ($maintenance['rearBrakePadsWearSensor']) $rearBrakePadsWearSensorNumber = $maintenance['rearBrakePadsWearSensor']['partNumber'];
-  
-    // Ищем страницу c запчастями для определенного VIN-номера
-    $ch = curl_init();
-
-    curl_setopt($ch, CURLOPT_URL, 'https://shop.bmw-sto.ru/ajax_search_bmw.php');
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-    curl_setopt($ch, CURLOPT_POSTFIELDS, "pn=$vin");
-    curl_setopt($ch, CURLOPT_POST, 1);
-
-    $link = curl_exec($ch);
-    curl_close ($ch);
-
-    if ($link == 'Такой номер детали отсутствует в каталоге') {
-      header('content-type: application/json; charset=UTF-8');
-      echo json_encode([ 'error' => 'parts-not-found' ], JSON_UNESCAPED_UNICODE);
-      return;
-    }
-
-    $link = 'https://shop.bmw-sto.ru' . $link;
-
-    // Ищем страницу с информацией о заправочных емкостях
-    $capacityLink = substr($link, 0, strrpos($link, '?')) . 'capacity/' . substr($link, strrpos($link, '?'));
-    $capacity = file_get_html($capacityLink);
-
-    // Выясняем необходимый объем жидкостей
-    foreach ($capacity->find('.etk-capacity-list .div-tr') as $element) {
-      if (strpos($element->find('.etk-capacity-name', 0)->plaintext, 'Масло в двигатель') !== false) {
-        $motorOilQuantity = (int)$element->find('.etk-capacity-data', 0)->plaintext;
-      } else if (strpos($element->find('.etk-capacity-name', 0)->plaintext, 'Масло в КПП') !== false) {
-        $gearBoxOilQuantity = (int)$element->find('.etk-capacity-data', 0)->plaintext;
-      } else if (strpos($element->find('.etk-capacity-name', 0)->plaintext, 'Масло для заднего моста') !== false) {
-        $rearAxleFinalDriveQuantity = (int)$element->find('.etk-capacity-data', 0)->plaintext;
-      } else if (strpos($element->find('.etk-capacity-name', 0)->plaintext, 'Рекомендации') !== false) {
-        if (preg_match('/Transfer box \(0,44 l\)/', $element->find('.etk-capacity-data', 0)->plaintext, $matches)) {
-          // var_dump($matches);
-        }
-      }
-    }
 
     // Исправление ошибок
 
