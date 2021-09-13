@@ -3,7 +3,7 @@
   h3 Записаться на техническое обслуживание
   p Наш менеджер перезвонит вам в ближайшее время и поможет записаться на техническое обслуживание вашего автомобиля.
   form.form-maintenance-appointment
-    input.input(type='text' name='name' placeholder='Фамилия имя и отчество' required)
+    input.input(type='text' name='name' placeholder='Фамилия, имя и отчество' required)
     input.input(type='text' name='phone' data-mask='+7 (000) 000-00-00' placeholder='Телефон' required)
     input(type='hidden' name='details')
     button.button Отправить
@@ -13,7 +13,7 @@
   h3 Записаться на дооснащение
   p Наш менеджер перезвонит вам в ближайшее время и поможет записаться на дооснащение вашего автомобиля.
   form.form-upgrade-appointment
-    input.input(type='text' name='name' placeholder='Фамилия имя и отчество' required)
+    input.input(type='text' name='name' placeholder='Фамилия, имя и отчество' required)
     input.input(type='text' name='phone' data-mask='+7 (000) 000-00-00' placeholder='Телефон' required)
     input(type='hidden' name='details')
     button.button Отправить
@@ -23,7 +23,7 @@
   h3 Записаться на кодирование опций
   p Наш менеджер перезвонит вам в ближайшее время и поможет записаться на кодирование опций вашего автомобиля.
   form.form-coding-appointment
-    input.input(type='text' name='name' placeholder='Фамилия имя и отчество' required)
+    input.input(type='text' name='name' placeholder='Фамилия, имя и отчество' required)
     input.input(type='text' name='phone' data-mask='+7 (000) 000-00-00' placeholder='Телефон' required)
     input(type='hidden' name='details')
     button.button Отправить
@@ -33,7 +33,7 @@
   h3 Записаться на кузовной ремонт
   p Наш менеджер перезвонит вам в ближайшее время и поможет записаться на кузовной ремонт вашего автомобиля.
   form.form-body-repair-appointment
-    input.input(type='text' name='name' placeholder='Фамилия имя и отчество' required)
+    input.input(type='text' name='name' placeholder='Фамилия, имя и отчество' required)
     input.input(type='text' name='phone' data-mask='+7 (000) 000-00-00' placeholder='Телефон' required)
     input(type='hidden' name='details')
     button.button Отправить
@@ -43,7 +43,7 @@
   h3 Записаться на обновление ПО
   p Наш менеджер перезвонит вам в ближайшее время и поможет записаться на обновление ПО вашего автомобиля.
   form.form-update-appointment
-    input.input(type='text' name='name' placeholder='Фамилия имя и отчество' required)
+    input.input(type='text' name='name' placeholder='Фамилия, имя и отчество' required)
     input.input(type='text' name='phone' data-mask='+7 (000) 000-00-00' placeholder='Телефон' required)
     input(type='hidden' name='details')
     button.button Отправить
@@ -53,7 +53,7 @@
   h3 Записаться на обслуживание кондиционера
   p Наш менеджер перезвонит вам в ближайшее время и поможет записаться на обслуживание кондиционера вашего автомобиля.
   form.form-update-appointment
-    input.input(type='text' name='name' placeholder='Фамилия имя и отчество' required)
+    input.input(type='text' name='name' placeholder='Фамилия, имя и отчество' required)
     input.input(type='text' name='phone' data-mask='+7 (000) 000-00-00' placeholder='Телефон' required)
     input(type='hidden' name='details')
     button.button Отправить
@@ -129,3 +129,23 @@
   .popup__buttons
     .button-simple(data-fancybox-close) Понятно
     .button(data-action="go-to-calculator") Перейти к калькулятору
+
+.popup#claim
+  h3 Оставить претензию
+  p В случае возникновения претензий, связанных с качеством выполненных работ, вы можете обратиться напрямую к нашему руководителю, позвонив по указанному номеру.
+  form.form-claim
+    a.directors-contact(href="tel:+79645827177") Позвонить руководителю: #[span.phone-number +7 964 582-71-77]
+    p Также вы можете оставить претензию нашему руководителю, заполнив форму ниже.
+    input.input(type="text" name="form-claim-name" placeholder="Фамилия, имя и отчество" required)
+    input.input(type="text" name="form-claim-phone" data-mask="+7 (000) 000-00-00" placeholder="Телефон" required)
+    input.input(type="text" name="form-claim-order-number" placeholder="Номер заказ-наряда" required)
+    textarea.input(name="form-claim-reason" rows="3" placeholder="Причина обращения" required)
+    label(class="file icon photo-black" for="form-claim-images") Добавить фото
+    input.input(type="file" name="form-claim-images[]" id="form-claim-images" accept="image/*" multiple) 
+    button.button Отправить
+
+.popup#form-claim-success
+    .icon.popup__icon.tick-black
+    h3 Претензия отправлена
+    p Ваша претензия отправлена. Наш руководитель ознакомится с вашим обращением и перезвонит, чтобы предложить способ решения возникшей проблемы.
+    .button(data-fancybox-close) Готово

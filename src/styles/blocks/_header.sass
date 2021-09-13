@@ -195,6 +195,19 @@
             clear: both
             content: ''
 
+    .menu__button a
+      display: block
+      padding: 20px
+      font-size: 12px
+      font-weight: bold
+      text-decoration: none
+      text-transform: uppercase
+      color: $white
+      background-color: $primaryColor
+
+      &:hover
+        background-color: lighten($primaryColor, 5%)
+
 .header
   display: none
   position: absolute
@@ -512,5 +525,27 @@
     .menu__item:hover .submenu
         +fade-to
 
-  &__button
-    margin-left: 20px
+    .menu__button
+      display: flex
+
+      a
+        display: inline-block
+        margin: auto 20px
+        padding: 10px $mediumHorizontalOffset
+        border: none
+        border-radius: $borderRadius
+        font-size: 13px
+        font-weight: bold
+        text-decoration: none
+        line-height: normal
+        color: $white
+        background-color: $primaryColor
+        transition: background-color .3s, opacity .3s
+        cursor: pointer
+        appearance: none
+
+        +large
+          padding: 10px $largeHorizontalOffset
+
+        &:hover
+          background-color: lighten($primaryColor, 5%)
