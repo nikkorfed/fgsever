@@ -9,18 +9,18 @@ setlocale(LC_TIME, 'ru_RU.UTF-8');
 $url = 'https://yandex.ru/maps/org/' . $businessId . '/reviews';
 $html = phpQuery::newDocument(file_get_contents($url));
 
-$stars = $html->find('.business-header-rating-view .business-rating-badge-view__stars')->html();
-$rating = $html->find('.business-header-rating-view .business-rating-badge-view__rating')->text();
-$quantity = $html->find('.business-header-rating-view__text')->text();
+$stars = $html->find('.business-summary-rating .business-rating-badge-view__stars')->html();
+$rating = $html->find('.business-summary-rating-badge-view__rating')->text();
+$quantity = $html->find('.business-summary-rating .business-rating-amount-view')->text();
 $addReviewUrl = 'https://yandex.ru/maps/org/' . $businessId . '/?add-review=true';
 
-$reviews = $html->find('.reviews-view__reviews .reviews-view__review');
+$reviews = $html->find('.business-reviews-card-view__reviews-container .business-reviews-card-view__review');
 
 $data = [
 	'url' => $url,
 	'quantity' => $quantity,
 	'stars' => $stars,
-	'rating' => $rating,
+	'rating' => str_replace(',', '.', $rating),
 	'addReviewUrl' => $addReviewUrl,
 	'reviews' => []
 ];
