@@ -9,3 +9,10 @@ head
   link(rel='apple-touch-icon' href='/images/favicon/apple-touch-icon.png' sizes='180x180')
   title!= seoTitle
   meta(name='description' content=subtitle.replace(/&nbsp;/g, ' '))
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  script(async src="https://www.googletagmanager.com/gtag/js?id=G-HKF7H0C1R9")
+  script.
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-HKF7H0C1R9');
