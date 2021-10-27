@@ -11,6 +11,9 @@ section.header-mobile
     a.header-mobile__phone-button(href='tel:+74991100045' onclick="ym(56693602,'reachGoal','phone'); return true;")
       i.fas.fa-phone-alt
   .menu.header-mobile__menu
+    .select-model
+      .wrapper
+        include select-model
     include menu
 section.header
   .header-top
@@ -35,3 +38,7 @@ section.header
           .header-main__slogan Сервис, ремонт, техобслуживание (ТО), дооснащение и кодирование BMW
         .menu.header-main__menu
           include menu
+  .header-cars
+    .wrapper
+      .row
+        include select-model

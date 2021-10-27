@@ -106,7 +106,7 @@
       > a
         display: block
         box-sizing: border-box
-        border-bottom: 1px solid $backgroundGrey
+        border-bottom: 1px solid rgba(0, 0, 0, .075)
         padding: 20px
         width: 100%
         font-size: 12px
@@ -184,7 +184,7 @@
           color: $primaryColor
 
         .submenu
-          border-top: 1px solid $backgroundGrey
+          border-bottom: 1px solid rgba(0, 0, 0, .075)
           padding: 20px 20px 0
 
           &::before
@@ -207,6 +207,39 @@
 
       &:hover
         background-color: lighten($primaryColor, 5%)
+
+  .select-model
+    border-bottom: 1px solid rgba(0, 0, 0, .075)
+    font-weight: bold
+
+    .wrapper
+      display: flex
+      flex-wrap: wrap
+      padding-bottom: 10px
+
+    .label
+      margin: 20px 0 10px
+      width: 100%
+      font-size: 12px
+      text-transform: uppercase
+      color: $black
+
+    .car-models
+      display: flex
+      flex-wrap: wrap
+
+    a
+      margin-right: 10px
+      margin-bottom: 10px
+      border-radius: $borderRadius
+      padding: 10px 12px
+      color: $black
+      text-decoration: none
+      background-color: $backgroundGrey
+      transition: color .3s
+
+      &:hover
+        color: $primaryColor
 
 .header
   display: none
@@ -259,6 +292,20 @@
           color: $black
           transition: color .3s, background-color .3s
 
+    .header-cars
+      color: $black
+
+      .row
+        border-color: rgba(0, 0, 0, .075)
+
+        .label
+          color: $black
+
+        a
+          color: $black
+
+          &:hover
+            color: $primaryColor
 
   &.active
     @extend .header.white
@@ -268,12 +315,9 @@
     +large
       top: -50px
 
-    .header-main
-      height: 60px
-
   &.hidden
     box-shadow: none
-    transform: translateY(-60px)
+    transform: translateY(-110px)
 
   &__wrapper
     display: flex
@@ -365,11 +409,7 @@
         margin: 0
 
 .header-main
-  height: 80px
-  transition: height .3s
-
-  +large
-    height: 100px
+  height: 70px
 
   &__logo-group
     display: flex
@@ -438,8 +478,8 @@
         position: absolute
         top: 100%
         left: 0
-        border-top: 1px solid $backgroundGrey
-        border-bottom: 1px solid $backgroundGrey
+        border-top: 1px solid rgba(0, 0, 0, .075)
+        border-bottom: 1px solid rgba(0, 0, 0, .075)
         width: 100%
         background-color: $white
         box-shadow: 0 20px 20px 0 rgba(0, 0, 0, .05)
@@ -549,3 +589,42 @@
 
         &:hover
           background-color: lighten($primaryColor, 5%)
+
+.header-cars
+  height: 40px
+  font-weight: bold
+
+  .row
+    zoom: 80%
+    border-top: 1px solid rgba(255, 255, 255, 0.1)
+    height: 100%
+    transition: border-color .3s
+
+    +large
+      zoom: 100%
+
+    .label
+      display: flex
+      justify-content: center
+      align-items: center
+      margin-right: 10px
+      white-space: nowrap
+      color: $white
+      transition: color .3s
+
+    .car-models
+      display: flex
+
+    a
+      display: flex
+      justify-content: center
+      align-items: center
+      border-radius: $borderRadius
+      padding: 0 14px
+      color: $white
+      text-decoration: none
+      transition: color .3s, background-color .3s
+
+
+      &:hover
+        color: $primaryColor
