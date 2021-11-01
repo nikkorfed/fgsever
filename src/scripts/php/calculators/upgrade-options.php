@@ -98,6 +98,12 @@ function main () {
     case 'G20':
     case 'G21':
     case 'G22':
+    case 'G23':
+    case 'G26':
+    case 'G80':
+    case 'G81':
+    case 'G82':
+    case 'G83':
       $series = 'g-series';
       $model = '3-series';
       break;
