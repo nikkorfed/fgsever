@@ -23,23 +23,7 @@ function html() {
   return gulp
     .src("src/pages/**/*.pug")
     .pipe(pug({ basedir: "src/template", locals: { time: +new Date() } }))
-    .pipe(
-      rename(function (path) {
-        path.extname = ".php";
-      })
-    )
-    .pipe(gulp.dest("dev/pages"));
-}
-
-function htmlDev() {
-  return gulp
-    .src("src/pages/**/*.pug")
-    .pipe(pug({ basedir: "src/template", locals: { time: +new Date() } }))
-    .pipe(
-      rename(function (path) {
-        path.extname = ".php";
-      })
-    )
+    .pipe(rename((path) => (path.extname = ".php")))
     .pipe(gulp.dest("dev"));
 }
 
@@ -53,7 +37,15 @@ function styles(cb) {
     .src("src/styles/*.sass")
     // .pipe(sourcemaps.init())
     .pipe(sass({ includePaths: ["src/styles"] }))
-    .pipe(postcss([at2x(), autoprefixer(), assets({ basePath: "src/" }), inlinesvg({ paths: ["src/"], removeFill: true }), cssnano()]))
+    .pipe(
+      postcss([
+        at2x(),
+        autoprefixer(),
+        assets({ basePath: "src/" }),
+        inlinesvg({ paths: ["src/"], removeFill: true }),
+        cssnano(),
+      ])
+    )
     // .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest("dev/styles"));
   return cb();
@@ -82,11 +74,7 @@ function images(cb) {
   gulp
     .src("src/images/models/**/*.png")
     .pipe(imagemin())
-    .pipe(
-      rename(function (path) {
-        path.basename = path.basename.replace(/\s/g, "-");
-      })
-    )
+    .pipe(rename((path) => (path.basename = path.basename.replace(/\s/g, "-"))))
     .pipe(gulp.dest("dev/images/models"));
 
   // Создание обычных версий изображений для шапок страниц
@@ -94,11 +82,7 @@ function images(cb) {
     .src("src/images/**/main.{jpg,jpeg,JPG}")
     .pipe(imageResize({ percentage: 50, format: "jpg", imageMagick: true }))
     .pipe(imagemin())
-    .pipe(
-      rename(function (path) {
-        path.basename = path.basename.replace(/\s/g, "-");
-      })
-    )
+    .pipe(rename((path) => (path.basename = path.basename.replace(/\s/g, "-"))))
     .pipe(gulp.dest("dev/images"));
 
   // Создание Retina версий изображений для шапок страниц
@@ -106,11 +90,7 @@ function images(cb) {
     .src("src/images/**/main.{jpg,jpeg,JPG}")
     .pipe(imageResize({ format: "jpg", imageMagick: true }))
     .pipe(imagemin())
-    .pipe(
-      rename(function (path) {
-        path.basename = path.basename.replace(/\s/g, "-") + "@2x";
-      })
-    )
+    .pipe(rename((path) => (path.basename = path.basename.replace(/\s/g, "-") + "@2x")))
     .pipe(gulp.dest("dev/images"));
 
   // Создание обычных фотографий
@@ -118,11 +98,7 @@ function images(cb) {
     .src(["src/images/**/*.{jpg,jpeg,JPG,png}", "!src/images/models/**/*.png", "!src/images/**/main.{jpg,jpeg,JPG}"])
     .pipe(imageResize({ width: 400, height: 400, cover: true, format: "jpg", imageMagick: true }))
     .pipe(imagemin())
-    .pipe(
-      rename(function (path) {
-        path.basename = path.basename.replace(/\s/g, "-") + "-min";
-      })
-    )
+    .pipe(rename((path) => (path.basename = path.basename.replace(/\s/g, "-") + "-min")))
     .pipe(gulp.dest("dev/images"));
 
   // Создание Retina фотографий
@@ -130,11 +106,7 @@ function images(cb) {
     .src(["src/images/**/*.{jpg,jpeg,JPG,png}", "!src/images/models/**/*.png", "!src/images/**/main.{jpg,jpeg,JPG}"])
     .pipe(imageResize({ width: 800, height: 800, cover: true, format: "jpg", imageMagick: true }))
     .pipe(imagemin())
-    .pipe(
-      rename(function (path) {
-        path.basename = path.basename.replace(/\s/g, "-") + "-min@2x";
-      })
-    )
+    .pipe(rename((path) => (path.basename = path.basename.replace(/\s/g, "-") + "-min@2x")))
     .pipe(gulp.dest("dev/images"));
 
   // Сжатие и перенос полных фотографий
@@ -142,11 +114,7 @@ function images(cb) {
     .src(["src/images/**/*.{jpg,jpeg,JPG,png}", "!src/images/models/**/*.png", "!src/images/**/main.{jpg,jpeg,JPG}"])
     .pipe(imageResize({ format: "jpg", imageMagick: true }))
     .pipe(imagemin())
-    .pipe(
-      rename(function (path) {
-        path.basename = path.basename.replace(/\s/g, "-");
-      })
-    )
+    .pipe(rename((path) => (path.basename = path.basename.replace(/\s/g, "-"))))
     .pipe(gulp.dest("dev/images"));
 
   // Перенос фавиконок
@@ -179,7 +147,7 @@ function serve(cb) {
     port: "8080",
     notify: false,
   });
-  gulp.watch(["src/template/**/*", "src/pages/**/*"], gulp.series(htmlDev, reload));
+  gulp.watch(["src/template/**/*", "src/pages/**/*"], gulp.series(html, reload));
   gulp.watch("src/styles/**/*", gulp.series(styles, reload));
   gulp.watch("src/scripts/**/*", gulp.series(scripts, reload));
   // gulp.watch('src/images/**/*', gulp.series(images, reload));
@@ -198,10 +166,8 @@ function clean() {
   return del("dev");
 }
 
-buildDev = gulp.series(videos, fonts, data, htmlDev, styles, scripts);
-buildProd = gulp.series(images, videos, fonts, data, html, styles, scripts);
+build = gulp.series(videos, fonts, data, html, styles, scripts);
 
-exports.default = gulp.series(clean, buildDev, serve);
-exports.prod = gulp.series(clean, buildProd);
-exports.html = gulp.series(clean, htmlDev);
+exports.default = gulp.series(clean, build, serve);
+exports.html = gulp.series(clean, html);
 exports.images = gulp.series(images);
