@@ -1,0 +1,110 @@
+section.appointment
+  background-image: $overlay, url(/images/about/2.jpg)
+  background-position: 50% 50%
+  background-repeat: no-repeat
+  background-size: cover
+
+  .wrapper
+    display: flex
+    flex-direction: column
+    align-items: center
+    padding-top: $verticalOuterOffset
+    padding-bottom: $verticalOuterOffset
+    max-width: 1000px
+    text-align: center
+
+    +small
+      padding-top: $smallVerticalOuterOffset
+      padding-bottom: $smallVerticalOuterOffset
+
+    +medium
+      padding-top: $mediumVerticalOuterOffset
+      padding-bottom: $mediumVerticalOuterOffset
+
+    +large
+      padding-top: $largeVerticalOuterOffset
+      padding-bottom: $largeVerticalOuterOffset
+
+  .block
+    margin: $verticalOuterOffset auto
+    padding: $verticalOuterOffset
+    min-height: auto
+    text-align: center
+
+    +small
+      margin: $smallVerticalOuterOffset auto
+      padding: $smallVerticalOuterOffset
+
+    +medium
+      margin: $mediumVerticalOuterOffset auto
+      padding: $mediumVerticalOuterOffset
+
+    +large
+      margin: $largeVerticalOuterOffset auto
+      padding: $largeVerticalOuterOffset
+
+  .overtitle
+    margin-top: 0
+    color: lightgrey
+
+  h2
+    margin-bottom: $verticalInnerOffset
+    color: white
+
+    &::after
+      margin-left: auto
+      margin-right: auto
+
+    +small
+      margin-bottom: $smallVerticalInnerOffset
+
+    +medium
+      margin-bottom: $mediumVerticalInnerOffset
+
+    +large
+      margin-bottom: $largeVerticalInnerOffset
+
+  .subtitle
+    max-width: 800px
+    color: white
+
+  .input
+    color: white
+    background-color: rgba(255, 255, 255, .1)
+
+  .buttons
+    display: flex
+    flex-direction: column
+    justify-content: center
+    align-items: center
+
+    +medium
+      flex-direction: row
+
+  .call
+    margin-bottom: $verticalInnerOffset
+
+    +medium
+      margin-right: 40px
+      margin-bottom: 0
+      border-right: 1px solid rgba(255, 255, 255, 0.1)
+      padding-right: 40px
+
+    .label
+      color: white
+
+    .phone
+      font-size: 15px
+      font-weight: bold
+      text-decoration: none
+      color: white
+
+      +medium
+        font-size: 16px
+
+  .button
+    +medium
+      margin-right: 65px
+
+    +large
+      margin-right: 40px

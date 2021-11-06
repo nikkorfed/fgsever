@@ -1,0 +1,19 @@
+section.appointment
+  .wrapper
+    .overtitle Оставить заявку
+    h2 Записаться на ремонт
+    .subtitle Оставьте свои контактные данные, заполнив форму ниже. Наш менеджер перезвонит вам в ближайшее время и поможет записаться на проведение работ с вашим автомобилем.
+    form.form-maintenance-appointment
+      .columns
+        .col-md-6
+          input.input(type='text' name='name' placeholder="Фамилия, имя и отчество" required)
+        .col-md-6
+          input.input(type='text' name='phone' data-mask="+7 (000) 000-00-00" placeholder="Телефон" required)
+        //- .col-12
+          textarea.input(name='comment' rows="3" placeholder="Комментарий")
+        input(type='hidden' name='details')
+      .buttons
+        .call
+          .label Позвонить по телефону
+          a.phone(href='tel:+74991100045' onclick="ym(56693602,'reachGoal','phone'); return true;") +7 (499) 110–00–45
+        button.button Отправить
