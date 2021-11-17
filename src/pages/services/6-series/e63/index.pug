@@ -1,0 +1,15 @@
+extends /layout.pug
+
+block variables
+  - var name = 'main_maintenance';
+  - var section = 'Направление';
+  - var title = 'Сервис BMW&nbsp;6';
+  - var models = 'E63/E64';
+  - var seoTitle = `${title} (${models}) в Москве | Автосервис BMW «FGSEVER»`;
+  - var subtitle = `${title} (${models}) в Москве — техническое обслуживание, дооснащение, кодирование опций, кузовной ремонт, обновление ПО и карт навигации, диагностика и заправка кондиционеров.`;
+  - var path = {'/services/': 'Услуги', '/services/6-series/': 'BMW 6', '': models};
+
+block content
+  +main(name, path, section, title, subtitle, button, models)
+  include /services
+  include /contacts

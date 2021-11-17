@@ -1,0 +1,15 @@
+extends /layout.pug
+
+block variables
+  - var name = 'main_maintenance';
+  - var section = 'Направление';
+  - var title = 'Сервис BMW&nbsp;X1';
+  - var models = 'F48';
+  - var seoTitle = `${title} (${models}) в Москве | Автосервис BMW «FGSEVER»`;
+  - var subtitle = `${title} (${models}) в Москве — техническое обслуживание, дооснащение, кодирование опций, кузовной ремонт, обновление ПО и карт навигации, диагностика и заправка кондиционеров.`;
+  - var path = {'/services/': 'Услуги', '/services/x1/': 'BMW X1', '': models};
+
+block content
+  +main(name, path, section, title, subtitle, button, models)
+  include /services
+  include /contacts
