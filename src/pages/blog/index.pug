@@ -10,7 +10,7 @@ block variables
   - var button = ['#videos', 'Перейти к видео']
 
 block content
-  +main(name, path, section, title, subtitle, button)
+  +main({ name, path, section, title, subtitle, button })
   <? $posts = json_decode(file_get_contents($_SERVER['DOCUMENT_ROOT'] . '/data/posts.json'), true) ?>
   section.posts#posts
     .wrapper

@@ -10,42 +10,6 @@
   +large
     padding-top: 160px
 
-  .overtitle
-    margin-top: $verticalInnerOffset
-
-    +small
-      margin-top: $smallVerticalInnerOffset
-
-    +medium
-      margin-top: $mediumVerticalInnerOffset
-
-    +large
-      margin-top: $largeVerticalInnerOffset
-
-  .models-info
-    margin: -#{$verticalInnerOffset} 0 $verticalInnerOffset
-    font-size: 14px
-    font-weight: 500
-    color: $lightGrey
-
-    +small
-      margin: -#{$smallVerticalInnerOffset} 0 $smallVerticalInnerOffset
-      font-size: 20px
-
-    +medium
-      margin: -#{$mediumVerticalInnerOffset} 0 $mediumVerticalInnerOffset
-      font-size: 22px
-
-    +large
-      margin: -#{$largeVerticalInnerOffset} 0 $largeVerticalInnerOffset
-      font-size: 24px
-
-    +max
-      font-size: 26px
-
-  .subtitle
-    color: $white
-
   .path
     margin: $verticalInnerOffset 0 $verticalOuterOffset
     font-size: 13px
@@ -75,6 +39,66 @@
 
     span:last-child
       color: $lightGrey
+
+  .info
+    display: flex
+    flex-direction: column-reverse
+
+    +large
+      flex-direction: row-reverse
+      justify-content: flex-end
+      align-items: center
+
+  .image
+    display: flex
+    padding: 25px 0
+
+    img
+      display: block
+      margin: auto
+      max-width: 500px
+
+    +medium
+      padding: 40px 0
+
+    +large
+      padding: 0 50px
+      min-height: 300px
+      width: 50%
+
+      & + .titles
+        margin: $largeVerticalOuterOffset 0
+        width: 50%
+
+      img
+        max-width: none
+
+  .overtitle
+    margin: 0
+
+  .models-info
+    margin: -#{$verticalInnerOffset} 0 $verticalInnerOffset
+    font-size: 14px
+    font-weight: 500
+    color: $lightGrey
+
+    +small
+      margin: -#{$smallVerticalInnerOffset} 0 $smallVerticalInnerOffset
+      font-size: 20px
+
+    +medium
+      margin: -#{$mediumVerticalInnerOffset} 0 $mediumVerticalInnerOffset
+      font-size: 22px
+
+    +large
+      margin: -#{$largeVerticalInnerOffset} 0 $largeVerticalInnerOffset
+      font-size: 24px
+
+    +max
+      font-size: 26px
+
+  .subtitle
+    color: $white
 
   .button
     margin-bottom: $verticalOuterOffset

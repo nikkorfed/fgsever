@@ -10,6 +10,6 @@ block variables
   - var path = {'/services/': 'Услуги', '/services/5-series/': 'BMW 5', '': models};
 
 block content
-  +main(name, path, section, title, subtitle, button, models)
+  +main({ name, path, section, title, subtitle, button, models })
   include /services
   include /contacts

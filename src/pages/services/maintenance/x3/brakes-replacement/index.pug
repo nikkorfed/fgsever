@@ -11,7 +11,7 @@ block variables
   - var button = ['popup', '#maintenance-appointment', 'Записаться'];
 
 block content
-  +main(name, path, section, title, subtitle, button, models)
+  +main({ name, path, section, title, subtitle, button, models })
   include /maintenance/description/brakes-replacement
   section.prices
     .wrapper

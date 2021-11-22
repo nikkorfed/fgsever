@@ -12,7 +12,7 @@ block variables
 
 block content
   <? $prices = json_decode(file_get_contents($_SERVER['DOCUMENT_ROOT'] . '/data/parts-prices.json'), true) ?>
-  +main(name, path, section, title, subtitle, button, models)
+  +main({ name, path, section, title, subtitle, button, models })
   include /maintenance/description/oil-change
   section.prices
     .wrapper

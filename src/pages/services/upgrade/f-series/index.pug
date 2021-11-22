@@ -9,7 +9,7 @@ block variables
   - var path = {'/services/': 'Услуги', '/services/upgrade/': 'Дооснащение', '': 'F&nbsp;серия'};
 
 block content
-  +main(name, path, section, title, subtitle)
+  +main({ name, path, section, title, subtitle })
   //- include /warning
   include /upgrade/calculator
   include /upgrade/f-series/models
