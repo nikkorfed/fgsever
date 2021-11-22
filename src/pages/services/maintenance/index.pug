@@ -1,15 +1,16 @@
 extends /layout.pug
 
 block variables
-  - var name = 'main_maintenance';
   - var section = 'Направление';
-  - var title = 'Техническое обслуживание BMW';
-  - var seoTitle = title + ' в Москве | Автосервис BMW «FGSEVER»';
-  - var subtitle = 'Услуги по техническому обслуживанию (ТО) автомобилей BMW в Москве — компьютерная и общая диагностика, замена масел и технических жидкостей, тормозных дисков и колодок, цепи ГРМ, ремонт и замена ДВС, мойка радиаторов, ремонт рулевой рейки.';
-  - var path = {'/services/': 'Услуги', '': title};
+  - var title = 'Техническое обслуживание (ТО) BMW';
+  - var seoTitle = `${title} в Москве | Автосервис BMW «FGSEVER»`;
+  - var subtitle = `${title} в Москве — компьютерная и общая диагностика, замена масел и технических жидкостей, тормозных дисков и колодок, цепи ГРМ, ремонт и замена ДВС, мойка радиаторов, ремонт рулевой рейки.`;
+  - var path = {'/services/': 'Услуги', '': 'Техническое обслуживание'};
+  - var button = ['#maintenance-calculator', 'Рассчитать стоимость'];
+  - var image = '/models/5-series/g30-original.png';
 
 block content
-  +main({ path, section, title, subtitle })
+  +main({ path, section, title, subtitle, button, image })
   include /maintenance/calculator
-  include /maintenance/models
+  include /maintenance/services
   include /contacts
