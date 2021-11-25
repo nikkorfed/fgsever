@@ -1,6 +1,7 @@
 extends /layout.pug
 
 block variables
+  - var name = 'main_maintenance';
   - var section = 'Направление';
   - var title = 'Техническое обслуживание (ТО) BMW';
   - var seoTitle = `${title} в Москве | Автосервис BMW «FGSEVER»`;
@@ -10,7 +11,7 @@ block variables
   - var image = '/models/5-series/g30-original.png';
 
 block content
-  +main({ path, section, title, subtitle, button, image })
+  +main({ name, path, section, title, subtitle, button, image })
   include /maintenance/calculator
   include /maintenance/services
   include /contacts

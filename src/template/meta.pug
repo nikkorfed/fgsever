@@ -7,7 +7,7 @@ head
   link(rel='icon' type='image/png' href='/images/favicon/favicon-16x16.png' sizes='16x16')
   link(rel='icon' type='image/png' href='/images/favicon/favicon-32x32.png' sizes='32x32')
   link(rel='apple-touch-icon' href='/images/favicon/apple-touch-icon.png' sizes='180x180')
-  title!= seoTitle
+  title!= seoTitle.replace(/&nbsp;/g, ' ')
   meta(name='description' content=subtitle.replace(/&nbsp;/g, ' '))
   <!-- Global site tag (gtag.js) - Google Analytics -->
   script(async src="https://www.googletagmanager.com/gtag/js?id=G-HKF7H0C1R9")

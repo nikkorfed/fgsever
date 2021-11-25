@@ -3,6 +3,7 @@
     {
       "key": "1-series",
       "name": "BMW 1",
+      "image": "f40",
       "models": [
         { "key": "f40", "codes": "F40" },
         { "key": "f20", "codes": "F20/F21" },
@@ -12,6 +13,7 @@
     {
       "key": "2-series",
       "name": "BMW 2",
+      "image": "g42",
       "models": [
         { "key": "g42", "codes": "G42" },
         { "key": "f44", "codes": "F44" },
@@ -22,6 +24,7 @@
     {
       "key": "3-series",
       "name": "BMW 3",
+      "image": "g20",
       "models": [
         { "key": "g20", "codes": "G20/G21" },
         { "key": "f30", "codes": "F30/F31/F34" },
@@ -31,6 +34,7 @@
     {
       "key": "4-series",
       "name": "BMW 4",
+      "image": "g22",
       "models": [
         { "key": "g22", "codes": "G22/G23/G26" },
         { "key": "f32", "codes": "F32/F33/F36" }
@@ -39,6 +43,7 @@
     {
       "key": "5-series",
       "name": "BMW 5",
+      "image": "g30",
       "models": [
         { "key": "g30", "codes": "G30/G31" },
         { "key": "f10", "codes": "F10/F11/F07" },
@@ -48,17 +53,19 @@
     {
       "key": "6-series",
       "name": "BMW 6",
+      "image": "g32",
       "models": [
         { "key": "g32", "codes": "G32" },
-        { "key": "f12", "codes": "F06/F12/F13" },
+        { "key": "f12", "codes": "F06/F12/F13", "image": "f13" },
         { "key": "e63", "codes": "E63/E64" }
       ]
     },
     {
       "key": "7-series",
       "name": "BMW 7",
+      "image": "g12",
       "models": [
-        { "key": "g11", "codes": "G11/G12" },
+        { "key": "g11", "codes": "G11/G12", "image": "g12" },
         { "key": "f01", "codes": "F01/F02" },
         { "key": "e65", "codes": "E65/E66" }
       ]
@@ -66,11 +73,13 @@
     {
       "key": "8-series",
       "name": "BMW 8",
+      "image": "g15",
       "models": [{ "key": "g15", "codes": "G14/G15/G16" }]
     },
     {
       "key": "x1",
       "name": "BMW X1",
+      "image": "f48",
       "models": [
         { "key": "f48", "codes": "F48" },
         { "key": "e84", "codes": "E84" }
@@ -79,11 +88,13 @@
     {
       "key": "x2",
       "name": "BMW X2",
+      "image": "f39",
       "models": [{ "key": "f39", "codes": "F39" }]
     },
     {
       "key": "x3",
       "name": "BMW X3",
+      "image": "g01",
       "models": [
         { "key": "g01", "codes": "G01" },
         { "key": "f25", "codes": "F25" },
@@ -93,6 +104,7 @@
     {
       "key": "x4",
       "name": "BMW X4",
+      "image": "g02",
       "models": [
         { "key": "g02", "codes": "G02" },
         { "key": "f26", "codes": "F26" }
@@ -101,6 +113,7 @@
     {
       "key": "x5",
       "name": "BMW X5",
+      "image": "g05",
       "models": [
         { "key": "g05", "codes": "G05" },
         { "key": "f15", "codes": "F15" },
@@ -110,6 +123,7 @@
     {
       "key": "x6",
       "name": "BMW X6",
+      "image": "g06",
       "models": [
         { "key": "g06", "codes": "G06" },
         { "key": "f16", "codes": "F16" },
@@ -119,11 +133,13 @@
     {
       "key": "x7",
       "name": "BMW X7",
+      "image": "g07",
       "models": [{ "key": "g07", "codes": "G07" }]
     },
     {
       "key": "z4",
       "name": "Z4",
+      "image": "g29",
       "models": [
         { "key": "g29", "codes": "G29" },
         { "key": "e89", "codes": "E89" },

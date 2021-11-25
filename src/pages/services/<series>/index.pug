@@ -1,0 +1,47 @@
+extends /layout.pug
+
+block variables
+  - var name = 'main_maintenance';
+  - var section = 'Направление';
+  - var title = `Сервис ${series.name.nbsp()}`;
+  - var seoTitle = `${title} в Москве | Автосервис BMW «FGSEVER»`;
+  - var subtitle = `${title} в Москве — техническое обслуживание, дооснащение, кодирование опций, кузовной ремонт, обновление ПО и карт навигации, диагностика и заправка кондиционеров.`;
+  - var path = {'/services/': 'Услуги', '': series.name.nbsp()};
+  - var image = `/models/${series.key}/${series.image}-original.png`;
+
+block content
+  +main({ name, path, section, title, subtitle, image })
+  case series.key
+    when '1-series'
+      include /models/1-series
+    when '2-series'
+      include /models/2-series
+    when '3-series'
+      include /models/3-series
+    when '4-series'
+      include /models/4-series
+    when '5-series'
+      include /models/5-series
+    when '6-series'
+      include /models/6-series
+    when '7-series'
+      include /models/7-series
+    when '8-series'
+      include /models/8-series
+    when 'x1'
+      include /models/x1
+    when 'x2'
+      include /models/x2
+    when 'x3'
+      include /models/x3
+    when 'x4'
+      include /models/x4
+    when 'x5'
+      include /models/x5
+    when 'x6'
+      include /models/x6
+    when 'x7'
+      include /models/x7
+    when 'z4'
+      include /models/z4
+  include /contacts
