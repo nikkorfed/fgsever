@@ -6,9 +6,17 @@
   "scripts": {
     "start": "gulp"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nikkorfed/fgsever.git"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nikkorfed/fgsever/issues"
+  },
+  "homepage": "https://github.com/nikkorfed/fgsever#readme",
   "dependencies": {
     "@babel/core": "^7.8.7",
     "@babel/preset-env": "^7.8.7",
@@ -29,8 +37,11 @@
     "gulp-sass": "^4.0.2",
     "gulp-sourcemaps": "^2.6.5",
     "gulp-terser": "^1.2.0",
+    "inflection": "^1.13.1",
     "postcss-assets": "^5.0.0",
     "postcss-at2x": "^4.0.3",
-    "postcss-inline-svg": "^4.1.0"
+    "postcss-inline-svg": "^4.1.0",
+    "through2": "^4.0.2",
+    "vinyl": "^2.2.1"
   }
 }

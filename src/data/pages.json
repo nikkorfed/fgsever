@@ -1,0 +1,149 @@
+{
+  "series": [
+    {
+      "key": "1-series",
+      "name": "BMW 1",
+      "models": [
+        { "key": "f40", "codes": "F40" },
+        { "key": "f20", "codes": "F20/F21" },
+        { "key": "e81", "codes": "E81/E82/E87/E88" }
+      ]
+    },
+    {
+      "key": "2-series",
+      "name": "BMW 2",
+      "models": [
+        { "key": "g42", "codes": "G42" },
+        { "key": "f44", "codes": "F44" },
+        { "key": "f22", "codes": "F22/F23" },
+        { "key": "f45", "codes": "F45/F46" }
+      ]
+    },
+    {
+      "key": "3-series",
+      "name": "BMW 3",
+      "models": [
+        { "key": "g20", "codes": "G20/G21" },
+        { "key": "f30", "codes": "F30/F31/F34" },
+        { "key": "e90", "codes": "E90/E91/E92/E93" }
+      ]
+    },
+    {
+      "key": "4-series",
+      "name": "BMW 4",
+      "models": [
+        { "key": "g22", "codes": "G22/G23/G26" },
+        { "key": "f32", "codes": "F32/F33/F36" }
+      ]
+    },
+    {
+      "key": "5-series",
+      "name": "BMW 5",
+      "models": [
+        { "key": "g30", "codes": "G30/G31" },
+        { "key": "f10", "codes": "F10/F11/F07" },
+        { "key": "e60", "codes": "E60/E61" }
+      ]
+    },
+    {
+      "key": "6-series",
+      "name": "BMW 6",
+      "models": [
+        { "key": "g32", "codes": "G32" },
+        { "key": "f12", "codes": "F06/F12/F13" },
+        { "key": "e63", "codes": "E63/E64" }
+      ]
+    },
+    {
+      "key": "7-series",
+      "name": "BMW 7",
+      "models": [
+        { "key": "g11", "codes": "G11/G12" },
+        { "key": "f01", "codes": "F01/F02" },
+        { "key": "e65", "codes": "E65/E66" }
+      ]
+    },
+    {
+      "key": "8-series",
+      "name": "BMW 8",
+      "models": [{ "key": "g15", "codes": "G14/G15/G16" }]
+    },
+    {
+      "key": "x1",
+      "name": "BMW X1",
+      "models": [
+        { "key": "f48", "codes": "F48" },
+        { "key": "e84", "codes": "E84" }
+      ]
+    },
+    {
+      "key": "x2",
+      "name": "BMW X2",
+      "models": [{ "key": "f39", "codes": "F39" }]
+    },
+    {
+      "key": "x3",
+      "name": "BMW X3",
+      "models": [
+        { "key": "g01", "codes": "G01" },
+        { "key": "f25", "codes": "F25" },
+        { "key": "e83", "codes": "E83" }
+      ]
+    },
+    {
+      "key": "x4",
+      "name": "BMW X4",
+      "models": [
+        { "key": "g02", "codes": "G02" },
+        { "key": "f26", "codes": "F26" }
+      ]
+    },
+    {
+      "key": "x5",
+      "name": "BMW X5",
+      "models": [
+        { "key": "g05", "codes": "G05" },
+        { "key": "f15", "codes": "F15" },
+        { "key": "e70", "codes": "E70" }
+      ]
+    },
+    {
+      "key": "x6",
+      "name": "BMW X6",
+      "models": [
+        { "key": "g06", "codes": "G06" },
+        { "key": "f16", "codes": "F16" },
+        { "key": "e71", "codes": "E71" }
+      ]
+    },
+    {
+      "key": "x7",
+      "name": "BMW X7",
+      "models": [{ "key": "g07", "codes": "G07" }]
+    },
+    {
+      "key": "z4",
+      "name": "Z4",
+      "models": [
+        { "key": "g29", "codes": "G29" },
+        { "key": "e89", "codes": "E89" },
+        { "key": "e85", "codes": "E85/E86" }
+      ]
+    }
+  ],
+  "maintenanceServices": [
+    { "key": "suspension-repair", "name": "Диагностика и ремонт подвески" },
+    { "key": "oil-change", "name": "Замена масел" },
+    { "key": "mechanical-fluids-change", "name": "Замена технических жидкостей" },
+    { "key": "timing-chain-replacement", "name": "Замена цепи ГРМ" },
+    { "key": "engine-repair", "name": "Диагностика и ремонт ДВС" },
+    { "key": "engine-replacement", "name": "Замена ДВС (СВАП)" },
+    { "key": "car-diagnostics", "name": "Диагностика автомобиля" },
+    { "key": "radiators-wash", "name": "Мойка радиаторов" },
+    { "key": "computer-diagnostics", "name": "Компьютерная диагностика" },
+    { "key": "electrical-repair", "name": "Ремонт электрооборудования" },
+    { "key": "steering-repair", "name": "Ремонт рулевой рейки" },
+    { "key": "brakes-replacement", "name": "Замена тормозных дисков и колодок" },
+    { "key": "intake-manifold-cleaning", "name": "Чистка и мойка впускного коллектора" }
+  ]
+}

@@ -17,14 +17,43 @@ const gulp = require("gulp"),
   rename = require("gulp-rename"),
   connect = require("gulp-connect-php"),
   browserSync = require("browser-sync"),
-  del = require("del");
+  del = require("del"),
+  through2 = require("through2"),
+  File = require("vinyl"),
+  inflection = require("inflection");
+
+function folderTemplates({ data }) {
+  return through2.obj(function resolveTemplates(file, _, next, parentTemplate) {
+    let template = file.path.match(/<([\w-]+)>/)?.[1];
+    let content = file.contents.toString();
+
+    if (template) {
+      let items = file.data?.[parentTemplate]?.[template] || data[template];
+      for (let item of items) {
+        let resolvedFile = new File({
+          cwd: file.cwd,
+          base: file.base,
+          path: file.path.replace(`<${template}>`, item.key),
+          contents: Buffer.from(content),
+          data: { ...file.data, [inflection.singularize(template)]: item },
+        });
+        if (resolvedFile.path.match(/<([\w-]+)>/)) resolveTemplates.call(this, resolvedFile, _, next, template);
+        else this.push(resolvedFile);
+      }
+      if (!parentTemplate) next();
+    } else {
+      next(null, file);
+    }
+  });
+}
 
 function html() {
   return gulp
     .src("src/pages/**/*.pug")
+    .pipe(folderTemplates({ data: require("./src/data/pages.json") }))
     .pipe(pug({ basedir: "src/template", locals: { time: +new Date() } }))
     .pipe(rename((path) => (path.extname = ".php")))
-    .pipe(gulp.dest("dev"));
+    .pipe(gulp.dest("build"));
 }
 
 function styles(cb) {
@@ -32,7 +61,7 @@ function styles(cb) {
     .src("src/styles/libraries/*.css")
     .pipe(concat("libraries.css"))
     .pipe(postcss([cssnano()]))
-    .pipe(gulp.dest("dev/styles"));
+    .pipe(gulp.dest("build/styles"));
   gulp
     .src("src/styles/*.sass")
     // .pipe(sourcemaps.init())
@@ -47,7 +76,7 @@ function styles(cb) {
       ])
     )
     // .pipe(sourcemaps.write('.'))
-    .pipe(gulp.dest("dev/styles"));
+    .pipe(gulp.dest("build/styles"));
   return cb();
 }
 
@@ -56,7 +85,7 @@ function scripts(cb) {
     .src(["src/scripts/javascript/libraries/jquery.min.js", "src/scripts/javascript/libraries/*.js"])
     .pipe(concat("libraries.js"))
     .pipe(terser())
-    .pipe(gulp.dest("dev/scripts/javascript"));
+    .pipe(gulp.dest("build/scripts/javascript"));
   gulp
     .src("src/scripts/javascript/*.js")
     // .pipe(sourcemaps.init())
@@ -64,8 +93,8 @@ function scripts(cb) {
     .pipe(concat("main.js"))
     // .pipe(terser())
     // .pipe(sourcemaps.write('.'))
-    .pipe(gulp.dest("dev/scripts/javascript"));
-  gulp.src("src/scripts/php/**/*").pipe(gulp.dest("dev/scripts/php"));
+    .pipe(gulp.dest("build/scripts/javascript"));
+  gulp.src("src/scripts/php/**/*").pipe(gulp.dest("build/scripts/php"));
   return cb();
 }
 
@@ -75,7 +104,7 @@ function images(cb) {
     .src("src/images/models/**/*.png")
     .pipe(imagemin())
     .pipe(rename((path) => (path.basename = path.basename.replace(/\s/g, "-"))))
-    .pipe(gulp.dest("dev/images/models"));
+    .pipe(gulp.dest("build/images/models"));
 
   // Создание обычных версий изображений для шапок страниц
   gulp
@@ -83,7 +112,7 @@ function images(cb) {
     .pipe(imageResize({ percentage: 50, format: "jpg", imageMagick: true }))
     .pipe(imagemin())
     .pipe(rename((path) => (path.basename = path.basename.replace(/\s/g, "-"))))
-    .pipe(gulp.dest("dev/images"));
+    .pipe(gulp.dest("build/images"));
 
   // Создание Retina версий изображений для шапок страниц
   gulp
@@ -91,7 +120,7 @@ function images(cb) {
     .pipe(imageResize({ format: "jpg", imageMagick: true }))
     .pipe(imagemin())
     .pipe(rename((path) => (path.basename = path.basename.replace(/\s/g, "-") + "@2x")))
-    .pipe(gulp.dest("dev/images"));
+    .pipe(gulp.dest("build/images"));
 
   // Создание обычных фотографий
   gulp
@@ -99,7 +128,7 @@ function images(cb) {
     .pipe(imageResize({ width: 400, height: 400, cover: true, format: "jpg", imageMagick: true }))
     .pipe(imagemin())
     .pipe(rename((path) => (path.basename = path.basename.replace(/\s/g, "-") + "-min")))
-    .pipe(gulp.dest("dev/images"));
+    .pipe(gulp.dest("build/images"));
 
   // Создание Retina фотографий
   gulp
@@ -107,7 +136,7 @@ function images(cb) {
     .pipe(imageResize({ width: 800, height: 800, cover: true, format: "jpg", imageMagick: true }))
     .pipe(imagemin())
     .pipe(rename((path) => (path.basename = path.basename.replace(/\s/g, "-") + "-min@2x")))
-    .pipe(gulp.dest("dev/images"));
+    .pipe(gulp.dest("build/images"));
 
   // Сжатие и перенос полных фотографий
   gulp
@@ -115,30 +144,30 @@ function images(cb) {
     .pipe(imageResize({ format: "jpg", imageMagick: true }))
     .pipe(imagemin())
     .pipe(rename((path) => (path.basename = path.basename.replace(/\s/g, "-"))))
-    .pipe(gulp.dest("dev/images"));
+    .pipe(gulp.dest("build/images"));
 
   // Перенос фавиконок
-  gulp.src("src/images/favicon/*").pipe(imagemin()).pipe(gulp.dest("dev/images/favicon"));
+  gulp.src("src/images/favicon/*").pipe(imagemin()).pipe(gulp.dest("build/images/favicon"));
 
   return cb();
 }
 
 function videos() {
-  return gulp.src("src/videos/**/*").pipe(gulp.dest("dev/videos"));
+  return gulp.src("src/videos/**/*").pipe(gulp.dest("build/videos"));
 }
 
 function fonts() {
-  return gulp.src("src/fonts/**/*").pipe(gulp.dest("dev/fonts"));
+  return gulp.src("src/fonts/**/*").pipe(gulp.dest("build/fonts"));
 }
 
 function data() {
-  return gulp.src("src/data/**/*").pipe(gulp.dest("dev/data"));
+  return gulp.src("src/data/**/*").pipe(gulp.dest("build/data"));
 }
 
 function serve(cb) {
   connect.closeServer();
   connect.server({
-    base: "dev",
+    base: "build",
     keepalive: true,
     port: 3000,
   });
@@ -163,7 +192,7 @@ function reload(cb) {
 }
 
 function clean() {
-  return del("dev");
+  return del("build");
 }
 
 build = gulp.series(videos, fonts, data, html, styles, scripts);
