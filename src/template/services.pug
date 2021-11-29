@@ -1,5 +1,5 @@
-mixin services({ prefix } = {})
-  - prefix = prefix !== undefined ? prefix : '/services/'
+mixin services({ suffix } = {})
+  - suffix = suffix || '';
   section.services
     .wrapper
       .titles
@@ -7,27 +7,27 @@ mixin services({ prefix } = {})
         h2 Основные направления
       .columns
         .col-lg-6
-          a.services-item(href=prefix+'maintenance/')
+          .services-item
             .services-item__content
               .services-item__text
                 .icon.maintenance-color
                 .services-item__title
                   h3 Техническое обслуживание
                 .subtitle.services-item__subtitle
-                  .services-item__list-item Диагностика и ремонт подвески
-                  .services-item__list-item Замена масел в АКПП, редукторах и раздаточной коробке
-                  .services-item__list-item Замена технических жидкостей (тормозной и охлаждающей жидкостей)
-                  .services-item__list-item Замена цепи ГРМ
-                  .services-item__list-item Диагностика и ремонт ДВС
-                  .services-item__list-item Замена ДВС (СВАП)
-                  .services-item__list-item Диагностика автомобиля
-                  .services-item__list-item Мойка радиаторов
-                  .services-item__list-item Компьютерная диагностика
-                  .services-item__list-item Ремонт электрооборудования
-                  .services-item__list-item Ремонт рулевой рейки (в том числе замена болтов)
-                  .services-item__list-item Замена тормозных дисков и колодок
-                  .services-item__list-item Чистка и мойка впускного коллектора
-              .button-simple Подробнее
+                  a.services-item__list-item(href='/services/maintenance/zamena-masla-bmw/' + suffix) Замена масла (двигатель, АКПП, редукторы и раздаточная коробка)
+                  a.services-item__list-item(href='/services/maintenance/zamena-tormoznyh-diskov-i-kolodok-bmw/' + suffix) Замена тормозных дисков и колодок
+                  a.services-item__list-item(href='/services/maintenance/zamena-tormoznoy-zhidkosti-i-ohlazhdayushchey-bmw/' + suffix) Замена тормозной жидкости и охлаждающей
+                  a.services-item__list-item(href='/services/maintenance/suspension-repair/' + suffix) Диагностика и ремонт подвески
+                  a.services-item__list-item(href='/services/maintenance/timing-chain-replacement/' + suffix) Замена цепи ГРМ
+                  a.services-item__list-item(href='/services/maintenance/engine-repair/' + suffix) Диагностика и ремонт ДВС
+                  a.services-item__list-item(href='/services/maintenance/engine-replacement/' + suffix) Замена ДВС (СВАП)
+                  a.services-item__list-item(href='/services/maintenance/car-diagnostics/' + suffix) Диагностика автомобиля
+                  a.services-item__list-item(href='/services/maintenance/radiators-wash/' + suffix) Мойка радиаторов
+                  a.services-item__list-item(href='/services/maintenance/computer-diagnostics/' + suffix) Компьютерная диагностика
+                  a.services-item__list-item(href='/services/maintenance/electrical-repair/' + suffix) Ремонт электрооборудования
+                  a.services-item__list-item(href='/services/maintenance/steering-repair/' + suffix) Ремонт рулевой рейки (в том числе замена болтов)
+                  a.services-item__list-item(href='/services/maintenance/intake-manifold-cleaning/' + suffix) Чистка и мойка впускного коллектора
+              a.button-simple(href='/services/maintenance/' + suffix) Подробнее
         .col-lg-6
           a.services-item(href='/services/upgrade/')
             .services-item__content

@@ -1,0 +1,33 @@
+extends /layout.pug
+
+block variables
+  - var name = 'main_maintenance';
+  - var section = 'Услуга';
+  - var title = 'Диагностика автомобиля';
+  - var seoTitle = 'Диагностика автомобиля BMW в Москве | Автосервис BMW «FGSEVER»';
+  - var subtitle = 'Услуги по общей диагностике и выявлению основных неисправностей BMW в Москве. Мы выполним все необходимые работы по обслуживанию вашего автомобиля и ответим на все интересующие вас вопросы.';
+  - var path = {'/services/': 'Услуги', '/services/maintenance/': 'Техническое обслуживание', '': 'Диагностика автомобиля'};
+  - var button = ['popup', '#maintenance-appointment', 'Записаться'];
+
+block content
+  +main({ name, path, section, title, subtitle, button, models })
+  include /maintenance/description/car-diagnostics 
+  section.prices
+    .wrapper
+      .titles
+        .overtitle Об услуге
+        h2 Стоимость
+      .block
+        .table-wrapper
+          .table
+            table
+              tr.table-header
+                td Услуга
+                td Стоимость
+              tr
+                td Общая диагностика автомобиля (включая компьютерную диагностику, диагностику подвески и течи)
+                td 2 100 ₽
+  include /maintenance/photos/car-diagnostics
+  include /about/advantages
+  +about
+  include /contacts

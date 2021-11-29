@@ -1,0 +1,45 @@
+extends /layout.pug
+
+block variables
+  - var name = 'main_maintenance';
+  - var section = 'Услуга';
+  - var models = series.models.map(model => model.codes).join(', ');
+  - var title = `Замена масла ${series.name} ${models} в Москве`;
+  - var seoTitle = `Замена масла в АКПП ${series.name} ${models} в Москве | Цена на замену масла в раздатке и редукторе BMW ниже дилеров!`;
+  - var subtitle = `Замена масла в раздатке ${series.name} ${models} редукторе и АКПП. Профильно занимаемся ТО коробок передач, редукторов и раздаточных коробок BMW с 2014 года по цене ниже дилерских автосервисов!`;
+  - var path = {'/services/': 'Услуги', '/services/maintenance/': 'Техническое обслуживание', '/services/maintenance/zamena-masla-bmw/': 'Замена масла', '': series.name};
+  - var button = ['popup', '#maintenance-appointment', 'Записаться'];
+  - var image = `/models/${series.key}/${series.image}-original.png`;
+
+block content
+  <? $prices = json_decode(file_get_contents($_SERVER['DOCUMENT_ROOT'] . '/data/parts-prices.json'), true) ?>
+  +main({ name, path, section, title, subtitle, button, image })
+  include /maintenance/description/oil-change
+  section.prices
+    .wrapper
+      .titles
+        .overtitle Об услуге
+        h2 Стоимость
+      .block
+        .table-wrapper
+          .table
+            table
+              tr.table-header
+                td Услуга
+                td Стоимость
+              tr 
+                td Замена масла в АКПП (Включая расходные материалы)
+                td 20 000 ₽
+              tr
+                td Замена масла в переднем редукторе
+                td 800 ₽ (+ <? echo number_format($prices['finalDriveOil']['price'], 0, ',', ' ') ?> ₽ за литр масла)
+              tr
+                td Замена масла в заднем редукторе
+                td 800 ₽ (+ <? echo number_format($prices['finalDriveOil']['price'], 0, ',', ' ') ?> ₽ за литр масла)
+              tr
+                td Замена масла в раздаточной коробке
+                td 1 200 ₽ (+ <? echo number_format($prices['transferBoxOil']['price'], 0, ',', ' ') ?> ₽ за литр масла)
+  include /maintenance/photos/oil-change
+  include /about/advantages
+  +about
+  include /contacts

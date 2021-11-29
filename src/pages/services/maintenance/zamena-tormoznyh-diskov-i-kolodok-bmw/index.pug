@@ -1,0 +1,46 @@
+extends /layout.pug
+
+block variables
+  - var name = 'main_maintenance';
+  - var section = 'Услуга';
+  - var title = 'Замена тормозных колодок и дисков BMW в Москве «FGSEVER»';
+  - var seoTitle = 'Замена колодок БМВ и тормозных дисков в Москве | Стоимость замены задних колодок, передних + ручника';
+  - var subtitle = 'Замена тормозных дисков и колодок БМВ в Москве (СВАО). Делаем комплексное ТО тормозных систем с заменой колодок ручника, передних и задних + дисков, для BMW всех моделей. «FGSEVER» работает с 2014 года с ценой ниже дилерских автосервисов!';
+  - var path = {'/services/': 'Услуги', '/services/maintenance/': 'Техническое обслуживание', '': 'Замена тормозных колодок и дисков'};
+  - var button = ['popup', '#maintenance-appointment', 'Записаться'];
+
+block content
+  +main({ name, path, section, title, subtitle, button })
+  include /maintenance/description/brakes-replacement 
+  section.prices
+    .wrapper
+      .titles
+        .overtitle Об услуге
+        h2 Стоимость
+      .block
+        .table-wrapper
+          .table
+            table
+              tr.table-header
+                td Услуга
+                td Стоимость
+              tr
+                td Замена передних тормозных дисков
+                td 1 800 ₽
+              tr
+                td Замена передних тормозных колодок
+                td 1 000 ₽
+              tr
+                td Замена задних тормозных дисков
+                td 2 500 ₽
+              tr
+                td Замена задних тормозных колодок
+                td 1 500 ₽
+              tr
+                td Замена тормозной системы на спортивную M
+                td Рассчитывается индивидуально
+  include /models
+  include /maintenance/photos/brakes-replacement
+  include /about/advantages
+  +about
+  include /contacts

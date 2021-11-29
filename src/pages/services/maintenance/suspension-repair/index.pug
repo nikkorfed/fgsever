@@ -1,0 +1,33 @@
+extends /layout.pug
+
+block variables
+  - var name = 'main_maintenance';
+  - var section = 'Услуга';
+  - var title = 'Диагностика и ремонт подвески';
+  - var seoTitle = 'Диагностика и ремонт подвески BMW в Москве | Автосервис BMW «FGSEVER»';
+  - var subtitle = 'Услуги по диагностике и устранению неисправностей системы подвески BMW в Москве. Мы выполним все необходимые работы по обслуживанию вашего автомобиля и ответим на все интересующие вас вопросы.';
+  - var path = {'/services/': 'Услуги', '/services/maintenance/': 'Техническое обслуживание', '': 'Диагностика и ремонт подвески'};
+  - var button = ['popup', '#maintenance-appointment', 'Записаться'];
+
+block content
+  +main({ name, path, section, title, subtitle, button, models })
+  include /maintenance/description/suspension-repair 
+  section.prices
+    .wrapper
+      .titles
+        .overtitle Об услуге
+        h2 Стоимость
+      .block
+        .table-wrapper
+          .table
+            table
+              tr.table-header
+                td Услуга
+                td Стоимость
+              tr 
+                td Диагностика подвески
+                td 600 ₽ (Бесплатно при прохождении ТО)
+  include /maintenance/photos/suspension-repair
+  include /about/advantages
+  +about
+  include /contacts

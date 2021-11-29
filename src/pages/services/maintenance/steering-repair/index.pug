@@ -1,0 +1,33 @@
+extends /layout.pug
+
+block variables
+  - var name = 'main_maintenance';
+  - var section = 'Услуга';
+  - var title = 'Ремонт рулевой рейки';
+  - var seoTitle = 'Ремонт рулевой рейки BMW в Москве | Автосервис BMW «FGSEVER»';
+  - var subtitle = 'Услуги по ремонту и устранению неисправностей рулевой рейки BMW в Москве. Мы выполним все необходимые работы по обслуживанию вашего автомобиля и ответим на все интересующие вас вопросы.';
+  - var path = {'/services/': 'Услуги', '/services/maintenance/': 'Техническое обслуживание', '': 'Ремонт рулевой рейки'};
+  - var button = ['popup', '#maintenance-appointment', 'Записаться'];
+
+block content
+  +main({ name, path, section, title, subtitle, button, models })
+  include /maintenance/description/steering-repair
+  section.prices
+    .wrapper
+      .titles
+        .overtitle Об услуге
+        h2 Стоимость
+      .block
+        .table-wrapper
+          .table
+            table
+              tr.table-header
+                td Услуга
+                td Стоимость
+              tr
+                td Ремонт рулевой рейки
+                td Рассчитывается индивидуально, в зависимости от сложности ремонта
+  include /maintenance/photos/steering-repair
+  include /about/advantages
+  +about
+  include /contacts

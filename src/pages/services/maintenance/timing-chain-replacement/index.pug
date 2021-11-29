@@ -1,0 +1,33 @@
+extends /layout.pug
+
+block variables
+  - var name = 'main_maintenance';
+  - var section = 'Услуга';
+  - var title = 'Замена цепи ГРМ';
+  - var seoTitle = 'Замена цепи ГРМ BMW в Москве | Автосервис BMW «FGSEVER»';
+  - var subtitle = 'Услуги по замене цепи газораспределительного механизма (ГРМ) BMW в Москве. Мы выполним все необходимые работы по обслуживанию вашего автомобиля и ответим на все интересующие вас вопросы.';
+  - var path = {'/services/': 'Услуги', '/services/maintenance/': 'Техническое обслуживание', '': 'Замена цепи ГРМ'};
+  - var button = ['popup', '#maintenance-appointment', 'Записаться'];
+
+block content
+  +main({ name, path, section, title, subtitle, button, models })
+  include /maintenance/description/timing-chain-replacement
+  section.prices
+    .wrapper
+      .titles
+        .overtitle Об услуге
+        h2 Стоимость
+      .block
+        .table-wrapper
+          .table
+            table
+              tr.table-header
+                td Услуга
+                td Стоимость
+              tr 
+                td Замена цепи ГРМ (На двигателях N13 и N20)
+                td 25 000 ₽
+  include /maintenance/photos/timing-chain-replacement
+  include /about/advantages
+  +about
+  include /contacts
