@@ -16,6 +16,11 @@
     // background-color: $white
     transition: border-color .3s, box-shadow .3s, transform .3s
 
+    &:hover
+      border-color: transparent
+      cursor: pointer
+      +light-shadow
+
     +small
       margin-bottom: $smallHorizontalOffset
       height: calc(100% - #{$smallHorizontalOffset})
@@ -123,9 +128,9 @@
       color: $lighterGrey
       transition: color .3s, transform .3s
 
-      // &:hover
-      //   color: $primaryColor
-      //   transform: translateX(5px)
+      &:hover
+        color: $primaryColor
+        cursor: pointer
 
       &::before
         margin: 8px 15px 0 0
@@ -172,10 +177,6 @@
       margin-bottom: 0
 
   a.services-item
-    &:hover
-      border-color: transparent
-      +light-shadow
-    
     .button-simple
       display: block
 
