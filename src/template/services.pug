@@ -6,6 +6,19 @@ mixin services({ suffix } = {})
         .overtitle Наши услуги
         h2 Основные направления
       .columns
+        .col-lg-12
+          .services-item
+            .services-item__content
+              .services-item__text
+                .icon.repair-color
+                .services-item__title
+                  h3 Ремонт
+                .subtitle.services-item__subtitle
+                  a.services-item__list-item(href='/services/remont/zamena-cepi-grm/' + suffix) Замена цепи ГРМ
+                  a.services-item__list-item(href='/services/remont/remont-bublika/' + suffix) Ремонт гидротрансформаторов
+                  a.services-item__list-item(href='/services/remont/remont-rulevyh-reek/' + suffix) Ремонт рулевых реек
+                  a.services-item__list-item(href='/services/remont/remont-turbin/' + suffix) Ремонт турбин
+              a.button-simple(href='/services/remont/' + suffix) Подробнее
         .col-lg-6
           .services-item
             .services-item__content
@@ -18,14 +31,12 @@ mixin services({ suffix } = {})
                   a.services-item__list-item(href='/services/maintenance/zamena-tormoznyh-diskov-i-kolodok-bmw/' + suffix) Замена тормозных дисков и колодок
                   a.services-item__list-item(href='/services/maintenance/zamena-tormoznoy-zhidkosti-i-ohlazhdayushchey-bmw/' + suffix) Замена тормозной жидкости и охлаждающей
                   a.services-item__list-item(href='/services/maintenance/suspension-repair/' + suffix) Диагностика и ремонт подвески
-                  a.services-item__list-item(href='/services/maintenance/timing-chain-replacement/' + suffix) Замена цепи ГРМ
                   a.services-item__list-item(href='/services/maintenance/engine-repair/' + suffix) Диагностика и ремонт ДВС
                   a.services-item__list-item(href='/services/maintenance/engine-replacement/' + suffix) Замена ДВС (СВАП)
                   a.services-item__list-item(href='/services/maintenance/car-diagnostics/' + suffix) Диагностика автомобиля
                   a.services-item__list-item(href='/services/maintenance/radiators-wash/' + suffix) Мойка радиаторов
                   a.services-item__list-item(href='/services/maintenance/computer-diagnostics/' + suffix) Компьютерная диагностика
                   a.services-item__list-item(href='/services/maintenance/electrical-repair/' + suffix) Ремонт электрооборудования
-                  a.services-item__list-item(href='/services/maintenance/steering-repair/' + suffix) Ремонт рулевой рейки (в том числе замена болтов)
                   a.services-item__list-item(href='/services/maintenance/intake-manifold-cleaning/' + suffix) Чистка и мойка впускного коллектора
               a.button-simple(href='/services/maintenance/' + suffix) Подробнее
         .col-lg-6
