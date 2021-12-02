@@ -14,3 +14,59 @@ section.survey
 
     +medium
       height: 5400px
+
+section.advanced-survey
+  .block
+    margin-top: $verticalOuterOffset
+
+    +small
+      margin-top: $smallVerticalOuterOffset
+
+    +medium
+      margin-top: $mediumVerticalOuterOffset
+
+    +large
+      margin-top: $largeVerticalOuterOffset
+
+  .hidden
+    display: none
+
+  .question
+    +vertical-inner-offset(margin-bottom)
+    +border-grey
+    border-radius: $borderRadius
+    +horizontal-offset(padding)
+
+    &:first-child
+      +vertical-outer-offset(margin-top)
+
+  .answers
+    label:last-child
+      padding-bottom: 0
+    
+    textarea:last-child
+      margin-bottom: 0
+
+  label
+    display: flex
+    align-items: center
+    padding-bottom: 10px
+    cursor: pointer
+
+  input[type='radio']
+    margin: 0 15px 0 0
+    +radioButton
+    transition: .3s background-color
+
+    &:not(:checked)
+      background-color: $backgroundGrey
+
+  input[type='checkbox']
+    margin: 0 15px 0 0
+    +checkbox
+
+  button[type='submit']
+    display: block
+    margin-left: auto
+    margin-right: auto
+    +vertical-outer-offset(margin-bottom)

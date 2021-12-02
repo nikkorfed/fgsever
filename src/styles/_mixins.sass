@@ -97,3 +97,51 @@
 
   +medium
     border: 3px solid $primaryColor
+
+=vertical-outer-offset($properties...)
+  @each $property in $properties
+    #{$property}: $verticalOuterOffset
+
+  +small
+    @each $property in $properties
+      #{$property}: $smallVerticalOuterOffset
+
+  +medium
+    @each $property in $properties
+      #{$property}: $mediumVerticalOuterOffset
+
+  +large
+    @each $property in $properties
+      #{$property}: $largeVerticalOuterOffset
+
+=vertical-inner-offset($properties...)
+  @each $property in $properties
+    #{$property}: $verticalInnerOffset
+
+  +small
+    @each $property in $properties
+      #{$property}: $smallVerticalInnerOffset
+
+  +medium
+    @each $property in $properties
+      #{$property}: $mediumVerticalInnerOffset
+
+  +large
+    @each $property in $properties
+      #{$property}: $largeVerticalInnerOffset
+
+=horizontal-offset($properties...)
+  @each $property in $properties
+    #{$property}: $horizontalOffset
+
+  +small
+    @each $property in $properties
+      #{$property}: $smallHorizontalOffset
+
+  +medium
+    @each $property in $properties
+      #{$property}: $mediumHorizontalOffset
+
+  +large
+    @each $property in $properties
+      #{$property}: $largeHorizontalOffset

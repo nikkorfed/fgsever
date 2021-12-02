@@ -127,9 +127,9 @@
         +radioButton
         transition: background-color .3s
 
-      &:not(.selected)
+      &.selected
         &::before
-          background-color: $backgroundGrey
+          +radioButton-checked
 
     .car__model
       margin-right: 10px
@@ -251,9 +251,9 @@
         +radioButton
         transition: background-color .3s
 
-      &:not(.selected)
+      &.selected
         &::before
-          background-color: $backgroundGrey
+          +radioButton-checked
 
   &__recommended-options
     .popup__group-name
@@ -276,9 +276,9 @@
         +checkbox
         transition: background-color .3s
 
-      &:not(.selected)
+      &.selected
         &::before
-          background: $backgroundGrey
+          +checkbox-checked
 
   &__recommended-select-options
     .popup__group-name

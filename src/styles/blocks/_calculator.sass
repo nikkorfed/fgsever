@@ -512,10 +512,11 @@
             +small
               padding-bottom: 0
 
-        &.disabled
+        &:not(.disabled)
           &::before
-            background: $backgroundGrey
+            +checkbox-checked
 
+        &.disabled
           .options, .part-price, .work-price
             opacity: .5
 

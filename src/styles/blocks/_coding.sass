@@ -33,10 +33,11 @@
         // margin-top: 7px
         margin-right: $mediumHorizontalOffset
 
-    &.disabled
+    &:not(.disabled)
       &::before
-        background: $backgroundGrey
+        +checkbox-checked
 
+    &.disabled
       // .coding-item__title
         color: $grey
 
