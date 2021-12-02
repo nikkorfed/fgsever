@@ -49,7 +49,7 @@ function folderTemplates({ data }) {
 
 function html() {
   return gulp
-    .src("src/pages/**/*.pug")
+    .src(["src/pages/**/*.pug", "!src/pages/**/!*/**/*.pug"])
     .pipe(folderTemplates({ data: require("./src/data/pages.json") }))
     .pipe(pug({ basedir: "src/template", locals: { time: +new Date() } }))
     .pipe(rename((path) => (path.extname = ".php")))
@@ -124,7 +124,12 @@ function images(cb) {
 
   // Создание обычных фотографий
   gulp
-    .src(["src/images/**/*.{jpg,jpeg,JPG,png}", "!src/images/models/**/*.png", "!src/images/**/main.{jpg,jpeg,JPG}"])
+    .src([
+      "src/images/**/*.{jpg,jpeg,JPG,png}",
+      "!src/images/models/**/*.png",
+      "!src/images/**/main.{jpg,jpeg,JPG}",
+      "!src/images/**/!*/**/*.{jpg,jpeg,JPG,png}",
+    ])
     .pipe(imageResize({ width: 400, height: 400, cover: true, format: "jpg", imageMagick: true }))
     .pipe(imagemin())
     .pipe(rename((path) => (path.basename = path.basename.replace(/\s/g, "-") + "-min")))
@@ -132,7 +137,12 @@ function images(cb) {
 
   // Создание Retina фотографий
   gulp
-    .src(["src/images/**/*.{jpg,jpeg,JPG,png}", "!src/images/models/**/*.png", "!src/images/**/main.{jpg,jpeg,JPG}"])
+    .src([
+      "src/images/**/*.{jpg,jpeg,JPG,png}",
+      "!src/images/models/**/*.png",
+      "!src/images/**/main.{jpg,jpeg,JPG}",
+      "!src/images/**/!*/**/*.{jpg,jpeg,JPG,png}",
+    ])
     .pipe(imageResize({ width: 800, height: 800, cover: true, format: "jpg", imageMagick: true }))
     .pipe(imagemin())
     .pipe(rename((path) => (path.basename = path.basename.replace(/\s/g, "-") + "-min@2x")))
@@ -140,7 +150,12 @@ function images(cb) {
 
   // Сжатие и перенос полных фотографий
   gulp
-    .src(["src/images/**/*.{jpg,jpeg,JPG,png}", "!src/images/models/**/*.png", "!src/images/**/main.{jpg,jpeg,JPG}"])
+    .src([
+      "src/images/**/*.{jpg,jpeg,JPG,png}",
+      "!src/images/models/**/*.png",
+      "!src/images/**/main.{jpg,jpeg,JPG}",
+      "!src/images/**/!*/**/*.{jpg,jpeg,JPG,png}",
+    ])
     .pipe(imageResize({ format: "jpg", imageMagick: true }))
     .pipe(imagemin())
     .pipe(rename((path) => (path.basename = path.basename.replace(/\s/g, "-"))))
