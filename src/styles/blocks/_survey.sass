@@ -40,6 +40,9 @@ section.advanced-survey
     &:first-child
       +vertical-outer-offset(margin-top)
 
+    p:last-child
+      margin-bottom: 0
+
   .answers
     label:last-child
       padding-bottom: 0
@@ -52,6 +55,12 @@ section.advanced-survey
     align-items: center
     padding-bottom: 10px
     cursor: pointer
+
+    &.disabled
+      opacity: .7
+
+  input[disabled]
+    opacity: .7
 
   input[type='radio']
     margin: 0 15px 0 0
