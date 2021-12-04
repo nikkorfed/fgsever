@@ -24,7 +24,7 @@ block content
         .step
           .question
             h3 1. Вас зовут Николай?
-            p Данный вопрос предназначен для Николая. Таким образом будет понятно, от кого одна из анкет.
+            p Ему один хрен будет интересно посмотреть опросник, так хоть будет понятно от кого еще одна анкета.
             .answers
               label
                 input(type='radio' name='Николай' value='Да')
@@ -188,7 +188,7 @@ block content
               label
                 input(type='radio' name='Желаете официально трудоустроиться' value='Другой ответ')
                 | Другой ответ
-              textarea.input.hidden(name='Желаете официально трудоустроиться (другое)' rows='3' placeholder='Пожалуйста укажите, другой вариант ответа.')
+              textarea.input.input-required.hidden(name='Желаете официально трудоустроиться (другое)' rows='3' placeholder='Пожалуйста укажите, другой вариант ответа.')
           .buttons
             .button.back Назад
             .button.next Далее
@@ -227,7 +227,7 @@ block content
               label
                 input(type='radio' name='Где провести новогодний корпоратив' value='Свой ответ')
                 | Свой ответ
-              textarea.input.hidden(name='Где провести новогодний корпоратив (свой ответ)' rows='3' placeholder='Пожалуйста укажите, свой вариант ответа.')
+              textarea.input.input-required.hidden(name='Где провести новогодний корпоратив (свой ответ)' rows='3' placeholder='Пожалуйста укажите, свой вариант ответа.')
           .buttons
             .button.back Назад
             .button.next Далее

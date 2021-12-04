@@ -30,7 +30,7 @@ $("section.advanced-survey form").on("click", ".button:not([type=submit])", func
     }
 
     let textValid = true;
-    const textInputs = $(this).find("textarea:not(.hidden)");
+    const textInputs = $(this).find("textarea.input-required:not(.hidden)");
     if (textInputs.length > 0) {
       for (let input of textInputs) {
         if (!$(input).val()) textValid = false;
