@@ -28,27 +28,48 @@ section.advanced-survey
     +large
       margin-top: $largeVerticalOuterOffset
 
+  .step
+    display: none
+
+    &.active
+      display: flex
+      flex-direction: column
+      align-items: center
+
+  .buttons
+    display: flex
+    +vertical-outer-offset(margin-bottom)
+
+  .button.back
+    margin-right: 10px
+
   .hidden
     display: none
 
   .question
+    +vertical-outer-offset(margin-top)
     +vertical-inner-offset(margin-bottom)
     +border-grey
     border-radius: $borderRadius
     +horizontal-offset(padding)
-
-    &:first-child
-      +vertical-outer-offset(margin-top)
+    width: 100%
 
     p:last-child
       margin-bottom: 0
 
   .answers
+    &:not(:last-child)
+      +vertical-inner-offset(margin-bottom)
+
     label:last-child
       padding-bottom: 0
     
     textarea:last-child
       margin-bottom: 0
+
+  .required
+    // +negative-vertical-inner-offset(margin-top)
+    color: red
 
   label
     display: flex

@@ -561,6 +561,8 @@ form input[type="file"]
   border-radius: $borderRadius
   height: 15px
   width: 15px
+  min-height: 15px
+  min-width: 15px
   background-position: 50% 50%
   background-repeat: no-repeat
   background-color: $backgroundGrey
@@ -575,11 +577,15 @@ form input[type="file"]
   +small
     height: 20px
     width: 20px
+    min-height: 20px
+    min-width: 20px
     background-size: 8px
 
   +medium
     // height: 40px
     // width: 40px
+    // min-height: 40px
+    // min-width: 40px
     background-size: 10px
 
 =checkbox-checked
@@ -594,6 +600,8 @@ form input[type="file"]
   border-radius: 50%
   height: 15px
   width: 15px
+  min-height: 15px
+  min-width: 15px
   background-color: $backgroundGrey
   cursor: pointer
   appearance: none
@@ -606,10 +614,14 @@ form input[type="file"]
     border-width: 5px
     height: 20px
     width: 20px
+    min-height: 20px
+    min-width: 20px
 
   +medium
     // height: 40px
     // width: 40px
+    // min-height: 40px
+    // min-width: 40px
 
 =radioButton-checked
   background-color: $primaryColor

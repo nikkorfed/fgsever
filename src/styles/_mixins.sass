@@ -130,6 +130,22 @@
     @each $property in $properties
       #{$property}: $largeVerticalInnerOffset
 
+=negative-vertical-inner-offset($properties...)
+  @each $property in $properties
+    #{$property}: -$verticalInnerOffset
+
+  +small
+    @each $property in $properties
+      #{$property}: -$smallVerticalInnerOffset
+
+  +medium
+    @each $property in $properties
+      #{$property}: -$mediumVerticalInnerOffset
+
+  +large
+    @each $property in $properties
+      #{$property}: -$largeVerticalInnerOffset
+
 =horizontal-offset($properties...)
   @each $property in $properties
     #{$property}: $horizontalOffset
