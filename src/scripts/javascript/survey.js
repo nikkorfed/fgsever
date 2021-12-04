@@ -33,18 +33,15 @@ $("section.advanced-survey form").on("click", ".button:not([type=submit])", func
     const textInputs = $(this).find("textarea:not(.hidden)");
     if (textInputs.length > 0) {
       for (let input of textInputs) {
-        console.log($(input).val());
         if (!$(input).val()) textValid = false;
         if (!$(input).val() && !$(input).prev(".required").length)
           $(input).before('<p class="required">Пожалуйста введите ответ в поле ниже.</p>');
       }
     }
 
-    console.log("textValid", textValid);
     if (!radioValid || !checkboxValid || !textValid) allValid = false;
   });
 
-  console.log("allValid", allValid);
   if (allValid === false) return;
 
   // Переключение вопроса
@@ -125,7 +122,6 @@ $("section.advanced-survey form").on("click", "input", function (e) {
     const target = $(e.target)
       .parents(".answers")
       .find(`textarea[name="Где провести новогодний корпоратив (свой ответ)"]`);
-    console.log(target);
     target.removeClass("hidden");
     if (e.target.value === "Свой ответ") {
       if (memory["Где провести новогодний корпоратив (свой ответ)"]) {
@@ -143,5 +139,13 @@ $("section.advanced-survey form").on("submit", function (e) {
   e.preventDefault();
 
   let data = $(this).serialize();
-  $(".results").text(decodeURI(data));
+
+  $.ajax({
+    url: "/scripts/php/survey.php",
+    method: "POST",
+    data,
+    success: function () {
+      $.fancybox.open({ src: "#survey-success", opts: { touch: false } });
+    },
+  });
 });
