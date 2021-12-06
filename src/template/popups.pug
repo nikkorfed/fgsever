@@ -22,7 +22,7 @@
   .icon.popup__icon.maintenance-color
   h3 Записаться на ремонт
   p Наш менеджер перезвонит вам в ближайшее время и поможет записаться на ремонт вашего автомобиля.
-  form.form-maintenance-appointment
+  form.form-remont-appointment
     input.input(type='text' name='name' placeholder='Фамилия, имя и отчество' required)
     input.input(type='text' name='phone' data-mask='+7 (000) 000-00-00' placeholder='Телефон' required)
     input(type='hidden' name='details')
@@ -32,7 +32,17 @@
   .icon.popup__icon.diagnostics-color
   h3 Записаться на диагностику
   p Наш менеджер перезвонит вам в ближайшее время и поможет записаться на диагностику вашего автомобиля.
-  form.form-maintenance-appointment
+  form.form-diagnostics-appointment
+    input.input(type='text' name='name' placeholder='Фамилия, имя и отчество' required)
+    input.input(type='text' name='phone' data-mask='+7 (000) 000-00-00' placeholder='Телефон' required)
+    input(type='hidden' name='details')
+    button.button Отправить
+
+.popup.appointment#gearbox-appointment
+  .icon.popup__icon.gearbox-color
+  h3 Записаться на ремонт АКПП
+  p Наш менеджер перезвонит вам в ближайшее время и поможет записаться на ремонт АКПП и раздаточных коробок вашего автомобиля.
+  form.form-gearbox-appointment
     input.input(type='text' name='name' placeholder='Фамилия, имя и отчество' required)
     input.input(type='text' name='phone' data-mask='+7 (000) 000-00-00' placeholder='Телефон' required)
     input(type='hidden' name='details')

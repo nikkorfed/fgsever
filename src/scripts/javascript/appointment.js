@@ -24,6 +24,15 @@ $(".appointment form").on("submit", function (e) {
       case "upgrade-appointment":
         data["service"] = "Дооснащение";
         break;
+      case "remont-appointment":
+        data["service"] = "Ремонт";
+        break;
+      case "diagnostics-appointment":
+        data["service"] = "Диагностика";
+        break;
+      case "gearbox-appointment":
+        data["service"] = "Ремонт АКПП и раздаточных коробок";
+        break;
       case "coding-appointment":
         data["service"] = "Кодирование опций";
         break;

@@ -1,0 +1,17 @@
+extends /layout.pug
+
+block variables
+  - var name = 'main_gearbox';
+  - var section = 'Направление';
+  - var title = 'Ремонт АКПП BMW и раздаточных коробок в Москве';
+  - var seoTitle = `Ремонт АКПП БМВ в Москве | Диагностика и ремонт коробки автомат BMW`;
+  - var subtitle = `Выполняем диагностику и ремонт АКПП БМВ в Москве (СВАО) и раздаточных коробок. Авторизованный автосервис FGSEVER осуществляет ремонт селектора АКПП BMW с 2014 года по цене ниже дилерских сервисов!`;
+  - var path = {'/services/': 'Услуги', '': 'Ремонт АКПП и раздаточных коробок'};
+  - var button = ['popup', '#gearbox-appointment', 'Записаться'];
+  - var image = '/models/5-series/g30-original.png';
+
+block content
+  +main({ name, path, section, title, subtitle, button, image })
+  include /gearbox/services
+  include /models
+  include /contacts

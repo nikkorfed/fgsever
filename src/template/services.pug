@@ -73,7 +73,18 @@ mixin services({ suffix } = {})
                   .services-item__list-item Диагностика автомобиля
                   .services-item__list-item Компьютерная диагностика
                   .services-item__list-item Диагностика двигателя
-              a.button-simple(href='/services/diagnostica-bmw/' + suffix) Подробнее
+              a.button-simple(href='/services/diagnostika-bmw/' + suffix) Подробнее
+        .col-lg-4
+          .services-item
+            .services-item__content
+              .services-item__text
+                .icon.gearbox-color
+                .services-item__title
+                  h3 Ремонт АКПП и раздаточных коробок
+                .subtitle.services-item__subtitle
+                  a.services-item__list-item(href='/services/remont-akpp-i-razdatochnyh-korobok-bmw/' + suffix) Ремонт АКПП
+                  a.services-item__list-item(href='/services/remont-akpp-i-razdatochnyh-korobok-bmw/remont-reduktora/' + suffix) Ремонт редукторов
+              a.button-simple(href='/services/remont-akpp-i-razdatochnyh-korobok-bmw/' + suffix) Подробнее
         .col-lg-6
           a.services-item(href='/services/coding/')
             .services-item__content
