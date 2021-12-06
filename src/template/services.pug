@@ -40,12 +40,11 @@ mixin services({ suffix } = {})
                   .services-item__list-item Камера для чтения дорожных знаков (KAFAS)
                   .services-item__list-item Активный круиз контроль (ACC)
                   .services-item__list-item Ассистент вождения (Plus)
-                  .services-item__list-item Камера заднего вида
-                  .services-item__list-item Система кругового обзора
+                  .services-item__list-item Камера заднего вида, система кругового обзора
                   .services-item__list-item Ассистент парковки (Plus)
                   .services-item__list-item Комфортный доступ
                   .services-item__list-item Комфортные сиденья с памятью положений/массажем/вентиляцией
-                  .services-item__list-item Керамическая отделка органов управления
+                  //- .services-item__list-item Керамическая отделка органов управления
                   .services-item__list-item Система ночного видения
               .button-simple Подробнее
         .col-lg-4
@@ -85,7 +84,19 @@ mixin services({ suffix } = {})
                   a.services-item__list-item(href='/services/remont-akpp-i-razdatochnyh-korobok-bmw/' + suffix) Ремонт АКПП
                   a.services-item__list-item(href='/services/remont-akpp-i-razdatochnyh-korobok-bmw/remont-reduktora/' + suffix) Ремонт редукторов
               a.button-simple(href='/services/remont-akpp-i-razdatochnyh-korobok-bmw/' + suffix) Подробнее
-        .col-lg-6
+        .col-lg-4
+          a.services-item(href='/services/remont-dvigateley-bmw/' + suffix)
+            .services-item__content
+              .services-item__text
+                .icon.engine-color
+                .services-item__title
+                  h3 Ремонт двигателей
+                .subtitle.services-item__subtitle
+                  .services-item__list-item Ремонт двигателей
+                  .services-item__list-item Замена двигателей
+                  .services-item__list-item Ремонт головки блока цилиндров (ГБЦ)
+              .button-simple Подробнее
+        .col-lg-8
           a.services-item(href='/services/coding/')
             .services-item__content
               .services-item__text
@@ -93,18 +104,21 @@ mixin services({ suffix } = {})
                 .services-item__title
                   h3 Кодирование опций
                 .subtitle.services-item__subtitle
-                  .services-item__list-item Отображение информации о температуре в шинах
-                  .services-item__list-item Запоминание последнего состояния системы автоматического запуска и остановки двигателя
-                  .services-item__list-item Возможность автоматического закрытия окна при открытой двери
-                  .services-item__list-item Увеличение яркости или отключение дневных ходовых огней (ДХО)
-                  .services-item__list-item Подсветка ручек дверей при движении задним ходом
-                  .services-item__list-item Отвязка подсветки салона от колесика яркости комбинации приборов
-                  .services-item__list-item Выключение противотуманных фар при активации дальнего света
-                  .services-item__list-item Настройка режима работы стеклоочистителей и омывателей фар
-                  .services-item__list-item Отображения спортивных приборов
-                  .services-item__list-item Вопроизведение видео с USB-накопителей
+                  .columns
+                    .col-lg-6
+                      .services-item__list-item Отображение информации о температуре в шинах
+                      .services-item__list-item Запоминание последнего состояния системы автоматического запуска и остановки двигателя
+                      .services-item__list-item Возможность автоматического закрытия окна при открытой двери
+                      .services-item__list-item Увеличение яркости или отключение дневных ходовых огней (ДХО)
+                      //- .services-item__list-item Подсветка ручек дверей при движении задним ходом
+                    .col-lg-6
+                      .services-item__list-item Отвязка подсветки салона от колесика яркости комбинации приборов
+                      .services-item__list-item Выключение противотуманных фар при активации дальнего света
+                      .services-item__list-item Настройка режима работы стеклоочистителей и омывателей фар
+                      .services-item__list-item Отображения спортивных приборов
+                      //- .services-item__list-item Вопроизведение видео с USB-накопителей
               .button-simple Подробнее
-        .col-lg-6
+        .col-lg-4
           .services-item
             .services-item__content
               .services-item__text
@@ -112,13 +126,13 @@ mixin services({ suffix } = {})
                 .services-item__title
                   h3 Кузовной ремонт
                 .subtitle.services-item__subtitle
-                  a.services-item__list-item(href='/services/body-repair/car-painting/') Покрасочные работы — покраска элементов кузова, полная покраска и замена цвета, покраска переходом и под прибор
-                  .services-item__list-item Локальный окрас — устранение царапин и сколов с кузова автомобиля, покраска пятном и под прибор
-                  .services-item__list-item Жестяные работы — восстановление геометрии кузова, стапельные и сварочные работы, замена элементов кузова
-                  .services-item__list-item Антикоррозийные работы — антигравийная обработка порогов и днища, обработка скрытых полостей автомобиля, устранение коррозии
-                  a.services-item__list-item(href='/services/body-repair/polishing/') Полировка — восстановление ЛКП, полировка оптики и отдельных элементов кузова, нанесение жидкого стекла и керамики
+                  a.services-item__list-item(href='/services/body-repair/car-painting/') Покрасочные работы 
+                  .services-item__list-item Локальный окрас
+                  .services-item__list-item Жестяные работы
+                  .services-item__list-item Антикоррозийные работы
+                  a.services-item__list-item(href='/services/body-repair/polishing/') Полировка
               a.button-simple(href='/services/body-repair/') Подробнее
-        .col-lg-6
+        .col-lg-4
           a.services-item(href='/services/update/')
             .services-item__content
               .services-item__text
@@ -131,7 +145,7 @@ mixin services({ suffix } = {})
                   .services-item__list-item Обновление отдельных электронных блоков управления (ЭБУ)
                   .services-item__list-item Обновление карт навигации
               .button-simple Подробнее
-        .col-lg-6
+        .col-lg-4
           a.services-item(href='/services/ac-refueling/')
             .services-item__content
               .services-item__text
