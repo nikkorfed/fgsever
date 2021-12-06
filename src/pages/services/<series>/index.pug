@@ -11,6 +11,7 @@ block variables
 
 block content
   +main({ name, path, section, title, subtitle, image })
+  +services
   case series.key
     when '1-series'
       include /models/1-series
@@ -45,4 +46,6 @@ block content
     when 'z4'
       include /models/z4
   include /appointment
+  include /about/advantages
+  +about
   include /contacts
