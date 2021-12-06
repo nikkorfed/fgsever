@@ -6,19 +6,6 @@ mixin services({ suffix } = {})
         .overtitle Наши услуги
         h2 Основные направления
       .columns
-        .col-lg-12
-          .services-item
-            .services-item__content
-              .services-item__text
-                .icon.repair-color
-                .services-item__title
-                  h3 Ремонт
-                .subtitle.services-item__subtitle
-                  a.services-item__list-item(href='/services/remont/zamena-cepi-grm/' + suffix) Замена цепи ГРМ
-                  a.services-item__list-item(href='/services/remont/remont-bublika/' + suffix) Ремонт гидротрансформаторов
-                  a.services-item__list-item(href='/services/remont/remont-rulevyh-reek/' + suffix) Ремонт рулевых реек
-                  a.services-item__list-item(href='/services/remont/remont-turbin/' + suffix) Ремонт турбин
-              a.button-simple(href='/services/remont/' + suffix) Подробнее
         .col-lg-6
           .services-item
             .services-item__content
@@ -61,6 +48,32 @@ mixin services({ suffix } = {})
                   .services-item__list-item Керамическая отделка органов управления
                   .services-item__list-item Система ночного видения
               .button-simple Подробнее
+        .col-lg-4
+          .services-item
+            .services-item__content
+              .services-item__text
+                .icon.repair-color
+                .services-item__title
+                  h3 Ремонт
+                .subtitle.services-item__subtitle
+                  a.services-item__list-item(href='/services/remont/zamena-cepi-grm/' + suffix) Замена цепи ГРМ
+                  a.services-item__list-item(href='/services/remont/remont-bublika/' + suffix) Ремонт гидротрансформаторов
+                  a.services-item__list-item(href='/services/remont/remont-rulevyh-reek/' + suffix) Ремонт рулевых реек
+                  a.services-item__list-item(href='/services/remont/remont-turbin/' + suffix) Ремонт турбин
+              a.button-simple(href='/services/remont/' + suffix) Подробнее
+        .col-lg-4
+          .services-item
+            .services-item__content
+              .services-item__text
+                .icon.diagnostics-color
+                .services-item__title
+                  h3 Диагностика
+                .subtitle.services-item__subtitle
+                  .services-item__list-item Комплексная диагностика
+                  .services-item__list-item Диагностика автомобиля
+                  .services-item__list-item Компьютерная диагностика
+                  .services-item__list-item Диагностика двигателя
+              a.button-simple(href='/services/diagnostica-bmw/' + suffix) Подробнее
         .col-lg-6
           a.services-item(href='/services/coding/')
             .services-item__content

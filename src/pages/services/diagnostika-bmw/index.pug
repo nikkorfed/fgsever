@@ -1,0 +1,16 @@
+extends /layout.pug
+
+block variables
+  - var name = 'main_diagnostics';
+  - var section = 'Направление';
+  - var title = 'Диагностика автомобилей BMW в Москве «FGSEVER»';
+  - var seoTitle = `Диагностика БМВ в Москве | Ручная инструментальная и компьютерная в авторизированном автосервисе`;
+  - var subtitle = `Диагностика автомобилей БМВ в Москве (СВАО). Авторизованный автосервис FGSEVER осуществляет компьютерную диагностику двигателя и электрики BMW дизельных и бензиновых с 2014 года по цене ниже дилерских сервисов!`;
+  - var path = {'/services/': 'Услуги', '': 'Диагностика'};
+  - var button = ['popup', '#diagnostics-appointment', 'Записаться'];
+  - var image = '/models/5-series/g30-original.png';
+
+block content
+  +main({ name, path, section, title, subtitle, button, image })
+  include /models
+  include /contacts
