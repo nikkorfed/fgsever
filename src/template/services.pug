@@ -81,19 +81,19 @@ mixin services({ suffix } = {})
                   .services-item__list-item Вопроизведение видео с USB-накопителей
               .button-simple Подробнее
         .col-lg-6
-          a.services-item(href='/services/body-repair/')
+          .services-item
             .services-item__content
               .services-item__text
                 .icon.body-repair-color
                 .services-item__title
                   h3 Кузовной ремонт
                 .subtitle.services-item__subtitle
-                  .services-item__list-item Покрасочные работы — покраска элементов кузова, полная покраска и замена цвета, покраска переходом и под прибор
+                  a.services-item__list-item(href='/services/body-repair/car-painting/') Покрасочные работы — покраска элементов кузова, полная покраска и замена цвета, покраска переходом и под прибор
                   .services-item__list-item Локальный окрас — устранение царапин и сколов с кузова автомобиля, покраска пятном и под прибор
                   .services-item__list-item Жестяные работы — восстановление геометрии кузова, стапельные и сварочные работы, замена элементов кузова
                   .services-item__list-item Антикоррозийные работы — антигравийная обработка порогов и днища, обработка скрытых полостей автомобиля, устранение коррозии
-                  .services-item__list-item Полировка — восстановление ЛКП, полировка оптики и отдельных элементов кузова, нанесение жидкого стекла и керамики
-              .button-simple Подробнее
+                  a.services-item__list-item(href='/services/body-repair/polishing/') Полировка — восстановление ЛКП, полировка оптики и отдельных элементов кузова, нанесение жидкого стекла и керамики
+              a.button-simple(href='/services/body-repair/') Подробнее
         .col-lg-6
           a.services-item(href='/services/update/')
             .services-item__content
