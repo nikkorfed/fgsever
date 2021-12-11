@@ -1,0 +1,15 @@
+extends /layout.pug
+
+block variables
+  - var name = 'main_ecu';
+  - var section = 'Направление';
+  - var title = 'Ремонт электронных блоков BMW в Москве';
+  - var seoTitle = `Ремонт БМВ электрика в Москве | Цена диагностики и ремонта электронных блоков в профильном сервисе BMW`;
+  - var subtitle = `Диагностика и ремонт ЭБУ БМВ в Москве (СВАО). Авторизованный автосервис FGSEVER осуществляет ремонт блоков управления BMW с 2014 года по цене ниже дилерских сервисов!`;
+  - var path = {'/services/': 'Услуги', '': 'Ремонт электронных блоков'};
+  - var button = ['popup', '#ecu-appointment', 'Записаться'];
+  - var image = '/models/5-series/g30-original.png';
+
+block content
+  +main({ name, path, section, title, subtitle, button, image })
+  include /contacts

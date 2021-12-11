@@ -168,6 +168,31 @@ mixin services({ suffix } = {})
                   .services-item__list-item Ремонт системы АБС
                   .services-item__list-item Замена блока АБС
               .button-simple Подробнее
+        .col-lg-4
+          a.services-item(href='/services/remont-bmw-elektrika/' + suffix)
+            .services-item__content
+              .services-item__text
+                .icon.ecu-color
+                .services-item__title
+                  h3 Ремонт электронных блоков
+                .subtitle.services-item__subtitle
+                  .services-item__list-item Диагностика ЭБУ
+                  .services-item__list-item Ремонт ЭБУ
+                  .services-item__list-item Замена электронных блоков управления
+              .button-simple Подробнее
+        .col-lg-4
+          a.services-item(href='/services/ac-refueling/')
+            .services-item__content
+              .services-item__text
+                .icon.ac-refueling-color
+                .services-item__title
+                  h3 Диагностика и заправка кондиционеров
+                .subtitle.services-item__subtitle
+                  .services-item__list-item Полная диагностика системы кондиционирования 
+                  .services-item__list-item Проверка герметичности и определение утечек
+                  .services-item__list-item Плановое обслуживание системы
+                  .services-item__list-item Заправка кондиционера хладагентом и маслом
+              .button-simple Подробнее
         .col-lg-8
           a.services-item(href='/services/coding/')
             .services-item__content
@@ -216,17 +241,4 @@ mixin services({ suffix } = {})
                   .services-item__list-item Полная перепрошивка программного обеспечения
                   .services-item__list-item Обновление отдельных электронных блоков управления (ЭБУ)
                   .services-item__list-item Обновление карт навигации
-              .button-simple Подробнее
-        .col-lg-4
-          a.services-item(href='/services/ac-refueling/')
-            .services-item__content
-              .services-item__text
-                .icon.ac-refueling-color
-                .services-item__title
-                  h3 Диагностика и заправка кондиционеров
-                .subtitle.services-item__subtitle
-                  .services-item__list-item Полная диагностика системы кондиционирования 
-                  .services-item__list-item Проверка герметичности и определение утечек
-                  .services-item__list-item Плановое обслуживание системы
-                  .services-item__list-item Заправка кондиционера хладагентом и маслом
               .button-simple Подробнее
