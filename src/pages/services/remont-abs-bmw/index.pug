@@ -1,0 +1,15 @@
+extends /layout.pug
+
+block variables
+  - var name = 'main_abs';
+  - var section = 'Направление';
+  - var title = 'Диагностика и ремонт ABS BMW в Москве';
+  - var seoTitle = `Диагностика и ремонт АБС БМВ в Москве | Цена ремонта блока в профильном сервисе BMW`;
+  - var subtitle = `Диагностика и ремонт блока АБС БМВ в Москве (СВАО). Авторизованный автосервис FGSEVER осуществляет ремонт блока ABS BMW с 2014 года по цене ниже дилерских сервисов!`;
+  - var path = {'/services/': 'Услуги', '': 'Ремонт АБС'};
+  - var button = ['popup', '#abs-appointment', 'Записаться'];
+  - var image = '/models/5-series/g30-original.png';
+
+block content
+  +main({ name, path, section, title, subtitle, button, image })
+  include /contacts
