@@ -1,0 +1,15 @@
+extends /layout.pug
+
+block variables
+  - var name = 'main_intake';
+  - var section = 'Направление';
+  - var title = 'Чистка впускного коллектора BMW в Москве';
+  - var seoTitle = `Чистка впускного коллектора БМВ в Москве | Цена в профильном сервисе BMW`;
+  - var subtitle = `Цена чистки впускного коллектора BMW в Москве (СВАО). Авторизованный автосервис FGSEVER осуществляет ремонт и ТО автомобилей БМВ с 2014 года по цене ниже дилерских сервисов!`;
+  - var path = {'/services/': 'Услуги', '': 'Чистка впускного коллектора'};
+  - var button = ['popup', '#intake-appointment', 'Записаться'];
+  - var image = '/models/5-series/g30-original.png';
+
+block content
+  +main({ name, path, section, title, subtitle, button, image })
+  include /contacts
