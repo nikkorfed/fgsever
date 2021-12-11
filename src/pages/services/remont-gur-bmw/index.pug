@@ -1,0 +1,15 @@
+extends /layout.pug
+
+block variables
+  - var name = 'main_steering';
+  - var section = 'Направление';
+  - var title = 'Ремонт ГУРа BMW и замена в Москве';
+  - var seoTitle = `Ремонт ГУРа БМВ в Москве | Цена ремонта гидроусилителя руля в профильном сервисе BMW`;
+  - var subtitle = `Ремонт усилителей руля БМВ и замена в Москве (СВАО). Авторизованный автосервис FGSEVER осуществляет ремонт ГУРа BMW с 2014 года по цене ниже дилерских сервисов!`;
+  - var path = {'/services/': 'Услуги', '': 'Ремонт ГУР'};
+  - var button = ['popup', '#steering-appointment', 'Записаться'];
+  - var image = '/models/5-series/g30-original.png';
+
+block content
+  +main({ name, path, section, title, subtitle, button, image })
+  include /contacts
