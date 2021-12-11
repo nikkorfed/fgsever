@@ -1,0 +1,15 @@
+extends /layout.pug
+
+block variables
+  - var name = 'main_headlights';
+  - var section = 'Направление';
+  - var title = 'Ремонт фар и фонарей BMW в Москве';
+  - var seoTitle = `Ремонт фар БМВ в Москве | Цена восстановления оптики в профильном сервисе BMW`;
+  - var subtitle = `Ремонт LED фар БМВ и замена в Москве (СВАО). Авторизованный автосервис FGSEVER осуществляет восстановление фар BMW с 2014 года по цене ниже дилерских сервисов!`;
+  - var path = {'/services/': 'Услуги', '': 'Ремонт фар и фонарей'};
+  - var button = ['popup', '#headlights-appointment', 'Записаться'];
+  - var image = '/models/5-series/g30-original.png';
+
+block content
+  +main({ name, path, section, title, subtitle, button, image })
+  include /contacts

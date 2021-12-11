@@ -78,6 +78,16 @@
     input(type='hidden' name='details')
     button.button Отправить
 
+.popup.appointment#headlights-appointment
+  .icon.popup__icon.headlights-color
+  h3 Записаться на ремонт фар и фонарей
+  p Наш менеджер перезвонит вам в ближайшее время и поможет записаться на ремонт фар и фонарей вашего автомобиля.
+  form.form-headlights-appointment
+    input.input(type='text' name='name' placeholder='Фамилия, имя и отчество' required)
+    input.input(type='text' name='phone' data-mask='+7 (000) 000-00-00' placeholder='Телефон' required)
+    input(type='hidden' name='details')
+    button.button Отправить
+
 .popup.appointment#coding-appointment
   .icon.popup__icon.coding-color
   h3 Записаться на кодирование опций
