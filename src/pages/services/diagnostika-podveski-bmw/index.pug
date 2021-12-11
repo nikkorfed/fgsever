@@ -1,0 +1,15 @@
+extends /layout.pug
+
+block variables
+  - var name = 'main_suspension';
+  - var section = 'Направление';
+  - var title = 'Диагностика и ремонт подвески BMW в Москве';
+  - var seoTitle = `Диагностика подвески БМВ и ремонт в Москве | Цена диагностики ходовой в профильном сервисе BMW`;
+  - var subtitle = `Диагностика и ремонт амортизаторов и активного стабилизатора БМВ в Москве (СВАО). Авторизованный автосервис FGSEVER осуществляет ремонт пневмоподвески BMW с 2014 года по цене ниже дилерских сервисов!`;
+  - var path = {'/services/': 'Услуги', '': 'Диагностика и ремонт подвески'};
+  - var button = ['popup', '#suspension-appointment', 'Записаться'];
+  - var image = '/models/5-series/g30-original.png';
+
+block content
+  +main({ name, path, section, title, subtitle, button, image })
+  include /contacts
