@@ -58,6 +58,16 @@
     input(type='hidden' name='details')
     button.button Отправить
 
+.popup.appointment#injector-appointment
+  .icon.popup__icon.injector-color
+  h3 Записаться на ремонт форсунок
+  p Наш менеджер перезвонит вам в ближайшее время и поможет записаться на ремонт форсунок вашего автомобиля.
+  form.form-injector-appointment
+    input.input(type='text' name='name' placeholder='Фамилия, имя и отчество' required)
+    input.input(type='text' name='phone' data-mask='+7 (000) 000-00-00' placeholder='Телефон' required)
+    input(type='hidden' name='details')
+    button.button Отправить
+
 .popup.appointment#coding-appointment
   .icon.popup__icon.coding-color
   h3 Записаться на кодирование опций

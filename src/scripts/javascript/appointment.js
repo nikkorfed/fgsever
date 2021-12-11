@@ -36,6 +36,9 @@ $(".appointment form").on("submit", function (e) {
       case "engine-appointment":
         data["service"] = "Ремонт двигателя";
         break;
+      case "injector-appointment":
+        data["service"] = "Ремонт форсунок";
+        break;
       case "coding-appointment":
         data["service"] = "Кодирование опций";
         break;

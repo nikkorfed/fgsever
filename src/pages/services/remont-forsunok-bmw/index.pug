@@ -1,0 +1,15 @@
+extends /layout.pug
+
+block variables
+  - var name = 'main_injector';
+  - var section = 'Направление';
+  - var title = 'Ремонт форсунок BMW и замена в Москве';
+  - var seoTitle = `Ремонт форсунок БМВ в Москве | Цена в профильном сервисе BMW`;
+  - var subtitle = `Ремонт дизельных форсунок БМВ и замена в Москве (СВАО). Авторизованный автосервис FGSEVER осуществляет ремонт двигателей BMW с 2014 года по цене ниже дилерских сервисов!`;
+  - var path = {'/services/': 'Услуги', '': 'Ремонт форсунок'};
+  - var button = ['popup', '#injector-appointment', 'Записаться'];
+  - var image = '/models/5-series/g30-original.png';
+
+block content
+  +main({ name, path, section, title, subtitle, button, image })
+  include /contacts
