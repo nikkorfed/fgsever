@@ -193,7 +193,7 @@ mixin services({ suffix } = {})
                   .services-item__list-item Плановое обслуживание системы
                   .services-item__list-item Заправка кондиционера хладагентом и маслом
               .button-simple Подробнее
-        .col-lg-8
+        .col-lg-4
           a.services-item(href='/services/coding/')
             .services-item__content
               .services-item__text
@@ -201,19 +201,29 @@ mixin services({ suffix } = {})
                 .services-item__title
                   h3 Кодирование опций
                 .subtitle.services-item__subtitle
-                  .columns
-                    .col-lg-6
-                      .services-item__list-item Отображение информации о температуре в шинах
-                      .services-item__list-item Запоминание последнего состояния системы автоматического запуска и остановки двигателя
-                      .services-item__list-item Возможность автоматического закрытия окна при открытой двери
-                      .services-item__list-item Увеличение яркости или отключение дневных ходовых огней (ДХО)
-                      //- .services-item__list-item Подсветка ручек дверей при движении задним ходом
-                    .col-lg-6
-                      .services-item__list-item Отвязка подсветки салона от колесика яркости комбинации приборов
-                      .services-item__list-item Выключение противотуманных фар при активации дальнего света
-                      .services-item__list-item Настройка режима работы стеклоочистителей и омывателей фар
-                      .services-item__list-item Отображения спортивных приборов
-                      //- .services-item__list-item Вопроизведение видео с USB-накопителей
+                  .services-item__list-item Отображение температуры в шинах
+                  .services-item__list-item Память системы Start/Stop
+                  .services-item__list-item Увеличение яркости ходовых огней (ДХО)
+                  .services-item__list-item Отображение спортивных приборов
+                  .services-item__list-item Вопроизведение видео с USB-накопителей
+                  .services-item__list-item Выключение противотуманных фар при активации дальнего света
+                  //- .services-item__list-item Возможность автоматического закрытия окна при открытой двери
+                  //- .services-item__list-item Подсветка ручек дверей при движении задним ходом
+                  //- .services-item__list-item Отвязка подсветки салона от колесика яркости комбинации приборов
+                  //- .services-item__list-item Настройка режима работы стеклоочистителей и омывателей фар
+              .button-simple Подробнее
+        .col-lg-4
+          a.services-item(href='/services/update/')
+            .services-item__content
+              .services-item__text
+                .icon.update-color
+                .services-item__title
+                  h3 Обновление ПО и карт навигации
+                .subtitle.services-item__subtitle
+                  .services-item__list-item Обновление программного обеспечения автомобиля (ПО)
+                  .services-item__list-item Полная перепрошивка программного обеспечения
+                  .services-item__list-item Обновление отдельных электронных блоков управления (ЭБУ)
+                  .services-item__list-item Обновление карт навигации
               .button-simple Подробнее
         .col-lg-4
           .services-item
@@ -229,16 +239,3 @@ mixin services({ suffix } = {})
                   .services-item__list-item Антикоррозийные работы
                   a.services-item__list-item(href='/services/body-repair/polishing/') Полировка
               a.button-simple(href='/services/body-repair/') Подробнее
-        .col-lg-4
-          a.services-item(href='/services/update/')
-            .services-item__content
-              .services-item__text
-                .icon.update-color
-                .services-item__title
-                  h3 Обновление ПО и карт навигации
-                .subtitle.services-item__subtitle
-                  .services-item__list-item Обновление программного обеспечения автомобиля (ПО)
-                  .services-item__list-item Полная перепрошивка программного обеспечения
-                  .services-item__list-item Обновление отдельных электронных блоков управления (ЭБУ)
-                  .services-item__list-item Обновление карт навигации
-              .button-simple Подробнее
