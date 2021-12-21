@@ -4,9 +4,9 @@ block variables
   - var name = 'main_remont';
   - var section = 'Направление';
   - var models = series.models.map(model => model.codes).join(', ');
-  - var title = `Ремонт ${series.name} ${models} в Москве`;
-  - var seoTitle = `Ремонт ${series.name} ${models} цена в Москве | Авторизированный сервис BMW FGSEVER`;
-  - var subtitle = `Сервис по ремонту ${series.name} ${models} FGSEVER в Москве профильно занимается комплексным ремонтом и тюнингом BMW всех моделей компании, с 2014 года, по цене ниже дилерских автосервисов! `;
+  - var title = `Ремонт BMW ${series.modelDesc} в Москве`;
+  - var seoTitle = `Ремонт БМВ ${series.model} цена в Москве | Авторизированный сервис BMW FGSEVER`;
+  - var subtitle = `Сервис по ремонту БМВ ${series.modelDesc} FGSEVER в Москве профильно занимается комплексным ремонтом и тюнингом BMW всех моделей компании, с 2014 года, по цене ниже дилерских автосервисов! `;
   - var path = {'/services/': 'Услуги', '/services/remont/': 'Ремонт', '' : series.name};
   - var button = ['popup', '#remont-appointment', 'Записаться'];
   - var image = `/models/${series.key}/${series.image}-original.png`;

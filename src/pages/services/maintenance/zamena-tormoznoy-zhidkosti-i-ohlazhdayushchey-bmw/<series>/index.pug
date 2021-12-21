@@ -4,9 +4,9 @@ block variables
   - var name = 'main_maintenance';
   - var section = 'Услуга';
   - var models = series.models.map(model => model.codes).join(', ');
-  - var title = `Замена тормозной жидкости и антифриза ${series.name} ${models} в Москве`;
-  - var seoTitle = `Замена тормозной жидкости и антифриза ${series.name} ${models} в Москве | Цена на замену охлаждающей жидкости BMW ниже дилеров!`;
-  - var subtitle = `Цена замены тормозной жидкости и антифриза ${series.name} ${models}. Профильно занимаемся ТО двигателей BMW всех моделей компании, с 2014 года, по цене на смену охлаждающей жидкости ниже дилерских автосервисов!`;
+  - var title = `Замена тормозной жидкости и антифриза BMW ${series.modelDesc} в Москве`;
+  - var seoTitle = `Замена тормозной жидкости и антифриза БМВ ${series.model} в Москве | Цена на замену охлаждающей жидкости BMW ниже дилеров!`;
+  - var subtitle = `Цена замены тормозной жидкости и антифриза БМВ ${series.modelDesc}. Профильно занимаемся ТО двигателей BMW всех моделей компании, с 2014 года, по цене на смену охлаждающей жидкости ниже дилерских автосервисов!`;
   - var path = {'/services/': 'Услуги', '/services/maintenance/': 'Техническое обслуживание', '/services/maintenance/zamena-tormoznoy-zhidkosti-i-ohlazhdayushchey-bmw/': 'Замена тормозной жидкости и охлаждающей', '': series.name};
   - var button = ['popup', '#maintenance-appointment', 'Записаться'];
   - var image = `/models/${series.key}/${series.image}-original.png`;

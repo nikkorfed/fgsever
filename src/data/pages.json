@@ -8,7 +8,9 @@
         { "key": "f40", "codes": "F40" },
         { "key": "f20", "codes": "F20/F21" },
         { "key": "e81", "codes": "E81/E82/E87/E88" }
-      ]
+      ],
+      "model": "F20,E87,E82,E81,E88",
+      "modelDesc": "F20, F21, E87, E82, E81, E88 - 1 серия"
     },
     {
       "key": "2-series",
@@ -19,7 +21,9 @@
         { "key": "f44", "codes": "F44" },
         { "key": "f22", "codes": "F22/F23" },
         { "key": "f45", "codes": "F45/F46" }
-      ]
+      ],
+      "model": "F22,F23,F44,F45,F46,F87",
+      "modelDesc": "F22, F23, F44, F45, F46, F87 - 2 серия"
     },
     {
       "key": "3-series",
@@ -29,7 +33,9 @@
         { "key": "g20", "codes": "G20/G21" },
         { "key": "f30", "codes": "F30/F31/F34" },
         { "key": "e90", "codes": "E90/E91/E92/E93" }
-      ]
+      ],
+      "model": "F30,E90,G20,E46,F34,F80",
+      "modelDesc": "F30, E90, G20, E46, F34, F80, G21, F31, E91, E92, E93"
     },
     {
       "key": "4-series",
@@ -38,7 +44,9 @@
       "models": [
         { "key": "g22", "codes": "G22/G23/G26" },
         { "key": "f32", "codes": "F32/F33/F36" }
-      ]
+      ],
+      "model": "F32,F33,F36,F82,F83",
+      "modelDesc": "F32, F33, F36, F82, F83"
     },
     {
       "key": "5-series",
@@ -48,7 +56,9 @@
         { "key": "g30", "codes": "G30/G31" },
         { "key": "f10", "codes": "F10/F11/F07" },
         { "key": "e60", "codes": "E60/E61" }
-      ]
+      ],
+      "model": "F10,E39,E60,G30,F90",
+      "modelDesc": "F10, E39, E60, E61, G30, G31, F90, F11, F07"
     },
     {
       "key": "6-series",
@@ -58,7 +68,9 @@
         { "key": "g32", "codes": "G32" },
         { "key": "f12", "codes": "F06/F12/F13", "image": "f13" },
         { "key": "e63", "codes": "E63/E64" }
-      ]
+      ],
+      "model": "G32,F06,F12,F13,E63,E64",
+      "modelDesc": "G32, F06, F12, F13, E63, E64"
     },
     {
       "key": "7-series",
@@ -68,13 +80,17 @@
         { "key": "g11", "codes": "G11/G12", "image": "g12" },
         { "key": "f01", "codes": "F01/F02" },
         { "key": "e65", "codes": "E65/E66" }
-      ]
+      ],
+      "model": "G11,G12,F01,F02,E65,E66,E38",
+      "modelDesc": "G11, G12, F01, F02, E65, E66, E38"
     },
     {
       "key": "8-series",
       "name": "BMW 8",
       "image": "g15",
-      "models": [{ "key": "g15", "codes": "G14/G15/G16" }]
+      "models": [{ "key": "g15", "codes": "G14/G15/G16" }],
+      "model": "G14,G15,G16,F91,F92,F93",
+      "modelDesc": "G14, G15, G16, F91, F92, F93"
     },
     {
       "key": "x1",
@@ -83,13 +99,17 @@
       "models": [
         { "key": "f48", "codes": "F48" },
         { "key": "e84", "codes": "E84" }
-      ]
+      ],
+      "model": "Х1 F48, E84",
+      "modelDesc": "X1 F48, E84"
     },
     {
       "key": "x2",
       "name": "BMW X2",
       "image": "f39",
-      "models": [{ "key": "f39", "codes": "F39" }]
+      "models": [{ "key": "f39", "codes": "F39" }],
+      "model": "Х2 F39",
+      "modelDesc": "X2 F39"
     },
     {
       "key": "x3",
@@ -99,7 +119,9 @@
         { "key": "g01", "codes": "G01" },
         { "key": "f25", "codes": "F25" },
         { "key": "e83", "codes": "E83" }
-      ]
+      ],
+      "model": "Х3 F25, E83, F97, G01",
+      "modelDesc": "X3 F25, E83, F97, G01"
     },
     {
       "key": "x4",
@@ -108,7 +130,9 @@
       "models": [
         { "key": "g02", "codes": "G02" },
         { "key": "f26", "codes": "F26" }
-      ]
+      ],
+      "model": "Х4 G02, F98, F26",
+      "modelDesc": "X4 G02, F98, F26"
     },
     {
       "key": "x5",
@@ -118,7 +142,9 @@
         { "key": "g05", "codes": "G05" },
         { "key": "f15", "codes": "F15" },
         { "key": "e70", "codes": "E70" }
-      ]
+      ],
+      "model": "X5 F15,E53,E70,G05,F95,F85",
+      "modelDesc": "Х5 F15, E53, E70, G05, F95, F85"
     },
     {
       "key": "x6",
@@ -128,13 +154,17 @@
         { "key": "g06", "codes": "G06" },
         { "key": "f16", "codes": "F16" },
         { "key": "e71", "codes": "E71" }
-      ]
+      ],
+      "model": "X6 E71,F16,G06,F96,F86",
+      "modelDesc": "Х6 E71,F16,G06,F96,F86"
     },
     {
       "key": "x7",
       "name": "BMW X7",
       "image": "g07",
-      "models": [{ "key": "g07", "codes": "G07" }]
+      "models": [{ "key": "g07", "codes": "G07" }],
+      "model": "X7 G07",
+      "modelDesc": "Х7 G07"
     },
     {
       "key": "z4",
@@ -144,7 +174,9 @@
         { "key": "g29", "codes": "G29" },
         { "key": "e89", "codes": "E89" },
         { "key": "e85", "codes": "E85/E86" }
-      ]
+      ],
+      "model": "Z4 G29,E89,E85,E86",
+      "modelDesc": "Z4 G29, E89, E85, E86"
     }
   ],
   "maintenances": [

@@ -4,9 +4,9 @@ block variables
   - var name = 'main_maintenance';
   - var section = 'Услуга';
   - var models = series.models.map(model => model.codes).join(', ');
-  - var title = `Замена тормозных колодок и дисков ${series.name} ${models} в Москве`;
-  - var seoTitle = `Замена колодок ${series.name} ${models} и тормозных дисков в Москве | Цена на замену задних тормозных колодок, передних и дисков BMW ниже дилеров!`;
-  - var subtitle = `Замена задних колодок ${series.name} ${models} передних и тормозных дисков. Профильно занимаемся ТО тормозных систем BMW с 2014 года по цене ниже дилерских автосервисов!`;
+  - var title = `Замена тормозных колодок и дисков BMW ${series.modelDesc} в Москве`;
+  - var seoTitle = `Замена колодок БМВ ${series.model} и тормозных дисков в Москве | Цена на замену задних тормозных колодок, передних и дисков BMW ниже дилеров!`;
+  - var subtitle = `Замена задних колодок БМВ ${series.modelDesc} передних и тормозных дисков. Профильно занимаемся ТО тормозных систем BMW с 2014 года по цене ниже дилерских автосервисов!`;
   - var path = {'/services/': 'Услуги', '/services/maintenance/': 'Техническое обслуживание', '/services/maintenance/zamena-tormoznyh-diskov-i-kolodok-bmw/': 'Замена тормозных колодок и дисков', '': series.name};
   - var button = ['popup', '#maintenance-appointment', 'Записаться'];
   - var image = `/models/${series.key}/${series.image}-original.png`;

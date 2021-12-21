@@ -4,9 +4,9 @@ block variables
   - var name = 'main_diagnostics';
   - var section = 'Направление';
   - var models = series.models.map(model => model.codes).join(', ');
-  - var title = `Диагностика ${series.name} ${models} в Москве`;
-  - var seoTitle = `Диагностика ${series.name} ${models} в Москве | Цена в FGSEVER`;
-  - var subtitle = `Диагностика ${series.name} ${models} в Москве (СВАО). FGSEVER профильно занимается комплексной компьютерной диагностикой автомобилей BMW дизельных и бензиновых с 2014 года по цене ниже дилерских автосервисов!`;
+  - var title = `Диагностика BMW ${series.modelDesc} в Москве`;
+  - var seoTitle = `Диагностика БМВ ${series.model} в Москве | Цена в FGSEVER`;
+  - var subtitle = `Диагностика БМВ ${series.modelDesc} в Москве (СВАО). FGSEVER профильно занимается комплексной компьютерной диагностикой автомобилей BMW дизельных и бензиновых с 2014 года по цене ниже дилерских автосервисов!`;
   - var path = {'/services/': 'Услуги', '/services/diagnostika-bmw/': 'Диагностика', '' : series.name};
   - var button = ['popup', '#diagnostics-appointment', 'Записаться'];
   - var image = `/models/${series.key}/${series.image}-original.png`;

@@ -4,9 +4,9 @@ block variables
   - var name = 'main_maintenance';
   - var section = 'Услуга';
   - var models = series.models.map(model => model.codes).join(', ');
-  - var title = `Замена масла ${series.name} ${models} в Москве`;
-  - var seoTitle = `Замена масла в АКПП ${series.name} ${models} в Москве | Цена на замену масла в раздатке и редукторе BMW ниже дилеров!`;
-  - var subtitle = `Замена масла в раздатке ${series.name} ${models} редукторе и АКПП. Профильно занимаемся ТО коробок передач, редукторов и раздаточных коробок BMW с 2014 года по цене ниже дилерских автосервисов!`;
+  - var title = `Замена масла BMW ${series.modelDesc} в Москве`;
+  - var seoTitle = `Замена масла в АКПП БМВ ${series.model} в Москве | Цена на замену масла в раздатке и редукторе BMW ниже дилеров!`;
+  - var subtitle = `Замена масла в раздатке БМВ ${series.modelDesc} редукторе и АКПП. Профильно занимаемся ТО коробок передач, редукторов и раздаточных коробок BMW с 2014 года по цене ниже дилерских автосервисов!`;
   - var path = {'/services/': 'Услуги', '/services/maintenance/': 'Техническое обслуживание', '/services/maintenance/zamena-masla-bmw/': 'Замена масла', '': series.name};
   - var button = ['popup', '#maintenance-appointment', 'Записаться'];
   - var image = `/models/${series.key}/${series.image}-original.png`;
