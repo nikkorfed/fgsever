@@ -53,12 +53,11 @@ function searchAlternativeParts ($number) {
   curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
   curl_setopt($ch, CURLOPT_COOKIEFILE, 'alternative-parts.cookie');
 
-  $data = json_decode(curl_exec($ch), true);
+  $internalAnalogs = json_decode(curl_exec($ch), true);
   // print_r($data);
   curl_close($ch);
 
   // Отбор запчастей с собственных складов shate-m от подходящих проиводителей
-  $internalAnalogs = $data['data']['items'];
   $temporaryParts = filterBrands($internalAnalogs);
   $parts = filterPrices($temporaryParts);
 
@@ -70,11 +69,10 @@ function searchAlternativeParts ($number) {
   curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
   curl_setopt($ch, CURLOPT_COOKIEFILE, 'alternative-parts.cookie');
 
-  $data = json_decode(curl_exec($ch), true);
+  $externalAnalogs = json_decode(curl_exec($ch), true);
   curl_close($ch);
 
   // Дополнительный поиск деталей-аналогов у сторонних поставщиков
-  $externalAnalogs = $data['data']['items'];
   $temporaryParts = filterBrands($externalAnalogs, false);
   $externalParts = filterPrices($temporaryParts);
 
@@ -93,6 +91,8 @@ function searchAlternativeParts ($number) {
 // Функция для отбора запчастей от подходящих производителей
 function filterBrands ($data, $findBMWInText = true) {
   $temporaryParts = [];
+  if (is_null($data) || isset($data['message'])) return $temporaryParts;
+  // print_r($data);
   foreach ($data as $element) {
     if ($findBMWInText === false || $findBMWInText === true && mb_stripos($element['partInfo']['itemComment'], 'BMW') !== false) {
       if (mb_stripos($element['partInfo']['description'], 'Фильтр воздушный') !== false || mb_stripos($element['partInfo']['description'], 'Фильтр салона') !== false) {
@@ -162,7 +162,7 @@ function filterPrices ($temporaryParts) {
       } else if ($element['city'] == 'Екатеринбург' && $element['locationColor'] == 'F7DFFF') {
         $parts[$part] = [
           'description' => $description,
-          'name' => $name . ' (Доставка ' . $element['deliveryDate'] . ')',
+          'name' => $name . ' (Доставка ' . $element['deliveryInfo']['deliveryDateTimes'][1]['deliveryDate'] . ')',
           'number' => $number,
           'price' => $element['price']
         ];
@@ -170,7 +170,7 @@ function filterPrices ($temporaryParts) {
       } else {
         $parts[$part] = [
           'description' => $description,
-          'name' => $name . ' (Доставка ' . $element['deliveryDate'] . ')',
+          'name' => $name . ' (Доставка ' . $element['deliveryInfo']['deliveryDateTimes'][1]['deliveryDate'] . ')',
           'number' => $number,
           'price' => $element['price'],
           'comment' => 'От сторонних поставщиков'
