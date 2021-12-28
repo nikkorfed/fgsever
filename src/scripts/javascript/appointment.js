@@ -1,3 +1,12 @@
+// Открытие всплывающего окна о работе в праздники
+$(document).ready(function () {
+  if ($.cookie("holidays-warning-closed")) return;
+  $.fancybox.open({
+    src: "#holidays-warning",
+    opts: { touch: false, afterClose: () => $.cookie("holidays-warning-closed", true, { expires: 1, path: "/" }) },
+  });
+});
+
 // Подстановка +7 в поле для телефона
 $("body").on("focus", '.appointment input[name="phone"]', function () {
   if (!$(this).val()) $(this).val("+7 (");
