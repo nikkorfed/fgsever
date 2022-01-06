@@ -1,6 +1,8 @@
 // Открытие всплывающего окна о работе в праздники
 $(document).ready(function () {
-  if ($.cookie("holidays-warning-closed")) return;
+  let expired = Date.now() > 1641513600000; // После 7 января 2022 года
+  console.log("Врем истекло:", expired);
+  if ($.cookie("holidays-warning-closed") || expired) return;
   $.fancybox.open({
     src: "#holidays-warning",
     opts: { touch: false, afterClose: () => $.cookie("holidays-warning-closed", true, { expires: 1, path: "/" }) },
