@@ -57,8 +57,8 @@ if (isset($_REQUEST['vin']) && isset($_REQUEST['mileage'])) {
     }
 
     // Определение цен на моторное масло
-    $originalMotorOilPrice = 600;
-    $motulMotorOilPrice = 500;
+    $originalMotorOilPrice = 950;
+    $motulMotorOilPrice = 800;
 
     // Подготовка массива запчастей
     $parts = [];
