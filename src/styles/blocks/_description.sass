@@ -109,8 +109,26 @@ section.description
 
   p
     // max-width: 1000px
+
+  .table-wrapper
+    margin-bottom: $verticalInnerOffset
+    border: 2px solid $backgroundGrey
+    border-radius: $borderRadius
+    padding: $horizontalOffset
+
+    +small
+      margin-bottom: $smallVerticalInnerOffset
+      padding: $smallHorizontalOffset
+
+    +medium
+      margin-bottom: $mediumVerticalInnerOffset
+      padding: $mediumHorizontalOffset
+
+    +large
+      margin-bottom: $largeVerticalInnerOffset
+      padding: $largeHorizontalOffset
       
-  p:last-child
+  p:last-child, .table-wrapper:last-child
     margin-bottom: $verticalOuterOffset
 
     +small
@@ -122,7 +140,7 @@ section.description
     +large
       margin-bottom: $largeVerticalOuterOffset
 
-  .block p:last-child
+  .block p:last-child, .block .table-wrapper:last-child
     margin-bottom: 0
 
   .spoiler
