@@ -13,12 +13,31 @@ block variables
 
 block content
   +main({ name, path, section, title, subtitle, button, image })
-  include /maintenance/description/steering-repair
+  section.description
+    .wrapper
+      .titles
+        .overtitle Об услуге
+        h2 Ремонт рулевой БМВ
+      .block
+        .icon.information-color
+        h3 Зачем ремонтировать рулевую рейку БМВ #{series.modelDesc}
+        p После попадания влаги под защитные пыльники, сальники и многочисленные резиновые уплотнительные прокладки, исполнительные элементы рулевой рейки начинают окисляться, а продукты коррозии попадают в АТФ / смазку, превращая ее в отличный абразив, тем самым стимулируя активный износ штока, червяка, золотника, сальников. Как следствие появляются люфты, стуки, наблюдается течи. При негерметичности сальников, внутрь рейки побочно попадает грязь приводя, казалось бы, мелкие неисправности рулевой рейки БМВ #{series.modelDesc} к серьезным проблемам и в критических случаях невозможности проведения эффективного ремонта.
+        p Если диагностируется сильный износ, ремонт рулевых реек БМВ не целесообразен, и мы рекомендуем замену всего узла в сборе.
+        h3 Когда рейку нужно диагностировать / ремонтировать
+        p Заказывать полный сервис ремонта рулевых реек БМВ #{series.modelDesc} в Москве рекомендуем при появлении ряда симптомов неисправности узла (признаки косвенные).
+        ul
+          li Индикация неисправности на бортовом компьютере (очевидный признак);
+          li Закусывания руля в определённых положениях и повышенная тяжесть поворота рулевого колеса;
+          li Стук в рейке с явной отдачей в руль и присутствие вибраций на мелких неровностях дорожного полотна;
+          li Течь масла через уплотнения.
+        p При наличии хотя бы одного из основных признаков неисправности выполняется диагностическая проверка рулевой рейки.
+        h3 Особенности процесса ремонта / замены
+        p Ремонтируя рулевую рейку BMW #{series.modelDesc} мы обязательно тщательно вычищаем шлам, меняем все пыльники, сальники, уплотнения, крепежные болты, заменяем масло. Диагностируя фатальный износ валов с невозможностью гильзовки, всегда рекомендуем замену рейки в сборе, дабы предупредить очередной скорый износ восстановленного узла. Отремонтированная рулевая рейка ходит по дорогам Москвы до 80% первоначального ресурса.
   section.prices
     .wrapper
       .titles
         .overtitle Об услуге
-        h2 Стоимость
+        h2 Цена ремонта рулевой рейки БМВ #{series.modelDesc}
       .block
         .table-wrapper
           .table
@@ -27,9 +46,69 @@ block content
                 td Услуга
                 td Стоимость
               tr
-                td Ремонт рулевой рейки
+                td Ремонт рулевой рейки #{series.modelDesc}
                 td Рассчитывается индивидуально, в зависимости от сложности ремонта
-  include /maintenance/photos/steering-repair
+  section.photos
+    .wrapper
+      .titles
+        .overtitle Фотографии
+        h2 Процесс ремонта рулевой рейки BMW #{series.modelDesc}
+        .subtitle Услуги по ремонту реек рулевых БМВ в фотографиях со слесарного участка нашего автосервиса.
+      .columns
+        .col-4.col-md-3.col-lg-2
+          a.photo(data-fancybox='photos' href='/images/services/maintenance/steering-repair/1.jpg')
+            img(src='/images/services/maintenance/steering-repair/1-min.jpg' srcset='/images/services/maintenance/steering-repair/1-min@2x.jpg 1.5x' alt="Замена болтов отвалившегося электрического мотора рулевой рейки БМВ в профильном сервисе в Москве FGSEVER СВАО фотография с участка 1")
+        .col-4.col-md-3.col-lg-2
+          a.photo(data-fancybox='photos' href='/images/services/maintenance/steering-repair/2.jpg')
+            img(src='/images/services/maintenance/steering-repair/2-min.jpg' srcset='/images/services/maintenance/steering-repair/2-min@2x.jpg 1.5x' alt="Замена болтов отвалившегося электрического мотора рулевой рейки БМВ в профильном сервисе в Москве FGSEVER СВАО фотография с участка 2")
+        .col-4.col-md-3.col-lg-2
+          a.photo(data-fancybox='photos' href='/images/services/maintenance/steering-repair/3.jpg')
+            img(src='/images/services/maintenance/steering-repair/3-min.jpg' srcset='/images/services/maintenance/steering-repair/3-min@2x.jpg 1.5x' alt="Полный процесс замены рулевой рейки БМВ в профильном сервисе в Москве FGSEVER СВАО фото 1")
+        .col-4.col-md-3.col-lg-2
+          a.photo(data-fancybox='photos' href='/images/services/maintenance/steering-repair/4.jpg')
+            img(src='/images/services/maintenance/steering-repair/4-min.jpg' srcset='/images/services/maintenance/steering-repair/4-min@2x.jpg 1.5x' alt="Полный процесс замены рулевой рейки БМВ в профильном сервисе в Москве FGSEVER СВАО фото 2")
+        .col-4.col-md-3.col-lg-2
+          a.photo(data-fancybox='photos' href='/images/services/maintenance/steering-repair/5.jpg')
+            img(src='/images/services/maintenance/steering-repair/5-min.jpg' srcset='/images/services/maintenance/steering-repair/5-min@2x.jpg 1.5x' alt="Полный процесс замены рулевой рейки БМВ в профильном сервисе в Москве FGSEVER СВАО фото 3")
+        .col-4.col-md-3.col-lg-2
+          a.photo(data-fancybox='photos' href='/images/services/maintenance/steering-repair/6.jpg')
+            img(src='/images/services/maintenance/steering-repair/6-min.jpg' srcset='/images/services/maintenance/steering-repair/6-min@2x.jpg 1.5x' alt="Полный процесс замены рулевой рейки БМВ в профильном сервисе в Москве FGSEVER СВАО фото 4")
+        .col-4.col-md-3.col-lg-2
+          a.photo(data-fancybox='photos' href='/images/services/maintenance/steering-repair/7.jpg')
+            img(src='/images/services/maintenance/steering-repair/7-min.jpg' srcset='/images/services/maintenance/steering-repair/7-min@2x.jpg 1.5x' alt="Полный процесс замены рулевой рейки БМВ в профильном сервисе в Москве FGSEVER СВАО фото 5")
+        .col-4.col-md-3.col-lg-2
+          a.photo(data-fancybox='photos' href='/images/services/maintenance/steering-repair/8.jpg')
+            img(src='/images/services/maintenance/steering-repair/8-min.jpg' srcset='/images/services/maintenance/steering-repair/8-min@2x.jpg 1.5x' alt="Снятая рулевая рейка при замене в сервисе БМВ в Москве FGSEVER СВАО")
+        .col-4.col-md-3.col-lg-2
+          a.photo(data-fancybox='photos' href='/images/services/maintenance/steering-repair/9.jpg')
+            img(src='/images/services/maintenance/steering-repair/9-min.jpg' srcset='/images/services/maintenance/steering-repair/9-min@2x.jpg 1.5x' alt="Замена разорванного приводного ремня двигателя рулевой рейки БМВ в Москве FGSEVER СВАО")
+        .col-4.col-md-3.col-lg-2
+          a.photo(data-fancybox='photos' href='/images/services/maintenance/steering-repair/10.jpg')
+            img(src='/images/services/maintenance/steering-repair/10-min.jpg' srcset='/images/services/maintenance/steering-repair/10-min@2x.jpg 1.5x' alt="Установка отремонтированной рулевой рейки БМВ в профильном сервисе в Москве FGSEVER СВАО фотография с участка 1")
+        .col-4.col-md-3.col-lg-2
+          a.photo(data-fancybox='photos' href='/images/services/maintenance/steering-repair/11.jpg')
+            img(src='/images/services/maintenance/steering-repair/11-min.jpg' srcset='/images/services/maintenance/steering-repair/11-min@2x.jpg 1.5x' alt="Установка отремонтированной рулевой рейки БМВ в профильном сервисе в Москве FGSEVER СВАО фотография с участка 2")
+        .col-4.col-md-3.col-lg-2
+          a.photo(data-fancybox='photos' href='/images/services/maintenance/steering-repair/12.jpg')
+            img(src='/images/services/maintenance/steering-repair/12-min.jpg' srcset='/images/services/maintenance/steering-repair/12-min@2x.jpg 1.5x' alt="Установка отремонтированной рулевой рейки БМВ в профильном сервисе в Москве FGSEVER СВАО фотография с участка 3")
+        .col-4.col-md-3.col-lg-2
+          a.photo(data-fancybox='photos' href='/images/services/maintenance/steering-repair/13.jpg')
+            img(src='/images/services/maintenance/steering-repair/13-min.jpg' srcset='/images/services/maintenance/steering-repair/13-min@2x.jpg 1.5x' alt="Установка отремонтированной рулевой рейки БМВ в профильном сервисе в Москве FGSEVER СВАО фотография с участка 4")
+        .col-4.col-md-3.col-lg-2
+          a.photo(data-fancybox='photos' href='/images/services/maintenance/steering-repair/14.jpg')
+            img(src='/images/services/maintenance/steering-repair/14-min.jpg' srcset='/images/services/maintenance/steering-repair/14-min@2x.jpg 1.5x' alt="Установка отремонтированной рулевой рейки БМВ в профильном сервисе в Москве FGSEVER СВАО фотография с участка 5")
+        .col-4.col-md-3.col-lg-2
+          a.photo(data-fancybox='photos' href='/images/services/maintenance/steering-repair/15.jpg')
+            img(src='/images/services/maintenance/steering-repair/15-min.jpg' srcset='/images/services/maintenance/steering-repair/15-min@2x.jpg 1.5x' alt="Установка отремонтированной рулевой рейки БМВ в профильном сервисе в Москве FGSEVER СВАО фотография с участка 6")
+        .col-4.col-md-3.col-lg-2
+          a.photo(data-fancybox='photos' href='/images/services/maintenance/steering-repair/16.jpg')
+            img(src='/images/services/maintenance/steering-repair/16-min.jpg' srcset='/images/services/maintenance/steering-repair/16-min@2x.jpg 1.5x' alt="Установка новой рулевой рейки БМВ после ремонта в специализированном автосервисе в Москве FGSEVER СВАО фото 1")
+        .col-4.col-md-3.col-lg-2
+          a.photo(data-fancybox='photos' href='/images/services/maintenance/steering-repair/17.jpg')
+            img(src='/images/services/maintenance/steering-repair/17-min.jpg' srcset='/images/services/maintenance/steering-repair/17-min@2x.jpg 1.5x' alt="Установка новой рулевой рейки БМВ после ремонта в специализированном автосервисе в Москве FGSEVER СВАО фото 2")
+        .col-4.col-md-3.col-lg-2
+          a.photo(data-fancybox='photos' href='/images/services/maintenance/steering-repair/18.jpg')
+            img(src='/images/services/maintenance/steering-repair/18-min.jpg' srcset='/images/services/maintenance/steering-repair/18-min@2x.jpg 1.5x' alt="Установка новой рулевой рейки БМВ после ремонта в специализированном автосервисе в Москве FGSEVER СВАО фото 3")
   include /about/advantages
   +about
   include /contacts
