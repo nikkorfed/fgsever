@@ -156,7 +156,7 @@ function filterPrices ($temporaryParts) {
           'description' => $description,
           'name' => $name,
           'number' => $number,
-          'price' => $element['price']
+          'price' => $element['price'] * 1.3
         ];
         break;
       } else if ($element['city'] == 'Екатеринбург' && $element['locationColor'] == 'F7DFFF') {
@@ -164,7 +164,7 @@ function filterPrices ($temporaryParts) {
           'description' => $description,
           'name' => $name . ' (Доставка ' . $element['deliveryInfo']['deliveryDateTimes'][1]['deliveryDate'] . ')',
           'number' => $number,
-          'price' => $element['price']
+          'price' => $element['price'] * 1.3
         ];
         break;
       } else {
@@ -172,7 +172,7 @@ function filterPrices ($temporaryParts) {
           'description' => $description,
           'name' => $name . ' (Доставка ' . $element['deliveryInfo']['deliveryDateTimes'][1]['deliveryDate'] . ')',
           'number' => $number,
-          'price' => $element['price'],
+          'price' => $element['price'] * 1.3,
           'comment' => 'От сторонних поставщиков'
         ];
         break;

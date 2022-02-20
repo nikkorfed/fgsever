@@ -499,7 +499,7 @@ function renderAlternativeParts(result, partIndex) {
                   '" data-number="' +
                   result["parts"][part]["options"][option]["number"] +
                   '" data-part-price="' +
-                  result["parts"][part]["options"][option]["price"] * 1.3 +
+                  result["parts"][part]["options"][option]["price"] +
                   '">' +
                   result["parts"][part]["options"][option]["name"] +
                   "</div>"
