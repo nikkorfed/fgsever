@@ -1,7 +1,6 @@
 // Открытие всплывающего окна о работе в праздники
 $(document).ready(function () {
   let expired = Date.now() > 1641513600000; // После 7 января 2022 года
-  console.log("Врем истекло:", expired);
   if ($.cookie("holidays-warning-closed") || expired) return;
   $.fancybox.open({
     src: "#holidays-warning",
@@ -121,6 +120,28 @@ $(".appointment form").on("submit", function (e) {
       }
 
       data["maintenanceParts"].push(part);
+    });
+  }
+
+  // Добавление данных из поиска запчастей
+  if ($(".search-parts").length) {
+    data["orderParts"] = [];
+
+    $("#search-parts .result .parts tr[data-number]:not(.disabled)").each(function () {
+      let part = {
+        name: $(this).find(".name").text(),
+      };
+      if ($(this).find(".option.selected").length) {
+        part["brand"] = $(this).find(".option.selected").text();
+      }
+      if ($(this).find(".option.selected").attr("data-number") !== undefined) {
+        part["number"] = $(this).find(".option.selected").attr("data-number");
+      }
+      if ($(this).attr("data-part-price") !== undefined) {
+        part["partPrice"] = $(this).attr("data-part-price");
+      }
+
+      data["orderParts"].push(part);
     });
   }
 

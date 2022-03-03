@@ -135,6 +135,44 @@ if (isset($_POST['name']) && isset($_POST['phone'])) {
     ";
   }
 
+  // Добавление запчастей из поиска запчастей
+  if (isset($_POST['orderParts'])) {
+    $subtitle = 'Поиск запчастей и их аналогов';
+
+    $parts = ""; $partsCost = 0;
+    foreach ($_POST['orderParts'] as $key => $part) {
+
+      $partName = $part['name'];
+      if (isset($part['number'])) $partNumber = $part['brand'] . ', ' . $part['number']; else $partNumber = $part['brand'];
+      if (isset($part['partPrice'])) {
+        $partPrice = 'Стоимость — ' . number_format($part['partPrice'], 2, ',', ' ') . ' ₽';
+        $partsCost += $part['partPrice'];
+      }
+
+      $parts .= "
+        <div class=\"section\">
+          <div class=\"text\">$partName</div>
+          <div class=\"number\">$partNumber</div>
+          <div class=\"label\">$partPrice</div>
+        </div>
+      ";
+    }
+
+    $parts .= "
+      <div class=\"parts-cost\">
+        <div class=\"label\">Общая стоимость</div>
+        <div class=\"value\">" . number_format($partsCost, 2, ',', ' ') . " ₽</div>
+      </div>
+    ";
+
+    $content = "
+      <div class=\"block\">
+        <h2>$subtitle</h2>
+        $parts
+      </div>
+    ";
+  }
+
   // Добавление расчёта из калькулятора дооснащения
   if (isset($_POST['upgradeOptions'])) {
     echo '$_POST[\'upgradeOptions\']:' . json_encode($_POST['upgradeOptions'], JSON_PRETTY_PRINT);
