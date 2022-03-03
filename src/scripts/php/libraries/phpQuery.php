@@ -2211,14 +2211,15 @@ class phpQueryObject
 				else
 					// index
 					$mapped = $this->map(
-						create_function('$node, $index',
-							'$prevs = pq($node)->prevAll()->size();
+						function($node, $index) {
+							$prevs = pq($node)->prevAll()->size();
 							if ($prevs && $prevs == $index-1)
 								return $node;
 							else if (! $prevs && $index == 1)
 								return $node;
 							else
-								return null;'),
+								return null;
+						},
 						new CallbackParam(), $param
 					);
 				$this->elements = $mapped->elements;
