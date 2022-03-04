@@ -13,52 +13,393 @@ if (isset($_REQUEST['vin']) && isset($_REQUEST['mileage'])) {
     include 'car-info.php';
     $carInfo = requestCarInfo($vin);
     
-    // Если не удалось найти данные в AOS
-    if (!isset($carInfo['vin'])) {
+    // Если из AOS были успешно получены данные
+    if ($carInfo['vin']) {
+      $vin = $carInfo['vin'];
+      // $model = $carInfo['model'];
+      $modelCode = $carInfo['modelCode'];
+      $date = $carInfo['productionDate'];
+      $image = $carInfo['image'];
+      $options = $carInfo['options'];
+      
+      // Проверяем, есть ли опции Спортивные тормоза M (2NH) и Оснащение тормозной системой экспорт. (S212A)
+      $factoryOptions = array_keys($options['factory']);
+      $installedOptions = array_keys($options['installed']);
+      $allOptions = array_merge($factoryOptions, $installedOptions);
+      foreach ($allOptions as $key => $option) {
+        if (strpos($option, '2NH') !== false) $isSportBrakesOptionFound = true;
+        if (strpos($option, '212') !== false) $isExportBrakesOptionFound = true;
+      }
+    }
+
+    // Ищем страницу c запчастями для определенного VIN-номера
+    // $link = 'https://bmwcats.com' . file_get_contents('https://www.bmwcats.com/ajax_vin_bmw.php?vin=' . urlencode($vin));
+
+    $ch = curl_init();
+
+    curl_setopt($ch, CURLOPT_URL, 'https://shop.bmw-sto.ru/ajax_search_bmw.php');
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+    curl_setopt($ch, CURLOPT_POSTFIELDS, "pn=$vin");
+    curl_setopt($ch, CURLOPT_POST, 1);
+
+    $link = curl_exec($ch);
+    curl_close ($ch);
+
+    if ($link == 'Такой номер детали отсутствует в каталоге') {
       header('content-type: application/json; charset=UTF-8');
       echo json_encode([ 'error' => 'parts-not-found' ], JSON_UNESCAPED_UNICODE);
       return;
     }
-    
-    // Если из AOS были успешно получены данные
-    $vin = $carInfo['vin'];
-    $model = $carInfo['model'];
-    $modelCode = $carInfo['modelCode'];
-    $date = $carInfo['productionDate'];
-    $image = $carInfo['image'];
-    $options = $carInfo['options'];
 
-    // Запрашиваем данные о запчастях для ТО
-    $maintenanceLink = "http://194.58.98.247/maintenance/$vin";
-    $maintenance = json_decode(file_get_html($maintenanceLink), true);
+    $link = 'https://shop.bmw-sto.ru' . $link;
 
-    if ($maintenance['motorOil']) $motorOilQuantity = $maintenance['motorOil']['quantity'];
-    if ($maintenance['oilFilter']) $oilFilterNumber = $maintenance['oilFilter']['partNumber'];
-    if ($maintenance['sparkPlug']) {
-      $sparkPlugNumber = $maintenance['sparkPlug']['partNumber'];
-      $sparkPlugQuantity = $maintenance['sparkPlug']['quantity'];
+    // Переход во вторую группу запчастей
+    $serviceLink = substr($link, 0, strrpos($link, '?')) . '02/' . substr($link, strrpos($link, '?'));
+
+    // Поиск ссылки на раздел запчастей для ТО
+    foreach (file_get_html($serviceLink)->find('.etk-nodes-list li') as $element) {
+      if (strpos($element->plaintext, 'ТО') !== false) { $serviceRelativeLink = $element->find('a', 0)->href; break; }
     }
-    if ($maintenance['fuelFilter']) $fuelFilterNumber = $maintenance['fuelFilter']['partNumber'];
-    if ($maintenance['airFilter']) $airFilterNumber = $maintenance['airFilter']['partNumber'];
-    if ($maintenance['cabinAirFilter']) $cabinAirFilterNumber = $maintenance['cabinAirFilter']['partNumber'];
-    if ($maintenance['recirculationFilter']) $recirculationFilterNumber = $maintenance['recirculationFilter']['partNumber'];
-    if ($maintenance['frontBrakeDisk']) $frontBrakeDiskNumber = $maintenance['frontBrakeDisk']['partNumber'];
-    if ($maintenance['frontBrakePads']) $frontBrakePadsNumber = $maintenance['frontBrakePads']['partNumber'];
-    if ($maintenance['frontBrakePadsWearSensor']) $frontBrakePadsWearSensorNumber = $maintenance['frontBrakePadsWearSensor']['partNumber'];
-    if ($maintenance['rearBrakeDisk']) $rearBrakeDiskNumber = $maintenance['rearBrakeDisk']['partNumber'];
-    if ($maintenance['rearBrakePads']) $rearBrakePadsNumber = $maintenance['rearBrakePads']['partNumber'];
-    if ($maintenance['rearBrakePadsWearSensor']) $rearBrakePadsWearSensorNumber = $maintenance['rearBrakePadsWearSensor']['partNumber'];
+    $serviceLink = substr($serviceLink, 0, strrpos($serviceLink, '?')) . $serviceRelativeLink;
+    $service = file_get_html($serviceLink);
+
+    // Собираем ещё информацию про автомобиль
+    // $model = $service->find('.etk-mospid-carinfo-text .div-tr', 0)->find('span', 1)->plaintext;
+    $model = $service->find('span[data-original-title="Модель"]', 0)->plaintext;
+    $model = preg_replace('/X$/m', ' xDrive', $model);
+    if (strpos($model, 'd') !== false) $isDiesel = true;
+    if (!$modelCode) {
+      preg_match('/\.\s(.+)\./', $service->find('h1', 0), $matches);
+      $modelCode = $matches[1];
+    }
+    // if (!$date) {
+    //   $date = $service->find('.etk-mospid-carinfo-text .div-tr', 4)->find('span', 1)->plaintext;
+    // }
+
+    // Ищем артикулы нужных нам запчастей
+    $oilFilterNumber = $service->find('.tr01 td', 4)->plaintext;
+    if ($isDiesel) {
+      $fuelFilterNumber = $service->find('.tr02 td', 4)->plaintext;
+    } else {
+      $sparkPlugNumber = $service->find('.tr02 td', 4)->plaintext;
+      $sparkPlugQuantity = $service->find('.tr02 td', 3)->plaintext;
+      $sparkPlugQuantity = (int) preg_replace('/\D/', '', $sparkPlugQuantity);
+    }
+    // $airFilterNumber = [];
+    foreach ($service->find('.tr03') as $element) {
+      $optionsElement = $element->parent()->parent()->parent();
+      if (($optionsElement->getAttribute('data-options') == '((etk.optL8AAA == 0) || (etk.optL8AAA == 1))') || ($optionsElement->getAttribute('data-options') == '((etk.optS842A == 0) || (etk.optS842A == 1))') || ($element->find('.etk-spares-partnr a.etk-spares-partnr-link.disabled', 0))) {
+        continue;
+      } else if (isset($airFilterNumber) && ($element->find('td', 4)->plaintext != $airFilterNumber) && ((int)str_replace(' ', '', $element->find('td', 4)->plaintext) - (int)str_replace(' ', '', $airFilterNumber) <= 3)) {
+        // array_push($airFilterNumber, $element->find('td', 4)->plaintext);
+        $hasTwoAirFilters = true;
+      } else {
+        // $airFilterNumber[0] = $element->find('td', 4)->plaintext;
+        $airFilterNumber = $element->find('td', 4)->plaintext;
+      }
+    }
+    foreach ($service->find('.tr04') as $element) {
+      if ($element->find('.etk-spares-partnr a.etk-spares-partnr-link.disabled', 0)) {
+        continue;
+      } else if (strpos($element->find('.etk-spares-name div div', 0), 'углем')) {
+        $cabinAirFilterNumber = $element->find('td', 4)->plaintext;
+        break;
+      } else if (empty($cabinAirFilterNumber)) {
+        $cabinAirFilterNumber = $element->find('td', 4)->plaintext;
+      }
+    }
+    if (strpos($service->find('.tr05 .etk-spares-name div div', 0)->plaintext, 'рециркуляции воздуха')) {
+      $recirculationFilterNumber = $service->find('.tr05 td', 4)->plaintext;
+    }
+
+    // Теперь ищем страницу с деталями тормозной системы
+
+    // Переход во вторую группу запчастей
+    $brakesLink = substr($link, 0, strrpos($link, '?')) . '02/' . substr($link, strrpos($link, '?'));
+
+    // Ищем ссылки на разделы тормозов
+    $brakesTemporaryRelativeLinks = [];
+    foreach (file_get_html($brakesLink)->find('.etk-nodes-list li') as $element) {
+      if (strpos($element->plaintext, 'Сервисное обслуживание тормозов') !== false) {
+        array_push($brakesTemporaryRelativeLinks, $element->find('a', 0)->href);
+        $isBrakesFoundInSecondGroup = true;
+      }
+    }
+
+    // Если нашли тормоза во второй группе
+    if ($isBrakesFoundInSecondGroup) {
+
+      // Ищем страницу с обычными тормозами (не спортивными)
+      foreach ($brakesTemporaryRelativeLinks as $element) {
+        $brakesTemporaryLink = substr($brakesLink, 0, strrpos($brakesLink, '?')) . $element;
+        $temporaryBrakes = file_get_html($brakesTemporaryLink);
+        if (strpos($temporaryBrakes->find('.etk-spares-option-off', 0)->plaintext, 'S2NHA')) {
+          $brakes = $temporaryBrakes;
+        } else if (!isset($brakes)) {
+          $brakes = $temporaryBrakes;
+        }
+      }
+
+      // Если в комплектации присутствуют спортивные тормоза, ищем страницу с ними
+      if ($isSportBrakesOptionFound) {
+        foreach ($brakesTemporaryRelativeLinks as $element) {
+          $brakesTemporaryLink = substr($brakesLink, 0, strrpos($brakesLink, '?')) . $element;
+          $temporaryBrakes = file_get_html($brakesTemporaryLink);
+          if (strpos($temporaryBrakes->find('.etk-spares-option-on', 0)->plaintext, 'S2NHA')) $brakes = $temporaryBrakes;
+        }
+      }
+
+      // Ищем необходимые детали
+      foreach ($brakes->find('tr') as $element) {
+        // echo $element->find('.etk-spares-name div div', 0)->plaintext . '<br><br>';
+
+        // Пропускаем строку без номера
+        if ($element->getAttribute('class') == 'tr--') continue;
+
+        // Пропускаем детали с неподходящими опциями (фаркопом (S3ACA), исполнением для Китая (L8AAA) и еще чем-то (S842A))
+        $optionsElement = $element->parent()->parent()->parent();
+        if (
+          strpos($optionsElement->getAttribute('data-options'), '((etk.optS3ACA == 0) || (etk.optS3ACA == 1))') !== false ||
+          strpos($optionsElement->getAttribute('data-options'), '((etk.optL8AAA == 0) || (etk.optL8AAA == 1))') !== false ||
+          strpos($optionsElement->getAttribute('data-options'), '((etk.optS842A == 0) || (etk.optS842A == 1))') !== false
+        ) continue;
+
+        // Также пропускаем устаревшие детали
+        if ($element->find('.etk-spares-partnr a.etk-spares-partnr-link.disabled', 0)) continue;
+
+        // Передний и задний тормозной диск
+        if (strpos($element->find('.etk-spares-name div div', 0)->plaintext, 'диск')) {
+          if (!isset($frontBrakeDiskNumber) && !isset($rearBrakeDiskNumber)) {
+            // echo 'ПЕРЕДНИЙ ТОРМОЗНОЙ ДИСК:<br>' . $element . '<br><br>';
+            $frontBrakeDiskNumber = $element->find('td', 4)->plaintext;
+          } else if (!isset($rearBrakeDiskNumber) && $isExportBrakesOptionFound && strpos($optionsElement->getAttribute('data-options'), '((etk.optS212A == 0) || (etk.optS212A == 1))') !== false) {
+            // echo 'ПЕРЕДНИЙ ТОРМОЗНОЙ ДИСК (ЭКСПОРТ):<br>' . $element . '<br><br>';
+            $frontBrakeDiskNumber = $element->find('td', 4)->plaintext;
+          } else if (!isset($rearBrakeDiskNumber) && isset($frontBrakePadsNumber)) {
+            // echo 'ЗАДНИЙ ТОРМОЗНОЙ ДИСК:<br>' . $element . '<br><br>';
+            $rearBrakeDiskNumber = $element->find('td', 4)->plaintext;
+          } else if (isset($rearBrakeDiskNumber) && $isExportBrakesOptionFound && strpos($optionsElement->getAttribute('data-options'), '((etk.optS212A == 0) || (etk.optS212A == 1))') !== false) {
+            // echo 'ЗАДНИЙ ТОРМОЗНОЙ ДИСК (ЭКСПОРТ):<br>' . $element . '<br><br>';
+            $rearBrakeDiskNumber = $element->find('td', 4)->plaintext;
+          }
+          continue;
+        }
+
+        // Комплекты передних и задних тормозных колодок
+        if (strpos($element->find('.etk-spares-name div div', 0)->plaintext, 'торм.накладок') || strpos($element->find('.etk-spares-name div div', 0)->plaintext, 'емкомплект')) {
+          if (!isset($frontBrakePadsNumber) && !isset($rearBrakeDiskNumber)) {
+            // echo 'ПЕРЕДНИЕ ТОРМОЗНЫЕ КОЛОДКИ:<br>' . $element . '<br><br>';
+            $frontBrakePadsNumber = $element->find('td', 4)->plaintext;
+          } else if (!isset($rearBrakeDiskNumber) && $isExportBrakesOptionFound && strpos($optionsElement->getAttribute('data-options'), '((etk.optS212A == 0) || (etk.optS212A == 1))') !== false) {
+            // echo 'ПЕРЕДНИЕ ТОРМОЗНЫЕ КОЛОДКИ (ЭКСПОРТ):<br>' . $element . '<br><br>';
+            $frontBrakePadsNumber = $element->find('td', 4)->plaintext;
+          } else if (!isset($rearBrakePadsNumber) && isset($rearBrakeDiskNumber)) {
+            // echo 'ЗАДНИЕ ТОРМОЗНЫЕ КОЛОДКИ:<br>' . $element . '<br><br>';
+            $rearBrakePadsNumber = $element->find('td', 4)->plaintext;
+          } else if (isset($rearBrakePadsNumber) && $isExportBrakesOptionFound && strpos($optionsElement->getAttribute('data-options'), '((etk.optS212A == 0) || (etk.optS212A == 1))') !== false) {
+            // echo 'ЗАДНИЕ ТОРМОЗНЫЕ КОЛОДКИ (ЭКСПОРТ):<br>' . $element . '<br><br>';
+            $rearBrakePadsNumber = $element->find('td', 4)->plaintext;
+          }
+          continue;
+        }
+
+        // Датчики износа передних и задних тормозных колодок
+        if (strpos($element->find('.etk-spares-name div div', 0)->plaintext, 'износа тормозных накладок')) {
+          if (!isset($frontBrakePadsWearSensorNumber) && !isset($rearBrakeDiskNumber)) {
+            // echo 'ПЕРЕДНИЙ ДАТЧИК:<br>' . $element . '<br><br>';
+            $frontBrakePadsWearSensorNumber = $element->find('td', 4)->plaintext;
+          } else if ($isExportBrakesOptionFound && strpos($optionsElement->getAttribute('data-options'), '((etk.optS212A == 0) || (etk.optS212A == 1))') !== false) {
+            // echo 'ПЕРЕДНИЙ ДАТЧИК (ЭКСПОРТ):<br>' . $element . '<br><br>';
+            $frontBrakePadsWearSensorNumber = $element->find('td', 4)->plaintext;
+          } else if (!isset($rearBrakePadsWearSensorNumber) && isset($rearBrakeDiskNumber)) {
+            // echo 'ЗАДНИЙ ДАТЧИК:<br>' . $element . '<br><br>';
+            $rearBrakePadsWearSensorNumber = $element->find('td', 4)->plaintext;
+          }
+          continue;
+        }
+      }
+
+    // Если же тормоза во второй группе не нашли
+    } else {
+
+      // Переходим в 34-ую группу
+      $brakesLink = substr($link, 0, strrpos($link, '?')) . '34/' . substr($link, strrpos($link, '?'));
+
+      // Ищем ссылки на разделы передних тормозов
+      $frontBrakesTemporaryRelativeLinks = [];
+      foreach (file_get_html($brakesLink)->find('.etk-nodes-list li') as $element) {
+        if (strpos($element->plaintext, 'Тормозной механизм переднего колеса') !== false) {
+          array_push($frontBrakesTemporaryRelativeLinks, $element->find('a', 0)->href);
+          // $isFrontBrakesFoundIn34thGroup = true; Заложено на всякий случай, если вдруг где-то в 34-группе тормоза будут выдаваться по-другому
+        }
+      }
+
+      // Ищем страницу с обычными передними тормозами (не спортивными)
+      foreach ($frontBrakesTemporaryRelativeLinks as $element) {
+        $frontBrakesTemporaryLink = substr($brakesLink, 0, strrpos($brakesLink, '?')) . $element;
+        $temporaryFrontBrakes = file_get_html($frontBrakesTemporaryLink);
+        if (strpos($temporaryFrontBrakes->find('.etk-spares-option-off', 0)->plaintext, 'S2NHA')) {
+          $frontBrakes = $temporaryFrontBrakes;
+        } else if (!isset($frontBrakes)) {
+          $frontBrakes = $temporaryFrontBrakes;
+        }
+      }
+
+      // Если в комплектации присутствуют спортивные тормоза, ищем страницу с соответствующими передними
+      if ($isSportBrakesOptionFound) {
+        foreach ($frontBrakesTemporaryRelativeLinks as $element) {
+          $frontBrakesTemporaryLink = substr($brakesLink, 0, strrpos($brakesLink, '?')) . $element;
+          $temporaryFrontBrakes = file_get_html($frontBrakesTemporaryLink);
+          if (strpos($temporaryFrontBrakes->find('.etk-spares-option-on', 0)->plaintext, 'S2NHA')) $frontBrakes = $temporaryFrontBrakes;
+        }
+      }
+
+      // Ищем артикулы деталей передней тормозной системы
+      foreach ($frontBrakes->find('tr') as $element) {
+
+        // Пропускаем детали с неподходящими опциями (фаркопом (S3ACA), исполнением для Китая (L8AAA) и еще чем-то (S842A))
+        $optionsElement = $element->parent()->parent()->parent();
+        if (
+          ($optionsElement->getAttribute('data-options') == '((etk.optS3ACA == 0) || (etk.optS3ACA == 1))') ||
+          ($optionsElement->getAttribute('data-options') == '((etk.optL8AAA == 0) || (etk.optL8AAA == 1))') ||
+          ($optionsElement->getAttribute('data-options') == '((etk.optS842A == 0) || (etk.optS842A == 1))')
+        ) continue;
+
+        // Также пропускаем устаревшие детали
+        if ($element->find('.etk-spares-partnr a.etk-spares-partnr-link.disabled', 0)) continue;
+
+        // Берем нужные артикулы
+        if (strpos($element->find('.etk-spares-name div div', 0)->plaintext, 'торм.накладок')) {
+          if (!isset($frontBrakePadsNumber)) {
+            $frontBrakePadsNumber = $element->find('td', 4)->plaintext;
+            continue;
+          } else if ($isExportBrakesOptionFound && strpos($optionsElement->getAttribute('data-options'), '((etk.optS212A == 0) || (etk.optS212A == 1))') !== false) {
+            $frontBrakePadsNumber = $element->find('td', 4)->plaintext;
+            continue;
+          }
+        }
+        if (strpos($element->find('.etk-spares-name div div', 0)->plaintext, 'диск')) {
+          if (!isset($frontBrakeDiskNumber)) {
+            $frontBrakeDiskNumber = $element->find('td', 4)->plaintext;
+            continue;
+          } else if ($isExportBrakesOptionFound && strpos($optionsElement->getAttribute('data-options'), '((etk.optS212A == 0) || (etk.optS212A == 1))') !== false) {
+            $frontBrakeDiskNumber = $element->find('td', 4)->plaintext;
+            continue;
+          }
+        }
+        if (strpos($element->find('.etk-spares-name div div', 0)->plaintext, 'износа тормозных накладок')) {
+          if (!isset($frontBrakePadsWearSensorNumber)) {
+            $frontBrakePadsWearSensorNumber = $element->find('td', 4)->plaintext;
+            continue;
+          } else if ($isExportBrakesOptionFound && strpos($optionsElement->getAttribute('data-options'), '((etk.optS212A == 0) || (etk.optS212A == 1))') !== false) {
+            $frontBrakePadsWearSensorNumber = $element->find('td', 4)->plaintext;
+            continue;
+          }
+        }
+      }
+
+      // Ищем ссылки на разделы задних тормозов
+      $rearBrakesTemporaryRelativeLinks = [];
+      foreach (file_get_html($brakesLink)->find('.etk-nodes-list li') as $element) {
+        if (strpos($element->plaintext, 'Тормозной механизм заднего колеса') !== false) {
+          array_push($rearBrakesTemporaryRelativeLinks, $element->find('a', 0)->href);
+          // $isrearBrakesFoundIn34thGroup = true; Заложено на всякий случай, если вдруг где-то в 34-группе тормоза будут выдаваться по-другому
+        }
+      }
+
+      // Ищем страницу с обычными задними тормозами (не спортивными)
+      foreach ($rearBrakesTemporaryRelativeLinks as $element) {
+        $rearBrakesTemporaryLink = substr($brakesLink, 0, strrpos($brakesLink, '?')) . $element;
+        $temporaryRearBrakes = file_get_html($rearBrakesTemporaryLink);
+        if (strpos($temporaryRearBrakes->find('.etk-spares-comment', 0)->plaintext, 'нет')) {
+          $rearBrakes = $temporaryRearBrakes;
+        } else if (!isset($rearBrakes)) {
+          $rearBrakes = $temporaryRearBrakes;
+        }
+      }
+
+      // Если в комплектации присутствуют спортивные тормоза, ищем страницу с соответствующими задними
+      if ($isSportBrakesOptionFound) {
+        foreach ($rearBrakesTemporaryRelativeLinks as $element) {
+          $rearBrakesTemporaryLink = substr($brakesLink, 0, strrpos($brakesLink, '?')) . $element;
+          $temporaryRearBrakes = file_get_html($rearBrakesTemporaryLink);
+          if (strpos($temporaryRearBrakes->find('.etk-spares-option-on', 0)->plaintext, 'S2NHA')) $rearBrakes = $temporaryRearBrakes;
+        }
+      }
+
+      // Ищем артикулы деталей задней тормозной системы
+      foreach ($rearBrakes->find('tr') as $element) {
+
+        // Пропускаем детали с неподходящими опциями (фаркопом (S3ACA), исполнением для Китая (L8AAA) и еще чем-то (S842A))
+        $optionsElement = $element->parent()->parent()->parent();
+        if (($optionsElement->getAttribute('data-options') == '((etk.optS3ACA == 0) || (etk.optS3ACA == 1))') || ($optionsElement->getAttribute('data-options') == '((etk.optL8AAA == 0) || (etk.optL8AAA == 1))') || ($optionsElement->getAttribute('data-options') == '((etk.optS842A == 0) || (etk.optS842A == 1))')) continue;
+
+        // Также пропускаем устаревшие детали
+        if ($element->find('.etk-spares-partnr a.etk-spares-partnr-link.disabled', 0)) continue;
+
+        // Берем нужные артикулы
+        if (strpos($element->find('.etk-spares-name div div', 0)->plaintext, 'торм.накладок') || strpos($element->find('.etk-spares-name div div', 0)->plaintext, 'накладок')) {
+          if (!isset($rearBrakePadsNumber)) {
+            $rearBrakePadsNumber = $element->find('td', 4)->plaintext;
+            continue;
+          } else if ($isExportBrakesOptionFound && strpos($optionsElement->getAttribute('data-options'), '((etk.optS212A == 0) || (etk.optS212A == 1))') !== false) {
+            $rearBrakePadsNumber = $element->find('td', 4)->plaintext;
+            continue;
+          }
+        }
+        if (strpos($element->find('.etk-spares-name div div', 0)->plaintext, 'диск')) {
+          if (!isset($rearBrakeDiskNumber)) {
+            $rearBrakeDiskNumber = $element->find('td', 4)->plaintext;
+            continue;
+          } else if ($isExportBrakesOptionFound && strpos($optionsElement->getAttribute('data-options'), '((etk.optS212A == 0) || (etk.optS212A == 1))') !== false) {
+            $rearBrakeDiskNumber = $element->find('td', 4)->plaintext;
+            continue;
+          }
+        }
+        if (strpos($element->find('.etk-spares-name div div', 0)->plaintext, 'износа тормозных накладок')) {
+          if (!isset($rearBrakePadsWearSensorNumber)) {
+            $rearBrakePadsWearSensorNumber = $element->find('td', 4)->plaintext;
+            continue;
+          } else if ($isExportBrakesOptionFound && strpos($optionsElement->getAttribute('data-options'), '((etk.optS212A == 0) || (etk.optS212A == 1))') !== false) {
+            $rearBrakePadsWearSensorNumber = $element->find('td', 4)->plaintext;
+            continue;
+          }
+        }
+
+
+      }
+
+    }
+
+    // Ищем страницу с информацией о заправочных емкостях
+    $capacityLink = substr($link, 0, strrpos($link, '?')) . 'capacity/' . substr($link, strrpos($link, '?'));
+    $capacity = file_get_html($capacityLink);
+
+    // Выясняем необходимый объем жидкостей
+    foreach ($capacity->find('.etk-capacity-list .div-tr') as $element) {
+      if (strpos($element->find('.etk-capacity-name', 0)->plaintext, 'Масло в двигатель') !== false) {
+        $motorOilQuantity = (int)$element->find('.etk-capacity-data', 0)->plaintext;
+      } else if (strpos($element->find('.etk-capacity-name', 0)->plaintext, 'Масло в КПП') !== false) {
+        $gearBoxOilQuantity = (int)$element->find('.etk-capacity-data', 0)->plaintext;
+      } else if (strpos($element->find('.etk-capacity-name', 0)->plaintext, 'Масло для заднего моста') !== false) {
+        $rearAxleFinalDriveQuantity = (int)$element->find('.etk-capacity-data', 0)->plaintext;
+      } else if (strpos($element->find('.etk-capacity-name', 0)->plaintext, 'Рекомендации') !== false) {
+        if (preg_match('/Transfer box \(0,44 l\)/', $element->find('.etk-capacity-data', 0)->plaintext, $matches)) {
+          // var_dump($matches);
+        }
+      }
+    }
 
     // Исправление ошибок
 
     // Неправильный фильтр на X3 F25
-    if (strpos($modelCode, 'F25') !== false) {
+    if (strpos($service->find('h1', 0)->plaintext, 'F25') !== false) {
       $cabinAirFilterNumber = '64 31 9 312 318';
     }
 
     // Определение цен на моторное масло
-    $originalMotorOilPrice = 950;
-    $motulMotorOilPrice = 800;
+    $originalMotorOilPrice = 600;
+    $motulMotorOilPrice = 500;
 
     // Подготовка массива запчастей
     $parts = [];
