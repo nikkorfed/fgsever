@@ -12,5 +12,166 @@ block variables
 
 block content
   +main({ name, path, section, title, subtitle, button, image })
-  include /models
-  include /contacts
+  section.services
+    .wrapper
+      .titles
+        .overtitle Наши услуги
+        h2 Ремонтируем моторы БМВ и выполняем диагностику
+        .subtitle
+          p Наш профильный автосервис специализируется на капитальном ремонте ДВС БМВ, в том числе, дизельных версий и располагает всем необходимым ремонтным оборудованием на специально адаптированных под это участках.
+          p Если у вас резко увеличился масложор, упала мощность, мотор работает нестабильно с пропусками зажигания, из подкапотного пространства стал доносится цокот либо вой, выхлопные газы окрасились в сизый или черный цвет (при условии удаленного катализатора) или же ваш iDrive уже диагностирует желтый чек, вам пора записываться в автосервис, до которого пока можно доехать своим ходом. Неотложный ремонт двигателя и вызов эвакуатора требуется только при индикации красного Check Engine.
+          p В дальнейшем в игру должно вступать диагностическое оборудование и опытный моторист-диагност, ведь у вас технически сложное авто с множеством датчиков и управляющей электроники. При выходе из строя даже одного из них налицо будет чек и возможные проблемы с работой мотора. Не всегда отказывает исполнительный узел, часто выходят из строя датчики.
+          h3 Когда приходит время ремонта двигателя у всех моделей автомобилей БМВ
+          p У каждой модели БМВ есть болячки двигателя, где-то это ТНВД и топливные форсунки, которые, к слову, мы успешно восстанавливаем / заменяем, где-то к 150 тысячам пробега убиваются маслосъемные колпачки и требуют замены (линейка N), в следующих моделях неудачное решение с вентиляцией картерных газов, требующее замену клапана (e39 серия), в иных проблемы создают вихревые заслонки в коллекторе (дизельные M47, M57).
+          p #[b Основное:] на пробеге до 120 000 км рекомендуем удаление катализатора и сажевого фильтра, дабы в будущем избежать проблем с мотором и не попасть на срочный ремонт двигателя. По регламенту требуется менять узлы фильтрации выхлопа на новые сразу после появления ошибок.
+      .columns
+        .col-md-6.col-lg-4
+          a.services-item(href='/services/remont-dvigateley-bmw/engine-repair/')
+            .services-item__content
+              .services-item__text
+                .services-item__title
+                  h3 Диагностика и ремонт ДВС
+                .subtitle.services-item__subtitle Диагностика и устранение различных неисправностей двигателя вашего автомобиля
+              .button-simple Подробнее
+        .col-md-6.col-lg-4
+          a.services-item(href='/services/remont-dvigateley-bmw/engine-replacement/')
+            .services-item__content
+              .services-item__text
+                .services-item__title
+                  h3 Замена ДВС (СВАП)
+                .subtitle.services-item__subtitle Полная замена двигателя (СВАП) и установка другого агрегата в ваш автомобиль
+              .button-simple Подробнее
+  section.models
+    .wrapper
+      .titles
+        .overtitle Ваш автомобиль
+        h2 Сколько стоит ремонт двигателя БМВ по моделям
+        .subtitle 
+          p Выбрав модель авто из представленных ниже, вы сможете получить информацию по стоимости диагностики двигателя BMW вашей серии, посмотреть цену типового ремонта блока цилиндров BMW / головки, замены двигателя на контрактный или сразу СВАПный, когда ремонтировать двигатель уже экономически не имеет смысла.
+          p На страницах моделей будет указана справочная стоимость работ по ремонту двигателей БМВ с учетом разборки и сборки двигателя, и классического перечня оригинальных запчастей.
+      .columns
+        .col-md-6.col-lg-4
+          a.block(href='1-series/')
+            .text
+              h3 1 серия
+              .overtitle F40, F20/F21, E81/E82/E87/E88
+            img.image(src='/images/models/1-series/f40.png')
+        .col-md-6.col-lg-4
+          a.block(href='2-series/')
+            .text
+              h3 2 серия
+              .overtitle G42, F44, F22/F23, F45/F46
+            img.image(src='/images/models/2-series/g42.png')
+        .col-md-6.col-lg-4
+          a.block(href='3-series/')
+            .text
+              h3 3 серия
+              .overtitle G20/G21, F30/F31/F34, E90/E91/E92/E93
+            img.image(src='/images/models/3-series/g20.png')
+        .col-md-6.col-lg-4
+          a.block(href='4-series/')
+            .text
+              h3 4 серия
+              .overtitle G22/G23/G26, F32/F33/F36
+            img.image(src='/images/models/4-series/g22.png')
+        .col-md-6.col-lg-4
+          a.block(href='5-series/')
+            .text
+              h3 5 серия
+              .overtitle G30/G31, F10/F11/F07, E60/E61
+            img.image(src='/images/models/5-series/g30.png')
+        .col-md-6.col-lg-4
+          a.block(href='6-series/')
+            .text
+              h3 6 серия
+              .overtitle G32, F06/F12/F13, E63/E64
+            img.image(src='/images/models/6-series/g32.png')
+        .col-md-6.col-lg-4
+          a.block(href='7-series/')
+            .text
+              h3 7 серия
+              .overtitle G11/G12, F01/F02, E65/E66
+            img.image(src='/images/models/7-series/g12.png')
+        .col-md-6.col-lg-4
+          a.block(href='8-series/')
+            .text
+              h3 8 серия
+              .overtitle G14/G15/G16
+            img.image(src='/images/models/8-series/g15.png')
+        .col-md-6.col-lg-4
+          a.block(href='x1/')
+            .text
+              h3 X1
+              .overtitle F48, E84
+            img.image(src='/images/models/x1/f48.png')
+        .col-md-6.col-lg-4
+          a.block(href='x2/')
+            .text
+              h3 X2
+              .overtitle F39
+            img.image(src='/images/models/x2/f39.png')
+        .col-md-6.col-lg-4
+          a.block(href='x3/')
+            .text
+              h3 X3
+              .overtitle G01, F25, E83
+            img.image(src='/images/models/x3/g01.png')
+        .col-md-6.col-lg-4
+          a.block(href='x4/')
+            .text
+              h3 X4
+              .overtitle G02, F26
+            img.image(src='/images/models/x4/g02.png')
+        .col-md-6.col-lg-4
+          a.block(href='x5/')
+            .text
+              h3 X5
+              .overtitle G05, F15, E70
+            img.image(src='/images/models/x5/g05.png')
+        .col-md-6.col-lg-4
+          a.block(href='x6/')
+            .text
+              h3 X6
+              .overtitle G06, F16, E71
+            img.image(src='/images/models/x6/g06.png')
+        .col-md-6.col-lg-4
+          a.block(href='x7/')
+            .text
+              h3 X7
+              .overtitle G07
+            img.image(src='/images/models/x7/g07.png')
+        .col-md-6.col-lg-4
+          a.block(href='z4/')
+            .text
+              h3 Z4
+              .overtitle G29, E89, E85/E86
+            img.image(src='/images/models/z4/g29.png')
+  section.contacts
+    .wrapper
+      .titles
+        .overtitle Контакты
+        h2 Контакты нашего автосервиса в Москве «FGSEVER» - СВАО
+        .subtitle 
+          p Даем гарантию качества ремонтных работ на 12 месяцев при переборке и капремонте мотора.
+          p После капиталки в нашем автосервисе силовой агрегат будет полностью восстановлен и, вероятно, отходит еще 100% ресурс.
+      .block
+        .columns
+          .col-md-6
+            .contact-label Телефон
+            a.contact-text(href='tel:+74991100045' onclick="ym(56693602,'reachGoal','phone'); return true;") +7 (499) 110–00–45
+          .col-md-6
+            .contact-label Технический специалист
+            a.contact-text(href='tel:+79039760045' onclick="ym(56693602,'reachGoal','phone'); return true;") +7 (903) 976–00–45
+          .col-md-6
+            .contact-label Email
+            a.contact-text(href='mailto:riverdale@inbox.ru' onclick="ym(56693602,'reachGoal','email'); return true;") riverdale@inbox.ru
+          .col-md-6
+            .contact-label Адрес
+            a.contact-text(href='https://yandex.ru/maps/-/CKqOBALH' onclick="ym(56693602,'reachGoal','yandexMaps'); return true;") г. Москва, ул. Илимская, 1Бс1
+          .col-md-6
+            .contact-label Часы работы
+            .contact-text Ежедневно: 9:00 — 20:00
+        .contact-label.socials-label Социальные сети
+        .social-buttons.colorful
+          include /social-buttons
+      iframe.map(src='https://yandex.ru/map-widget/v1/-/CKqWuB6O' frameborder='0' allowfullscreen='true')

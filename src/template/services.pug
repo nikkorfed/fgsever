@@ -18,8 +18,6 @@ mixin services({ suffix } = {})
                   a.services-item__list-item(href='/services/maintenance/zamena-tormoznyh-diskov-i-kolodok-bmw/' + suffix) Замена тормозных дисков и колодок
                   a.services-item__list-item(href='/services/maintenance/zamena-tormoznoy-zhidkosti-i-ohlazhdayushchey-bmw/' + suffix) Замена тормозной жидкости и охлаждающей
                   a.services-item__list-item(href='/services/maintenance/suspension-repair/' + suffix) Диагностика и ремонт подвески
-                  a.services-item__list-item(href='/services/maintenance/engine-repair/' + suffix) Диагностика и ремонт ДВС
-                  a.services-item__list-item(href='/services/maintenance/engine-replacement/' + suffix) Замена ДВС (СВАП)
                   a.services-item__list-item(href='/services/maintenance/car-diagnostics/' + suffix) Диагностика автомобиля
                   a.services-item__list-item(href='/services/maintenance/radiators-wash/' + suffix) Мойка радиаторов
                   a.services-item__list-item(href='/services/maintenance/computer-diagnostics/' + suffix) Компьютерная диагностика
@@ -85,7 +83,7 @@ mixin services({ suffix } = {})
                   a.services-item__list-item(href='/services/remont-akpp-i-razdatochnyh-korobok-bmw/remont-reduktora/' + suffix) Ремонт редукторов
               a.button-simple(href='/services/remont-akpp-i-razdatochnyh-korobok-bmw/' + suffix) Подробнее
         .col-lg-4
-          a.services-item(href='/services/remont-dvigateley-bmw/' + suffix)
+          .services-item
             .services-item__content
               .services-item__text
                 .icon.engine-color
@@ -93,9 +91,9 @@ mixin services({ suffix } = {})
                   h3 Ремонт двигателей
                 .subtitle.services-item__subtitle
                   .services-item__list-item Ремонт двигателей
-                  .services-item__list-item Замена двигателей
-                  .services-item__list-item Ремонт головки блока цилиндров (ГБЦ)
-              .button-simple Подробнее
+                  a.services-item__list-item(href='/services/remont-dvigateley-bmw/engine-repair/' + suffix) Диагностика и ремонт ДВС
+                  a.services-item__list-item(href='/services/remont-dvigateley-bmw/engine-replacement/' + suffix) Замена ДВС (СВАП)
+              a.button-simple(href='/services/remont-dvigateley-bmw/' + suffix) Подробнее
         .col-lg-4
           a.services-item(href='/services/remont-forsunok-bmw/' + suffix)
             .services-item__content
