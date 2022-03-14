@@ -66,15 +66,7 @@ function styles(cb) {
     .src("src/styles/*.sass")
     // .pipe(sourcemaps.init())
     .pipe(sass({ includePaths: ["src/styles"] }))
-    .pipe(
-      postcss([
-        at2x(),
-        autoprefixer(),
-        assets({ basePath: "src/" }),
-        inlinesvg({ paths: ["src/"], removeFill: true }),
-        cssnano(),
-      ])
-    )
+    .pipe(postcss([at2x(), autoprefixer(), assets({ basePath: "src/" }), inlinesvg({ paths: ["src/"], removeFill: true }), cssnano()]))
     // .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest("build/styles"));
   return cb();
@@ -179,6 +171,10 @@ function data() {
   return gulp.src("src/data/**/*").pipe(gulp.dest("build/data"));
 }
 
+function other() {
+  return gulp.src("src/antibot-secure/**/*").pipe(gulp.dest("build/antibot-secure"));
+}
+
 function serve(cb) {
   connect.closeServer();
   connect.server({
@@ -210,7 +206,7 @@ function clean() {
   return del("build");
 }
 
-build = gulp.series(videos, fonts, data, html, styles, scripts);
+build = gulp.series(videos, fonts, data, html, styles, scripts, other);
 
 exports.default = gulp.series(clean, build, serve);
 exports.html = gulp.series(clean, html);

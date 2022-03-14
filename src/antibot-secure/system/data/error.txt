@@ -1,0 +1,10 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>ERROR</title>
+  </head>
+  <body>
+  <p><center style="color:red;">Sorry, your request has been denied.</center></p>
+  </body>
+</html>
