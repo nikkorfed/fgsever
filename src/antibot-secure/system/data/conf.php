@@ -211,3 +211,10 @@ $ab_se['Google-Structured-Data-Testing-Tool'] = array('.google.com');
 // для файлов: conf.php, counter.txt, tpl.txt, error.txt
 // запретить редактировать файлы через админку. 1 - запретить, 0 - разрешить.
 $ab_config['disable_editing'] = 1;
+
+// Дополнительные настройки
+
+$ab_config['check_get_ref'] = 1; // 0 - не проверять, 1 - проверять
+$ab_config['bad_get_ref'] = array('q', 'text');
+$ab_config['stop_nouseragent'] = 0; // 0 - не запрещать, 1 - запретить.
+$ab_config['utm_noindex'] = 1; // 1 - запретить индексацию, 0 - не запрещать.
