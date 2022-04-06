@@ -58,6 +58,7 @@ function requestCarInfo() {
 
   // Взятие VIN из формы
   let vin = $("#upgrade-calculator").find(".car-data-input #vin-number").val();
+  let aos = $("#upgrade-calculator").hasClass("aos");
 
   // Изменение адреса страницы
   history.pushState(null, null, "?vin=" + vin);
@@ -73,7 +74,7 @@ function requestCarInfo() {
   $.ajax({
     url: "/scripts/php/calculators/car-info.php",
     type: "POST",
-    data: { vin },
+    data: { vin, from: aos ? "aos" : undefined },
     success: (carInfo) => {
       $.fancybox.close();
       if (!carInfo.error) {

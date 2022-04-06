@@ -130,6 +130,7 @@ function requestCarInfo_MaintenanceCalculator() {
   // Сбор данных из формы
   let vin = $("#maintenance-calculator").find(".car-data-input #vin-number").val();
   let mileage = $("#maintenance-calculator").find(".car-data-input #mileage").val();
+  let aos = $("#maintenance-calculator").hasClass("aos");
 
   // Изменение адреса страницы
   history.pushState(null, null, "?vin=" + vin + "&mileage=" + mileage);
@@ -141,7 +142,7 @@ function requestCarInfo_MaintenanceCalculator() {
   $.ajax({
     url: "/scripts/php/calculators/car-info.php",
     type: "POST",
-    data: { vin },
+    data: { vin, from: aos ? "aos" : undefined },
     success: (carInfo) => {
       $.fancybox.close();
       if (!carInfo.error) {
@@ -306,8 +307,10 @@ function renderCarImages(carImages) {
 
 // Запрос запчастей для обслуживания
 function requestParts(carInfo, mileage) {
+  let aos = $("#maintenance-calculator").hasClass("aos");
+  let from = aos ? "aos" : "cats";
   $.ajax({
-    url: "/scripts/php/calculators/maintenance-parts.php",
+    url: `/scripts/php/calculators/maintenance-parts-${from}.php`,
     type: "POST",
     data: { vin: carInfo["vin"], mileage },
     success: (result) => {

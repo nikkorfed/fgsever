@@ -11,9 +11,9 @@ if (isset($_REQUEST['vin']) && isset($_REQUEST['mileage'])) {
 
     // Собираем информацию об автомобиле
     include 'car-info.php';
-    $carInfo = requestCarInfo($vin);
+    $carInfo = requestCarInfo($vin, null);
     
-    // Если из AOS были успешно получены данные
+    // Если из cats.parts были успешно получены данные
     if ($carInfo['vin']) {
       $vin = $carInfo['vin'];
       // $model = $carInfo['model'];
