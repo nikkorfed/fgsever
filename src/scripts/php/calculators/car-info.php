@@ -13,7 +13,7 @@ if (isset($_REQUEST['vin']) && !isset($_REQUEST['mileage'])) {
 
 // Запрос данных об автомобиле
 function requestCarInfo($vin, $from) {
-  $url = "http://localhost:3002/aos-parser/?vin=$vin";
+  $url = "http://80.78.254.156/aos-parser/?vin=$vin";
   if ($from) $url .= "&from=$from";
   
   $ch = curl_init();
