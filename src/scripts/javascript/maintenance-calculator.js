@@ -481,11 +481,10 @@ function renderAlternativeParts(result, partIndex) {
       data: { number: result["parts"][part]["number"].replace(/\s/g, "") },
       success: (data) => {
         // Обработка результатов
-        data = JSON.parse(data.substring(data.indexOf("{"), data.indexOf("</pre>")));
         result["parts"][part]["options"] = data;
 
         // Если аналогов не найдено, вывод соответствующей надписи
-        if (Object.keys(result["parts"][part]["options"])[0] === "no-alternatives") {
+        if (result["parts"][part]["options"].error === "no-alternatives") {
           $("#maintenance-calculator .calculator-result table")
             .find("[data-name=" + part + "] .options")
             .addClass("no-alternatives");

@@ -218,11 +218,10 @@
         data: { number: parts[index]["number"].replace(/\s/g, "") },
         success: (data) => {
           // Обработка результатов
-          data = JSON.parse(data.substring(data.indexOf("{"), data.indexOf("</pre>")));
           parts[index]["options"] = data;
 
           // Если аналогов не найдено, вывод соответствующей надписи
-          if (Object.keys(parts[index]["options"])[0] === "no-alternatives") {
+          if (parts[index]["options"].error === "no-alternatives") {
             $("#search-parts .result table")
               .find("[data-number=" + parts[index]["number"] + "] .options")
               .addClass("no-alternatives");
