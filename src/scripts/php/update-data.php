@@ -10,6 +10,7 @@ include('reviews-drive2.php');
 include('reviews-yandex.php');
 include('reviews-google.php');
 include('parts-prices.php');
+include('work-prices.php');
 include('maps-version.php');
 include('drive2-car.php');
 include('posts.php');

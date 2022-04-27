@@ -1,1 +1,4 @@
 - String.prototype.nbsp = function () { return this.replace(/\s/g, '&nbsp;') }
+<? function format_price($price) { return number_format($price, 0, ',', ' ') . ' ₽'; } ?>
+<? $prices = json_decode(file_get_contents($_SERVER['DOCUMENT_ROOT'] . '/data/parts-prices.json'), true) ?>
+<? $workPrices = json_decode(file_get_contents($_SERVER['DOCUMENT_ROOT'] . '/data/work-prices.json'), true) ?>
