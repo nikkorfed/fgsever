@@ -485,76 +485,49 @@ if (isset($_REQUEST['vin']) && isset($_REQUEST['mileage'])) {
     ];
 
     // Определение цен на работы
-    if (substr($model, 0, 1) == '1' || substr($model, 0, 1) == '2' || substr($model, 0, 2) == 'M1' || substr($model, 0, 2) == 'M2') {
-      $motorOilWork = 400;
-      $oilFilterWork = 400;
-      $sparkPlugWork = 1800;
-      $fuelFilterWork = 1200;
-      $airFilterWork = 400;
-      $cabinAirFilterWork = 1000;
-      $frontBrakeDiskWork = 1800;
-      $frontBrakePadsWork = 1000;
-      $rearBrakeDiskWork = 2500;
-      $rearBrakePadsWork = 1500;
-    } else if (substr($model, 0, 1) == '3' || substr($model, 0, 1) == '4' || substr($model, 0, 2) == 'M3' || substr($model, 0, 2) == 'M4') {
-      $motorOilWork = 400;
-      $oilFilterWork = 400;
-      $sparkPlugWork = 1800;
-      $fuelFilterWork = 1300;
-      $airFilterWork = 400;
-      $cabinAirFilterWork = 1000;
-      $frontBrakeDiskWork = 1800;
-      $frontBrakePadsWork = 1000;
-      $rearBrakeDiskWork = 2500;
-      $rearBrakePadsWork = 1500;
-    } else if (substr($model, 0, 1) == '5' || substr($model, 0, 1) == '6' || substr($model, 0, 2) == 'M5' || substr($model, 0, 2) == 'M6') {
-      $motorOilWork = 450;
-      $oilFilterWork = 450;
-      $sparkPlugWork = 1900;
-      $fuelFilterWork = 1300;
-      $airFilterWork = 400;
-      $cabinAirFilterWork = 1000;
-      $frontBrakeDiskWork = 1800;
-      $frontBrakePadsWork = 1500;
-      $rearBrakeDiskWork = 2500;
-      $rearBrakePadsWork = 2000;
-    } else if (substr($model, 0, 1) == '7' || substr($model, 0, 1) == '8' || substr($model, 0, 2) == 'M8') {
-      $motorOilWork = 450;
-      $oilFilterWork = 450;
-      $sparkPlugWork = 2000;
-      $fuelFilterWork = 1400;
-      $airFilterWork = 400;
-      $cabinAirFilterWork = 1200;
-      $frontBrakeDiskWork = 1800;
-      $frontBrakePadsWork = 2000;
-      $rearBrakeDiskWork = 2500;
-      $rearBrakePadsWork = 2000;
-    } else if (substr($model, 0, 2) == 'X1' || substr($model, 0, 2) == 'X2' || substr($model, 0, 2) == 'X3' || substr($model, 0, 2) == 'X4') {
-      $motorOilWork = 450;
-      $oilFilterWork = 450;
-      $sparkPlugWork = 1800;
-      $fuelFilterWork = 1400;
-      $airFilterWork = 400;
-      $cabinAirFilterWork = 1200;
-      $frontBrakeDiskWork = 1800;
-      $frontBrakePadsWork = 2000;
-      $rearBrakeDiskWork = 2500;
-      $rearBrakePadsWork = 2500;
-    } else if (substr($model, 0, 2) == 'X5' || substr($model, 0, 2) == 'X6' || substr($model, 0, 2) == 'X7') {
-      $motorOilWork = 450;
-      $oilFilterWork = 450;
-      $sparkPlugWork = 2400;
-      $fuelFilterWork = 1500;
-      $airFilterWork = 400;
-      $cabinAirFilterWork = 1200;
-      $frontBrakeDiskWork = 2800;
-      $frontBrakePadsWork = 2000;
-      $rearBrakeDiskWork = 3000;
-      $rearBrakePadsWork = 2600;
+    $ch = curl_init();
+    
+    curl_setopt($ch, CURLOPT_URL, "http://80.78.254.156/work-prices");
+    curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+    
+    $html = curl_exec($ch);
+    curl_close($ch);
+
+    $workPrices = json_decode($html, true);
+
+    if (substr($model, 0, 1) == '1' || substr($model, 0, 2) == 'M1') {
+      $workPrices = $workPrices['1-series'];
+    } else if (substr($model, 0, 1) == '2' || substr($model, 0, 2) == 'M2') {
+      $workPrices = $workPrices['2-series'];
+    } else if (substr($model, 0, 1) == '3' || substr($model, 0, 2) == 'M3') {
+      $workPrices = $workPrices['3-series'];
+    } else if (substr($model, 0, 1) == '4' || substr($model, 0, 2) == 'M4') {
+      $workPrices = $workPrices['4-series'];
+    } else if (substr($model, 0, 1) == '5' || substr($model, 0, 2) == 'M5') {
+      $workPrices = $workPrices['5-series'];
+    } else if (substr($model, 0, 1) == '6' || substr($model, 0, 2) == 'M6') {
+      $workPrices = $workPrices['6-series'];
+    } else if (substr($model, 0, 1) == '7') {
+      $workPrices = $workPrices['7-series'];
+    } else if (substr($model, 0, 1) == '8' || substr($model, 0, 2) == 'M8') {
+      $workPrices = $workPrices['8-series'];
+    } else if (substr($model, 0, 2) == 'X1') {
+      $workPrices = $workPrices['x1'];
+    } else if (substr($model, 0, 2) == 'X2') {
+      $workPrices = $workPrices['x2'];
+    } else if (substr($model, 0, 2) == 'X3') {
+      $workPrices = $workPrices['x3'];
+    } else if (substr($model, 0, 2) == 'X4') {
+      $workPrices = $workPrices['x4'];
+    } else if (substr($model, 0, 2) == 'X5') {
+      $workPrices = $workPrices['x5'];
+    } else if (substr($model, 0, 2) == 'X6') {
+      $workPrices = $workPrices['x6'];
+    } else if (substr($model, 0, 2) == 'X7') {
+      $workPrices = $workPrices['x7'];
     }
-    $recirculationFilterWork = 1000;
-    $frontBrakePadsWearSensorWork = 0;
-    $rearBrakePadsWearSensorWork = 0;
 
     // Подготовка данных к отправке
 
@@ -566,13 +539,13 @@ if (isset($_REQUEST['vin']) && isset($_REQUEST['mileage'])) {
           'quantity' => $motorOilQuantity,
           'quantityLabel' => ' л',
           'options' => $motorOilOptions,
-          'work' => $motorOilWork,
+          'work' => $workPrices['motorOil'],
         ],
         'oilFilter' => [
           'name' => 'Замена масляного фильтра',
           'number' => $oilFilterNumber,
           'price' => $oilFilterPrice,
-          'work' => $oilFilterWork,
+          'work' => $workPrices['oilFilter'],
         ],
         'sparkPlug' => [
           'name' => 'Замена свечей зажигания',
@@ -580,31 +553,31 @@ if (isset($_REQUEST['vin']) && isset($_REQUEST['mileage'])) {
           'quantityLabel' => ' шт.',
           'number' => $sparkPlugNumber,
           'price' => $sparkPlugPrice,
-          'work' => $sparkPlugWork,
+          'work' => $workPrices['sparkPlugs'],
         ],
         'fuelFilter' => [
           'name' => 'Замена топливного фильтра',
           'number' => $fuelFilterNumber,
           'price' => $fuelFilterPrice,
-          'work' => $fuelFilterWork,
+          'work' => $workPrices['fuelFilter'],
         ],
         'airFilter' => [
           'name' => 'Замена воздушного фильтра',
           'number' => $airFilterNumber,
           'price' => $airFilterPrice,
-          'work' => $airFilterWork,
+          'work' => $workPrices['airFilter'],
         ],
         'cabinAirFilter' => [
           'name' => 'Замена салонного фильтра',
           'number' => $cabinAirFilterNumber,
           'price' => $cabinAirFilterPrice,
-          'work' => $cabinAirFilterWork,
+          'work' => $workPrices['cabinAirFilter'],
         ],
         'recirculationFilter' => [
           'name' => 'Замена микрофильтра рециркуляции воздуха',
           'number' => $recirculationFilterNumber,
           'price' => $recirculationFilterPrice,
-          'work' => $recirculationFilterWork,
+          'work' => $workPrices['recirculationFilter'],
         ],
         'frontBrakeDisk' => [
           'name' => 'Замена передних тормозных дисков',
@@ -612,20 +585,20 @@ if (isset($_REQUEST['vin']) && isset($_REQUEST['mileage'])) {
           'quantity' => 2,
           'quantityLabel' => ' шт.',
           'price' => $frontBrakeDiskPrice,
-          'work' => $frontBrakeDiskWork,
+          'work' => $workPrices['frontBrakeDisks'],
         ],
         'frontBrakePads' => [
           'name' => 'Замена передних тормозных колодок',
           'number' => $frontBrakePadsNumber,
           'price' => $frontBrakePadsPrice,
-          'work' => $frontBrakePadsWork,
-          'initialWork' => $frontBrakePadsWork,
+          'work' => $workPrices['frontBrakePads'],
+          'initialWork' => $workPrices['frontBrakePads'],
         ],
         'frontBrakePadsWearSensor' => [
           'name' => 'Замена датчика износа передних тормозных колодок',
           'number' => $frontBrakePadsWearSensorNumber,
           'price' => $frontBrakePadsWearSensorPrice,
-          'work' => $frontBrakePadsWearSensorWork,
+          'work' => $workPrices['frontBrakePadsWearSensor'],
         ],
         'rearBrakeDisk' => [
           'name' => 'Замена задних тормозных дисков',
@@ -633,20 +606,20 @@ if (isset($_REQUEST['vin']) && isset($_REQUEST['mileage'])) {
           'quantity' => 2,
           'quantityLabel' => ' шт.',
           'price' => $rearBrakeDiskPrice,
-          'work' => $rearBrakeDiskWork,
+          'work' => $workPrices['rearBrakeDisks'],
         ],
         'rearBrakePads' => [
           'name' => 'Замена задних тормозных колодок',
           'number' => $rearBrakePadsNumber,
           'price' => $rearBrakePadsPrice,
-          'work' => $rearBrakePadsWork,
-          'initialWork' => $rearBrakePadsWork,
+          'work' => $workPrices['rearBrakePads'],
+          'initialWork' => $workPrices['rearBrakePads'],
         ],
         'rearBrakePadsWearSensor' => [
           'name' => 'Замена датчика износа задних тормозных колодок',
           'number' => $rearBrakePadsWearSensorNumber,
           'price' => $rearBrakePadsWearSensorPrice,
-          'work' => $rearBrakePadsWearSensorWork,
+          'work' => $workPrices['rearBrakePadsWearSensor'],
         ],
       ]
     ];
@@ -677,28 +650,28 @@ if (isset($_REQUEST['vin']) && isset($_REQUEST['mileage'])) {
         $transferBoxOilPrice = $prices['transferBoxOil']['price'];
         $data['additional']['gearBoxOil'] = [
           'name' => 'Замена масла в АКПП (Включая расходные материалы)',
-          'work' => 20000,
+          'work' => $workPrices['gearBoxOilWithMaterials'],
         ];
         $data['additional']['frontAxleFinalDriveOil'] = [
           'name' => 'Замена масла в переднем редукторе',
           'quantity' => 1,
           'quantityLabel' => ' л',
           'price' => $finalDriveOilPrice,
-          'work' => 800,
+          'work' => $workPrices['frontAxleFinalDriveOil'],
         ];
         $data['additional']['rearAxleFinalDriveOil'] = [
           'name' => 'Замена масла в заднем редукторе',
           'quantity' => 1,
           'quantityLabel' => ' л',
           'price' => $finalDriveOilPrice,
-          'work' => 800,
+          'work' => $workPrices['rearAxleFinalDriveOil'],
         ];
         $data['additional']['transferBoxOil'] = [
           'name' => 'Замена масла в раздаточной коробке',
           'quantity' => 1,
           'quantityLabel' => ' л',
           'price' => $transferBoxOilPrice,
-          'work' => 1200,
+          'work' => $workPrices['transferCaseOil'],
         ];
       }
 
@@ -709,17 +682,11 @@ if (isset($_REQUEST['vin']) && isset($_REQUEST['mileage'])) {
           'quantity' => 1,
           'quantityLabel' => ' л',
           'price' => 700,
+          'work' => $workPrices['radiatorsWash']
         ];
-        if (substr($model, 0, 1) == '1' || substr($model, 0, 1) == '2' || substr($model, 0, 2) == 'M2' || substr($model, 0, 1) == '3' || substr($model, 0, 1) == '4' || substr($model, 0, 2) == 'M3' || substr($model, 0, 2) == 'M4') {
-          $data['additional']['radiatorsWash']['work'] = 6000;
-        } else if (substr($model, 0, 1) == '5' || substr($model, 0, 2) == 'M5' || substr($model, 0, 1) == '6' || substr($model, 0, 2) == 'M6') {
-          $data['additional']['radiatorsWash']['work'] = 7000;
-        } else if (substr($model, 0, 1) == '7' || substr($model, 0, 1) == '8' || substr($model, 0, 1) == 'X') {
-          $data['additional']['radiatorsWash']['work'] = 8000;
-        }
         $data['additional']['brakeFluid'] = [
           'name' => 'Замена тормозной жидкости (Включая расходные материалы)',
-          'work' => 2500,
+          'work' => $workPrices['brakeFluidWithMaterials'],
         ];
       }
 
@@ -727,20 +694,20 @@ if (isset($_REQUEST['vin']) && isset($_REQUEST['mileage'])) {
       if ($mileage % 30000 == 0 ) {
         $data['additional']['coolant'] = [
           'name' => 'Замена охлаждающей жидкости (Включая расходные материалы)',
-          'work' => 3000,
-          'initialWork' => 3000,
+          'work' => $workPrices['coolant'],
+          'initialWork' => $workPrices['coolant'],
         ];
       }
 
       // Каждые 10 000 км (Всегда)
       $data['additional']['carDiagnostics'] = [
         'name' => 'Общая диагностика автомобиля',
-        'work' => 2100,
-        'initialWork' => 2100,
+        'work' => $workPrices['carDiagnostics'],
+        'initialWork' => $workPrices['carDiagnostics'],
       ];
       $data['additional']['computerDiagnostics'] = [
         'name' => 'Компьютерная диагностика',
-        'work' => 1500,
+        'work' => $workPrices['computerDiagnostics'],
       ];
     }
     
