@@ -53,16 +53,16 @@ block content
                 td Стоимость
               tr
                 td Замена передних тормозных дисков #{series.modelDesc}
-                td 1 800 ₽
+                td <? echo format_price($workPrices['#{series.key}']['frontBrakeDisks']) ?>
               tr
                 td Замена передних тормозных колодок #{series.modelDesc}
-                td 1 000 ₽
+                td <? echo format_price($workPrices['#{series.key}']['frontBrakePads']) ?>
               tr
                 td Замена задних тормозных дисков #{series.modelDesc}
-                td 2 500 ₽
+                td <? echo format_price($workPrices['#{series.key}']['rearBrakeDisks']) ?>
               tr
                 td Замена задних тормозных колодок #{series.modelDesc}
-                td 1 500 ₽
+                td <? echo format_price($workPrices['#{series.key}']['rearBrakePads']) ?>
               tr
                 td Замена тормозной системы на спортивную M
                 td Рассчитывается индивидуально
