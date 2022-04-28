@@ -527,6 +527,8 @@ if (isset($_REQUEST['vin']) && isset($_REQUEST['mileage'])) {
       $workPrices = $workPrices['x6'];
     } else if (substr($model, 0, 2) == 'X7') {
       $workPrices = $workPrices['x7'];
+    } else if (substr($model, 0, 2) == 'Z4') {
+      $workPrices = $workPrices['z4'];
     }
 
     // Подготовка данных к отправке
