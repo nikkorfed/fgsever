@@ -651,8 +651,8 @@ if (isset($_REQUEST['vin']) && isset($_REQUEST['mileage'])) {
         $finalDriveOilPrice = $prices['finalDriveOil']['price'];
         $transferBoxOilPrice = $prices['transferBoxOil']['price'];
         $data['additional']['gearBoxOil'] = [
-          'name' => 'Замена масла в АКПП (Включая расходные материалы)',
-          'work' => $workPrices['gearBoxOilWithMaterials'],
+          'name' => 'Замена масла в АКПП',
+          'work' => $workPrices['gearBoxOil'],
         ];
         $data['additional']['frontAxleFinalDriveOil'] = [
           'name' => 'Замена масла в переднем редукторе',

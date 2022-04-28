@@ -43,8 +43,8 @@ block content
                 td Услуга
                 td Стоимость
               tr 
-                td Замена масла в АКПП БМВ #{series.modelDesc} (Включая расходные материалы)
-                td <? echo format_price($workPrices['#{series.key}']['gearBoxOilWithMaterials']) ?>
+                td Замена масла в АКПП БМВ #{series.modelDesc}
+                td <? echo format_price($workPrices['#{series.key}']['gearBoxOil']) ?>
               tr
                 td Замена масла в переднем редукторе БМВ #{series.modelDesc}
                 td от <? echo format_price($workPrices['#{series.key}']['frontAxleFinalDriveOil']) ?> (+ <? echo format_price($prices['finalDriveOil']['price']) ?> за литр масла)
