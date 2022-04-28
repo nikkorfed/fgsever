@@ -49,10 +49,10 @@ block content
                 td Стоимость
               tr 
                 td Замена тормозной жидкости #{series.modelDesc} (Включая расходные материалы)
-                td 2 500 ₽
+                td <? echo format_price($workPrices['#{series.key}']['brakeFluidWithMaterials']) ?>
               tr 
                 td Замена антифриза #{series.modelDesc} (Включая расходные материалы)
-                td 3 000 ₽ (При мойке радиаторов 2 100 ₽)
+                td <? echo format_price($workPrices['#{series.key}']['coolant']) ?> (При мойке радиаторов 2 100 ₽)
   include /maintenance/photos/mechanical-fluids-change
   include /about/advantages
   +about
