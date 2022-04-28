@@ -8,8 +8,8 @@ if (isset($_REQUEST['number'])) {
 }
 
 // Запрос данных об аналогах
-function searchAlternativeParts($number) {
-  $url = "http://80.78.254.156/alternative-parts/$number";
+function searchAlternativeParts($number, $onlyFavorites = true) {
+  $url = "http://80.78.254.156/alternative-parts/$number?onlyFavorites=$onlyFavorites";
   
   $ch = curl_init();
   
