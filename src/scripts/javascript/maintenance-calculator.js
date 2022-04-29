@@ -478,7 +478,7 @@ function renderAlternativeParts(result, partIndex) {
     $.ajax({
       url: "/scripts/php/calculators/alternative-parts.php",
       type: "GET",
-      data: { number: result["parts"][part]["number"].replace(/\s/g, "") },
+      data: { number: result["parts"][part]["number"].replace(/\s/g, ""), onlyFavorites: true },
       success: (data) => {
         // Обработка результатов
         result["parts"][part]["options"] = data;
