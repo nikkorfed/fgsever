@@ -239,7 +239,7 @@
               $("#search-parts .result table")
                 .find("[data-number=" + parts[index]["number"] + "] .options")
                 .append(
-                  `<div class="option" data-name="${option}" data-number="${parts[index]["options"][option]["number"]}" data-part-price="${parts[index]["options"][option]["price"]}">${parts[index]["options"][option]["name"]}</div>`
+                  `<div class="option" data-name="${option}" data-description="${parts[index]["options"][option]["description"]}" data-number="${parts[index]["options"][option]["number"]}" data-part-price="${parts[index]["options"][option]["price"]}">${parts[index]["options"][option]["name"]}</div>`
                 );
             }
 
@@ -289,6 +289,19 @@
     e.stopPropagation();
     option.parent().find(".option").removeClass("selected");
     option.addClass("selected");
+
+    // Замена названия детали
+    if (option.attr("data-description") !== undefined) {
+      let newName = option.attr("data-description");
+      option
+        .parent()
+        .siblings(".info")
+        .find(".name")
+        .fadeOut(300, function () {
+          $(this).text(newName);
+          $(this).fadeIn(300);
+        });
+    }
 
     // Замена номера детали
     if (option.attr("data-number") !== undefined) {
