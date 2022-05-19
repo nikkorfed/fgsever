@@ -158,33 +158,30 @@
     // Заполнение таблицы деталями для обслуживания
     for (let part of parts) {
       // Добавляем строку
+      let partName = part["name"] ?? "Неизвестная запчасть";
       $("#search-parts .result table").append(
-        `<tr data-number="${part["number"]}"><td><div class="info"><span class="name">${
-          part["name"] ?? "Неизвестная запчасть"
-        }</span><span class="number">${
-          part["number"]
-        }</span></div><div class="options"></div></div></div></td><td class="part-price"><span class="price"></span></td></tr>`
+        `<tr data-number="${part["number"]}"><td><div class="info"><span class="name">${partName}</span><span class="number">${part["number"]}</span></div><div class="options"></div></div></div></td><td class="part-price"><span class="price"></span></td></tr>`
       );
 
-      // Опции
-      let price = part["price"] ?? "";
-      $("#search-parts .result table")
-        .find(`[data-number="${part["number"]}"] .options`)
-        .append(`<div class="option" data-name="original" data-number="${part["number"]}" data-part-price="${price}">Оригинал</div>`);
+      // Отключено, так как цены от основного постащика временно неактуальны
 
-      // Делаем первую опцию активной по-умолчанию и устанавливаем её стоимость
-      let firstOptionPrice = $("#search-parts .result table")
-        .find("[data-number=" + part["number"] + "] .option:first-child")
-        .attr("data-part-price");
-      $("#search-parts .result table")
-        .find("[data-number=" + part["number"] + "] .options .option:first-child")
-        .addClass("selected");
-      $("#search-parts .result table")
-        .find("[data-number=" + part["number"] + "]")
-        .attr("data-part-price", firstOptionPrice);
-      $("#search-parts .result table")
-        .find("[data-number=" + part["number"] + "] .part-price .price")
-        .text(formatPrice(firstOptionPrice));
+      // // Оригинал (от основного поставщика)
+      // let partPrice = part["price"] ?? "";
+      // $("#search-parts .result table")
+      //   .find(`[data-number="${part["number"]}"] .options`)
+      //   .append(`<div class="option" data-name="original" data-number="${part["number"]}" data-part-price="${partPrice}">Оригинал</div>`);
+
+      // // Делаем первую опцию активной по-умолчанию и устанавливаем её стоимость
+      // let firstOptionPrice = $("#search-parts .result table")
+      //   .find("[data-number=" + part["number"] + "] .options .option:first-child")
+      //   .addClass("selected")
+      //   .attr("data-part-price");
+      // $("#search-parts .result table")
+      //   .find("[data-number=" + part["number"] + "]")
+      //   .attr("data-part-price", firstOptionPrice);
+      // $("#search-parts .result table")
+      //   .find("[data-number=" + part["number"] + "] .part-price .price")
+      //   .text(formatPrice(firstOptionPrice));
     }
 
     // Отображение таблицы
@@ -242,6 +239,21 @@
                   `<div class="option" data-name="${option}" data-description="${parts[index]["options"][option]["description"]}" data-number="${parts[index]["options"][option]["number"]}" data-part-price="${parts[index]["options"][option]["price"]}">${parts[index]["options"][option]["name"]}</div>`
                 );
             }
+
+            // Делаем первую опцию активной по-умолчанию и устанавливаем её стоимость
+            let firstOptionPrice = $("#search-parts .result table")
+              .find("[data-number=" + parts[index]["number"] + "] .options .option:first-child")
+              .addClass("selected")
+              .attr("data-part-price");
+            $("#search-parts .result table")
+              .find("[data-number=" + parts[index]["number"] + "]")
+              .attr("data-part-price", firstOptionPrice);
+            $("#search-parts .result table")
+              .find("[data-number=" + parts[index]["number"] + "] .part-price .price")
+              .text(formatPrice(firstOptionPrice));
+
+            // Расчёт итоговых стоимостей
+            calculatePartsCost();
 
             // Плавное появление опций
             let options = $("#search-parts .result table")
