@@ -166,7 +166,9 @@ function main () {
   } 
 
   // Подготовка массива опций
-  if ($currentOptions['installed']) {
+  if (!isset($currentOptions)) {
+    $currentOptionsCodes = [];
+  } else if ($currentOptions['installed']) {
     $currentOptionsCodes = array_merge(array_keys($currentOptions['factory']), array_keys($currentOptions['installed']));
   } else {
     $currentOptionsCodes = array_keys($currentOptions['factory']);
