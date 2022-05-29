@@ -236,7 +236,7 @@
               $("#search-parts .result table")
                 .find("[data-number=" + parts[index]["number"] + "] .options")
                 .append(
-                  `<div class="option" data-name="${option}" data-description="${parts[index]["options"][option]["description"]}" data-number="${parts[index]["options"][option]["number"]}" data-part-price="${parts[index]["options"][option]["price"]}">${parts[index]["options"][option]["name"]}</div>`
+                  `<div class="option" data-name="${option}" data-description="${parts[index]["options"][option]["description"]}" data-number="${parts[index]["options"][option]["number"]}" data-part-price="${parts[index]["options"][option]["price"]}" data-from="${parts[index]["options"][option]["from"]}">${parts[index]["options"][option]["name"]}</div>`
                 );
             }
 

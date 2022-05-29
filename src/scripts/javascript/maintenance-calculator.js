@@ -507,15 +507,7 @@ function renderAlternativeParts(result, partIndex) {
             $("#maintenance-calculator .calculator-result table")
               .find("[data-name=" + part + "] .options")
               .append(
-                '<div class="option" data-name="' +
-                  option +
-                  '" data-number="' +
-                  result["parts"][part]["options"][option]["number"] +
-                  '" data-part-price="' +
-                  result["parts"][part]["options"][option]["price"] +
-                  '">' +
-                  result["parts"][part]["options"][option]["name"] +
-                  "</div>"
+                `<div class="option" data-name="${option}" data-number="${result["parts"][part]["options"][option]["number"]}" data-part-price="${result["parts"][part]["options"][option]["price"]}" data-from="${result["parts"][part]["options"][option]["from"]}">${result["parts"][part]["options"][option]["name"]}</div>`
               );
           }
 

@@ -107,6 +107,7 @@ $(".appointment form").on("submit", function (e) {
       }
       if ($(this).find(".option.selected").attr("data-number") !== undefined) {
         part["number"] = $(this).find(".option.selected").attr("data-number");
+        part["from"] = $(this).find(".option.selected").attr("data-from");
       }
       if ($(this).attr("data-quantity") !== undefined) {
         part["quantity"] = $(this).attr("data-quantity");
@@ -136,6 +137,7 @@ $(".appointment form").on("submit", function (e) {
       }
       if ($(this).find(".option.selected").attr("data-number") !== undefined) {
         part["number"] = $(this).find(".option.selected").attr("data-number");
+        part["from"] = $(this).find(".option.selected").attr("data-from");
       }
       if ($(this).attr("data-part-price") !== undefined) {
         part["partPrice"] = $(this).attr("data-part-price");

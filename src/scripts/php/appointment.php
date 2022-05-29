@@ -84,7 +84,9 @@ if (isset($_POST['name']) && isset($_POST['phone'])) {
         $partQuantity = $part['quantity'] . ' x ';
         $partName .= ', ' . $part['quantity'] . ' ' . $part['quantityLabel'];
       } else $partQuantity = '';
-      if (isset($part['number'])) $partNumber = $part['brand'] . ', ' . $part['number']; else $partNumber = $part['brand'];
+      if (isset($part['number'])) {
+        $partNumber = $part['brand'] . ', ' . $part['number'] . ' (' . ucfirst($part['from']) . ')';
+      } else $partNumber = $part['brand'];
       if (isset($part['partPrice'])) {
         $partPrice = ', детали — ' . $partQuantity . number_format($part['partPrice'], 2, ',', ' ') . ' ₽';
         if (isset($part['quantity'])) {
@@ -143,7 +145,9 @@ if (isset($_POST['name']) && isset($_POST['phone'])) {
     foreach ($_POST['orderParts'] as $key => $part) {
 
       $partName = $part['name'];
-      if (isset($part['number'])) $partNumber = $part['brand'] . ', ' . $part['number']; else $partNumber = $part['brand'];
+      if (isset($part['number'])) {
+        $partNumber = $part['brand'] . ', ' . $part['number'] . ' (' . ucfirst($part['from']) . ')';
+      } else $partNumber = $part['brand'];
       if (isset($part['partPrice'])) {
         $partPrice = 'Стоимость — ' . number_format($part['partPrice'], 2, ',', ' ') . ' ₽';
         $partsCost += $part['partPrice'];
