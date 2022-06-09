@@ -46,18 +46,25 @@
     overflow-x: auto
     border-bottom: 1px solid lighten($black, 10%)
     max-width: 100%
+    scrollbar-width: none
+
+    &::-webkit-scrollbar
+      display: none
 
   &__menu
     padding: 0
 
-    .menu__item
+    .menu__item, .menu__button
       a
         display: block
         padding: $smallVerticalInnerOffset $horizontalOffset
         font-size: 10px
+        font-weight: bold
         color: $white
         text-decoration: none
         text-transform: uppercase
+        white-space: nowrap
+        cursor: pointer
         transition: background-color .3s
 
         +small
@@ -75,6 +82,13 @@
 
       .submenu
         display: none
+
+    .menu__button
+      a
+        background-color: $primaryColor
+
+        &:hover
+          background-color: lighten($primaryColor, 5%)
 
   h3
     margin-top: $verticalOuterOffset
