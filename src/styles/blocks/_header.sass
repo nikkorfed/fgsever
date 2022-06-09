@@ -418,19 +418,19 @@
   &__logo
     height: 100%
     min-height: 60px
-    width: 120px + 2 * $mediumHorizontalOffset
+    width: 90px + 2 * $mediumHorizontalOffset
     background-position: $mediumHorizontalOffset 50%
-    background-size: 120px
+    background-size: 100px
     transition: background-image 0s .15s
 
     +large
-      width: 140px + 2 * $largeHorizontalOffset
+      width: 120px + 2 * $largeHorizontalOffset
       background-position: $largeHorizontalOffset 50%
-      background-size: 140px
+      background-size: 120px
 
   &__slogan
     display: none
-    max-width: 300px
+    max-width: 250px
     font-size: 13px
     transition: color .3s
 
@@ -438,7 +438,7 @@
       display: block
 
   &__menu
-    zoom: 80%
+    zoom: 85%
 
     +large
       margin-right: $largeHorizontalOffset - $mediumHorizontalOffset
@@ -451,7 +451,7 @@
       > a
         display: block
         box-sizing: border-box
-        padding: 12px 15px
+        padding: 12px 12px
         font-size: 12px
         text-transform: uppercase
         text-decoration: none
@@ -570,8 +570,8 @@
 
       a
         display: inline-block
-        margin: auto 20px
-        padding: 10px $mediumHorizontalOffset
+        margin: auto 20px auto 15px
+        padding: 10px 15px
         border: none
         border-radius: $borderRadius
         font-size: 13px
@@ -585,7 +585,7 @@
         appearance: none
 
         +large
-          padding: 10px $largeHorizontalOffset
+          padding: 10px 20px
 
         &:hover
           background-color: lighten($primaryColor, 5%)
