@@ -384,13 +384,9 @@ function renderOriginalParts(result) {
         $("#maintenance-calculator .calculator-result table")
           .find("[data-name=" + part + "] .options")
           .append(
-            '<div class="option" data-name="' +
-              option +
-              '" data-part-price="' +
-              result["parts"][part]["options"][option]["price"] +
-              '">' +
-              result["parts"][part]["options"][option]["name"] +
-              "</div>"
+            `<div class="option" data-name="${option}" data-part-price="${result["parts"][part]["options"][option]["price"]}"><span>${
+              result["parts"][part]["options"][option]["name"]
+            }</span><span>${formatPrice_MaintenanceCalculator(result["parts"][part]["options"][option]["price"])}</span></div>`
           );
       }
 
@@ -414,7 +410,7 @@ function renderOriginalParts(result) {
       // $("#maintenance-calculator .calculator-result table")
       //   .find(`[data-name="${part}"] .options`)
       //   .append(
-      //     `<div class="option" data-name="original" data-number="${result["parts"][part]["number"]}" data-part-price="${price}">${originalName}</div>`
+      //     `<div class="option" data-name="original" data-number="${result["parts"][part]["number"]}" data-part-price="${price}"><span>${originalName}</span><span>${formatPrice_MaintenanceCalculator(price)}</span></div>`
       //   );
     }
 
@@ -507,7 +503,13 @@ function renderAlternativeParts(result, partIndex) {
             $("#maintenance-calculator .calculator-result table")
               .find("[data-name=" + part + "] .options")
               .append(
-                `<div class="option" data-name="${option}" data-number="${result["parts"][part]["options"][option]["number"]}" data-part-price="${result["parts"][part]["options"][option]["price"]}" data-from="${result["parts"][part]["options"][option]["from"]}">${result["parts"][part]["options"][option]["name"]}</div>`
+                `<div class="option" data-name="${option}" data-number="${
+                  result["parts"][part]["options"][option]["number"]
+                }" data-part-price="${result["parts"][part]["options"][option]["price"]}" data-from="${
+                  result["parts"][part]["options"][option]["from"]
+                }"><span>${result["parts"][part]["options"][option]["name"]}</span><span>${formatPrice_MaintenanceCalculator(
+                  result["parts"][part]["options"][option]["price"]
+                )}</span></div>`
               );
           }
 

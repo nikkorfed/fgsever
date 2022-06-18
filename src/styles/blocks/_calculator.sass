@@ -362,6 +362,12 @@
       &:hover, &.selected
         color: $white
         background-color: $primaryColor
+
+      & span:not(:first-child)
+        opacity: .5
+
+      & span:not(:last-child)
+        margin-right: 5px
     
     &.original-or-alternative
       margin-top: 0
