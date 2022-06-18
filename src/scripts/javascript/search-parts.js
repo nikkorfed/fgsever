@@ -169,7 +169,7 @@
       // let partPrice = part["price"] ?? "";
       // $("#search-parts .result table")
       //   .find(`[data-number="${part["number"]}"] .options`)
-      //   .append(`<div class="option" data-name="original" data-number="${part["number"]}" data-part-price="${partPrice}">Оригинал</div>`);
+      //   .append(`<div class="option" data-name="original" data-number="${part["number"]}" data-part-price="${partPrice}"><span>Оригинал</span><span>${formatPrice(partPrice)}</span></div>`);
 
       // // Делаем первую опцию активной по-умолчанию и устанавливаем её стоимость
       // let firstOptionPrice = $("#search-parts .result table")
@@ -236,7 +236,13 @@
               $("#search-parts .result table")
                 .find("[data-number=" + parts[index]["number"] + "] .options")
                 .append(
-                  `<div class="option" data-name="${option}" data-description="${parts[index]["options"][option]["description"]}" data-number="${parts[index]["options"][option]["number"]}" data-part-price="${parts[index]["options"][option]["price"]}" data-from="${parts[index]["options"][option]["from"]}">${parts[index]["options"][option]["name"]}</div>`
+                  `<div class="option" data-name="${option}" data-description="${
+                    parts[index]["options"][option]["description"]
+                  }" data-number="${parts[index]["options"][option]["number"]}" data-part-price="${
+                    parts[index]["options"][option]["price"]
+                  }" data-from="${parts[index]["options"][option]["from"]}"><span>${
+                    parts[index]["options"][option]["name"]
+                  }</span><span>${formatPrice(parts[index]["options"][option]["price"])}</span></div>`
                 );
             }
 
