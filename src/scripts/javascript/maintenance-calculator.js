@@ -354,7 +354,7 @@ function renderOriginalParts(result) {
   for (let part in result["parts"]) {
     // Добавляем строку
     $("#maintenance-calculator .calculator-result table").append(
-      `<tr class="disabled" data-name="${part}"><td><div class="info"><span class="name">${result["parts"][part]["name"]}</span></div><div class="options"></div></div></div></td><td class="part-price"><span class="price"></span></td><td class="work-price"></td></tr>`
+      `<tr class="disabled" data-name="${part}"><td colspan="2"><div class="info"><span class="name">${result["parts"][part]["name"]}</span></div><div class="options"></div></div></div></td><td class="work-price"></td></tr>`
     );
 
     // Номер детали
@@ -384,9 +384,13 @@ function renderOriginalParts(result) {
         $("#maintenance-calculator .calculator-result table")
           .find("[data-name=" + part + "] .options")
           .append(
-            `<div class="option" data-name="${option}" data-part-price="${result["parts"][part]["options"][option]["price"]}"><span>${
+            `<div class="option" data-name="${option}" data-part-price="${
+              result["parts"][part]["options"][option]["price"]
+            }"><span class="part">${
               result["parts"][part]["options"][option]["name"]
-            }</span><span>${formatPrice_MaintenanceCalculator(result["parts"][part]["options"][option]["price"])}</span></div>`
+            }</span><span class="price">${formatPrice_MaintenanceCalculator(
+              result["parts"][part]["options"][option]["price"]
+            )}</span></div>`
           );
       }
 
@@ -410,7 +414,7 @@ function renderOriginalParts(result) {
       // $("#maintenance-calculator .calculator-result table")
       //   .find(`[data-name="${part}"] .options`)
       //   .append(
-      //     `<div class="option" data-name="original" data-number="${result["parts"][part]["number"]}" data-part-price="${price}"><span>${originalName}</span><span>${formatPrice_MaintenanceCalculator(price)}</span></div>`
+      //     `<div class="option" data-name="original" data-number="${result["parts"][part]["number"]}" data-part-price="${price}"><span class="part">${originalName}</span><span class="price">${formatPrice_MaintenanceCalculator(price)}</span></div>`
       //   );
     }
 
@@ -507,7 +511,11 @@ function renderAlternativeParts(result, partIndex) {
                   result["parts"][part]["options"][option]["number"]
                 }" data-part-price="${result["parts"][part]["options"][option]["price"]}" data-from="${
                   result["parts"][part]["options"][option]["from"]
-                }"><span>${result["parts"][part]["options"][option]["name"]}</span><span>${formatPrice_MaintenanceCalculator(
+                }"><span class="part"><div class="text">${result["parts"][part]["options"][option]["name"]} (Доставка ${
+                  result["parts"][part]["options"][option]["shipping"]
+                })</div><div class="info-button"></div><div class="info">Поставщик: ${
+                  result["parts"][part]["options"][option]["from"]
+                }</div></span><span class="price">${formatPrice_MaintenanceCalculator(
                   result["parts"][part]["options"][option]["price"]
                 )}</span></div>`
               );

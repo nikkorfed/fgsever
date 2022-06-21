@@ -103,7 +103,7 @@ $(".appointment form").on("submit", function (e) {
         name: $(this).find(".name").text(),
       };
       if ($(this).find(".option.selected").length) {
-        part["brand"] = $(this).find(".option.selected").text();
+        part["brand"] = $(this).find(".option.selected .part .text").text();
       }
       if ($(this).find(".option.selected").attr("data-number") !== undefined) {
         part["number"] = $(this).find(".option.selected").attr("data-number");
@@ -133,7 +133,7 @@ $(".appointment form").on("submit", function (e) {
         name: $(this).find(".name").text(),
       };
       if ($(this).find(".option.selected").length) {
-        part["brand"] = $(this).find(".option.selected").text();
+        part["brand"] = $(this).find(".option.selected .part .text").text();
       }
       if ($(this).find(".option.selected").attr("data-number") !== undefined) {
         part["number"] = $(this).find(".option.selected").attr("data-number");

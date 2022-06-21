@@ -60,6 +60,82 @@ section.search-parts
   .result
     display: none
 
+  .original-or-alternative
+    margin-top: 0
+    margin-bottom: $verticalInnerOffset
+
+    +small
+      margin-bottom: $smallVerticalInnerOffset
+
+    +medium
+      margin-bottom: $mediumVerticalInnerOffset
+
+    +large
+      margin-bottom: $largeVerticalInnerOffset
+
+    .option
+      display: inline-block
+      margin-right: 5px
+      border-radius: $borderRadius
+      padding: 6px 13px
+      font-size: 11px
+      font-weight: 500
+      background-color: $backgroundGrey
+      cursor: pointer
+      transition: color .3s, background-color .3s
+
+      +small
+        font-size: 12px
+        padding: 8px 14px
+
+      +medium
+        font-size: 13px
+        padding: 10px 15px
+
+      &:hover, &.selected
+        color: $white
+        background-color: $primaryColor
+
+      &.loading
+        color: $lighterGrey
+        border: 2px solid $backgroundGrey
+        padding: 6px 11px
+        background-color: transparent
+
+        +medium
+          padding: 8px 13px
+        
+        &::after
+          display: inline-block
+          margin-left: 10px
+          border: 2px solid $backgroundGrey
+          border-top-color: $primaryColor
+          border-radius: 50%
+          content: ''
+          vertical-align: sub
+          height: 10px
+          width: 10px
+          animation: rotation 2s linear infinite
+    
+    .tip
+      display: inline-block
+      visibility: hidden
+      position: absolute
+      border-radius: $borderRadius
+      padding: 10px 15px
+      max-width: 240px
+      font-size: 13px
+      background-color: $white
+      opacity: 0
+      box-shadow: $lightShadow
+      transform: translateY(10px)
+      transition: opacity .3s, transform .3s
+
+    .option.loading:hover + .tip
+      visiblity: visible
+      opacity: 1
+      transform: translateY(0)
+
   .options
     transition: opacity .3s
 
@@ -97,103 +173,81 @@ section.search-parts
         font-size: 13px
 
     .option
-      display: inline-block
-      margin-top: 5px
-      margin-right: 5px
-      border-radius: $borderRadius
-      padding: 3px 8px
-      font-size: 11px
-      font-weight: 500
-      background-color: $backgroundGrey
+      display: flex
+      justify-content: space-between
+      padding-top: 5px
+      font-size: 12px
       cursor: pointer
-      transition: .3s color, .3s background, .3s box-shadow
+      transition: color .3s
 
       +small
-        font-size: 12px
-
-      +medium
-        padding: 5px 10px
         font-size: 13px
 
-      // &:last-child
-      //   margin-right: 0
-
-      // &:hover
-        box-shadow: inset 0 0 0 2px $primaryColor
+      +medium
+        font-size: 14px
 
       &:hover, &.selected
-        color: $white
+        color: $primaryColor
+
+      &::before
+        display: inline-block
+        box-sizing: border-box
+        margin-right: 10px
+        border: 5px solid $backgroundGrey
+        border-radius: 50%
+        height: 20px
+        width: 20px
+        content: ''
+        background-color: $backgroundGrey
+        transition: background-color .3s
+
+      &.selected::before
+        border: 5px solid $backgroundGrey
         background-color: $primaryColor
 
-      & span:not(:first-child)
-        opacity: .5
+      & .part
+        position: relative
+        margin-right: auto
 
-      & span:not(:last-child)
-        margin-right: 5px
-    
-    &.original-or-alternative
-      margin-top: 0
-      margin-bottom: $verticalInnerOffset
+        & .text
+          display: inline
+          margin-right: 5px
 
-      +small
-        margin-bottom: $smallVerticalInnerOffset
+        & .info-button
+          display: inline-block
+          vertical-align: middle
+          margin-right: 5px
+          height: 14px
+          width: 14px
+          content: ''
+          background-image: svg-load('images/icons/information.svg', fill="#ccc")
+          background-position: 50% 50%
+          background-repeat: no-repeat
+          cursor: pointer
 
-      +medium
-        margin-bottom: $mediumVerticalInnerOffset
-
-      +large
-        margin-bottom: $largeVerticalInnerOffset
-
-      .option
-        margin-top: 0
-        margin-bottom: 0
-        padding: 6px 13px
-
-        +small
-          padding: 8px 14px
-
-        +medium
+        & .info
+          display: none
+          visibility: hidden
+          position: absolute
+          left: calc(100% + 10px)
+          z-index: 1
+          border-radius: $borderRadius
           padding: 10px 15px
+          max-width: 240px
+          white-space: nowrap
+          font-size: 13px
+          color: $grey
+          background-color: $white
+          opacity: 0
+          box-shadow: $lightShadow
+          transform: translateY(10px)
+          transition: opacity .3s, transform .3s
 
-        &.loading
-          color: $lighterGrey
-          border: 2px solid $backgroundGrey
-          padding: 6px 11px
-          background-color: transparent
-
-          +medium
-            padding: 8px 13px
-          
-          &::after
-            display: inline-block
-            margin-left: 10px
-            border: 2px solid $backgroundGrey
-            border-top-color: $primaryColor
-            border-radius: 50%
-            content: ''
-            vertical-align: sub
-            height: 10px
-            width: 10px
-            animation: rotation 2s linear infinite
-      
-      .tip
-        display: inline-block
-        visiblity: hidden
-        position: absolute
-        border-radius: $borderRadius
-        padding: 10px 15px
-        max-width: 240px
-        font-size: 13px
-        background-color: $white
-        opacity: 0
-        box-shadow: $lightShadow
-        transform: translateY(10px)
-        transition: opacity .3s, transform .3s
-
-      .option.loading:hover + .tip
-        visiblity: visible
-        opacity: 1
-        transform: translateY(0)
+        & .info-button:hover + .info
+          display: inline-block
+          visibility: visible
+          opacity: 1
+          transform: translateY(0)
 
   .parts
     margin: 0 -#{$horizontalOffset}
@@ -260,13 +314,13 @@ section.search-parts
 
           td
             &:first-child
-              padding-left: calc(15px + #{$horizontalOffset})
+              padding-left: calc(10px + #{$horizontalOffset})
 
               +small
-                padding-left: calc(20px + #{$smallHorizontalOffset})
+                padding-left: calc(15px + #{$smallHorizontalOffset})
 
               +medium
-                padding-left: calc(20px + #{$mediumHorizontalOffset})
+                padding-left: calc(15px + #{$mediumHorizontalOffset})
 
         &:last-child
           // border-bottom: 1px solid $backgroundGrey
@@ -321,7 +375,14 @@ section.search-parts
         //   content: '—'
 
       .work-price
+        font-size: 12px
         transition: opacity .3s
+
+        +small
+          font-size: 13px
+        
+        +medium
+          font-size: 14px
 
   .tabs
     margin-bottom: 0
@@ -815,10 +876,10 @@ section.search-parts
           margin-right: 10px
 
       .parts-cost, .works-cost
-        display: none !important
+        // display: none !important
 
-        +large
-          display: flex !important
+        // +large
+        //   display: flex !important
 
       // .parts-cost + .works-cost + .total-cost
         margin: 0

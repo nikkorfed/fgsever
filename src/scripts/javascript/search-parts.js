@@ -160,7 +160,7 @@
       // Добавляем строку
       let partName = part["name"] ?? "Неизвестная запчасть";
       $("#search-parts .result table").append(
-        `<tr data-number="${part["number"]}"><td><div class="info"><span class="name">${partName}</span><span class="number">${part["number"]}</span></div><div class="options"></div></div></div></td><td class="part-price"><span class="price"></span></td></tr>`
+        `<tr data-number="${part["number"]}"><td colspan="2"><div class="info"><span class="name">${partName}</span><span class="number">${part["number"]}</span></div><div class="options"></div></div></div></td></tr>`
       );
 
       // Отключено, так как цены от основного постащика временно неактуальны
@@ -169,7 +169,7 @@
       // let partPrice = part["price"] ?? "";
       // $("#search-parts .result table")
       //   .find(`[data-number="${part["number"]}"] .options`)
-      //   .append(`<div class="option" data-name="original" data-number="${part["number"]}" data-part-price="${partPrice}"><span>Оригинал</span><span>${formatPrice(partPrice)}</span></div>`);
+      //   .append(`<div class="option" data-name="original" data-number="${part["number"]}" data-part-price="${partPrice}"><span class="part">Оригинал</span><span class="price">${formatPrice(partPrice)}</span></div>`);
 
       // // Делаем первую опцию активной по-умолчанию и устанавливаем её стоимость
       // let firstOptionPrice = $("#search-parts .result table")
@@ -240,9 +240,13 @@
                     parts[index]["options"][option]["description"]
                   }" data-number="${parts[index]["options"][option]["number"]}" data-part-price="${
                     parts[index]["options"][option]["price"]
-                  }" data-from="${parts[index]["options"][option]["from"]}"><span>${
+                  }" data-from="${parts[index]["options"][option]["from"]}"><span class="part"><div class="text">${
                     parts[index]["options"][option]["name"]
-                  }</span><span>${formatPrice(parts[index]["options"][option]["price"])}</span></div>`
+                  } (Доставка ${
+                    parts[index]["options"][option]["shipping"]
+                  })</div><div class="info-button"></div><div class="info">Поставщик: ${
+                    parts[index]["options"][option]["from"]
+                  }</div></span><span class="price">${formatPrice(parts[index]["options"][option]["price"])}</span></div>`
                 );
             }
 
