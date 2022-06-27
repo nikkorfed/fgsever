@@ -511,9 +511,9 @@ function renderAlternativeParts(result, partIndex) {
                   result["parts"][part]["options"][option]["number"]
                 }" data-part-price="${result["parts"][part]["options"][option]["price"]}" data-from="${
                   result["parts"][part]["options"][option]["from"]
-                }"><span class="part"><div class="text">${result["parts"][part]["options"][option]["name"]} (Доставка ${
-                  result["parts"][part]["options"][option]["shipping"]
-                })</div><div class="info-button"></div><div class="info">Поставщик: ${
+                }"><span class="part"><div class="text">${
+                  result["parts"][part]["options"][option]["name"]
+                }</div><div class="info-button"></div><div class="info">Поставщик: ${
                   result["parts"][part]["options"][option]["from"]
                 }</div></span><span class="price">${formatPrice_MaintenanceCalculator(
                   result["parts"][part]["options"][option]["price"]

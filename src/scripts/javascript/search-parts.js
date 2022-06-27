@@ -242,9 +242,7 @@
                     parts[index]["options"][option]["price"]
                   }" data-from="${parts[index]["options"][option]["from"]}"><span class="part"><div class="text">${
                     parts[index]["options"][option]["name"]
-                  } (Доставка ${
-                    parts[index]["options"][option]["shipping"]
-                  })</div><div class="info-button"></div><div class="info">Поставщик: ${
+                  }</div><div class="info-button"></div><div class="info">Поставщик: ${
                     parts[index]["options"][option]["from"]
                   }</div></span><span class="price">${formatPrice(parts[index]["options"][option]["price"])}</span></div>`
                 );
