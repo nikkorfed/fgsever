@@ -179,7 +179,7 @@ function main () {
   // Запрос данных из таблицы
   $ch = curl_init();
 
-  curl_setopt($ch, CURLOPT_URL, "http://80.78.254.156/upgrade-calculator/");
+  curl_setopt($ch, CURLOPT_URL, "http://194.58.98.247:3000/upgrade-calculator/");
   curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
   curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
   curl_setopt($ch, CURLOPT_HTTPHEADER, ['Content-Type:application/json']);

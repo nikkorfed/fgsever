@@ -3,7 +3,7 @@
 // Запрос цен на работы
 $ch = curl_init();
 
-curl_setopt($ch, CURLOPT_URL, 'http://80.78.254.156/work-prices');
+curl_setopt($ch, CURLOPT_URL, 'http://194.58.98.247:3000/work-prices');
 curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);

@@ -8,7 +8,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 // Отправка анкеты на сервер
 function sendSurvey($request) {
-  $url = "http://80.78.254.156/survey/";
+  $url = "http://194.58.98.247:3000/survey/";
   
   $ch = curl_init();
 
