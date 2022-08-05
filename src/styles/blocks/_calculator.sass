@@ -451,7 +451,7 @@
           margin-right: 5px
 
         & .info-button
-          display: inline-block
+          display: none
           vertical-align: middle
           margin-right: 5px
           height: 14px
@@ -1180,3 +1180,7 @@
 
     +max
       right: calc((100% - #{$maxWrapperWidth}) / 2 + #{$largeHorizontalOffset})
+
+  &.aos
+    .info-button
+      display: inline-block
