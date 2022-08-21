@@ -1,6 +1,6 @@
 const memory = {};
 
-$("section.advanced-survey form").on("click", ".button:not([type=submit])", function () {
+$("section.survey form").on("click", ".button:not([type=submit])", function () {
   // Валидация данных
   const step = $(this).parents(".step");
   const answers = step.find(".answers");
@@ -13,8 +13,7 @@ $("section.advanced-survey form").on("click", ".button:not([type=submit])", func
       radioValid = false;
       for (let input of radioInputs) if (input.checked) radioValid = true;
       if (!radioValid) {
-        if (!$(this).prev(".required").length)
-          $(this).before('<p class="required">Пожалуйста выберите один из вариантов.</p>');
+        if (!$(this).prev(".required").length) $(this).before('<p class="required">Пожалуйста выберите один из вариантов.</p>');
       }
     }
 
@@ -24,8 +23,7 @@ $("section.advanced-survey form").on("click", ".button:not([type=submit])", func
       checkboxValid = false;
       for (let input of checkboxInputs) if (input.checked) checkboxValid = true;
       if (!checkboxValid) {
-        if (!$(this).prev(".required").length)
-          $(this).before('<p class="required">Пожалуйста выберите один или несколько вариантов.</p>');
+        if (!$(this).prev(".required").length) $(this).before('<p class="required">Пожалуйста выберите один или несколько вариантов.</p>');
       }
     }
 
@@ -54,11 +52,11 @@ $("section.advanced-survey form").on("click", ".button:not([type=submit])", func
   }
 });
 
-$("section.advanced-survey form").on("change", "textarea", function () {
+$("section.survey form").on("change", "textarea", function () {
   if ($(this).val()) $(this).prev(".required").remove();
 });
 
-$("section.advanced-survey form").on("click", "input", function (e) {
+$("section.survey form").on("click", "input", function (e) {
   if ($(e.target).attr("type") === "radio" || $(e.target).attr("type") === "checkbox") {
     $(e.target).parents(".answers").prev(".required").remove();
   }
@@ -113,15 +111,12 @@ $("section.advanced-survey form").on("click", "input", function (e) {
         delete memory["Желаете официально трудоустроиться (другое)"];
       }
     } else {
-      if (!memory["Желаете официально трудоустроиться (другое)"])
-        memory["Желаете официально трудоустроиться (другое)"] = target.detach();
+      if (!memory["Желаете официально трудоустроиться (другое)"]) memory["Желаете официально трудоустроиться (другое)"] = target.detach();
     }
   }
 
   if (e.target.name === "Где провести новогодний корпоратив") {
-    const target = $(e.target)
-      .parents(".answers")
-      .find(`textarea[name="Где провести новогодний корпоратив (свой ответ)"]`);
+    const target = $(e.target).parents(".answers").find(`textarea[name="Где провести новогодний корпоратив (свой ответ)"]`);
     target.removeClass("hidden");
     if (e.target.value === "Свой ответ") {
       if (memory["Где провести новогодний корпоратив (свой ответ)"]) {
@@ -135,13 +130,14 @@ $("section.advanced-survey form").on("click", "input", function (e) {
   }
 });
 
-$("section.advanced-survey form").on("submit", function (e) {
+$("section.survey form").on("submit", function (e) {
   e.preventDefault();
 
+  let name = $(this).attr("name");
   let data = $(this).serialize();
 
   $.ajax({
-    url: "/scripts/php/survey.php",
+    url: `/scripts/php/survey.php?name=${name}`,
     method: "POST",
     data,
     success: function () {

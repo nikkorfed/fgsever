@@ -1,0 +1,203 @@
+- var name = 'main_about';
+- var section = 'Раздел';
+- var title = 'Опрос насчет обустройства парка';
+- var seoTitle = title + ' | Автосервис BMW «FGSEVER»';
+- var subtitle = 'Страница для проведения опроса насчёт обустройства парка';
+
+doctype html
+html(lang="ru")
+  include /meta
+body
+  section.description.survey
+    .wrapper
+      form(name="toilet")
+        .step.active
+          .question
+            h3 Прошу Вас принять участие в данном опросе!
+            .images.columns
+              .col-4.col-md-3
+                a.image(data-fancybox='photos' href='/images/survey/toilet/1.jpg')
+                  img(src="/images/survey/toilet/1-min.jpg" srcset="/images/survey/toilet/1-min@2x.jpg 1.5x")  
+              .col-4.col-md-3
+                a.image(data-fancybox='photos' href='/images/survey/toilet/2.jpg')
+                  img(src="/images/survey/toilet/2-min.jpg" srcset="/images/survey/toilet/2-min@2x.jpg 1.5x")
+              .col-4.col-md-3
+                a.image(data-fancybox='photos' href='/images/survey/toilet/3.jpg')
+                  img(src="/images/survey/toilet/3-min.jpg" srcset="/images/survey/toilet/3-min@2x.jpg 1.5x")
+              .col-4.col-md-3
+                a.image(data-fancybox='photos' href='/images/survey/toilet/4.jpg')
+                  img(src="/images/survey/toilet/4-min.jpg" srcset="/images/survey/toilet/4-min@2x.jpg 1.5x")
+              .col-4.col-md-3
+                a.image(data-fancybox='photos' href='/images/survey/toilet/9.jpg')
+                  img(src="/images/survey/toilet/9-min.jpg" srcset="/images/survey/toilet/9-min@2x.jpg 1.5x")
+              .col-4.col-md-3
+                a.image(data-fancybox='photos' href='/images/survey/toilet/6.jpg')
+                  img(src="/images/survey/toilet/6-min.jpg" srcset="/images/survey/toilet/6-min@2x.jpg 1.5x")
+              .col-4.col-md-3
+                a.image(data-fancybox='photos' href='/images/survey/toilet/7.jpg')
+                  img(src="/images/survey/toilet/7-min.jpg" srcset="/images/survey/toilet/7-min@2x.jpg 1.5x")
+              .col-4.col-md-3
+                a.image(data-fancybox='photos' href='/images/survey/toilet/8.jpg')
+                  img(src="/images/survey/toilet/8-min.jpg" srcset="/images/survey/toilet/8-min@2x.jpg 1.5x")
+              .col-4.col-md-3
+                a.image(data-fancybox='photos' href='/images/survey/toilet/9.jpg')
+                  img(src="/images/survey/toilet/9-min.jpg" srcset="/images/survey/toilet/9-min@2x.jpg 1.5x")
+              .col-4.col-md-3
+                a.image(data-fancybox='photos' href='/images/survey/toilet/10.jpg')
+                  img(src="/images/survey/toilet/10-min.jpg" srcset="/images/survey/toilet/10-min@2x.jpg 1.5x")
+            p Большое помещение — туалет и умывальник полностью в остеклении. Где стоит пластиковый стул, будет унитаз отделанный под ствол березы и иметь крышку в виде среза березы. Березы будут размещены как есть в помещении с выходом через крышу. Сами стволы деревьев непостоянство внутри. Пол будет естественный как на фото, ко всем удобствам будут проложены дорожки из плитки или прозрачного стекла с системой обогрева. Панорамные стекла будут иметь электрическое затемнение, по управлению с выключателя расположенного в ванной, а так же по датчику движению в радиусе 100м от дома и будут затемняется когда включен свет в туалете или ванной.
+            p Ванная обозначена меньшей площадью которая так же будет иметь панорамные окна и возможность затемнения.
+            p #[b Для заметки:] в виду больших споров и дискуссий необходим опросник по теме данного благоустройства, так как моя фантазия видит так, а кто то с эти не согласен.
+            p #[b Суть опросника:] все окна будут иметь затемнение как в ручную, так и при срабатывании датчиков движения в радиусе 100 м. Затемнение будет глухим и не иметь прозрачности с обоих сторон. Затемнение будет происходит в течение 2-3 сек.
+          .buttons
+            .button.next Пройти опрос
+        .step
+          .question
+            h3 1. По вашему мнению, имеет ли место быть туалету с панорамными окнами в лесу? 
+            .answers
+              label
+                input(type='radio' name='Быть туалету?' value='Да')
+                | Да
+              label
+                input(type='radio' name='Быть туалету?' value='Нет')
+                | Нет
+          .buttons
+            .button.back Назад
+            .button.next Далее
+        .step
+          .question
+            h3 2.	Насколько бы было оригинально сделать в данном туалете естественный пол, с тропинками из плитки к туалету, душевой и ванной. С системой подогрева.
+            p Оцените по пятибальной шкале, 5 — оригинально, 1 — совсем нет.
+            .answers
+              label
+                input(type='radio' name='Оригинальность естественного пола' value='1')
+                | 1
+              label
+                input(type='radio' name='Оригинальность естественного пола' value='2')
+                | 2
+              label
+                input(type='radio' name='Оригинальность естественного пола' value='3')
+                | 3
+              label
+                input(type='radio' name='Оригинальность естественного пола' value='4')
+                | 4
+              label
+                input(type='radio' name='Оригинальность естественного пола' value='5')
+                | 5
+          .buttons
+            .button.back Назад
+            .button.next Далее
+        .step
+          .question
+            h3 3.	Имеет ли место быть душевой кабине за панорамными окнами?
+            .answers
+              label
+                input(type='radio' name='Быть душевой кабине?' value='Да')
+                | Да
+              label
+                input(type='radio' name='Быть душевой кабине?' value='Нет')
+                | Нет
+          .buttons
+            .button.back Назад
+            .button.next Далее
+        .step
+          .question
+            h3 4.	Насколько оригинально будут смотреться живые деревья внутри помещения?
+            p Оцените по пятибальной шкале, 5 — оригинально, 1 — совсем нет.
+            .answers
+              label
+                input(type='radio' name='Оригинальность естественного пола' value='1')
+                | 1
+              label
+                input(type='radio' name='Оригинальность естественного пола' value='2')
+                | 2
+              label
+                input(type='radio' name='Оригинальность естественного пола' value='3')
+                | 3
+              label
+                input(type='radio' name='Оригинальность естественного пола' value='4')
+                | 4
+              label
+                input(type='radio' name='Оригинальность естественного пола' value='5')
+                | 5
+          .buttons
+            .button.back Назад
+            .button.next Далее
+        .step
+          .question
+            h3 5. Как вам система открывания (откидывания) панорамной крыши?
+            p С системой автоматического закрытия по "температуре", "времени", "влажности", то есть отсутствия крыши над головой. 50% крыши, так как остальная будет иметь мембраны для живых деревьев.
+            .answers
+              label
+                input(type='radio' name='Как вам система панорамной крыши?' value='Нравится')
+                | Нравится
+              label
+                input(type='radio' name='Как вам система панорамной крыши?' value='Не нравится')
+                | Не нравится
+          .buttons
+            .button.back Назад
+            .button.next Далее
+        .step
+          .question
+            h3 6. Двухместная ванна за панорамными стеклами или достаточно душа?
+            .answers
+              label
+                input(type='radio' name='Двухместная ванна или душ?' value='Двухместная ванна')
+                | Двухместная ванна
+              label
+                input(type='radio' name='Двухместная ванна или душ?' value='Только душ')
+                | Только душ
+          .buttons
+            .button.back Назад
+            .button.next Далее
+        .step
+          .question
+            h3 7. Унитаз отделанный под пень большой березы, с крышкой под спиленное дерево, или классический, что бы не проще было найти при входе в сортир?
+            .answers
+              label
+                input(type='radio' name='Вид унитаза' value='Под пень большой березы, с крышкой под спиленное дерево')
+                | Под пень большой березы, с крышкой под спиленное дерево
+              label
+                input(type='radio' name='Вид унитаза' value='Классический унитаз')
+                | Классический унитаз
+          .buttons
+            .button.back Назад
+            .button.next Далее
+        .step
+          .question
+            h3 8. Не будет ли раздражать запах естественного леса?
+            .answers
+              label
+                input(type='radio' name='Будет ли раздражать запах?' value='Будет раздражать')
+                | Будет раздражать
+              label
+                input(type='radio' name='Будет ли раздражать запах?' value='Не будет раздражать')
+                | Не будет раздражать
+          .buttons
+            .button.back Назад
+            .button.next Далее
+        .step
+          .question
+            h3 9. Как насчёт наличия естественного террариума для черепах или рыб? Как думаете, дамы не испугаются?
+            .answers
+              label
+                input(type='radio' name='Наличие террариума' value='Террариум для черепах')
+                | Террариум для черепах
+              label
+                input(type='radio' name='Наличие террариума' value='Террариум для рыб')
+                | Террариум для рыб
+              label
+                input(type='radio' name='Наличие террариума' value='Ничего не нужно')
+                | Ничего не нужно
+          .buttons
+            .button.back Назад
+            .button.next Далее
+        .step
+          .question
+            h3 10. Ниже Вы можете оставить свои комментарии и пожелания.
+            .answers
+              textarea.input(name='Комментарии и пожелания' rows='3' placeholder='Пожалуйста напишите ваши комментари и пожелания, если они имеются.')
+          .results
+          button.button(type='submit') Отправить
+  include /popups
+  include /scripts
