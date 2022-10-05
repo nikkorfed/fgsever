@@ -532,6 +532,9 @@ if (isset($_REQUEST['vin']) && isset($_REQUEST['mileage'])) {
     }
 
     // Подготовка данных к отправке
+    if ($sparkPlugQuantity > 6) {
+      $workPrices['sparkPlug'] = $workPrices['vMotorSparkPlug'];
+    }
 
     // Объединение данных в массив
     $data = [
@@ -555,7 +558,7 @@ if (isset($_REQUEST['vin']) && isset($_REQUEST['mileage'])) {
           'quantityLabel' => ' шт.',
           'number' => $sparkPlugNumber,
           'price' => $sparkPlugPrice,
-          'work' => $workPrices['sparkPlugs'],
+          'work' => $workPrices['sparkPlug'] * $sparkPlugQuantity,
         ],
         'fuelFilter' => [
           'name' => 'Замена топливного фильтра',
