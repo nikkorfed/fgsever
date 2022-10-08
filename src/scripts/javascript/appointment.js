@@ -1,3 +1,13 @@
+// Открытие всплывающего окна о переезде
+$(document).ready(function () {
+  let expired = Date.now() > 1665869201055; // После 16 октября 2022 года
+  if ($.cookie("we-moved-closed") || expired) return;
+  $.fancybox.open({
+    src: "#we-moved",
+    opts: { touch: false, afterClose: () => $.cookie("we-moved-closed", true, { expires: 7, path: "/" }) },
+  });
+});
+
 // Открытие всплывающего окна о работе в праздники
 $(document).ready(function () {
   let expired = Date.now() > 1641513600000; // После 7 января 2022 года
