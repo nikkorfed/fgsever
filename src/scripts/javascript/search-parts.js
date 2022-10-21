@@ -156,32 +156,40 @@
     $("#search-parts .result table").append('<tr class="table-header"><td>Наименование детали</td><td>Стоимость детали</td></tr>');
 
     // Заполнение таблицы деталями для обслуживания
-    for (let part of parts) {
+    for (let key in parts) {
+      let part = parts[key];
+
       // Добавляем строку
-      let partName = part["name"] ?? "Неизвестная запчасть";
+      let partName = part["description"] ?? "Неизвестная запчасть";
       $("#search-parts .result table").append(
         `<tr data-number="${part["number"]}"><td colspan="2"><div class="info"><span class="name">${partName}</span><span class="number">${part["number"]}</span></div><div class="options"></div></div></div></td></tr>`
       );
 
-      // Отключено, так как цены от основного постащика временно неактуальны
+      // Оригинал (от основного поставщика)
+      let partPrice = part["price"] ?? "";
+      $("#search-parts .result table")
+        .find(`[data-number="${part["number"]}"] .options`)
+        .append(
+          `<div class="option" data-name="original" data-description="${part["description"]}" data-number="${
+            part["number"]
+          }" data-part-price="${partPrice}" data-from="${
+            part["from"]
+          }"><span class="part"><div class="text">Оригинал</div><div class="info-button"></div><div class="info">Поставщик: ${
+            part["from"]
+          }</div></span><span class="price">${formatPrice(partPrice)}</span></div>`
+        );
 
-      // // Оригинал (от основного поставщика)
-      // let partPrice = part["price"] ?? "";
-      // $("#search-parts .result table")
-      //   .find(`[data-number="${part["number"]}"] .options`)
-      //   .append(`<div class="option" data-name="original" data-number="${part["number"]}" data-part-price="${partPrice}"><span class="part">Оригинал</span><span class="price">${formatPrice(partPrice)}</span></div>`);
-
-      // // Делаем первую опцию активной по-умолчанию и устанавливаем её стоимость
-      // let firstOptionPrice = $("#search-parts .result table")
-      //   .find("[data-number=" + part["number"] + "] .options .option:first-child")
-      //   .addClass("selected")
-      //   .attr("data-part-price");
-      // $("#search-parts .result table")
-      //   .find("[data-number=" + part["number"] + "]")
-      //   .attr("data-part-price", firstOptionPrice);
-      // $("#search-parts .result table")
-      //   .find("[data-number=" + part["number"] + "] .part-price .price")
-      //   .text(formatPrice(firstOptionPrice));
+      // Делаем первую опцию активной по-умолчанию и устанавливаем её стоимость
+      let firstOptionPrice = $("#search-parts .result table")
+        .find("[data-number=" + part["number"] + "] .options .option:first-child")
+        .addClass("selected")
+        .attr("data-part-price");
+      $("#search-parts .result table")
+        .find("[data-number=" + part["number"] + "]")
+        .attr("data-part-price", firstOptionPrice);
+      $("#search-parts .result table")
+        .find("[data-number=" + part["number"] + "] .part-price .price")
+        .text(formatPrice(firstOptionPrice));
     }
 
     // Отображение таблицы
@@ -196,6 +204,8 @@
 
   // Подбор и отображение деталей-аналогов
   function renderAlternativeParts(parts, index) {
+    parts = Object.values(parts);
+
     if (index >= parts.length) {
       $("#search-parts .result").find(".original-or-alternative .option[data-name=alternative]").removeClass("loading");
       return;

@@ -417,60 +417,22 @@ if (isset($_REQUEST['vin']) && isset($_REQUEST['mileage'])) {
     if ($rearBrakePadsWearSensorNumber) $parts['rear-brake-pads-wear-sensor'] = ['number' => $rearBrakePadsWearSensorNumber];
 
     $numbers = [];
-    foreach ($parts as $part) $numbers[] = $part['number'];
+    foreach ($parts as $part) $numbers[] = str_replace(' ', '', $part['number']);
     $data = implode(',', $numbers);
 
-    // Авторизация на сайте поставщика
-    $login = 'Дерюгин ПС';
-    $password = '3306';
+    // Запрос информации о ценах
+    include 'parts.php';
+    $partPrices = searchOriginalParts($data);
 
-    $ch = curl_init();
-
-    curl_setopt($ch, CURLOPT_URL, 'http://sprolf.ru/');
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-    curl_setopt($ch, CURLOPT_COOKIEJAR, dirname(__FILE__) . '/sprolf.cookie');
-    curl_setopt($ch, CURLOPT_POSTFIELDS, "username=$login&password=$password&cmdweblogin=");
-    curl_setopt($ch, CURLOPT_POST, 1);
-
-    curl_exec($ch);
-    curl_close ($ch);
-
-    // Запрос для поиска деталей
-    $ch = curl_init();
-
-    curl_setopt($ch, CURLOPT_URL, 'http://sprolf.ru/index.php?id=137');
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-    curl_setopt($ch, CURLOPT_COOKIEFILE, dirname(__FILE__) . '/sprolf.cookie');
-    curl_setopt($ch, CURLOPT_POSTFIELDS, "articles=$data&priority=cost&storeid=0&search=%D0%9F%D0%BE%D0%B4%D0%BE%D0%B1%D1%80%D0%B0%D1%82%D1%8C");
-    curl_setopt($ch, CURLOPT_POST, 1);
-
-    $html = curl_exec($ch);
-    curl_close ($ch);
-
-    // Поиск и сохраннение цен
-    foreach (phpQuery::newDocument($html)->find("#multisearch tr") as $row) {
-      $row = pq($row);
-      $number = str_replace(' ', '', $row->find('td:nth-child(2)')->text());
-      foreach ($parts as &$part) {
+    // Сохранение цен
+    foreach ($partPrices as $number => $item) {
+      foreach($parts as &$part) {
         if (str_replace(' ', '', $part['number']) == $number && !isset($part['price'])) {
-          $part['price'] = +$row->find("td:nth-child(7)")->text() * 1.3;
+          $part['price'] = $item['price'];
+          $part['from'] = $item['from'];
         }
       }
     }
-
-    // Сохранение цен в отдельные переменные
-    if ($parts['oil-filter']['price']) $oilFilterPrice = $parts['oil-filter']['price'];
-    if ($parts['spark-plug']['price']) $sparkPlugPrice = $parts['spark-plug']['price'];
-    if ($parts['fuel-filter']['price']) $fuelFilterPrice = $parts['fuel-filter']['price'];
-    if ($parts['air-filter']['price']) $airFilterPrice = $parts['air-filter']['price'];
-    if ($parts['cabin-air-filter']['price']) $cabinAirFilterPrice = $parts['cabin-air-filter']['price'];
-    if ($parts['recirculation-filter']['price']) $recirculationFilterPrice = $parts['recirculation-filter']['price'];
-    if ($parts['front-brake-disk']['price']) $frontBrakeDiskPrice = $parts['front-brake-disk']['price'];
-    if ($parts['front-brake-pads']['price']) $frontBrakePadsPrice = $parts['front-brake-pads']['price'];
-    if ($parts['front-brake-pads-wear-sensor']['price']) $frontBrakePadsWearSensorPrice = $parts['front-brake-pads-wear-sensor']['price'];
-    if ($parts['rear-brake-disk']['price']) $rearBrakeDiskPrice = $parts['rear-brake-disk']['price'];
-    if ($parts['rear-brake-pads']['price']) $rearBrakePadsPrice = $parts['rear-brake-pads']['price'];
-    if ($parts['rear-brake-pads-wear-sensor']['price']) $rearBrakePadsWearSensorPrice = $parts['rear-brake-pads-wear-sensor']['price'];
 
     // Альтернативные варианты (опции) некоторых деталей
     $motorOilOptions = [
@@ -549,82 +511,94 @@ if (isset($_REQUEST['vin']) && isset($_REQUEST['mileage'])) {
         'oilFilter' => [
           'name' => 'Замена масляного фильтра',
           'number' => $oilFilterNumber,
-          'price' => $oilFilterPrice,
+          'price' => $parts['oil-filter']['price'],
           'work' => $workPrices['oilFilter'],
+          'from' => $parts['oil-filter']['from'],
         ],
         'sparkPlug' => [
           'name' => 'Замена свечей зажигания',
           'quantity' => $sparkPlugQuantity,
           'quantityLabel' => ' шт.',
           'number' => $sparkPlugNumber,
-          'price' => $sparkPlugPrice,
+          'price' => $parts['spark-plug']['price'],
           'work' => $workPrices['sparkPlug'] * $sparkPlugQuantity,
+          'from' => $parts['spark-plug']['from'],
         ],
         'fuelFilter' => [
           'name' => 'Замена топливного фильтра',
           'number' => $fuelFilterNumber,
-          'price' => $fuelFilterPrice,
+          'price' => $parts['fuel-filter']['price'],
           'work' => $workPrices['fuelFilter'],
+          'from' => $parts['fuel-filter']['from'],
         ],
         'airFilter' => [
           'name' => 'Замена воздушного фильтра',
           'number' => $airFilterNumber,
-          'price' => $airFilterPrice,
+          'price' => $parts['air-filter']['price'],
           'work' => $workPrices['airFilter'],
+          'from' => $parts['air-filter']['from'],
         ],
         'cabinAirFilter' => [
           'name' => 'Замена салонного фильтра',
           'number' => $cabinAirFilterNumber,
-          'price' => $cabinAirFilterPrice,
+          'price' => $parts['cabin-air-filter']['price'],
           'work' => $workPrices['cabinAirFilter'],
+          'from' => $parts['cabin-air-filter']['from'],
         ],
         'recirculationFilter' => [
           'name' => 'Замена микрофильтра рециркуляции воздуха',
           'number' => $recirculationFilterNumber,
-          'price' => $recirculationFilterPrice,
+          'price' => $parts['recirculation-filter']['price'],
           'work' => $workPrices['recirculationFilter'],
+          'from' => $parts['recirculation-filter']['from'],
         ],
         'frontBrakeDisk' => [
           'name' => 'Замена передних тормозных дисков',
           'number' => $frontBrakeDiskNumber,
           'quantity' => 2,
           'quantityLabel' => ' шт.',
-          'price' => $frontBrakeDiskPrice,
+          'price' => $parts['front-brake-disk']['price'],
           'work' => $workPrices['frontBrakeDisks'],
+          'from' => $parts['front-brake-disk']['from'],
         ],
         'frontBrakePads' => [
           'name' => 'Замена передних тормозных колодок',
           'number' => $frontBrakePadsNumber,
-          'price' => $frontBrakePadsPrice,
+          'price' => $parts['front-brake-pads']['price'],
           'work' => $workPrices['frontBrakePads'],
           'initialWork' => $workPrices['frontBrakePads'],
+          'from' => $parts['front-brake-pads']['from'],
         ],
         'frontBrakePadsWearSensor' => [
           'name' => 'Замена датчика износа передних тормозных колодок',
           'number' => $frontBrakePadsWearSensorNumber,
-          'price' => $frontBrakePadsWearSensorPrice,
+          'price' => $parts['front-brake-pads-wear-sensor']['price'],
           'work' => $workPrices['frontBrakePadsWearSensor'],
+          'from' => $parts['front-brake-pads-wear-sensor']['from'],
         ],
         'rearBrakeDisk' => [
           'name' => 'Замена задних тормозных дисков',
           'number' => $rearBrakeDiskNumber,
           'quantity' => 2,
           'quantityLabel' => ' шт.',
-          'price' => $rearBrakeDiskPrice,
+          'price' => $parts['rear-brake-disk']['price'],
           'work' => $workPrices['rearBrakeDisks'],
+          'from' => $parts['rear-brake-disk']['from'],
         ],
         'rearBrakePads' => [
           'name' => 'Замена задних тормозных колодок',
           'number' => $rearBrakePadsNumber,
-          'price' => $rearBrakePadsPrice,
+          'price' => $parts['rear-brake-pads']['price'],
           'work' => $workPrices['rearBrakePads'],
           'initialWork' => $workPrices['rearBrakePads'],
+          'from' => $parts['rear-brake-pads']['from'],
         ],
         'rearBrakePadsWearSensor' => [
           'name' => 'Замена датчика износа задних тормозных колодок',
           'number' => $rearBrakePadsWearSensorNumber,
-          'price' => $rearBrakePadsWearSensorPrice,
+          'price' => $parts['rear-brake-pads-wear-sensor']['price'],
           'work' => $workPrices['rearBrakePadsWearSensor'],
+          'from' => $parts['rear-brake-pads-wear-sensor']['from'],
         ],
       ]
     ];

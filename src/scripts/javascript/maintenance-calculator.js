@@ -394,41 +394,34 @@ function renderOriginalParts(result) {
           );
       }
 
-      // Делаем первую опцию активной по-умолчанию и устанавливаем её стоимость
-      let firstOptionPrice = $("#maintenance-calculator .calculator-result table")
-        .find("[data-name=" + part + "] .options .option:first-child")
-        .addClass("selected")
-        .attr("data-part-price");
-      $("#maintenance-calculator .calculator-result table")
-        .find("[data-name=" + part + "]")
-        .attr("data-part-price", firstOptionPrice);
-      $("#maintenance-calculator .calculator-result table")
-        .find("[data-name=" + part + "] .part-price .price")
-        .text(formatPrice_MaintenanceCalculator(firstOptionPrice));
-
       // Если среди оригинальных опций не было, указываем просто "Оригинал"
     } else {
-      // Отключено, так как цены от основного поставщика временно неактуальны
-      // let originalName = "Оригинал";
-      // let price = result["parts"][part]["price"] == undefined ? "" : result["parts"][part]["price"];
-      // $("#maintenance-calculator .calculator-result table")
-      //   .find(`[data-name="${part}"] .options`)
-      //   .append(
-      //     `<div class="option" data-name="original" data-number="${result["parts"][part]["number"]}" data-part-price="${price}"><span class="part">${originalName}</span><span class="price">${formatPrice_MaintenanceCalculator(price)}</span></div>`
-      //   );
+      let originalName = "Оригинал";
+      let price = result["parts"][part]["price"] == undefined ? "" : result["parts"][part]["price"];
+      $("#maintenance-calculator .calculator-result table")
+        .find(`[data-name="${part}"] .options`)
+        .append(
+          `<div class="option" data-name="original" data-number="${
+            result["parts"][part]["number"]
+          }" data-part-price="${price}" data-from="${
+            result["parts"][part]["from"]
+          }"><span class="part"><div class="text">${originalName}</div><div class="info-button"></div><div class="info">Поставщик: ${
+            result["parts"][part]["from"]
+          }</div></span><span class="price">${formatPrice_MaintenanceCalculator(price)}</span></div>`
+        );
     }
 
-    // // Делаем первую опцию активной по-умолчанию и устанавливаем её стоимость
-    // let firstOptionPrice = $("#maintenance-calculator .calculator-result table")
-    //   .find("[data-name=" + part + "] .options .option:first-child")
-    //   .addClass("selected")
-    //   .attr("data-part-price");
-    // $("#maintenance-calculator .calculator-result table")
-    //   .find("[data-name=" + part + "]")
-    //   .attr("data-part-price", firstOptionPrice);
-    // $("#maintenance-calculator .calculator-result table")
-    //   .find("[data-name=" + part + "] .part-price .price")
-    //   .text(formatPrice_MaintenanceCalculator(firstOptionPrice));
+    // Делаем первую опцию активной по-умолчанию и устанавливаем её стоимость
+    let firstOptionPrice = $("#maintenance-calculator .calculator-result table")
+      .find("[data-name=" + part + "] .options .option:first-child")
+      .addClass("selected")
+      .attr("data-part-price");
+    $("#maintenance-calculator .calculator-result table")
+      .find("[data-name=" + part + "]")
+      .attr("data-part-price", firstOptionPrice);
+    $("#maintenance-calculator .calculator-result table")
+      .find("[data-name=" + part + "] .part-price .price")
+      .text(formatPrice_MaintenanceCalculator(firstOptionPrice));
 
     // Количество
     if (result["parts"][part]["quantity"]) {
@@ -520,18 +513,6 @@ function renderAlternativeParts(result, partIndex) {
                 )}</span></div>`
               );
           }
-
-          // Делаем первую опцию активной по-умолчанию и устанавливаем её стоимость
-          let firstOptionPrice = $("#maintenance-calculator .calculator-result table")
-            .find("[data-name=" + part + "] .options .option:first-child")
-            .addClass("selected")
-            .attr("data-part-price");
-          $("#maintenance-calculator .calculator-result table")
-            .find("[data-name=" + part + "]")
-            .attr("data-part-price", firstOptionPrice);
-          $("#maintenance-calculator .calculator-result table")
-            .find("[data-name=" + part + "] .part-price .price")
-            .text(formatPrice_MaintenanceCalculator(firstOptionPrice));
 
           // Расчёт итоговых стоимостей
           calculateCosts();

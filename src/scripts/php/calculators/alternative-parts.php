@@ -10,7 +10,7 @@ if (isset($_REQUEST['number'])) {
 // Запрос данных об аналогах
 function searchAlternativeParts($number, $onlyFavorites) {
   $params = [ 'onlyFavorites' => $onlyFavorites ];
-  $url = "http://194.58.98.247:3000/alternative-parts/$number?" . http_build_query($params);
+  $url = "http://194.58.98.247:3000/parts/alternative/$number?" . http_build_query($params);
   
   $ch = curl_init();
   
