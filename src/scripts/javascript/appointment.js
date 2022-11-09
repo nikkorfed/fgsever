@@ -1,6 +1,6 @@
 // Открытие всплывающего окна о переезде
 $(document).ready(function () {
-  let expired = Date.now() > 1665869201055; // После 16 октября 2022 года
+  let expired = Date.now() > 1673427600000; // После 1 января 2023 года
   if ($.cookie("we-moved-closed") || expired) return;
   $.fancybox.open({
     src: "#we-moved",
