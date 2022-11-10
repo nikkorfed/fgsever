@@ -6,7 +6,7 @@ if (isset($_REQUEST['vin']) && isset($_REQUEST['image'])) {
   $image = $_REQUEST['image'];
   
   header('Content-type: image/png');
-  echo file_get_contents("http://194.58.98.247:3000/aos-parser/images/$vin/$image.png");
+  echo file_get_contents("http://185.20.226.75:3000/aos-parser/images/$vin/$image.png");
 }
 
 ?>

@@ -12,7 +12,7 @@ if (isset($_REQUEST['partNumbers'])) {
 
 // Запрос оригинальных запчастей
 function searchOriginalParts($partNumbers) {
-  $url = "http://194.58.98.247:3000/parts/original/$partNumbers";
+  $url = "http://185.20.226.75:3000/parts/original/$partNumbers";
   
   $ch = curl_init();
   
