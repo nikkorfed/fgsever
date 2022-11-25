@@ -58,6 +58,12 @@ $("#maintenance-calculator .calculator-result table").on("click", "tr[data-name]
   // Учёт необходимых спецпредложений и скидок
   specialConditions();
 
+  // При выборе замены масла, автоматический выбор замены масляного фильтра
+
+  if ($(this).attr("data-name") == "motorOil")
+    if (!$(this).hasClass("disabled"))
+      $("#maintenance-calculator .calculator-result").find('[data-name="oilFilter"]').removeClass("disabled");
+
   // При выборе колодок, автоматический выбор соответствующих датчиков износа
   if ($(this).attr("data-name") == "frontBrakePads" || $(this).attr("data-name") == "rearBrakePads") {
     let brakePadsWearSensor = $(this).attr("data-name").replace(/Pads/g, "PadsWearSensor");
@@ -669,6 +675,27 @@ function specialConditions() {
       $(this).attr("data-name") == "rearBrakePadsWearSensor"
     )
       if (!$(this).hasClass("disabled")) isOneMainJobActive = true;
+
+    // При замене масла, бесплатная замена масляного фильтра
+
+    if ($(this).attr("data-name") == "motorOil") {
+      let oilFilter = $('#maintenance-calculator .calculator-result [data-name="oilFilter"]');
+
+      if (!$(this).hasClass("disabled") && oilFilter.attr("data-work-price") == oilFilter.attr("data-initial-work-price")) {
+        oilFilter.attr("data-work-price", 0);
+        oilFilter.find(".work-price").fadeOut(300, function () {
+          $(this).text(formatPrice_MaintenanceCalculator(0));
+          $(this).fadeIn(300);
+        });
+      } else if ($(this).hasClass("disabled") && oilFilter.attr("data-work-price") == 0) {
+        let initialPrice = Number(oilFilter.attr("data-initial-work-price"));
+        oilFilter.attr("data-work-price", initialPrice);
+        oilFilter.find(".work-price").fadeOut(300, function () {
+          $(this).text(formatPrice_MaintenanceCalculator(initialPrice));
+          $(this).fadeIn(300);
+        });
+      }
+    }
 
     // При замене дисков, бесплатная замена соответствующих колодок
 

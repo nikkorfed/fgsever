@@ -172,6 +172,7 @@ if (isset($_REQUEST['vin']) && isset($_REQUEST['mileage'])) {
           'number' => $oilFilterNumber,
           'price' => $parts['oil-filter']['price'],
           'work' => $workPrices['oilFilter'],
+          'initialWork' => $workPrices['oilFilter'],
           'from' => $parts['oil-filter']['from'],
         ],
         'sparkPlug' => [
