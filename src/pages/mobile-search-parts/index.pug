@@ -1,0 +1,48 @@
+extends /empty-layout.pug
+
+block variables
+  - var name = 'main_maintenance';
+  - var section  = 'Раздел';
+  - var title = 'Поиск запчастей и их аналогов для BMW';
+  - var seoTitle = title + ' | Автосервис BMW «FGSEVER»';
+  - var subtitle = 'Сервис для поиска запчастей и подбора аналогов для автомобилей BMW.';
+  - var path = {'': title};
+
+block content
+  section.search-parts#search-parts
+    .wrapper
+      .titles
+        .icon.calculator-color
+        .overtitle Подбор запчастей
+        h2 Поиск запчастей и их аналогов
+        .subtitle Введите номер оригинальной запчасти в поле ниже, чтобы узнать стоимость запчастей, а также подобрать аналоги. Чтобы приобрести необходимые запчасти, вы можете обратиться к нам в #[a.link(href='https://wa.me/79039760045') WhatsApp].
+        .highlighted
+          p Вы можете выполнять поиск в нашем каталоге сразу по нескольким запчастям. Для этого введите их номера через запятую.
+      form.part-numbers-input
+        .input-field
+          input.input#part-numbers(type="text" placeholder="Номера запчастей (11 знаков, через запятую или пробел)" required)
+        button.button(onclick="ym(56693602,'reachGoal','searchParts'); return true;") Подобрать
+      .popup#calculation
+        .popup__icon.icon.loading-icon
+          .loading-icon__element
+        h3 Идёт поиск
+        p Происходит поиск запчастей и их аналогов по указанным вами номерам.
+      .result
+        .parts
+          h3 Выберите необходимые запчасти
+          .original-or-alternative
+            .option.selected(data-name='original') Оригинальные
+            .option(data-name='alternative') Аналоги
+            .tip В данный момент происходит подбор аналогов. Пожалуйста подождите.
+          .parts-loading-icon
+          .table-wrapper
+            .table
+              table
+        .summary-costs
+          .wrapper
+            .summary-costs__block
+              .parts-cost
+                .name Общая стоимость
+                .value
+        .button-area
+          .button(data-fancybox data-src='#order-parts' data-touch='false') Заказать запчасти
