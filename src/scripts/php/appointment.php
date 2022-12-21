@@ -37,6 +37,32 @@ if (isset($_POST['name']) && isset($_POST['phone'])) {
   $mail->addBCC($blindCopyTo);
   $mail->isHTML(true);
 
+  // Добавление данных из мобильного приложения
+  if (
+      isset($_POST['car']) && isset($_POST['service']) &&
+      !isset($_POST['codingOptions']) && !isset($_POST['maintenanceParts']) &&
+      !isset($_POST['orderParts']) && !isset($_POST['upgradeOptions'])
+  ) {
+
+    $car = "";
+    foreach ($_POST['car'] as $key => $spec) {
+      $last = $key == array_key_last($_POST['car']) ? ' last' : '';
+      $car .= "
+        <div class=\"section$last\">
+          <div class=\"label\">$spec[0]</div>
+          <div class=\"text\">$spec[1]</div>
+        </div>
+      ";
+    }
+
+    $content = "
+      <div class=\"block\">
+        <h2>Автомобиль</h2>
+        $car
+      </div>
+    ";
+  }
+
   // Добавление кодируемых опций
   if (isset($_POST['codingOptions'])) {
     switch ($_POST['car']) {
@@ -227,7 +253,7 @@ if (isset($_POST['name']) && isset($_POST['phone'])) {
   }
 
   // Содержание письма
-  $subject = 'Заявка с сайта. ' . $subtitle;
+  $subject = 'Заявка. ' . $subtitle;
   $mail->Subject = $subject;
   $mail->Body = "
     <html>
@@ -348,7 +374,7 @@ if (isset($_POST['name']) && isset($_POST['phone'])) {
       <body>
         <div class=\"background\">
           <div class=\"wrapper\">
-            <h1>Заявка с сайта</h1>
+            <h1>Заявка</h1>
             <div class=\"block\">
               <h2>Клиент</h2>
               <div class=\"section\">
