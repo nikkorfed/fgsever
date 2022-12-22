@@ -466,6 +466,7 @@ function renderOriginalParts(result) {
   $("#maintenance-calculator .calculator-result").find(".original-or-alternative .option[data-name=alternative]").addClass("loading");
 
   // Расчёт итоговых стоимостей
+  specialConditions();
   calculateCosts();
 }
 
