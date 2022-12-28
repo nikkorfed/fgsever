@@ -1,6 +1,6 @@
 // Открытие всплывающего окна о переезде
 $(document).ready(function () {
-  let expired = Date.now() > 1673427600000; // После 1 января 2023 года
+  let expired = true || Date.now() > 1673427600000; // После 1 января 2023 года
   if ($.cookie("we-moved-closed") || expired) return;
   $.fancybox.open({
     src: "#we-moved",
@@ -10,7 +10,7 @@ $(document).ready(function () {
 
 // Открытие всплывающего окна о работе в праздники
 $(document).ready(function () {
-  let expired = Date.now() > 1641513600000; // После 7 января 2022 года
+  let expired = Date.now() > 1672693200000; // Начиная с 3 января 2023 года
   if ($.cookie("holidays-warning-closed") || expired) return;
   $.fancybox.open({
     src: "#holidays-warning",
