@@ -126,9 +126,12 @@
   .calculator-result
     display: none
 
-    &.no-numbers
-      .number
-        display: none !important
+  &.with-numbers .table-wrapper .table table
+    .number
+      display: inline-block
+
+    .info-button
+      display: inline-block !important
 
   .car-info
     @extend .block
@@ -598,8 +601,11 @@
         color: $lightGrey
         white-space: nowrap
 
-      .number:empty
+      .number
         display: none
+
+      .number:empty
+        display: none !important
 
       .part-price
         transition: opacity .3s
@@ -1180,7 +1186,3 @@
 
     +max
       right: calc((100% - #{$maxWrapperWidth}) / 2 + #{$largeHorizontalOffset})
-
-  &.aos
-    .info-button
-      display: inline-block !important

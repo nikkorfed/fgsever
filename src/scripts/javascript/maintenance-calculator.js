@@ -1,16 +1,10 @@
 // Подбор запчастей при передаче данных в адресе страницы
 if (window.location.search && $("#maintenance-calculator").length) {
-  let data = window.location.search.substr(1).split("&"),
-    result = {},
-    keyAndValue;
-  data.forEach(function (item) {
-    keyAndValue = item.split("=");
-    result[keyAndValue[0]] = keyAndValue[1];
-  });
-  if (result["vin"] != undefined && result["mileage"] != undefined) {
-    $("#maintenance-calculator").find("#vin-number").val(result["vin"]);
-    $("#maintenance-calculator").find("#mileage").val(result["mileage"]);
-    requestCarInfo_MaintenanceCalculator();
+  let params = new URL(window.location.href).searchParams;
+  if (params.get("vin") != undefined && params.get("mileage") != undefined) {
+    $("#maintenance-calculator").find("#vin-number").val(params.get("vin"));
+    $("#maintenance-calculator").find("#mileage").val(params.get("mileage"));
+    requestCarInfo_MaintenanceCalculator(params.get("admin") === "true");
   }
 }
 
@@ -20,7 +14,8 @@ $("#maintenance-calculator")
   .on("submit", function (e) {
     e.preventDefault();
     if (vinCorrect()) {
-      requestCarInfo_MaintenanceCalculator();
+      let params = new URL(window.location.href).searchParams;
+      requestCarInfo_MaintenanceCalculator(params.get("admin") === "true");
     }
   });
 
@@ -129,7 +124,10 @@ function vinCorrect() {
 }
 
 // Основная функция, запускающая поиск деталей для обслуживания
-function requestCarInfo_MaintenanceCalculator() {
+function requestCarInfo_MaintenanceCalculator(admin = false) {
+  // Применение режима админа
+  if (admin) $("#maintenance-calculator").addClass("with-numbers");
+
   // Скрытие быстрых кнопок
   hideSpecialButtons();
 
@@ -139,7 +137,7 @@ function requestCarInfo_MaintenanceCalculator() {
   let aos = $("#maintenance-calculator").hasClass("aos");
 
   // Изменение адреса страницы
-  history.pushState(null, null, "?vin=" + vin + "&mileage=" + mileage);
+  history.pushState(null, null, "?vin=" + vin + "&mileage=" + mileage + (admin ? "&admin=true" : ""));
 
   // Открытие всплывающего окна загрузки
   $.fancybox.open({ src: "#calculation", opts: { modal: true } });
@@ -202,9 +200,10 @@ function renderMultipleCarsFoundedError_MaintenanceCalculator({ cars }) {
 
     // Закрытие окна, сброс старых и запрос новых данных об автомобиле
     $.fancybox.close();
+    let params = new URL(window.location.href).searchParams;
     setTimeout(() => {
       resetCarsFounded();
-      requestCarInfo_MaintenanceCalculator();
+      requestCarInfo_MaintenanceCalculator(params.get("admin") === "true");
     }, 300);
   });
 
