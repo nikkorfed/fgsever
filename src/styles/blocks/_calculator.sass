@@ -301,8 +301,9 @@
       height: 60px
       width: 60px
 
-  .original-or-alternative
-    margin-top: 0
+  .top-buttons
+    display: flex
+    align-items: center
     margin-bottom: $verticalInnerOffset
 
     +small
@@ -314,6 +315,7 @@
     +large
       margin-bottom: $largeVerticalInnerOffset
 
+  .original-or-alternative
     .option
       display: inline-block
       margin-right: 5px
@@ -376,6 +378,13 @@
       visiblity: visible
       opacity: 1
       transform: translateY(0)
+
+  .maintenance-parts-text-button
+    display: none
+    margin-left: auto
+
+  &.with-text .maintenance-parts-text-button
+    display: block
 
   .options
     transition: opacity .3s
@@ -607,12 +616,11 @@
       .number:empty
         display: none !important
 
+      .option .quantity
+        margin-right: 5px
+
       .part-price
         transition: opacity .3s
-
-        .quantity
-          display: unset
-          margin-right: 0
 
         // .price:empty::after
         //   content: '—'

@@ -126,7 +126,7 @@ function vinCorrect() {
 // Основная функция, запускающая поиск деталей для обслуживания
 function requestCarInfo_MaintenanceCalculator(admin = false) {
   // Применение режима админа
-  if (admin) $("#maintenance-calculator").addClass("with-numbers");
+  if (admin) $("#maintenance-calculator").addClass("with-numbers with-text");
 
   // Скрытие быстрых кнопок
   hideSpecialButtons();
@@ -437,10 +437,10 @@ function renderOriginalParts(result) {
         .find("[data-name=" + part + "]")
         .attr("data-quantity-label", result["parts"][part]["quantityLabel"]);
       $("#maintenance-calculator .calculator-result table")
-        .find("[data-name=" + part + "] .info")
+        .find("[data-name=" + part + "] td > .info")
         .append('<span class="quantity"> ' + result["parts"][part]["quantity"] + result["parts"][part]["quantityLabel"] + "</span>");
       $("#maintenance-calculator .calculator-result table")
-        .find("[data-name=" + part + "] .part-price")
+        .find("[data-name=" + part + "] .option .price")
         .prepend('<span class="quantity">' + result["parts"][part]["quantity"] + " x </span>");
     }
 
@@ -518,6 +518,10 @@ function renderAlternativeParts(result, partIndex) {
                   result["parts"][part]["options"][option]["price"]
                 )}</span></div>`
               );
+            if (result["parts"][part]["quantity"])
+              $("#maintenance-calculator .calculator-result table")
+                .find("[data-name=" + part + "] .option[data-name=" + option + "] .price")
+                .prepend('<span class="quantity">' + result["parts"][part]["quantity"] + " x </span>");
           }
 
           // Расчёт итоговых стоимостей
@@ -834,4 +838,69 @@ function calculateCosts() {
       $(this).fadeIn(300);
     });
   }
+
+  // Обновление текстового расчёта
+  calculateMaintenancePartsText();
 }
+
+// Выичсление текстового расчёта
+function calculateMaintenancePartsText() {
+  let text = "Расчёт стоимости техобслуживания:\n\n",
+    originalPartsCost = 0,
+    alternativePartsCost = 0,
+    worksCost = 0;
+
+  $("#maintenance-calculator .calculator-result tr[data-name]:not(.disabled)").each(function () {
+    let name = $(this).find(".info .name").text();
+    let quantity = $(this).attr("data-quantity");
+    let workPrice = $(this).attr("data-work-price");
+    let originalPartPrice = $(this).find('.options .option[data-name="original"]').attr("data-part-price");
+
+    let alternativePartPrice;
+    $(this)
+      .find(".options .option")
+      .each(function () {
+        let price = $(this).attr("data-part-price");
+        if ($(this).attr("data-name") === "original") return;
+        if (alternativePartPrice == undefined || Number(price) < alternativePartPrice) alternativePartPrice = Number(price);
+      });
+
+    let formattedOriginalPartPrice = formatPrice_MaintenanceCalculator(originalPartPrice).toLowerCase();
+    let formattedAlternativePartPrice = formatPrice_MaintenanceCalculator(alternativePartPrice).toLowerCase();
+    let formattedWorkPrice = formatPrice_MaintenanceCalculator(workPrice).toLowerCase();
+
+    quantity && (name += "," + $(this).find(".info .quantity").text());
+    quantity && (formattedOriginalPartPrice = `${quantity} x ` + formattedOriginalPartPrice);
+    quantity && (formattedAlternativePartPrice = `${quantity} x ` + formattedAlternativePartPrice);
+
+    text += `• ${name}. Оригинал — ${formattedOriginalPartPrice}, `.replace(/\.+/g, ".");
+    if (alternativePartPrice) text += `аналог — ${formattedAlternativePartPrice}, `;
+    text += `работы — ${formattedWorkPrice}\n`;
+
+    if (originalPartPrice) originalPartsCost += quantity ? Number(quantity) * Number(originalPartPrice) : Number(originalPartPrice);
+    if (alternativePartPrice)
+      alternativePartsCost += quantity ? Number(quantity) * Number(alternativePartPrice) : Number(alternativePartPrice);
+
+    worksCost += Number(workPrice);
+  });
+  text += "\n";
+
+  const formattedOriginalPartsCost = formatPrice_MaintenanceCalculator(originalPartsCost, false);
+  const formattedAlternativePartsCost = formatPrice_MaintenanceCalculator(alternativePartsCost, false);
+  const formattedWorksCost = formatPrice_MaintenanceCalculator(worksCost, false);
+
+  text += `Оригинальные запчасти — ${formattedOriginalPartsCost}\n`;
+  text += `Аналоги — ${formattedAlternativePartsCost}\n\n`;
+  text += `Работы — ${formattedWorksCost}`;
+
+  $(".popup#maintenance-parts-text .content").fadeOut(300, function () {
+    $(this).text(text);
+    $(this).fadeIn(300);
+  });
+}
+
+$(".popup#maintenance-parts-text").on("click", '[data-action="copy-maintenance-parts-text"]', async function () {
+  let text = $(".popup#maintenance-parts-text .content").text();
+  await navigator.clipboard.writeText(text);
+  $.fancybox.close();
+});

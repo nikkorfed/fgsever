@@ -10,7 +10,7 @@ block variables
 
 block content
   +main({ name, path, section, title, subtitle })
-  section.calculator.aos.with-numbers#maintenance-calculator
+  section.calculator.aos.with-numbers.with-text#maintenance-calculator
     .wrapper
       .titles
         .icon.calculator-color
@@ -25,11 +25,6 @@ block content
         .input-field
           input.input#mileage(type="text" placeholder="Пробег, км" required)
         button.button(onclick="ym(56693602,'reachGoal','maintenanceCalculation'); return true;") Рассчитать
-      .popup#calculation
-        .popup__icon.icon.loading-icon
-          .loading-icon__element
-        h3 Идёт расчет
-        p Происходит расчёт стоимости технического обслуживания вашего автомобиля. При первом расчёте для данного VIN операция может занять до 30-40 секунд.
       .calculator-result
         .car-info
           .columns
@@ -58,10 +53,13 @@ block content
             .button-simple.toggle-options Показать все опции
         .maintenance-parts
           h3 Выберите необходимые работы и детали
-          .original-or-alternative
-            .option.selected(data-name='original') Оригинальные
-            .option(data-name='alternative') Аналоги
-            .tip В данный момент происходит подбор аналогов. Пожалуйста подождите.
+          .top-buttons
+            .original-or-alternative
+              .option.selected(data-name='original') Оригинальные
+              .option(data-name='alternative') Аналоги
+              .tip В данный момент происходит подбор аналогов. Пожалуйста подождите.
+            .maintenance-parts-text-button
+              a.button-simple(data-fancybox data-src="#maintenance-parts-text") Текстовый расчёт
           .parts-loading-icon
           .table-wrapper
             .table
