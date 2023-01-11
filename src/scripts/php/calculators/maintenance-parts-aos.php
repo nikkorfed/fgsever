@@ -96,7 +96,7 @@ if (isset($_REQUEST['vin']) && isset($_REQUEST['mileage'])) {
     // Альтернативные варианты (опции) некоторых деталей
     $motorOilOptions = [
       'original' => [
-        'name' => 'Оригинальное BMW 5W30',
+        'name' => 'Оригинальное BMW 0W30',
         'price' => $originalMotorOilPrice,
       ],
       'motul' => [
