@@ -2,14 +2,14 @@
 
 // Подбор аналогов при передаче номера детали
 if (isset($_REQUEST['number'])) {
-  $parts = searchAlternativeParts($_REQUEST['number'], $_REQUEST['onlyFavorites']);
+  $parts = searchAlternativeParts($_REQUEST['number'], $_REQUEST['onlyFavorites'], $_REQUEST['originalParts']);
   header('content-type: application/json; charset=UTF-8');
   echo json_encode($parts, JSON_UNESCAPED_UNICODE);
 }
 
 // Запрос данных об аналогах
-function searchAlternativeParts($number, $onlyFavorites) {
-  $params = [ 'onlyFavorites' => $onlyFavorites ];
+function searchAlternativeParts($number, $onlyFavorites, $originalParts) {
+  $params = [ 'onlyFavorites' => $onlyFavorites, 'originalParts' => $originalParts ];
   $url = "http://185.20.226.75:3000/parts/alternative/$number?" . http_build_query($params);
   
   $ch = curl_init();

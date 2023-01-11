@@ -109,8 +109,7 @@
 
   // Отображение ошибки о том, что ни одной детали не было найдено
   function renderPartsNotFoundError() {
-    $("#search-parts .result .parts").hide();
-    $("#search-parts .result .summary-costs").hide();
+    $("#search-parts .result").hide();
     setTimeout(() => $.fancybox.open({ src: "#parts-not-found" }), 300);
   }
 
@@ -121,11 +120,11 @@
       type: "POST",
       data: { partNumbers },
       success: (result) => {
+        $.fancybox.close();
         if (!result.error) {
-          $.fancybox.close();
           renderOriginalParts(result);
           renderAlternativeParts(result, 0);
-        } else if (result.error == "parts-not-found") {
+        } else if (result.error == "no-parts") {
           renderPartsNotFoundError();
         }
       },
@@ -222,7 +221,7 @@
       $.ajax({
         url: "/scripts/php/calculators/alternative-parts.php",
         type: "GET",
-        data: { number: parts[index]["number"].replace(/\s/g, "") },
+        data: { number: parts[index]["number"].replace(/\s/g, ""), originalParts: true },
         success: (data) => {
           // Обработка результатов
           parts[index]["options"] = data;

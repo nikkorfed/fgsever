@@ -607,7 +607,7 @@ function renderAdditionalWorks(additional, mileage) {
 
 // Форматирование цены
 function formatPrice_MaintenanceCalculator(number, zeroShouldMeanFree) {
-  if (number === "") return "Отсутствует";
+  if (number === "" || number == null) return "Отсутствует";
   else number = +number;
   if (number !== 0 || zeroShouldMeanFree === false) {
     return number.toLocaleString("ru", {
