@@ -227,7 +227,7 @@
           parts[index]["options"] = data;
 
           // Если аналогов не найдено, вывод соответствующей надписи
-          if (parts[index]["options"].error === "no-alternatives") {
+          if (parts[index]["options"].error === "no-parts") {
             $("#search-parts .result table")
               .find("[data-number=" + parts[index]["number"] + "] .options")
               .addClass("no-alternatives");

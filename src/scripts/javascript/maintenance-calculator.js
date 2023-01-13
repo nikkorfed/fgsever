@@ -494,7 +494,7 @@ function renderAlternativeParts(result, partIndex) {
         result["parts"][part]["options"] = data;
 
         // Если аналогов не найдено, вывод соответствующей надписи
-        if (result["parts"][part]["options"].error === "no-alternatives") {
+        if (result["parts"][part]["options"].error === "no-parts") {
           $("#maintenance-calculator .calculator-result table")
             .find("[data-name=" + part + "] .options")
             .addClass("no-alternatives");
