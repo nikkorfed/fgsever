@@ -444,6 +444,21 @@ function renderOriginalParts(result) {
         .prepend('<span class="quantity">' + result["parts"][part]["quantity"] + " x </span>");
     }
 
+    // Дополнения
+    if (result["parts"][part]["additional"]?.length) {
+      let additionalText = result["parts"][part]["additional"]
+        .map(({ name, price }) => `${name} (${formatPrice_MaintenanceCalculator(price)})`)
+        .join(", ");
+      let additionalPrice = result["parts"][part]["additional"].reduce((result, { price }) => (result += price), 0);
+
+      $("#maintenance-calculator .calculator-result table")
+        .find("[data-name=" + part + "] .options")
+        .after(`<div class="additional">+ ${additionalText}</div>`);
+      $("#maintenance-calculator .calculator-result table")
+        .find("[data-name=" + part + "] ")
+        .attr("data-additional-price", additionalPrice);
+    }
+
     // Отмечаем детали, которые должны быть отмечены по-умолчанию
     switch (part) {
       case "motorOil":
@@ -808,15 +823,12 @@ function calculateCosts() {
   // Расчёт стоимости выбранных деталей и работ
   $("#maintenance-calculator .calculator-result tr[data-name]:not(.disabled)").each(function () {
     let partPrice = $(this).attr("data-part-price");
+    let additionalPrice = $(this).attr("data-additional-price");
     let quantity = $(this).attr("data-quantity");
-    if (partPrice !== undefined) {
-      if (quantity) {
-        partsCost += Number($(this).attr("data-part-price")) * Number($(this).attr("data-quantity"));
-      } else {
-        partsCost += Number($(this).attr("data-part-price"));
-      }
-    }
-    worksCost += Number($(this).attr("data-work-price"));
+
+    if (partPrice !== undefined) partsCost += +partPrice * (quantity ? +quantity : 1);
+    if (additionalPrice !== undefined) partsCost += +additionalPrice;
+    worksCost += +$(this).attr("data-work-price");
   });
 
   // Вывод результатов

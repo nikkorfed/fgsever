@@ -126,6 +126,10 @@ $(".appointment form").on("submit", function (e) {
       if ($(this).attr("data-part-price") !== undefined) {
         part["partPrice"] = $(this).attr("data-part-price");
       }
+      if ($(this).attr("data-additional-price") !== undefined) {
+        part["additionalText"] = $(this).find(".additional").text();
+        part["additionalPrice"] = $(this).attr("data-additional-price");
+      }
       if ($(this).attr("data-work-price") !== undefined) {
         part["workPrice"] = $(this).attr("data-work-price");
       }

@@ -123,6 +123,11 @@ if (isset($_POST['name']) && isset($_POST['phone'])) {
           $totalCost += $part['partPrice'];
         }
       } else $partPrice = '';
+      if (isset($part['additionalText']) && isset($part['additionalPrice'])) {
+        $additionalText = $part['additionalText'];
+        $additional = "<div class=\"label\">$additionalText</div>";
+        $partsCost += $part['additionalPrice'];
+      } else unset($additional);
       $prices = 'Работа — ' . number_format($part['workPrice'], 2, ',', ' ') . ' ₽' . $partPrice;
       $worksCost += $part['workPrice'];
       $totalCost += $part['workPrice'];
@@ -132,6 +137,7 @@ if (isset($_POST['name']) && isset($_POST['phone'])) {
           <div class=\"text\">$partName</div>
           <div class=\"number\">$partNumber</div>
           <div class=\"label\">$prices</div>
+          $additional
         </div>
       ";
     }

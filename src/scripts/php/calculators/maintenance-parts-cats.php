@@ -507,6 +507,7 @@ if (isset($_REQUEST['vin']) && isset($_REQUEST['mileage'])) {
           'quantityLabel' => ' л',
           'options' => $motorOilOptions,
           'work' => $workPrices['motorOil'],
+          'additional' => [[ 'name' => '0.5 баллона очистителя', 'price' => 195 ]]
         ],
         'oilFilter' => [
           'name' => 'Замена масляного фильтра',
@@ -561,6 +562,7 @@ if (isset($_REQUEST['vin']) && isset($_REQUEST['mileage'])) {
           'price' => $parts['front-brake-disk']['price'],
           'work' => $workPrices['frontBrakeDisks'],
           'from' => $parts['front-brake-disk']['from'],
+          'additional' => [[ 'name' => '150 мл медной смазки', 'price' => 180 ]]
         ],
         'frontBrakePads' => [
           'name' => 'Замена передних тормозных колодок',
@@ -569,6 +571,7 @@ if (isset($_REQUEST['vin']) && isset($_REQUEST['mileage'])) {
           'work' => $workPrices['frontBrakePads'],
           'initialWork' => $workPrices['frontBrakePads'],
           'from' => $parts['front-brake-pads']['from'],
+          'additional' => [[ 'name' => '1 баллон очистителя', 'price' => 390 ]]
         ],
         'frontBrakePadsWearSensor' => [
           'name' => 'Замена датчика износа передних тормозных колодок',
@@ -585,6 +588,7 @@ if (isset($_REQUEST['vin']) && isset($_REQUEST['mileage'])) {
           'price' => $parts['rear-brake-disk']['price'],
           'work' => $workPrices['rearBrakeDisks'],
           'from' => $parts['rear-brake-disk']['from'],
+          'additional' => [[ 'name' => '150 мл медной смазки', 'price' => 180 ]]
         ],
         'rearBrakePads' => [
           'name' => 'Замена задних тормозных колодок',
@@ -593,6 +597,7 @@ if (isset($_REQUEST['vin']) && isset($_REQUEST['mileage'])) {
           'work' => $workPrices['rearBrakePads'],
           'initialWork' => $workPrices['rearBrakePads'],
           'from' => $parts['rear-brake-pads']['from'],
+          'additional' => [[ 'name' => '1 баллон очистителя', 'price' => 390 ]]
         ],
         'rearBrakePadsWearSensor' => [
           'name' => 'Замена датчика износа задних тормозных колодок',
