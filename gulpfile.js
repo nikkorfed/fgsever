@@ -78,14 +78,7 @@ function scripts(cb) {
     .pipe(concat("libraries.js"))
     .pipe(terser())
     .pipe(gulp.dest("build/scripts/javascript"));
-  gulp
-    .src("src/scripts/javascript/*.js")
-    // .pipe(sourcemaps.init())
-    // .pipe(babel({ presets: ['@babel/env'] }))
-    .pipe(concat("main.js"))
-    // .pipe(terser())
-    // .pipe(sourcemaps.write('.'))
-    .pipe(gulp.dest("build/scripts/javascript"));
+  gulp.src("src/scripts/javascript/*.js").pipe(gulp.dest("build/scripts/javascript"));
   gulp.src("src/scripts/php/**/*").pipe(gulp.dest("build/scripts/php"));
   return cb();
 }

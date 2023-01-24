@@ -1,3 +1,5 @@
+import { hideSpecialButtons } from "./footer.js";
+
 // Подбор опций при передаче VIN в адресе страницы
 if (window.location.search && $("#upgrade-calculator").length) {
   let data = window.location.search.substr(1).split("&"),
