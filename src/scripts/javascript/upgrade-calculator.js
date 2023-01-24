@@ -201,12 +201,12 @@ function requestCarImages(carInfo) {
     data: { vin: carInfo["vin"], data: "images" },
     success: (carImages) => {
       if (!carImages.error) renderCarImages(carImages);
-      // else if (carImages.error == "images-not-found") $("#upgrade-calculator .car-info__images .image-loading-icon").parent().remove();
+      else if (carImages.error == "images-not-found") $("#upgrade-calculator .car-info__images .image-loading-icon").parent().remove();
     },
   });
-  // $("#upgrade-calculator .car-info__images").append(
-  //   '<div class="car-info__image"><div class="image-loading-icon"><div class="image-loading"></div></div><div class="image-loading-text">Загружаются дополнительные изображения автомобиля</div></div>'
-  // );
+  $("#upgrade-calculator .car-info__images").append(
+    '<div class="car-info__image"><div class="image-loading-icon"><div class="image-loading"></div></div><div class="image-loading-text">Загружаются дополнительные изображения автомобиля</div></div>'
+  );
 }
 
 // Отображение изображений автомобиля

@@ -152,7 +152,7 @@ function requestCarInfo_MaintenanceCalculator(admin = false) {
       if (!carInfo.error) {
         renderCarInfo_MaintenanceCalculator(carInfo);
         requestParts(carInfo, mileage);
-        // requestCarImages(carInfo);
+        requestCarImages(carInfo);
       } else if (carInfo.error == "car-info-not-found") {
         renderCarInfoNotFoundError_MaintenanceCalculator();
       } else if (carInfo.error == "vin-not-found") {
@@ -288,7 +288,8 @@ function requestCarImages(carInfo) {
     type: "POST",
     data: { vin: carInfo["vin"], data: "images" },
     success: (carImages) => {
-      renderCarImages(carImages);
+      if (!carImages.error) renderCarImages(carImages);
+      else if (carImages.error == "images-not-found") $("#maintenance-calculator .car-info__images .image-loading-icon").parent().remove();
     },
   });
 
@@ -300,12 +301,12 @@ function requestCarImages(carInfo) {
 
 // Отображение изображений автомобиля
 function renderCarImages(carImages) {
-  $("#maintetnance-calculator .car-info__images").empty();
-  $("#maintetnance-calculator .car-info__images").addClass("two");
-  $("#maintetnance-calculator .car-info__images").append(
+  $("#maintenance-calculator .car-info__images").empty();
+  $("#maintenance-calculator .car-info__images").addClass("two");
+  $("#maintenance-calculator .car-info__images").append(
     `<a class="car-info__image" data-fancybox="car-images" data-src="${carImages["exteriorOriginalImage"]}"><img src="${carImages["exteriorImage"]}"></a>`
   );
-  $("#maintetnance-calculator .car-info__images").append(
+  $("#maintenance-calculator .car-info__images").append(
     `<a class="car-info__image" data-fancybox="car-images" data-src="${carImages["interiorOriginalImage"]}"><img src="${carImages["interiorImage"]}"></a>`
   );
 }

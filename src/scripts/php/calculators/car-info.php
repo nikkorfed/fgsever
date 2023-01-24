@@ -45,7 +45,7 @@ function requestCarImages($vin) {
 
   $html = json_decode($html, true);
 
-  // Если изображений нет, то выдавать { error: "images-not-found" }
+  if (isset($html['error'])) return [ 'error' => 'images-not-found' ];
 
   $protocol = !empty($_SERVER['HTTPS']) ? 'https://' : 'http://';
   $host = $_SERVER['HTTP_HOST'];
