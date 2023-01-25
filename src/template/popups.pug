@@ -244,6 +244,16 @@
   p Мы занимаемся дооснащением только автомобилей BMW F и G серий. Например, BMW с обозначением кузова F30, F15, G30 и так далее. 
   .button(data-fancybox-close) Понятно
 
+.popup.appointment#car-is-not-supported-yet
+  .icon.popup__icon.important-black
+  h3 Дооснащение данного автомобиля в разработке
+  p Мы пока не можем предложить точный расчёт стоимости дооснащения для данного автомобиля, так как он находится в разработке. Вы можете оставить запрос на дооснащение в форме ниже.
+  form.form-upgrade-appointment
+    input.input(type='text' name='name' placeholder='Фамилия, имя и отчество' required)
+    input.input(type='text' name='phone' data-mask='+7 (000) 000-00-00' placeholder='Телефон' required)
+    input(type='hidden' name='details')
+    button.button Отправить
+
 .popup#individual-calculation
   .icon.popup__icon.important-black
   h3 Дооснащение данного автомобиля производится индивидуально

@@ -159,6 +159,10 @@ function main () {
     header('content-type: application/json; charset=UTF-8');
     echo json_encode([ 'error' => 'car-is-not-supported' ], JSON_UNESCAPED_UNICODE);
     return;
+  } else if ($productionDate >= strtotime('01.08.2022') && $modelCode == 'G07') {
+    header('content-type: application/json; charset=UTF-8');
+    echo json_encode([ 'error' => 'car-is-not-supported-yet' ], JSON_UNESCAPED_UNICODE);
+    return;
   } else if ($productionDate < strtotime('01.03.2013') && ($modelCode == 'F06' || $modelCode == 'F10' || $modelCode == 'F12' || $modelCode == 'F13' || $modelCode == 'F25')) {
     header('content-type: application/json; charset=UTF-8');
     echo json_encode([ 'error' => 'individual-calculation', 'series' => $series, 'model' => $model ], JSON_UNESCAPED_UNICODE);

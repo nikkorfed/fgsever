@@ -243,18 +243,28 @@ function requestUpgradeOptions(carInfo) {
       } else if (result.error == "limit-exceeded") {
         $("#upgrade-calculator .calculator-result .categories").hide();
         $("#upgrade-calculator .calculator-result .upgrade-options").hide();
+        $("#upgrade-calculator .calculator-result .block").hide();
         $("#upgrade-calculator .calculator-result .summary-costs").hide();
         setTimeout(() => $.fancybox.open({ src: "#limit-exceeded", opts: { modal: true } }), 300);
         return;
       } else if (result.error == "car-is-not-supported") {
         $("#upgrade-calculator .calculator-result .categories").hide();
         $("#upgrade-calculator .calculator-result .upgrade-options").hide();
+        $("#upgrade-calculator .calculator-result .block").hide();
         $("#upgrade-calculator .calculator-result .summary-costs").hide();
         setTimeout(() => $.fancybox.open({ src: "#car-is-not-supported", opts: { modal: true } }), 300);
+        return;
+      } else if (result.error == "car-is-not-supported-yet") {
+        $("#upgrade-calculator .calculator-result .categories").hide();
+        $("#upgrade-calculator .calculator-result .upgrade-options").hide();
+        $("#upgrade-calculator .calculator-result .block").hide();
+        $("#upgrade-calculator .calculator-result .summary-costs").hide();
+        setTimeout(() => $.fancybox.open({ src: "#car-is-not-supported-yet" }), 300);
         return;
       } else if (result.error == "individual-calculation") {
         $("#upgrade-calculator .calculator-result .categories").hide();
         $("#upgrade-calculator .calculator-result .upgrade-options").hide();
+        $("#upgrade-calculator .calculator-result .block").hide();
         $("#upgrade-calculator .calculator-result .summary-costs").hide();
         $("#individual-calculation .link").attr("href", `/services/upgrade/${result.series}/${result.model}/#services-options`);
         setTimeout(() => $.fancybox.open({ src: "#individual-calculation", opts: { modal: true } }), 300);
