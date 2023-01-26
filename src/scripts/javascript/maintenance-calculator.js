@@ -1,5 +1,3 @@
-import { hideSpecialButtons } from "./footer.js";
-
 // Подбор запчастей при передаче данных в адресе страницы
 if (window.location.search && $("#maintenance-calculator").length) {
   let params = new URL(window.location.href).searchParams;
