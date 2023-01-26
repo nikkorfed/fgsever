@@ -32,6 +32,13 @@ if (isset($_REQUEST['vin']) && isset($_REQUEST['mileage'])) {
     $maintenanceLink = "http://185.20.226.75:3001/maintenance/$vin";
     $maintenance = json_decode(file_get_html($maintenanceLink), true);
 
+    // Если не найдены запчасти для ТО
+    if (isset($maintenance['error'])) {
+      header('content-type: application/json; charset=UTF-8');
+      echo json_encode([ 'error' => 'parts-not-found' ], JSON_UNESCAPED_UNICODE);
+      return;
+    }
+
     if ($maintenance['motorOil']) $motorOilQuantity = $maintenance['motorOil']['quantity'];
     if ($maintenance['oilFilter']) $oilFilterNumber = $maintenance['oilFilter']['partNumber'];
     if ($maintenance['sparkPlug']) {
