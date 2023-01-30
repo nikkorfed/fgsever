@@ -1,4 +1,4 @@
-section.calculator#maintenance-calculator
+section.calculator.with-text#maintenance-calculator
   .wrapper
     .titles
       .icon.calculator-color
@@ -12,7 +12,7 @@ section.calculator#maintenance-calculator
         input.input#vin-number(type="text" placeholder="VIN-номер (7 или 17 знаков)" required)
       .input-field
         input.input#mileage(type="text" placeholder="Пробег, км" required)
-      button.button(onclick="ym(56693602,'reachGoal','upgradeCalculation'); return true;") Рассчитать
+      button.button(onclick="ym(56693602,'reachGoal','maintenanceCalculation'); return true;") Рассчитать
     .calculator-result
       .car-info
         .columns
@@ -66,4 +66,3 @@ section.calculator#maintenance-calculator
               .value
       .button-area
         .button(data-fancybox data-src='#maintenance-appointment' data-touch='false') Записаться на обслуживание
-

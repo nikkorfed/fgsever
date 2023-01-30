@@ -126,7 +126,7 @@ function vinCorrect() {
 // Основная функция, запускающая поиск деталей для обслуживания
 function requestCarInfo(admin = false) {
   // Применение режима админа
-  if (admin) $("#maintenance-calculator").addClass("with-numbers with-text");
+  if (admin) $("#maintenance-calculator").addClass("with-numbers");
 
   // Скрытие быстрых кнопок
   hideSpecialButtons();
