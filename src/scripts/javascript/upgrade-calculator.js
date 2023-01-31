@@ -9,7 +9,7 @@ if (window.location.search && $("#upgrade-calculator").length) {
   });
   if (result["vin"] !== undefined) {
     $("#upgrade-calculator").find("#vin-number").val(result["vin"]);
-    requestCarInfo();
+    if (vinCorrect()) requestCarInfo();
   }
 }
 
@@ -18,9 +18,7 @@ $("#upgrade-calculator")
   .find(".car-data-input")
   .on("submit", function (e) {
     e.preventDefault();
-    if (vinCorrect()) {
-      requestCarInfo();
-    }
+    if (vinCorrect()) requestCarInfo();
   });
 
 // Переход на страницу с подробным описанием опции
@@ -41,13 +39,22 @@ $(".popup").on("click", "[data-action=go-to-calculator]", () => {
 
 // --- Основные функции --- //
 
+// Проверка правильности ввода VIN
 function vinCorrect() {
   $(".error_vin-number").remove();
-  if ($("#vin-number").val().length == 7 || $("#vin-number").val().length == 17) {
-    return true;
-  } else {
+
+  let vin = $("#vin-number").val();
+  let properLength = vin.length == 7 || vin.length == 17;
+  let latinLetters = vin.match(/^[A-Za-z\d]+$/);
+
+  if (!properLength) {
     $("#vin-number").after('<div class="input-field__error error_vin-number">Необходимо ввести 7 или 17 знаков</div>');
     return false;
+  } else if (!latinLetters) {
+    $("#vin-number").after('<div class="input-field__error error_vin-number">Необходимо использовать латинские буквы</div>');
+    return false;
+  } else {
+    return true;
   }
 }
 
