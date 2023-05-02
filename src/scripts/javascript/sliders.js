@@ -5,6 +5,7 @@ $(".slider-container").owlCarousel({
   autoplay: true,
   autoplayHoverPause: true,
   smartSpeed: 500,
+  autoplayTimeout: 8000,
   stageOuterClass: "slider-stage-outer",
   stageClass: "slider-stage",
   itemElement: 'div class="slider-item-wrapper"',
