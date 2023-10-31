@@ -1,0 +1,33 @@
+extends /layout.pug
+
+block variables
+  - var name = 'main_wheel-alignment';
+  - var section = 'Услуга';
+  - var title = 'Сход-развал BMW';
+  - var seoTitle = title + ' в Москве | Автосервис BMW «FGSEVER»';
+  - var subtitle = 'Услуги по регулировке развала-схождения BMW в Москве — регулировка основных параметров углов установки колес, таких как развал, схождение и кастер, влияющих на управляемость и стабильность автомобиля на дороге.';
+  - var path = {'/services/': 'Услуги', '/services/maintenance/': 'Техническое обслуживание', '': 'Сход-развал'};
+  - var button = ['popup', '#maintenance-appointment', 'Записаться на сход-развал'];
+
+block content
+  +main({ name, path, section, title, subtitle, button })
+  include /maintenance/description/wheel-alignment
+  section.prices
+    .wrapper
+      .titles
+        .overtitle Об услуге
+        h2 Стоимость
+      .block
+        .table-wrapper
+          .table
+            table
+              tr.table-header
+                td Услуга
+                td Стоимость
+              tr
+                td Регулировка сход-развала
+                td По запросу
+  include /appointment
+  include /about/advantages
+  +about
+  include /contacts
