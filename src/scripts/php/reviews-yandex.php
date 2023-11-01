@@ -2,7 +2,7 @@
 
 include_once 'libraries/phpQuery.php';
 
-$businessId = '173308668414';
+$businessId = '230081050482';
 
 setlocale(LC_TIME, 'ru_RU.UTF-8');
 
@@ -20,7 +20,7 @@ $data = [
 	'url' => $url,
 	'quantity' => $quantity,
 	'stars' => $stars,
-	'rating' => str_replace(',', '.', $rating),
+	'rating' => str_replace('Рейтинг ', '', str_replace(',', '.', $rating)),
 	'addReviewUrl' => $addReviewUrl,
 	'reviews' => []
 ];
