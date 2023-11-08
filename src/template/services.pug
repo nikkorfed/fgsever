@@ -6,7 +6,7 @@ mixin services({ suffix } = {})
         .overtitle Наши услуги
         h2 Основные направления
       .columns
-        .col-12
+        .col-lg-6
           .services-item
             .services-item__content
               .services-item__text
@@ -15,6 +15,15 @@ mixin services({ suffix } = {})
                   h3 Русификация автомобилей
                 .subtitle.services-item__subtitle.max-width Добавление русского языка в меню, установка российских карт в систему навигации, адаптация единиц измерения температуры и давления колес, частоты радиостанций и системы считывания дорожных знаков.
               a.button-simple(href='/services/russification/') Подробнее
+        .col-lg-6
+          .services-item
+            .services-item__content
+              .services-item__text
+                .services-item__caption Новая услуга!
+                .services-item__title
+                  h3 Мойка автомобиля
+                .subtitle.services-item__subtitle.max-width Бесконтактная, трехфазная и комплексная мойка, уборка салона и багажного отделения пылесосом, очистка сидений и стекол, удаление битумных пятен, чернение резины, нанесение антидождя на стекла и т. д.
+              a.button-simple(href='/services/car-wash/') Подробнее
         .col-lg-6
           .services-item
             .services-item__content

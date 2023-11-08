@@ -1,0 +1,19 @@
+extends /layout.pug
+
+block variables
+  - var name = 'main_car-wash';
+  - var section = 'Услуга';
+  - var title = 'Мойка автомобиля';
+  - var seoTitle = title + ' BMW в Москве | Автосервис BMW «FGSEVER»';
+  - var subtitle = 'Услуги по мойке BMW в Москве — бесконтактная, трехфазная и комплексная мойка, уборка салона и багажного отделения пылесосом, очистка сидений и стекол, удаление битумных пятен, чернение резины, нанесение антидождя на стекла и т. д.';
+  - var path = {'/services/': 'Услуги', '': 'Мойка автомобиля'};
+  - var button = ['popup', '#maintenance-appointment', 'Записаться на мойку'];
+
+block content
+  +main({ name, path, section, title, subtitle, button })
+  include /car-wash/description
+  include /car-wash/prices
+  include /appointment
+  include /about/advantages
+  +about
+  include /contacts
