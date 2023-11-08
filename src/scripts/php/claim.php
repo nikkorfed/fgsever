@@ -34,7 +34,7 @@ if (isset($_POST['form-claim-name']) && isset($_POST['form-claim-phone']) && iss
 
   // Параметры для отправки
   $mail->isSMTP();
-  $mail->Host = 'ssl://smtp.yandex.ru';
+  $mail->Host = 'ssl://mail.hosting.reg.ru';
   $mail->SMTPAuth = true;
   $mail->Username = 'info@fgsever.ru';
   $mail->Password = 'comandG06';
