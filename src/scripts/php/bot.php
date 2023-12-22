@@ -4,7 +4,7 @@ define('BOT_TOKEN', '1204592494:AAFQwGuvtIygZ_4gpu2QZsMxDYPrZgkJvug');
 define('API_URL', 'https://api.telegram.org/bot' . BOT_TOKEN . '/');
 
 // Список администраторов
-$admins = [ '426923021', '1287582209' ];
+$admins = [ '426923021', '1287582209', '1013059892' ];
 
 // Основное меню бота
 $menu = [
