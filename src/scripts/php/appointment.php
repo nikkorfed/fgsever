@@ -13,6 +13,7 @@ if (isset($_POST['name']) && isset($_POST['phone'])) {
 
   $from = 'info@fgsever.ru';
   $fromName = 'FGSEVER';
+  // $to = 'nikkorfed@gmail.com';
   $to = 'riverdale@inbox.ru';
   $blindCopyTo = 'nikkorfed@gmail.com';
   $subtitle = $_POST['service'];
@@ -409,6 +410,25 @@ if (isset($_POST['name']) && isset($_POST['phone'])) {
   if($mail->send()) {
     echo "Письмо было успешно отправлено.";
   }
+
+  // Отправка уведомления в Telegram
+
+  $ch = curl_init();
+
+  $data = [
+    'notifyDirectors' => '',
+    'token' => '1204592494:AAFQwGuvtIygZ_4gpu2QZsMxDYPrZgkJvug',
+    'text' => "*Заявка с сайта FGSEVER.*\n\n*ФИО:* $name\n*Телефон:* $phone\n*Услуга*: $subtitle",
+    'parameters' => [ 'parse_mode' => 'Markdown' ]
+  ];
+
+  curl_setopt($ch, CURLOPT_URL, "https://fgsever.ru/scripts/php/bot.php");
+  curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+  curl_setopt($ch, CURLOPT_POST, 1);
+  curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($data));
+
+  if (curl_exec($ch)) echo 'Уведомление администраторам в Telegram было успешно отправлено!';
+  curl_close($ch);
 
 }
 

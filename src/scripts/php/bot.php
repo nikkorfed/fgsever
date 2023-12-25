@@ -5,6 +5,7 @@ define('API_URL', 'https://api.telegram.org/bot' . BOT_TOKEN . '/');
 
 // Список администраторов
 $admins = [ '426923021', '1287582209', '1013059892' ];
+$directors = [ '426923021', '1013059892' ];
 
 // Основное меню бота
 $menu = [
@@ -53,12 +54,22 @@ if ($text == '/start') {
 
 }
 
-// Отправка уведомлений администраторам
+// Отправка уведомлений
+
+// Администраторам
 if (isset($_REQUEST['notifyAdmins']) && $_REQUEST['token'] == BOT_TOKEN) {
   $text = $_REQUEST['text'];
   $parameters = $_REQUEST['parameters'];
 
   foreach ($admins as $to) sendMessage($to, $text, $parameters);
+}
+
+// Управляющим
+if (isset($_REQUEST['notifyDirectors']) && $_REQUEST['token'] == BOT_TOKEN) {
+  $text = $_REQUEST['text'];
+  $parameters = $_REQUEST['parameters'];
+
+  foreach ($directors as $to) sendMessage($to, $text, $parameters);
 }
 
 // Вспомогательные функции
