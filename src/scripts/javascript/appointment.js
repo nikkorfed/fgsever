@@ -10,7 +10,7 @@ $(document).ready(function () {
 
 // Открытие всплывающего окна о работе в праздники
 $(document).ready(function () {
-  let expired = Date.now() > 1672693200000; // Начиная с 3 января 2023 года
+  let expired = Date.now() > 1704315600000; // Неактуально с 4 января 2024 года
   if ($.cookie("holidays-warning-closed") || expired) return;
   $.fancybox.open({
     src: "#holidays-warning",

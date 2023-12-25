@@ -427,7 +427,7 @@ if (isset($_POST['name']) && isset($_POST['phone'])) {
   curl_setopt($ch, CURLOPT_POST, 1);
   curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($data));
 
-  if (curl_exec($ch)) echo 'Уведомление администраторам в Telegram было успешно отправлено!';
+  if (curl_exec($ch)) echo 'Уведомление управляющим в Telegram было успешно отправлено!';
   curl_close($ch);
 
 }
