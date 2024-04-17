@@ -6,6 +6,7 @@ define('API_URL', 'https://api.telegram.org/bot' . BOT_TOKEN . '/');
 // Список администраторов
 $admins = [ '426923021', '1287582209', '1013059892' ];
 $directors = [ '426923021', '1013059892' ];
+$shinDirectors = [ '426923021', '6784771594' ];
 
 // Основное меню бота
 $menu = [
@@ -44,13 +45,13 @@ if ($text == '/start') {
   $users[$from] = $update['message']['from']['first_name'];
   if (!empty($update['message']['from']['last_name'])) $users[$from] .= ' ' . $update['message']['from']['last_name'];
 
-  sendMessage($from, "Добро пожаловать в бот автосервиса FGSEVER!\n\nЕсли вы являетесь администратором данного бота, вы будете получать уведомления о заявках и обращениях с сайтов FGSEVER и M72SEVER.", ['parse_mode' => 'Markdown']);
+  sendMessage($from, "Добро пожаловать в бот автосервиса FGSEVER!\n\nЕсли вы являетесь администратором данного бота, вы будете получать уведомления о заявках и обращениях с сайтов FGSEVER, M72SEVER и SHIN-SEVER.", ['parse_mode' => 'Markdown']);
 
   file_put_contents($_SERVER['DOCUMENT_ROOT'] . '/data/bot-users.json', json_encode($users, JSON_UNESCAPED_UNICODE+JSON_PRETTY_PRINT));
 
 } else if (isset($text)) {
 
-  sendMessage($from, "Если вы являетесь администратором данного бота, вы будете получать уведомления о заявках и обращениях с сайтов FGSEVER и M72SEVER.");
+  sendMessage($from, "Если вы являетесь администратором данного бота, вы будете получать уведомления о заявках и обращениях с сайтов FGSEVER, M72SEVER и SHIN-SEVER.");
 
 }
 
@@ -70,6 +71,14 @@ if (isset($_REQUEST['notifyDirectors']) && $_REQUEST['token'] == BOT_TOKEN) {
   $parameters = $_REQUEST['parameters'];
 
   foreach ($directors as $to) sendMessage($to, $text, $parameters);
+}
+
+// Управляющим шиномонтажа
+if (isset($_REQUEST['notifyShinDirectors']) && $_REQUEST['token'] == BOT_TOKEN) {
+  $text = $_REQUEST['text'];
+  $parameters = $_REQUEST['parameters'];
+
+  foreach ($shinDirectors as $to) sendMessage($to, $text, $parameters);
 }
 
 // Вспомогательные функции
