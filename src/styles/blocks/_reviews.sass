@@ -245,7 +245,7 @@
     color: $lightGrey
 
   &__positive
-    @extend .icon.thumbs-up-green
+    @extend .icon, .thumbs-up-green
     position: absolute
     right: 0
     height: 100%
@@ -256,7 +256,7 @@
 
   &__negative
     @extend .reviews-item__positive
-    @extend .icon.thumbs-down-red
+    @extend .icon, .thumbs-down-red
 
   &__text
     overflow-y: auto
