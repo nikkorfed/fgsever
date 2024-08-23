@@ -1,7 +1,7 @@
 const gulp = require("gulp"),
   pug = require("gulp-pug"),
   sourcemaps = require("gulp-sourcemaps"),
-  sass = require("gulp-sass")(require("node-sass")),
+  sass = require("gulp-sass")(require("sass")),
   postcss = require("gulp-postcss"),
   at2x = require("postcss-at2x"),
   autoprefixer = require("autoprefixer"),
