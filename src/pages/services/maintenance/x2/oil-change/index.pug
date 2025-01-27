@@ -25,6 +25,9 @@ block content
               tr.table-header
                 td Услуга
                 td Стоимость
+              tr 
+                td Замена моторного масла
+                td <? echo format_price($workPrices['x2']['motorOil']) ?>
               tr
                 td Замена масла в АКПП
                 td <? echo format_price($workPrices['x2']['gearBoxOil']) ?>

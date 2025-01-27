@@ -43,6 +43,9 @@ block content
                 td Услуга
                 td Стоимость
               tr 
+                td Замена моторного масла в БМВ #{series.modelDesc}
+                td <? echo format_price($workPrices['#{series.key}']['motorOil']) ?>
+              tr 
                 td Замена масла в АКПП БМВ #{series.modelDesc}
                 td <? echo format_price($workPrices['#{series.key}']['gearBoxOil']) ?>
               tr
