@@ -178,7 +178,8 @@ function main () {
     $currentOptionsCodes = array_keys($currentOptions['factory']);
   }
 
-  // $currentOptionsCodes = [];
+  function toString ($value) { return strval($value); }
+  $currentOptionsCodes = array_map('toString', $currentOptionsCodes);
 
   // Запрос данных из таблицы
   $ch = curl_init();
