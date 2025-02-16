@@ -26,16 +26,16 @@ block content
                 td Стоимость
               tr
                 td Проверка углов установки колёс
-                td 1 500 ₽
+                td <? echo format_price($workPrices['wheel-alignment']['check']) ?>
               tr
                 td Регулировка углов установки колёс (F кузова)
-                td 6 500 ₽
+                td <? echo format_price($workPrices['wheel-alignment']['f-series']) ?>
               tr
                 td Регулировка углов установки колёс (G кузова, легковые модели)
-                td 7 000 ₽
+                td <? echo format_price($workPrices['wheel-alignment']['g-series-sedans']) ?>
               tr
                 td Регулировка углов установки колёс (G кузова, кроссоверы)
-                td 7 500 ₽
+                td <? echo format_price($workPrices['wheel-alignment']['g-series-x']) ?>
   include /appointment
   include /about/advantages
   +about
