@@ -3,12 +3,13 @@ var tempScroll = 0,
   currentScroll;
 $(window).on("scroll", function () {
   currentScroll = $(this).scrollTop();
+  var activateThreshold = ($(window).width() > 1251 && 90) || ($(window).width() < 992 && 100) || 122;
   // if ($(document).width() < 768) {
   if (currentScroll > tempScroll) {
     if (currentScroll > 0) {
       $(".header-mobile").addClass("white");
     }
-    if (currentScroll > 90) {
+    if (currentScroll > activateThreshold) {
       $(".header-mobile").addClass("hidden");
       $(".header-mobile__menu").removeClass("active");
       $(".overlay").removeClass("active");

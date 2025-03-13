@@ -3,18 +3,18 @@ extends /layout.pug
 block variables
   - var name = 'main_upgrade-g-series';
   - var section = 'Услуга';
-  - var title = 'Дооснащение BMW X3';
-  - var models = 'G45, G01, F97';
-  - var seoTitle = 'Дооснащение BMW X3 (' + models + ') в Москве | Автосервис BMW «FGSEVER»';
+  - var title = 'Дооснащение BMW iX';
+  - var models = 'I20';
+  - var seoTitle = 'Дооснащение BMW iX (' + models + ') в Москве | Автосервис BMW «FGSEVER»';
   - var subtitle = 'Установка мультимедийной системы, цифровой комбинации приборов, проекционного дисплея, камеры KAFAS, активного круиз-контроля, ассистентов парковки и вождения, системы кругового обзора, комфортного доступа и других опций.';
-  - var path = {'/services/': 'Услуги', '/services/upgrade/': 'Дооснащение', '/services/upgrade/g-series/': 'G&nbsp;серия', '': 'X3'};
+  - var path = {'/services/': 'Услуги', '/services/upgrade/': 'Дооснащение', '/services/upgrade/g-series/': 'G&nbsp;серия', '': 'iX'};
   - var button = ['popup', '#upgrade-appointment', 'Записаться на дооснащение'];
 
 block content
   +main({ name, path, section, title, subtitle, button, models })
   //- include /warning
   include /upgrade/calculator
-  section.services.options#services-options
+  //- section.services.options#services-options
     .wrapper
       .titles
         .overtitle Наши услуги

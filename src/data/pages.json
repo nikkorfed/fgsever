@@ -3,14 +3,15 @@
     {
       "key": "1-series",
       "name": "BMW 1",
-      "image": "f40",
+      "image": "f70",
       "models": [
+        { "key": "f70", "codes": "F70" },
         { "key": "f40", "codes": "F40" },
         { "key": "f20", "codes": "F20/F21" },
         { "key": "e81", "codes": "E81/E82/E87/E88" }
       ],
-      "model": "F20,E87,E82,E81,E88",
-      "modelDesc": "F20, F21, E87, E82, E81, E88 - 1 серия"
+      "model": "F70,F40,F20,E87,E82,E81,E88",
+      "modelDesc": "F70, F40, F20, F21, E87, E82, E81, E88 - 1 серия"
     },
     {
       "key": "2-series",
@@ -18,6 +19,8 @@
       "image": "g42",
       "models": [
         { "key": "g42", "codes": "G42" },
+        { "key": "u06", "codes": "U06" },
+        { "key": "f74", "codes": "F74" },
         { "key": "f44", "codes": "F44" },
         { "key": "f22", "codes": "F22/F23" },
         { "key": "f45", "codes": "F45/F46" }
@@ -51,8 +54,9 @@
     {
       "key": "5-series",
       "name": "BMW 5",
-      "image": "g30",
+      "image": "g60",
       "models": [
+        { "key": "g60", "codes": "G60/G61" },
         { "key": "g30", "codes": "G30/G31" },
         { "key": "f10", "codes": "F10/F11/F07" },
         { "key": "e60", "codes": "E60/E61" }
@@ -75,8 +79,9 @@
     {
       "key": "7-series",
       "name": "BMW 7",
-      "image": "g12",
+      "image": "g70",
       "models": [
+        { "key": "g70", "codes": "G70/G73" },
         { "key": "g11", "codes": "G11/G12", "image": "g12" },
         { "key": "f01", "codes": "F01/F02" },
         { "key": "e65", "codes": "E65/E66" }
@@ -95,8 +100,9 @@
     {
       "key": "x1",
       "name": "BMW X1",
-      "image": "f48",
+      "image": "u11",
       "models": [
+        { "key": "u11", "codes": "U11" },
         { "key": "f48", "codes": "F48" },
         { "key": "e84", "codes": "E84" }
       ],
@@ -106,16 +112,20 @@
     {
       "key": "x2",
       "name": "BMW X2",
-      "image": "f39",
-      "models": [{ "key": "f39", "codes": "F39" }],
+      "image": "u10",
+      "models": [
+        { "key": "u10", "codes": "U10" },
+        { "key": "f39", "codes": "F39" }
+      ],
       "model": "Х2 F39",
       "modelDesc": "X2 F39"
     },
     {
       "key": "x3",
       "name": "BMW X3",
-      "image": "g01",
+      "image": "g45",
       "models": [
+        { "key": "g45", "codes": "G45" },
         { "key": "g01", "codes": "G01" },
         { "key": "f25", "codes": "F25" },
         { "key": "e83", "codes": "E83" }
@@ -167,6 +177,14 @@
       "modelDesc": "Х7 G07"
     },
     {
+      "key": "xm",
+      "name": "BMW XM",
+      "image": "g09",
+      "models": [{ "key": "g09", "codes": "G09" }],
+      "model": "XM G09",
+      "modelDesc": "ХM G09"
+    },
+    {
       "key": "z4",
       "name": "BMW Z4",
       "image": "g29",
@@ -177,6 +195,73 @@
       ],
       "model": "Z4 G29,E89,E85,E86",
       "modelDesc": "Z4 G29, E89, E85, E86"
+    },
+    {
+      "key": "i3",
+      "name": "BMW i3",
+      "image": "g28",
+      "models": [
+        { "key": "g28", "codes": "G28" },
+        { "key": "i01", "codes": "I01" }
+      ],
+      "model": "i3 G28,I01",
+      "modelDesc": "i3 G28, I01"
+    },
+    {
+      "key": "i4",
+      "name": "BMW i4",
+      "image": "g26",
+      "models": [{ "key": "g26", "codes": "G26" }],
+      "model": "i4 G26",
+      "modelDesc": "i4 G26"
+    },
+    {
+      "key": "i5",
+      "name": "BMW i5",
+      "image": "g60",
+      "models": [{ "key": "g60", "codes": "G60/G61" }],
+      "model": "i5 G60,G61",
+      "modelDesc": "i5 G60, G61"
+    },
+    {
+      "key": "i7",
+      "name": "BMW i7",
+      "image": "g70",
+      "models": [{ "key": "g70", "codes": "G70" }],
+      "model": "i7 G70",
+      "modelDesc": "i7 G70"
+    },
+    {
+      "key": "ix1",
+      "name": "BMW iX1",
+      "image": "u11",
+      "models": [{ "key": "u11", "codes": "U11" }],
+      "model": "iX1 U11",
+      "modelDesc": "iX1 U11"
+    },
+    {
+      "key": "iX2",
+      "name": "BMW iX2",
+      "image": "u10",
+      "models": [{ "key": "u10", "codes": "U10" }],
+      "model": "iX2 U10",
+      "modelDesc": "iX2 U10"
+    },
+    {
+      "key": "iX3",
+      "name": "BMW iX3",
+      "image": "g08",
+      "models": [{ "key": "g08", "codes": "G08" }],
+      "model": "iX3 G08",
+      "modelDesc": "iX3 G08"
+    },
+    {
+      "key": "iX",
+      "name": "BMW iX",
+      "image": "i20",
+      "models": [{ "key": "i20", "codes": "I20" }],
+      "model": "iX I20",
+      "modelDesc": "iX I20"
     }
   ],
   "maintenances": [

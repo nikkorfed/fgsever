@@ -3,11 +3,11 @@ extends /layout.pug
 block variables
   - var name = 'main_upgrade-g-series';
   - var section = 'Услуга';
-  - var title = 'Дооснащение BMW 2 серии';
-  - var models = 'G42, G87, U06, F74, F44';
-  - var seoTitle = 'Дооснащение BMW 2 серии (' + models + ') в Москве | Автосервис BMW «FGSEVER»';
+  - var title = 'Дооснащение BMW 4 серии';
+  - var models = 'G22/G23/G26';
+  - var seoTitle = 'Дооснащение BMW 4 серии (' + models + ') в Москве | Автосервис BMW «FGSEVER»';
   - var subtitle = 'Установка мультимедийной системы, цифровой комбинации приборов, проекционного дисплея, камеры KAFAS, активного круиз-контроля, ассистентов парковки и вождения, системы кругового обзора, комфортного доступа и других опций.';
-  - var path = {'/services/': 'Услуги', '/services/upgrade/': 'Дооснащение', '/services/upgrade/g-series/': 'G&nbsp;серия', '': '2 серия'};
+  - var path = {'/services/': 'Услуги', '/services/upgrade/': 'Дооснащение', '/services/upgrade/g-series/': 'G&nbsp;серия', '': '4 серия'};
   - var button = ['popup', '#upgrade-appointment', 'Записаться на дооснащение'];
 
 block content
@@ -33,17 +33,27 @@ block content
       .columns
         .col-sm-6.col-lg-4.col-xl-3.active(data-target='multimedia')
           .services-item
-            img(src='/images/services/upgrade/g-series/2-series/live-cockpit-professional-min.jpg' srcset='/images/services/upgrade/g-series/2-series/live-cockpit-professional-min@2x.jpg 1.5x')
+            img(src='/images/services/upgrade/g-series/3-series/extended-cockpit-min.jpg' srcset='/images/services/upgrade/g-series/3-series/extended-cockpit-min@2x.jpg 1.5x')
+            .services-item__content
+              .services-item__text
+                h3 Расширенная комбинация приборов
+                .subtitle.services-item__subtitle Расширенная комбинация приборов с увеличенным дисплеем и поддержкой трёх режимов: Eco Pro, Comfort и Sport
+              .services-item__meta
+                .services-item__price 35 000 ₽
+                .button-simple Подробнее
+        .col-sm-6.col-lg-4.col-xl-3.active(data-target='multimedia')
+          .services-item
+            img(src='/images/services/upgrade/g-series/3-series/live-cockpit-professional-min.jpg' srcset='/images/services/upgrade/g-series/3-series/live-cockpit-professional-min@2x.jpg 1.5x')
             .services-item__content
               .services-item__text
                 h3 BMW Live Cockpit Professional
                 .subtitle.services-item__subtitle Полностью цифровая комбинация приборов с экраном 12.3", а также увеличенный информационный сенсорный дисплей с диагональю 10.25"
               .services-item__meta
-                .services-item__price 400 000 ₽
+                .services-item__price 400 000 Р
                 .button-simple Подробнее
         .col-sm-6.col-lg-4.col-xl-3.active(data-target='multimedia')
           .services-item
-            img(src='/images/services/upgrade/g-series/2-series/head-up-display-min.jpg' srcset='/images/services/upgrade/g-series/2-series/head-up-display-min@2x.jpg 1.5x')
+            img(src='/images/services/upgrade/g-series/3-series/head-up-display-min.jpg' srcset='/images/services/upgrade/g-series/3-series/head-up-display-min@2x.jpg 1.5x')
             .services-item__content
               .services-item__text
                 h3 Проекционный дисплей
@@ -53,7 +63,7 @@ block content
                 .button-simple Подробнее
         .col-sm-6.col-lg-4.col-xl-3.active(data-target='multimedia')
           .services-item
-            img(src='/images/services/upgrade/g-series/2-series/hifi-sound-system-min.jpg' srcset='/images/services/upgrade/g-series/2-series/hifi-sound-system-min@2x.jpg 1.5x')
+            img(src='/images/services/upgrade/g-series/3-series/hifi-sound-system-min.jpg' srcset='/images/services/upgrade/g-series/3-series/hifi-sound-system-min@2x.jpg 1.5x')
             .services-item__content
               .services-item__text
                 h3 Аудиосистема Hi-Fi
@@ -63,7 +73,7 @@ block content
                 .button-simple Подробнее
         .col-sm-6.col-lg-4.col-xl-3.active(data-target='multimedia')
           .services-item
-            img(src='/images/services/upgrade/g-series/2-series/harman-kardon-sound-system-min.jpg' srcset='/images/services/upgrade/g-series/2-series/harman-kardon-sound-system-min@2x.jpg 1.5x')
+            img(src='/images/services/upgrade/g-series/3-series/harman-kardon-sound-system-min.jpg' srcset='/images/services/upgrade/g-series/3-series/harman-kardon-sound-system-min@2x.jpg 1.5x')
             .services-item__content
               .services-item__text
                 h3 Аудиосистема Harman/Kardon
@@ -73,7 +83,7 @@ block content
                 .button-simple Подробнее
         .col-sm-6.col-lg-4.col-xl-3.active(data-target='multimedia')
           .services-item
-            img(src='/images/services/upgrade/g-series/2-series/wireless-charging-min.jpg' srcset='/images/services/upgrade/g-series/2-series/wireless-charging-min@2x.jpg 1.5x')
+            img(src='/images/services/upgrade/g-series/3-series/wireless-charging-min.jpg' srcset='/images/services/upgrade/g-series/3-series/wireless-charging-min@2x.jpg 1.5x')
             .services-item__content
               .services-item__text
                 h3 Беспроводное зарядное устройство
@@ -83,7 +93,7 @@ block content
                 .button-simple Подробнее
         .col-sm-6.col-lg-4.col-xl-3.active(data-target='multimedia')
           .services-item
-            img(src='/images/services/upgrade/g-series/2-series/gesture-control-min.jpg' srcset='/images/services/upgrade/g-series/2-series/gesture-control-min@2x.jpg 1.5x')
+            img(src='/images/services/upgrade/g-series/3-series/gesture-control-min.jpg' srcset='/images/services/upgrade/g-series/3-series/gesture-control-min@2x.jpg 1.5x')
             .services-item__content
               .services-item__text
                 h3 Система управления жестами
@@ -93,7 +103,7 @@ block content
                 .button-simple Подробнее
         .col-sm-6.col-lg-4.col-xl-3.active(data-target='multimedia')
           .services-item
-            img(src='/images/services/upgrade/g-series/2-series/apple-carplay-min.jpg' srcset='/images/services/upgrade/g-series/2-series/apple-carplay-min@2x.jpg 1.5x')
+            img(src='/images/services/upgrade/g-series/3-series/apple-carplay-min.jpg' srcset='/images/services/upgrade/g-series/3-series/apple-carplay-min@2x.jpg 1.5x')
             .services-item__content
               .services-item__text
                 h3 Активация Apple CarPlay
@@ -103,7 +113,7 @@ block content
                 .button-simple Подробнее
         .col-sm-6.col-lg-4.col-xl-3.active(data-target='multimedia')
           .services-item
-            img(src='/images/services/upgrade/g-series/2-series/android-auto-min.jpg' srcset='/images/services/upgrade/g-series/2-series/android-auto-min@2x.jpg 1.5x')
+            img(src='/images/services/upgrade/g-series/3-series/android-auto-min.jpg' srcset='/images/services/upgrade/g-series/3-series/android-auto-min@2x.jpg 1.5x')
             .services-item__content
               .services-item__text
                 h3 Активация Android Auto
@@ -113,7 +123,7 @@ block content
                 .button-simple Подробнее
         .col-sm-6.col-lg-4.col-xl-3.active(data-target='assistants')
           .services-item
-            img(src='/images/services/upgrade/g-series/2-series/parking-assistant-min.jpg' srcset='/images/services/upgrade/g-series/2-series/parking-assistant-min@2x.jpg 1.5x')
+            img(src='/images/services/upgrade/g-series/3-series/parking-assistant-min.jpg' srcset='/images/services/upgrade/g-series/3-series/parking-assistant-min@2x.jpg 1.5x')
             .services-item__content
               .services-item__text
                 h3 Ассистент парковки
@@ -123,7 +133,17 @@ block content
                 a.button-simple(href='/services/upgrade/g-series/parking-assistant/') Подробнее
         .col-sm-6.col-lg-4.col-xl-3.active(data-target='assistants')
           .services-item
-            img(src='/images/services/upgrade/g-series/2-series/road-signs-detection-min.jpg' srcset='/images/services/upgrade/g-series/2-series/road-signs-detection-min@2x.jpg 1.5x')
+            img(src='/images/services/upgrade/g-series/3-series/parking-assistant-plus-min.jpg' srcset='/images/services/upgrade/g-series/3-series/parking-assistant-plus-min@2x.jpg 1.5x')
+            .services-item__content
+              .services-item__text
+                h3 Ассистент парковки Plus
+                .subtitle.services-item__subtitle Система кругового обзора, включая вид сверху и 3D-обзор, сигнализация аварийного сближения и ассистент парковки и движения задним ходом
+              .services-item__meta
+                .services-item__price от 90 000 ₽
+                a.button-simple(href='/services/upgrade/g-series/parking-assistant/') Подробнее
+        .col-sm-6.col-lg-4.col-xl-3.active(data-target='assistants')
+          .services-item
+            img(src='/images/services/upgrade/g-series/3-series/road-signs-detection-min.jpg' srcset='/images/services/upgrade/g-series/3-series/road-signs-detection-min@2x.jpg 1.5x')
             .services-item__content
               .services-item__text
                 h3 Чтение дорожных знаков
@@ -133,7 +153,7 @@ block content
                 a.button-simple(href='/services/upgrade/g-series/road-signs-detection/') Подробнее
         .col-sm-6.col-lg-4.col-xl-3.active(data-target='assistants')
           .services-item
-            img(src='/images/services/upgrade/g-series/2-series/active-guard-min.jpg' srcset='/images/services/upgrade/g-series/2-series/active-guard-min@2x.jpg 1.5x')
+            img(src='/images/services/upgrade/g-series/3-series/active-guard-min.jpg' srcset='/images/services/upgrade/g-series/3-series/active-guard-min@2x.jpg 1.5x')
             .services-item__content
               .services-item__text
                 h3 Active Guard
@@ -143,7 +163,7 @@ block content
                 a.button-simple(href='/services/upgrade/g-series/active-guard/') Подробнее
         .col-sm-6.col-lg-4.col-xl-3.active(data-target='assistants')
           .services-item
-            img(src='/images/services/upgrade/g-series/2-series/driving-assistant-min.jpg' srcset='/images/services/upgrade/g-series/2-series/driving-assistant-min@2x.jpg 1.5x')
+            img(src='/images/services/upgrade/g-series/3-series/driving-assistant-min.jpg' srcset='/images/services/upgrade/g-series/3-series/driving-assistant-min@2x.jpg 1.5x')
             .services-item__content
               .services-item__text
                 h3 Ассистент вождения
@@ -153,7 +173,7 @@ block content
                 .button-simple Подробнее
         .col-sm-6.col-lg-4.col-xl-3.active(data-target='assistants')
           .services-item
-            img(src='/images/services/upgrade/g-series/2-series/active-cruise-control-min.jpg' srcset='/images/services/upgrade/g-series/2-series/active-cruise-control-min@2x.jpg 1.5x')
+            img(src='/images/services/upgrade/g-series/3-series/active-cruise-control-min.jpg' srcset='/images/services/upgrade/g-series/3-series/active-cruise-control-min@2x.jpg 1.5x')
             .services-item__content
               .services-item__text
                 h3 Активный круиз-контроль c функцией Stop&Go
@@ -161,6 +181,16 @@ block content
               .services-item__meta
                 .services-item__price от 140 000 ₽
                 a.button-simple(href='/services/upgrade/g-series/active-cruise-control') Подробнее
+        .col-sm-6.col-lg-4.col-xl-3.active(data-target='assistants')
+          .services-item
+            img(src='/images/services/upgrade/g-series/3-series/driving-assistant-professional-min.jpg' srcset='/images/services/upgrade/g-series/3-series/driving-assistant-professional-min@2x.jpg 1.5x')
+            .services-item__content
+              .services-item__text
+                h3 Ассистент вождения Professional
+                .subtitle.services-item__subtitle Активный круиз-контроль с функцией Stop&Go, полный набор ассистентов, а также возможность системы взять управление на себя в случае недомогания водителя
+              .services-item__meta
+                .services-item__price 700 000 ₽
+                .button-simple Подробнее
         .col-sm-6.col-lg-4.col-xl-3.active(data-target='safety')
           .services-item
             img(src='/images/services/upgrade/g-series/3-series/extra-package-eu-min.jpg' srcset='/images/services/upgrade/g-series/3-series/extra-package-eu-min@2x.jpg 1.5x')
@@ -183,7 +213,7 @@ block content
                 .button-simple Подробнее
         .col-sm-6.col-lg-4.col-xl-3.active(data-target='lighting')
           .services-item
-            img(src='/images/services/upgrade/g-series/2-series/high-beam-assistant-min.jpg' srcset='/images/services/upgrade/g-series/2-series/high-beam-assistant-min@2x.jpg 1.5x')
+            img(src='/images/services/upgrade/g-series/3-series/high-beam-assistant-min.jpg' srcset='/images/services/upgrade/g-series/3-series/high-beam-assistant-min@2x.jpg 1.5x')
             .services-item__content
               .services-item__text
                 h3 Система управления дальним светом
@@ -193,7 +223,7 @@ block content
                 .button-simple Подробнее
         .col-sm-6.col-lg-4.col-xl-3.active(data-target='lighting')
           .services-item
-            img(src='/images/services/upgrade/g-series/2-series/led-fog-lights-min.jpg' srcset='/images/services/upgrade/g-series/2-series/led-fog-lights-min@2x.jpg 1.5x')
+            img(src='/images/services/upgrade/g-series/3-series/led-fog-lights-min.jpg' srcset='/images/services/upgrade/g-series/3-series/led-fog-lights-min@2x.jpg 1.5x')
             .services-item__content
               .services-item__text
                 h3 Светодиодные противотуманные фары
@@ -203,17 +233,17 @@ block content
                 .button-simple Подробнее
         .col-sm-6.col-lg-4.col-xl-3.active(data-target='lighting')
           .services-item
-            img(src='/images/services/upgrade/g-series/2-series/adaptive-led-lights-min.jpg' srcset='/images/services/upgrade/g-series/2-series/adaptive-led-lights-min@2x.jpg 1.5x')
+            img(src='/images/services/upgrade/g-series/3-series/laser-lights-min.jpg' srcset='/images/services/upgrade/g-series/3-series/laser-lights-min@2x.jpg 1.5x')
             .services-item__content
               .services-item__text
-                h3 Адаптивные светодиодные фары
-                .subtitle.services-item__subtitle Измененяют форму светового луча в городе и по автомагистрали, освещают повороты, а также управляют дальним светом, чтобы не ослеплять других участников движения 
+                h3 Лазерные фары
+                .subtitle.services-item__subtitle Освещают дорогу на расстояние до 530 метров, что почти вдвое дальше, чем при использовании обычных фар. Имеют синие акценты и надпись "BMW Laser"
               .services-item__meta
-                .services-item__price 190 000 ₽
+                .services-item__price от 250 000 ₽
                 .button-simple Подробнее
         .col-sm-6.col-lg-4.col-xl-3.active(data-target='view')
           .services-item
-            img(src='/images/services/upgrade/g-series/2-series/rear-mirrors-package-min.jpg' srcset='/images/services/upgrade/g-series/2-series/rear-mirrors-package-min@2x.jpg 1.5x')
+            img(src='/images/services/upgrade/g-series/3-series/rear-mirrors-package-min.jpg' srcset='/images/services/upgrade/g-series/3-series/rear-mirrors-package-min@2x.jpg 1.5x')
             .services-item__content
               .services-item__text
                 h3 Пакет зеркал заднего вида
@@ -223,7 +253,7 @@ block content
                 .button-simple Подробнее
         .col-sm-6.col-lg-4.col-xl-3.active(data-target='view')
           .services-item
-            img(src='/images/services/upgrade/g-series/2-series/non-dazzling-internal-mirror-min.jpg' srcset='/images/services/upgrade/g-series/2-series/non-dazzling-internal-mirror-min@2x.jpg 1.5x')
+            img(src='/images/services/upgrade/g-series/3-series/non-dazzling-internal-mirror-min.jpg' srcset='/images/services/upgrade/g-series/3-series/non-dazzling-internal-mirror-min@2x.jpg 1.5x')
             .services-item__content
               .services-item__text
                 h3 Неослепляющее внутреннее зеркало заднего вида
@@ -233,37 +263,57 @@ block content
                 .button-simple Подробнее
         .col-sm-6.col-lg-4.col-xl-3.active(data-target='interior')
           .services-item
-            img(src='/images/services/upgrade/g-series/2-series/electro-lumbar-support-min.jpg' srcset='/images/services/upgrade/g-series/2-series/electro-lumbar-support-min@2x.jpg 1.5x')
+            img(src='/images/services/upgrade/g-series/3-series/acoustic-comfort-windows-min.jpg' srcset='/images/services/upgrade/g-series/3-series/acoustic-comfort-windows-min@2x.jpg 1.5x')
             .services-item__content
               .services-item__text
-                h3 Электрорегулируемая поддержка поясничного отдела спины
-                .subtitle.services-item__subtitle Поддержка поясничного отдела спины для сидений водителя и переднего пассажира оснащается электрорегулировкой по высоте и глубине
-              .services-item__meta
-                .services-item__price от 35 000 ₽
-                .button-simple Подробнее
-        .col-sm-6.col-lg-4.col-xl-3.active(data-target='interior')
-          .services-item
-            img(src='/images/services/upgrade/g-series/2-series/electro-driver-seat-min.jpg' srcset='/images/services/upgrade/g-series/2-series/electro-driver-seat-min@2x.jpg 1.5x')
-            .services-item__content
-              .services-item__text
-                h3 Электрорегулировка сиденья водителя с функцией памяти
-                .subtitle.services-item__subtitle Электрорегулировка отличается легкостью использования, а функция памяти позволяет водителю сохранять настройки положения сиденья
-              .services-item__meta
-                .services-item__price от 80 000 ₽
-                .button-simple Подробнее
-        .col-sm-6.col-lg-4.col-xl-3.active(data-target='interior')
-          .services-item
-            img(src='/images/services/upgrade/g-series/2-series/m-sport-front-seats-min.jpg' srcset='/images/services/upgrade/g-series/2-series/m-sport-front-seats-min@2x.jpg 1.5x')
-            .services-item__content
-              .services-item__text
-                h3 Передние сиденья M Sport
-                .subtitle.services-item__subtitle Имеют увеличенные валики боковой поддержки и оснащаются регулировками угла наклона и глубины сиденья, а также электрорегулировкой боковой поддержки
+                h3 Акустически-комфортное остекление
+                .subtitle.services-item__subtitle Двойное остекление передних боковых окон и ветрового стекла. Благодаря этому значительно снижается шум в салоне автомобиля
               .services-item__meta
                 .services-item__price от 70 000 ₽
                 .button-simple Подробнее
         .col-sm-6.col-lg-4.col-xl-3.active(data-target='interior')
           .services-item
-            img(src='/images/services/upgrade/g-series/2-series/m-steering-wheel-min.jpg' srcset='/images/services/upgrade/g-series/2-series/m-steering-wheel-min@2x.jpg 1.5x')
+            img(src='/images/services/upgrade/g-series/3-series/electro-front-seats-min.jpg' srcset='/images/services/upgrade/g-series/3-series/electro-front-seats-min@2x.jpg 1.5x')
+            .services-item__content
+              .services-item__text
+                h3 Электрорегулировка передних сидений
+                .subtitle.services-item__subtitle Электрорегулировка передних сидений с функцией памяти сиденья водителя, наружных зеркал и рулевой колонки
+              .services-item__meta
+                .services-item__price от 80 000 ₽
+                .button-simple Подробнее
+        .col-sm-6.col-lg-4.col-xl-3.active(data-target='interior')
+          .services-item
+            img(src='/images/services/upgrade/g-series/3-series/sport-front-seats-min.jpg' srcset='/images/services/upgrade/g-series/3-series/sport-front-seats-min@2x.jpg 1.5x')
+            .services-item__content
+              .services-item__text
+                h3 Спортивные передние сиденья
+                .subtitle.services-item__subtitle Спортивные передние сиденья с выраженной боковой поддержкой, тщательно продуманной эргономикой, увеличенными валиками боковой поддержки и регулируемой подколенной опорой
+              .services-item__meta
+                .services-item__price от 70 000 ₽
+                .button-simple Подробнее
+        .col-sm-6.col-lg-4.col-xl-3.active(data-target='interior')
+          .services-item
+            img(src='/images/services/upgrade/g-series/3-series/sensatec-dashboard-min.jpg' srcset='/images/services/upgrade/g-series/3-series/sensatec-dashboard-min@2x.jpg 1.5x')
+            .services-item__content
+              .services-item__text
+                h3 Отделка приборной панели Sensatec
+                .subtitle.services-item__subtitle Верхняя часть приборной панели отделана материалом Sensatec черного цвета. Этим самым создается эксклюзивная атмосфера в салоне
+              .services-item__meta
+                .services-item__price от 40 000 ₽
+                .button-simple Подробнее
+        .col-sm-6.col-lg-4.col-xl-3.active(data-target='interior')
+          .services-item
+            img(src='/images/services/upgrade/g-series/3-series/leather-dashboard-min.jpg' srcset='/images/services/upgrade/g-series/3-series/leather-dashboard-min@2x.jpg 1.5x')
+            .services-item__content
+              .services-item__text
+                h3 Кожаная отделка приборной панели
+                .subtitle.services-item__subtitle Верхняя часть приборной панели отделана черной кожей Walknappa из серии BMW Individual. Этим самым атмосфера в салоне делается еще более роскошной
+              .services-item__meta
+                .services-item__price 110 000 ₽
+                .button-simple Подробнее
+        .col-sm-6.col-lg-4.col-xl-3.active(data-target='interior')
+          .services-item
+            img(src='/images/services/upgrade/g-series/3-series/m-steering-wheel-min.jpg' srcset='/images/services/upgrade/g-series/3-series/m-steering-wheel-min@2x.jpg 1.5x')
             .services-item__content
               .services-item__text
                 h3 Спортивное рулевое колесо M
@@ -273,17 +323,17 @@ block content
                 .button-simple Подробнее
         .col-sm-6.col-lg-4.col-xl-3.active(data-target='interior')
           .services-item
-            img(src='/images/services/upgrade/g-series/2-series/panoramic-moonroof-min.jpg' srcset='/images/services/upgrade/g-series/2-series/panoramic-moonroof-min@2x.jpg 1.5x')
+            img(src='/images/services/upgrade/g-series/3-series/moonroof-min.jpg' srcset='/images/services/upgrade/g-series/3-series/moonroof-min@2x.jpg 1.5x')
             .services-item__content
               .services-item__text
-                h3 Панорамная стеклянная крыша
-                .subtitle.services-item__subtitle Обеспечивает хороший обзор и наполняет салон светом, создавая там ощущение особого простора, а также обеспечивает широкие возможности дополнительной вентиляции
+                h3 Люк электрорегулируемый
+                .subtitle.services-item__subtitle Электрорегулируемый люк со стеклянной крышкой позволяет плавно регулировать поток поступающего в салон воздуха
               .services-item__meta
                 .services-item__price 160 000 ₽
                 .button-simple Подробнее
         .col-sm-6.col-lg-4.col-xl-3.active(data-target='functionality')
           .services-item
-            img(src='/images/services/upgrade/g-series/2-series/comfort-access-min.jpg?2' srcset='/images/services/upgrade/g-series/2-series/comfort-access-min@2x.jpg?2 1.5x')
+            img(src='/images/services/upgrade/g-series/3-series/comfort-access-min.jpg?2' srcset='/images/services/upgrade/g-series/3-series/comfort-access-min@2x.jpg?2 1.5x')
             .services-item__content
               .services-item__text
                 h3 Комфортный доступ
@@ -293,7 +343,27 @@ block content
                 .button-simple Подробнее
         .col-sm-6.col-lg-4.col-xl-3.active(data-target='functionality')
           .services-item
-            img(src='/images/services/upgrade/g-series/2-series/security-alarm-min.jpg' srcset='/images/services/upgrade/g-series/2-series/security-alarm-min@2x.jpg 1.5x')
+            img(src='/images/services/upgrade/g-series/3-series/sun-protection-glazing-min.jpg' srcset='/images/services/upgrade/g-series/3-series/sun-protection-glazing-min@2x.jpg 1.5x')
+            .services-item__content
+              .services-item__text
+                h3 Солнцезащитное остекление
+                .subtitle.services-item__subtitle Солнцезащитное остекление заднего и задних боковых окон более эффективно поглощает солнечное излучение и предотвращает чрезмерный нагрев салона
+              .services-item__meta
+                .services-item__price от 60 000 ₽
+                .button-simple Подробнее
+        .col-sm-6.col-lg-4.col-xl-3.active(data-target='functionality')
+          .services-item
+            img(src='/images/services/upgrade/g-series/3-series/autonomous-heating-min.jpg' srcset='/images/services/upgrade/g-series/3-series/autonomous-heating-min@2x.jpg 1.5x')
+            .services-item__content
+              .services-item__text
+                h3 Автономная система отопления
+                .subtitle.services-item__subtitle Позволяет нагревать салон до комфортной температуры в холодные дни без запуска двигателя, а также предотвращает обмерзание и запотевание окон автомобиля
+              .services-item__meta
+                .services-item__price от 120 000 ₽
+                .button-simple Подробнее
+        .col-sm-6.col-lg-4.col-xl-3.active(data-target='functionality')
+          .services-item
+            img(src='/images/services/upgrade/g-series/3-series/security-alarm-min.jpg' srcset='/images/services/upgrade/g-series/3-series/security-alarm-min@2x.jpg 1.5x')
             .services-item__content
               .services-item__text
                 h3 Охранная сигнализация
@@ -303,37 +373,27 @@ block content
                 .button-simple Подробнее
         .col-sm-6.col-lg-4.col-xl-3.active(data-target='chassis')
           .services-item
-            img(src='/images/services/upgrade/g-series/2-series/m-sport-suspension-min.jpg' srcset='/images/services/upgrade/g-series/2-series/m-sport-suspension-min@2x.jpg 1.5x')
+            img(src='/images/services/upgrade/g-series/3-series/adaptive-m-suspension-min.jpg' srcset='/images/services/upgrade/g-series/3-series/adaptive-m-suspension-min@2x.jpg 1.5x')
             .services-item__content
               .services-item__text
-                h3 Подвеска M Sport
-                .subtitle.services-item__subtitle Подвеска M Sport отличается более спортивными настройками, более жесткими амортизаторами и занижением кузова автомобиля приблизительно на 10 мм
-              .services-item__meta
-                .services-item__price от 90 000 ₽
-                .button-simple Подробнее
-        .col-sm-6.col-lg-4.col-xl-3.active(data-target='chassis')
-          .services-item
-            img(src='/images/services/upgrade/g-series/2-series/adaptive-suspension-min.jpg' srcset='/images/services/upgrade/g-series/2-series/adaptive-suspension-min@2x.jpg 1.5x')
-            .services-item__content
-              .services-item__text
-                h3 Адаптивная подвеска
-                .subtitle.services-item__subtitle Позволяет с помощью переключателя режимов вождения изменять характеристики амортизаторов от более жестких до комфортных, в соответствии с дорожной ситуацией 
+                h3 Адаптивная подвеска M
+                .subtitle.services-item__subtitle Подвеска, заниженная на 10 миллиметров. Позволяет изменять ходовые качества автомобиля от максимально комфортных до экстремально спортивных
               .services-item__meta
                 .services-item__price от 140 000 ₽
                 .button-simple Подробнее
         .col-sm-6.col-lg-4.col-xl-3.active(data-target='chassis')
           .services-item
-            img(src='/images/services/upgrade/g-series/2-series/increased-fuel-tank-min.jpg' srcset='/images/services/upgrade/g-series/2-series/increased-fuel-tank-min@2x.jpg 1.5x')
+            img(src='/images/services/upgrade/g-series/3-series/m-differential-min.jpg' srcset='/images/services/upgrade/g-series/3-series/m-differential-min@2x.jpg 1.5x')
             .services-item__content
               .services-item__text
-                h3 Увеличенный топливный бак
-                .subtitle.services-item__subtitle Увеличенный бензобак имеет на восемь литров больший объем и заметно увеличивает пробег автомобиля без дозаправки
+                h3 Дифференциал M Sport
+                .subtitle.services-item__subtitle Перераспределение крутящего момента между задними колесами для оптимизации тяги и повышения курсовой устойчивости
               .services-item__meta
-                .services-item__price.unknown Недоступно
+                .services-item__price.unknown XX XXX ₽
                 .button-simple Подробнее
         .col-sm-6.col-lg-4.col-xl-3.active(data-target='chassis')
           .services-item
-            img(src='/images/services/upgrade/g-series/2-series/m-sport-brakes-min.jpg' srcset='/images/services/upgrade/g-series/2-series/m-sport-brakes-min@2x.jpg 1.5x')
+            img(src='/images/services/upgrade/g-series/3-series/m-sport-brakes-min.jpg' srcset='/images/services/upgrade/g-series/3-series/m-sport-brakes-min@2x.jpg 1.5x')
             .services-item__content
               .services-item__text
                 h3 Тормозная система M Sport
@@ -343,21 +403,11 @@ block content
                 .button-simple Подробнее
         .col-sm-6.col-lg-4.col-xl-3.active(data-target='chassis')
           .services-item
-            img(src='/images/services/upgrade/g-series/2-series/m-sport-steering-min.jpg' srcset='/images/services/upgrade/g-series/2-series/m-sport-steering-min@2x.jpg 1.5x')
+            img(src='/images/services/upgrade/g-series/3-series/adaptive-sport-steering-min.jpg' srcset='/images/services/upgrade/g-series/3-series/adaptive-sport-steering-min@2x.jpg 1.5x')
             .services-item__content
               .services-item__text
-                h3 Рулевое управление M Sport
-                .subtitle.services-item__subtitle Рулевое управление М Sport, включая Сервотроник, повышает отзывчивость и маневренность автомобиля, а также уменьшает усилие, необходимое для поворота рулевого колеса
-              .services-item__meta
-                .services-item__price 90 000 ₽
-                .button-simple Подробнее
-        .col-sm-6.col-lg-4.col-xl-3.active(data-target='chassis')
-          .services-item
-            img(src='/images/services/upgrade/g-series/2-series/performance-control-min.jpg' srcset='/images/services/upgrade/g-series/2-series/performance-control-min@2x.jpg 1.5x')
-            .services-item__content
-              .services-item__text
-                h3 Система Performance Control
-                .subtitle.services-item__subtitle Система Performance Control производит контролируемое притормаживание ведущих колес, находящихся внутри дуги поворота
+                h3 Адаптивное спортивное рулевое управление
+                .subtitle.services-item__subtitle Изменяет передаточное число рулевого механизма, а также в зависимости от скорости уменьшает усилие, необходимое для поворота рулевого колеса
               .services-item__meta
                 .services-item__price 90 000 ₽
                 .button-simple Подробнее
