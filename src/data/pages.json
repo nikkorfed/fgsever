@@ -240,7 +240,7 @@
       "modelDesc": "iX1 U11"
     },
     {
-      "key": "iX2",
+      "key": "ix2",
       "name": "BMW iX2",
       "image": "u10",
       "models": [{ "key": "u10", "codes": "U10" }],
@@ -248,7 +248,7 @@
       "modelDesc": "iX2 U10"
     },
     {
-      "key": "iX3",
+      "key": "ix3",
       "name": "BMW iX3",
       "image": "g08",
       "models": [{ "key": "g08", "codes": "G08" }],
@@ -256,7 +256,7 @@
       "modelDesc": "iX3 G08"
     },
     {
-      "key": "iX",
+      "key": "ix",
       "name": "BMW iX",
       "image": "i20",
       "models": [{ "key": "i20", "codes": "I20" }],
