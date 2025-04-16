@@ -27,7 +27,7 @@ $("#maintenance-calculator .calculator-result .original-or-alternative").on("cli
     $("#maintenance-calculator .calculator-result table").find("tr .option:not([data-favorite=true])").addClass("hidden");
     $("#maintenance-calculator .calculator-result table").find("tr .option:first-child").each(chooseOption);
 
-    // При клике по кнопке "Проверенные аналоги", скрываем лишние аналоги и выбираем первый из проверенных аналогов
+    // При клике по кнопке "Рекомендуемые аналоги", скрываем лишние аналоги и выбираем первый из рекомендуемых аналогов
   } else if ($(this).attr("data-name") == "alternative") {
     $("#maintenance-calculator .calculator-result table").find("tr .option:not([data-favorite=true])").addClass("hidden");
     $("#maintenance-calculator .calculator-result table")
