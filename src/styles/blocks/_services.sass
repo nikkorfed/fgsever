@@ -35,17 +35,21 @@
 
     &.radiators-wash
       border: none
-      // background-image: url('/images/services/maintenance/radiators-wash/3-min.jpg')
-      background-color: transparentize($primaryColor, 0.85)
+      background-image: url('/images/services/maintenance/radiators-wash/3-min.jpg')
+      background-position: 50% 50%
+      background-size: cover
+      // background-color: transparentize($primaryColor, 0.85)
 
       .services-item__content
-        // background-color: rgba(0, 0, 0, .5)
+        align-items: stretch
+        background-color: rgba(0, 0, 0, .5)
 
       .services-item__caption, .services-item__title h3, .services-item__subtitle, .button-simple
-        // color: white
+        color: white
 
-      .button-simple
-        // border-color: rgba(255, 255, 255, 0.3)
+      .button
+        border-color: rgba(255, 255, 255, 0.3)
+        text-align: center
 
     // &__icon
     //   display: none
