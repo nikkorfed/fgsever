@@ -302,23 +302,31 @@
       width: 60px
 
   .top-buttons
-    display: flex
-    align-items: center
     margin-bottom: $verticalInnerOffset
 
     +small
       margin-bottom: $smallVerticalInnerOffset
 
     +medium
+      display: flex
+      align-items: center
       margin-bottom: $mediumVerticalInnerOffset
 
     +large
       margin-bottom: $largeVerticalInnerOffset
 
   .original-or-alternative
+    display: flex
+    flex-wrap: wrap
+    gap: 5px
+    margin-bottom: 10px
+
+    +medium
+      margin-bottom: 0
+
     .option
       display: inline-block
-      margin-right: 5px
+      // margin-right: 5px
       border-radius: $borderRadius
       padding: 6px 13px
       font-size: 11px
@@ -379,11 +387,17 @@
       opacity: 1
       transform: translateY(0)
 
-  .maintenance-parts-text-button
+  .text-calculation
     display: none
     margin-left: auto
+    
+    a
+      font-size: 12px
 
-  &.with-text .maintenance-parts-text-button
+      +medium
+        font-size: 14px
+
+  &.with-text .text-calculation
     display: block
 
   .options
@@ -453,6 +467,9 @@
 
       &.selected::before
         background-color: $primaryColor
+
+      &.hidden
+        display: none
 
       & .part
         position: relative

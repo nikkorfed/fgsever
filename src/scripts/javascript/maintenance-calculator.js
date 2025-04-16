@@ -22,21 +22,25 @@ $("#maintenance-calculator .calculator-result .original-or-alternative").on("cli
   $("#maintenance-calculator .calculator-result .original-or-alternative .option").removeClass("selected");
   $(this).addClass("selected");
 
-  // При клике по кнопке "Оригинальные", переключаемся на оригинальные запчасти
+  // При клике по кнопке "Оригинальные", скрываем лишние аналоги и переключаемся на оригинальные запчасти
   if ($(this).attr("data-name") == "original") {
+    $("#maintenance-calculator .calculator-result table").find("tr .option:not([data-favorite=true])").addClass("hidden");
+    $("#maintenance-calculator .calculator-result table").find("tr .option:first-child").each(chooseOption);
+
+    // При клике по кнопке "Проверенные аналоги", скрываем лишние аналоги и выбираем первый из проверенных аналогов
+  } else if ($(this).attr("data-name") == "alternative") {
+    $("#maintenance-calculator .calculator-result table").find("tr .option:not([data-favorite=true])").addClass("hidden");
     $("#maintenance-calculator .calculator-result table")
-      .find("tr[class!=table-header] .option:first-child")
+      .find("tr")
+      .has(".options")
       .each(function () {
-        chooseOption($(this), e);
+        $(this).find(".option[data-favorite=true]:not([data-name=original])").first().each(chooseOption);
       });
 
-    // При клике по кнопке "Аналоги", выбираем первый из аналогов
-  } else {
-    $("#maintenance-calculator .calculator-result table")
-      .find("tr[class!=table-header] .option:nth-child(2)")
-      .each(function () {
-        chooseOption($(this), e);
-      });
+    // При клике по кнопке "Все аналоги", показываем все аналоги и выбираем первый из аналогов
+  } else if ($(this).attr("data-name") == "all") {
+    $("#maintenance-calculator .calculator-result table").find("tr .option").removeClass("hidden");
+    $("#maintenance-calculator .calculator-result table").find("tr .option:nth-child(2)").each(chooseOption);
   }
 
   // Учёт спецпредложений и перерасчёт общей цены
@@ -88,9 +92,7 @@ $("#maintenance-calculator .calculator-result table").on("click", "tr[data-name]
 });
 
 // Выбор запчастей от разных производителей (опций)
-$("#maintenance-calculator .calculator-result table").on("click", "tr:not(.disabled) .option", function (e) {
-  chooseOption($(this), e);
-});
+$("#maintenance-calculator .calculator-result table").on("click", "tr:not(.disabled) .option", chooseOption);
 
 // Фиксация блока с итоговыми стоимостями
 if ($("#maintenance-calculator").length) {
@@ -392,32 +394,27 @@ function renderOriginalParts(result) {
 
     // Если указаны в оригинальных деталях, отображаем особые опции
     if (result["parts"][part]["options"]) {
-      for (let option in result["parts"][part]["options"]) {
+      for (let optionKey in result["parts"][part]["options"]) {
+        let option = result["parts"][part]["options"][optionKey];
+        let { name, price } = option;
+        let formattedPrice = formatPrice(price);
         $("#maintenance-calculator .calculator-result table")
           .find("[data-name=" + part + "] .options")
           .append(
-            `<div class="option" data-name="${option}" data-part-price="${
-              result["parts"][part]["options"][option]["price"]
-            }"><span class="part">${result["parts"][part]["options"][option]["name"]}</span><span class="price">${formatPrice(
-              result["parts"][part]["options"][option]["price"]
-            )}</span></div>`
+            `<div class="option" data-name="${optionKey}" data-part-price="${price}" data-favorite="true"><span class="part">${name}</span><span class="price">${formattedPrice}</span></div>`
           );
       }
 
       // Если среди оригинальных опций не было, указываем просто "Оригинал"
     } else {
       let originalName = "Оригинал";
+      let { number, from } = result["parts"][part];
       let price = result["parts"][part]["price"] == undefined ? "" : result["parts"][part]["price"];
+      let formattedPrice = formatPrice(price);
       $("#maintenance-calculator .calculator-result table")
         .find(`[data-name="${part}"] .options`)
         .append(
-          `<div class="option" data-name="original" data-number="${
-            result["parts"][part]["number"]
-          }" data-part-price="${price}" data-from="${
-            result["parts"][part]["from"]
-          }"><span class="part"><div class="text">${originalName}</div><div class="info-button"></div><div class="info">Поставщик: ${
-            result["parts"][part]["from"]
-          }</div></span><span class="price">${formatPrice(price)}</span></div>`
+          `<div class="option" data-name="original" data-number="${number}" data-part-price="${price}" data-from="${from}" data-favorite="true"><span class="part"><div class="text">${originalName}</div><div class="info-button"></div><div class="info">Поставщик: ${from}</div></span><span class="price">${formattedPrice}</span></div>`
         );
     }
 
@@ -481,6 +478,7 @@ function renderOriginalParts(result) {
 
   // Отображение индикации загрузки деталей-аналогов
   $("#maintenance-calculator .calculator-result").find(".original-or-alternative .option[data-name=alternative]").addClass("loading");
+  $("#maintenance-calculator .calculator-result").find(".original-or-alternative .option[data-name=all]").addClass("loading");
 
   // Расчёт итоговых стоимостей
   specialConditions();
@@ -491,6 +489,7 @@ function renderOriginalParts(result) {
 function renderAlternativeParts(result, partIndex) {
   if (partIndex >= Object.values(result["parts"]).length) {
     $("#maintenance-calculator .calculator-result").find(".original-or-alternative .option[data-name=alternative]").removeClass("loading");
+    $("#maintenance-calculator .calculator-result").find(".original-or-alternative .option[data-name=all]").removeClass("loading");
     return;
   }
   let part = Object.keys(result["parts"])[partIndex];
@@ -506,7 +505,10 @@ function renderAlternativeParts(result, partIndex) {
     $.ajax({
       url: "/scripts/php/calculators/alternative-parts.php",
       type: "GET",
-      data: { number: result["parts"][part]["number"].replace(/\s/g, ""), onlyFavorites: true },
+      data: {
+        number: result["parts"][part]["number"].replace(/\s/g, ""),
+        // onlyFavorites: true,
+      },
       success: (data) => {
         // Обработка результатов
         result["parts"][part]["options"] = data;
@@ -520,23 +522,28 @@ function renderAlternativeParts(result, partIndex) {
           // Если были найдены детали-аналоги
         } else {
           // Добавление опций
-          for (let option in result["parts"][part]["options"]) {
+          for (let optionKey in result["parts"][part]["options"]) {
+            let option = result["parts"][part]["options"][optionKey];
+            let { name, number, price, from, favorite } = option;
+            let favoriteAttr = favorite ? `data-favorite="${favorite}"` : "";
+            let formattedPrice = formatPrice(price);
+
             $("#maintenance-calculator .calculator-result table")
               .find("[data-name=" + part + "] .options")
               .append(
-                `<div class="option" data-name="${option}" data-number="${
-                  result["parts"][part]["options"][option]["number"]
-                }" data-part-price="${result["parts"][part]["options"][option]["price"]}" data-from="${
-                  result["parts"][part]["options"][option]["from"]
-                }"><span class="part"><div class="text">${
-                  result["parts"][part]["options"][option]["name"]
-                }</div><div class="info-button"></div><div class="info">Поставщик: ${
-                  result["parts"][part]["options"][option]["from"]
-                }</div></span><span class="price">${formatPrice(result["parts"][part]["options"][option]["price"])}</span></div>`
+                `<div class="option" data-name="${optionKey}" data-number="${number}" data-part-price="${price}" data-from="${from}" ${favoriteAttr}><span class="part"><div class="text">${name}</div><div class="info-button"></div><div class="info">Поставщик: ${from}</div></span><span class="price">${formattedPrice}</span></div>`
               );
+
+            // Скрытие лишних аналогов
+            if (!favorite)
+              $("#maintenance-calculator .calculator-result table")
+                .find(`[data-name="${part}"] .option[data-name="${optionKey}"]`)
+                .addClass("hidden");
+
+            // Указание количества
             if (result["parts"][part]["quantity"])
               $("#maintenance-calculator .calculator-result table")
-                .find("[data-name=" + part + "] .option[data-name=" + option + "] .price")
+                .find("[data-name=" + part + "] .option[data-name=" + optionKey + "] .price")
                 .prepend('<span class="quantity">' + result["parts"][part]["quantity"] + " x </span>");
           }
 
@@ -636,9 +643,11 @@ function formatPrice(number, zeroShouldMeanFree) {
 }
 
 // Переключение опций
-function chooseOption(option, e) {
+function chooseOption(e) {
+  let option = $(this);
+
   // Переключение опции
-  e.stopPropagation();
+  e.stopPropagation?.();
   option.parent().find(".option").removeClass("selected");
   option.addClass("selected");
 
