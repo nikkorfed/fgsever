@@ -6,7 +6,16 @@ mixin services({ suffix } = {})
         .overtitle Наши услуги
         h2 Основные направления
       .columns
-        .col-lg-6
+        .col-lg-4
+          .services-item.radiators-wash
+            .services-item__content
+              .services-item__text
+                .services-item__caption Запишитесь перед сезоном!
+                .services-item__title
+                  h3 Мойка радиаторов
+                .subtitle.services-item__subtitle.max-width Тщательная мойка радиаторов с разбором лицевой части кузова и дозаправкой/заменой охлаждающей жидкости.
+              a.button-simple(href='/services/maintenance/radiators-wash/') Подробнее
+        .col-lg-4
           .services-item
             .services-item__content
               .services-item__text
@@ -15,7 +24,7 @@ mixin services({ suffix } = {})
                   h3 Русификация автомобилей
                 .subtitle.services-item__subtitle.max-width Добавление русского языка в меню, установка российских карт в систему навигации, адаптация единиц измерения температуры и давления колес, частоты радиостанций и системы считывания дорожных знаков.
               a.button-simple(href='/services/russification/') Подробнее
-        .col-lg-6
+        .col-lg-4
           .services-item
             .services-item__content
               .services-item__text
