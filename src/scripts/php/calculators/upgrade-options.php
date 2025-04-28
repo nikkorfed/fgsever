@@ -200,6 +200,12 @@ function main () {
 
   $upgradeOptions = json_decode($result, true);
 
+  if (isset($upgradeOptions['error']) && $upgradeOptions['error'] == 'no-upgrade-options') {
+    header('content-type: application/json; charset=UTF-8');
+    echo json_encode([ 'error' => 'car-is-not-supported' ], JSON_UNESCAPED_UNICODE);
+    return;
+  }
+
   header('content-type: application/json; charset=UTF-8');
   echo json_encode([ 'series' => $series, 'model' => $model, 'currentOptions' => $currentOptionsCodes, 'upgradeOptions' => $upgradeOptions ], JSON_UNESCAPED_UNICODE);
 }
