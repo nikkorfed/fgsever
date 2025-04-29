@@ -22,7 +22,7 @@ if (isset($_REQUEST['vin']) && isset($_REQUEST['mileage'])) {
     
     // Если из AOS были успешно получены данные
     $vin = $carInfo['vin'];
-    $model = $carInfo['model'];
+    $model = str_replace('BMW ', '', $carInfo['model']);
     $modelCode = $carInfo['modelCode'];
     $date = $carInfo['productionDate'];
     $image = $carInfo['image'];

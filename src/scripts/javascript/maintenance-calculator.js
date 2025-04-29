@@ -324,7 +324,7 @@ function requestParts(carInfo, mileage) {
   let aos = $("#maintenance-calculator").hasClass("aos");
   let from = aos ? "aos" : "cats";
   $.ajax({
-    url: `/scripts/php/calculators/maintenance-parts-${from}.php`,
+    url: `/scripts/php/calculators/maintenance-parts-aos.php`,
     type: "POST",
     data: { vin: carInfo["vin"], mileage },
     success: (result) => {
