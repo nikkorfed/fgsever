@@ -64,8 +64,8 @@ if (isset($_REQUEST['vin']) && isset($_REQUEST['mileage'])) {
     }
 
     // Определение цен на моторное масло
-    $originalMotorOilPrice = 1400;
-    $motulMotorOilPrice = 900;
+    $original5W30MotorOilPrice = 1500;
+    $original0W30MotorOilPrice = 2000;
 
     // Подготовка массива запчастей
     $parts = [];
@@ -102,13 +102,13 @@ if (isset($_REQUEST['vin']) && isset($_REQUEST['mileage'])) {
 
     // Альтернативные варианты (опции) некоторых деталей
     $motorOilOptions = [
-      'original' => [
-        'name' => 'Оригинальное BMW 0W30',
-        'price' => $originalMotorOilPrice,
+      'original5w30' => [
+        'name' => 'Оригинал 5W-30',
+        'price' => $original5W30MotorOilPrice,
       ],
-      'motul' => [
-        'name' => 'Motul 5W40',
-        'price' => $motulMotorOilPrice,
+      'original0w30' => [
+        'name' => 'Оригинал 0W-30',
+        'price' => $original0W30MotorOilPrice,
       ],
     ];
 

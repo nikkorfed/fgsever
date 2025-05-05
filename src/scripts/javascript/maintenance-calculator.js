@@ -401,7 +401,7 @@ function renderOriginalParts(result) {
         $("#maintenance-calculator .calculator-result table")
           .find("[data-name=" + part + "] .options")
           .append(
-            `<div class="option" data-name="${optionKey}" data-part-price="${price}" data-favorite="true"><span class="part">${name}</span><span class="price">${formattedPrice}</span></div>`
+            `<div class="option" data-name="${optionKey}" data-part-price="${price}" data-favorite="true"><span class="part"><div class="text">${name}</div></span><span class="price">${formattedPrice}</span></div>`
           );
       }
 
