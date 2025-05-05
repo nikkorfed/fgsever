@@ -129,6 +129,7 @@ function main () {
       $model = '8-series';
       break;
     case 'G01':
+    case 'G08':
     case 'F97':
       $series = 'g-series';
       $model = 'x3';
